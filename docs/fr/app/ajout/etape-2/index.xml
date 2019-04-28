@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Validation localisation photo on Site web Vigilo</title>
-    <link>/fr/app/ajout/etape-2/</link>
+    <link>http://vigilo.city/fr/app/ajout/etape-2/</link>
     <description>Recent content in Validation localisation photo on Site web Vigilo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-FR</language>
     
-	<atom:link href="/fr/app/ajout/etape-2/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://vigilo.city/fr/app/ajout/etape-2/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

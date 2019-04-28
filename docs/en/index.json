@@ -1,20 +1,20 @@
 [
 {
-	"uri": "/en/categories/",
+	"uri": "http://vigilo.city/en/categories/",
 	"title": "Categories",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "/en/tags/",
+	"uri": "http://vigilo.city/en/tags/",
 	"title": "Tags",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "/en/",
+	"uri": "http://vigilo.city/en/",
 	"title": "Vigilo website",
 	"tags": [],
 	"description": "",

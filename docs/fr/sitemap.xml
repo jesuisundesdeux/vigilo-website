@@ -3,106 +3,106 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/fr/app/</loc>
+    <loc>http://vigilo.city/fr/app/</loc>
   </url>
   
   <url>
-    <loc>/fr/app/decouverte/</loc>
+    <loc>http://vigilo.city/fr/app/decouverte/</loc>
   </url>
   
   <url>
-    <loc>/fr/app/accueil/</loc>
+    <loc>http://vigilo.city/fr/app/accueil/</loc>
   </url>
   
   <url>
-    <loc>/fr/app/ajout/etape-1/</loc>
+    <loc>http://vigilo.city/fr/app/ajout/etape-1/</loc>
   </url>
   
   <url>
-    <loc>/fr/villes/</loc>
+    <loc>http://vigilo.city/fr/villes/</loc>
   </url>
   
   <url>
-    <loc>/fr/api/</loc>
+    <loc>http://vigilo.city/fr/api/</loc>
   </url>
   
   <url>
-    <loc>/fr/app/ajout/</loc>
+    <loc>http://vigilo.city/fr/app/ajout/</loc>
   </url>
   
   <url>
-    <loc>/fr/app/ajout/etape-2/</loc>
+    <loc>http://vigilo.city/fr/app/ajout/etape-2/</loc>
   </url>
   
   <url>
-    <loc>/fr/app/ajout/etape-3/</loc>
+    <loc>http://vigilo.city/fr/app/ajout/etape-3/</loc>
   </url>
   
   <url>
-    <loc>/fr/app/ajout/etape-4/</loc>
+    <loc>http://vigilo.city/fr/app/ajout/etape-4/</loc>
   </url>
   
   <url>
-    <loc>/fr/categories/</loc>
+    <loc>http://vigilo.city/fr/categories/</loc>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/categories/"
+                href="http://vigilo.city/en/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/categories/"
+                href="http://vigilo.city/fr/categories/"
                 />
   </url>
   
   <url>
-    <loc>/fr/villes/ch%C3%A2tillon/</loc>
+    <loc>http://vigilo.city/fr/villes/ch%C3%A2tillon/</loc>
   </url>
   
   <url>
-    <loc>/fr/villes/marseille/</loc>
+    <loc>http://vigilo.city/fr/villes/marseille/</loc>
   </url>
   
   <url>
-    <loc>/fr/villes/metz/</loc>
+    <loc>http://vigilo.city/fr/villes/metz/</loc>
   </url>
   
   <url>
-    <loc>/fr/villes/montpellier/</loc>
+    <loc>http://vigilo.city/fr/villes/montpellier/</loc>
   </url>
   
   <url>
-    <loc>/fr/tags/</loc>
+    <loc>http://vigilo.city/fr/tags/</loc>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/tags/"
+                href="http://vigilo.city/en/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/tags/"
+                href="http://vigilo.city/fr/tags/"
                 />
   </url>
   
   <url>
-    <loc>/fr/villes/troyes/</loc>
+    <loc>http://vigilo.city/fr/villes/troyes/</loc>
   </url>
   
   <url>
-    <loc>/fr/</loc>
+    <loc>http://vigilo.city/fr/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/"
+                href="http://vigilo.city/en/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/"
+                href="http://vigilo.city/fr/"
                 />
   </url>
   

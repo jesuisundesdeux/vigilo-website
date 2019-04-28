@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Application on Site web Vigilo</title>
-    <link>/fr/app/</link>
+    <link>http://vigilo.city/fr/app/</link>
     <description>Recent content in Application on Site web Vigilo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-FR</language>
     
-	<atom:link href="/fr/app/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://vigilo.city/fr/app/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
