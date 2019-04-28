@@ -5,7 +5,7 @@ title: "Vigilo"
 # Vigilo, c'est quoi ?
 
 Vigilo c'est une appli collaborative citoyenne pour améliorer les déplacements des cyclistes, des
-piétons et des mobilités douces en général.
+piétons et de toutes les [mobilités actives](https://fr.wikipedia.org/wiki/Mobilit%C3%A9_active).
 
 Les usagers peuvent maintenant remonter et cartographier les difficultés quotidiennes
 rencontrées lors de leurs déplacements en centre ville ou agglomération (véhicules ou objets gênants,
