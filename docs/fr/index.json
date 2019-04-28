@@ -1,0 +1,127 @@
+[
+{
+	"uri": "/fr/app/",
+	"title": "Application",
+	"tags": [],
+	"description": "",
+	"content": " Chapite 1 Application Découvrez comment utiliser l\u0026rsquo;application Vigilo\n"
+},
+{
+	"uri": "/fr/app/decouverte/",
+	"title": "Vigilo, quésaco ?",
+	"tags": [],
+	"description": "",
+	"content": " A l’instar de l’application parisienne DansMaRue, Vigilo est une application collaborative citoyenne développée par et pour les cyclistes de Montpellier dans la dynamique #JeSuisUnDesDeux. Cette application soutenue par la FUB (Fédération des Usagers de la Bicyclette) est destinée à cartographier les difficultés quotidiennes rencontrées lors de leurs déplacements par les usagers les plus vulnérables : cyclistes mais aussi piétons, PMR, trottinettes.\nL’application est également ouverte aux automobilistes et deux-roues motorisés souhaitant remonter des observations. Il s’agit pour l’essentiel d’incivilités récurrentes, de problèmes d’entretien et d’aménagements du réseau.\nVigilo, à quoi ça sert ? L’objectif est que les collectivites locales les pouvoirs publics puissent s’approprier les données issues de cet outil afin de faciliter les déplacements de leurs citoyens (cyclistes, piétons, PMR). Cette méthode est déjà à l\u0026rsquo;œuvre dans d\u0026rsquo;autres villes (Toulouse par exemple). Vigilo représente un outil ouvert allant dans le sens d’une démarche de concertation et de co-construction entre les usagers et les collectivités publiques.\nVigilo, comment ça marche ? L\u0026rsquo;usager rencontre un obstacle sur sa route ? Pas de compte à créer. Il sort son téléphone portable, prend une photo (dispositif de floutage) et catégorise le type de problème rencontré (véhicule garé sur la piste cyclable, défaut d\u0026rsquo;entretien, mauvais aménagement, \u0026hellip;) La géolocalisation permet ensuite de constituer des bases de données et des cartographies publiques des améliorations souhaitées par les usagers.\nAprès plusieurs mois de développement, Vigilo a été lancé à Montpellier le 16 avril et y a déjà recueilli plus de 1000 observations. Vigilo est aujourd’hui disponible dans plusieurs villes ( Voir la liste des villes ). C’est en effet un outil qui pourra être déployé rapidement vers d’autres villes\nCette accumulation de données permet une analyse très fine des infrastructures existantes et des problèmes rencontrés au quotidien (carte et suivi temporel des véhicules garés sur pistes cyclables et trottoirs, carte de l’entretien à faire, carte des aménagements problématiques ou manquants, récurrences d’incivilités, \u0026hellip;)\nVigilo est une application gratuite actuellement disponible sous Android via le Google Play Store tandis que les versions iOS et web sont actuellement en cours de développement.\n"
+},
+{
+	"uri": "/fr/app/accueil/",
+	"title": "Ecran d&#39;accueil",
+	"tags": [],
+	"description": "",
+	"content": "La page principalle de vigilo, depuis cette page, vous pouvez choisir les divers actions :\n Visualiser les observateurs des utilisateurs Visualiser vos observations Visualiser les observations à proximité Visualiser les observations en attente de médération (admin section)  "
+},
+{
+	"uri": "/fr/app/ajout/etape-1/",
+	"title": "Selection photo",
+	"tags": [],
+	"description": "Selection de la photo",
+	"content": " Ceci est une page de demo\nSelection photo depuis galerie Selection repertoire Selection photo \u0026amp; validation "
+},
+{
+	"uri": "/fr/villes/",
+	"title": "Villes",
+	"tags": [],
+	"description": "",
+	"content": " Chapitre 2 Villes Liste des villes participant à l\u0026rsquo;experience\n"
+},
+{
+	"uri": "/fr/api/",
+	"title": "API",
+	"tags": [],
+	"description": "",
+	"content": " Chapite 3 API Découvrez comment est développé le Backend\n"
+},
+{
+	"uri": "/fr/app/ajout/",
+	"title": "Ajout observation",
+	"tags": [],
+	"description": "",
+	"content": "Pour ajouter une observation cliquer sur le bouton +\n"
+},
+{
+	"uri": "/fr/app/ajout/etape-2/",
+	"title": "Validation localisation photo",
+	"tags": [],
+	"description": "Validation de la localisation photo",
+	"content": " Ceci est une page de demo\nValidation geolocalisation "
+},
+{
+	"uri": "/fr/app/ajout/etape-3/",
+	"title": "Ajout description",
+	"tags": [],
+	"description": "Description",
+	"content": " Ceci est une page de demo\nChoix categorie et description "
+},
+{
+	"uri": "/fr/app/ajout/etape-4/",
+	"title": "Résumé",
+	"tags": [],
+	"description": "Résumé de l&#39;observation",
+	"content": " Ceci est une page de demo\nChoix categorie et description "
+},
+{
+	"uri": "/fr/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/fr/villes/ch%C3%A2tillon/",
+	"title": "Châtillon",
+	"tags": [],
+	"description": "",
+	"content": " Carte Voir en plein écran\nLes 10 dernieres observations    Token Adresse Commentaire     W7BPBFS4 Rue Pierre Brossolette, Châtillon Stationnement sur le trottoir   QSU7UKL8 Boulevard Félix Faure, Châtillon    SAPUG1UT Boulevard Félix Faure, Châtillon    JCXDA44X Boulevard Félix Faure, Châtillon Stationnement tout à fait normal en plein virage   ATS1YY2I Avenue de Paris, Châtillon sympa ce parking 2 roues   BNC05LKW Avenue de Paris, Châtillon ben il est où le problème ?   MKHDLT7E Avenue de Paris, Châtillon font chier ces piétons !   LB7GNOY2 Allée Hélène Boucher, Châtillon Stationnement sur le trottoir !   1SCTQUFI Boulevard Félix Faure, Châtillon Stationnement sur le trottoir   UEODAT5Y Boulevard Félix Faure, Châtillon Tranquilou sur le trottoir    "
+},
+{
+	"uri": "/fr/villes/marseille/",
+	"title": "Marseille(Beta)",
+	"tags": [],
+	"description": "",
+	"content": " Carte Voir en plein écran\n"
+},
+{
+	"uri": "/fr/villes/metz/",
+	"title": "Metz(Beta)",
+	"tags": [],
+	"description": "",
+	"content": " Carte Voir en plein écran\n"
+},
+{
+	"uri": "/fr/villes/montpellier/",
+	"title": "Montpellier",
+	"tags": [],
+	"description": "",
+	"content": " Carte Voir en plein écran\nLes 10 dernieres observations    Token Adresse Commentaire     55P89GHL Quai Paul Cunq, Palavas-les-Flots Arceaux non sécurisés   9CDJ6IVD Rue des Soeurs Noires, Montpellier    AB3ZUILL 39 rue Fosh, Montpellier scooter bloquant l\u0026#39;accès au parking vélo   4V0C5ZEV 3 Avenue Bouisson Bertrand, Montpellier    0WCHN7OU polygone, centre commercial Polygone, pas d\u0026#39;arceaux   LJWYAD5S Rue du Faubourg Saint-Jaumes, Montpellier arrêt boulangerie   CCXV8MER Boulevard des Arceaux, Montpellier    TQFDTMXK Boulevard des Arceaux, Montpellier    HRR0F6CW Boulevard des Arceaux, Montpellier    MCW6ANXW Boulevard d\u0026#39;Orient, Montpellier feu pietons HS depuis plusieurs mois    "
+},
+{
+	"uri": "/fr/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/fr/villes/troyes/",
+	"title": "Troyes(Beta)",
+	"tags": [],
+	"description": "",
+	"content": " Carte Voir en plein écran\n"
+},
+{
+	"uri": "/fr/",
+	"title": "Vigilo",
+	"tags": [],
+	"description": "",
+	"content": " Vigilo, c\u0026rsquo;est quoi ? Vigilo c\u0026rsquo;est une appli collaborative citoyenne pour améliorer les déplacements des cyclistes et des piétons\nLes usagers peuvent maintenant remonter et cartographier les difficultés quotidiennes rencontrées lors de leurs déplacements en centre ville ou agglomération (véhicules ou objets gênants, aménagements mal conçus, défauts d\u0026rsquo;entretien, …)\nA noter que Vigilo a vu le jour suite au mouvement [#JeSuisUnDesDeux](http://www.jesuisundesdeux.org/portfolio/articles-de-presses/) l'application est citoyenes et des bénévoles contribuent à son évolution.  Fonctionnalités principales de Vigilo  Ne nécéssite pas de création de compte Faciliter d\u0026rsquo;utilisation Ajout d\u0026rsquo;un observation en moins de 30 secondes Respect de la vie privée que ce soit des utilisateurs utilsant vigilo que des observations Projet Opensource Donnée des observations disponible en opendata  "
+}]

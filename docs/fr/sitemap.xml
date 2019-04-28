@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/fr/app/</loc>
+  </url>
+  
+  <url>
+    <loc>/fr/app/decouverte/</loc>
+  </url>
+  
+  <url>
+    <loc>/fr/app/accueil/</loc>
+  </url>
+  
+  <url>
+    <loc>/fr/app/ajout/etape-1/</loc>
+  </url>
+  
+  <url>
+    <loc>/fr/villes/</loc>
+  </url>
+  
+  <url>
+    <loc>/fr/api/</loc>
+  </url>
+  
+  <url>
+    <loc>/fr/app/ajout/</loc>
+  </url>
+  
+  <url>
+    <loc>/fr/app/ajout/etape-2/</loc>
+  </url>
+  
+  <url>
+    <loc>/fr/app/ajout/etape-3/</loc>
+  </url>
+  
+  <url>
+    <loc>/fr/app/ajout/etape-4/</loc>
+  </url>
+  
+  <url>
+    <loc>/fr/categories/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>/fr/villes/ch%C3%A2tillon/</loc>
+  </url>
+  
+  <url>
+    <loc>/fr/villes/marseille/</loc>
+  </url>
+  
+  <url>
+    <loc>/fr/villes/metz/</loc>
+  </url>
+  
+  <url>
+    <loc>/fr/villes/montpellier/</loc>
+  </url>
+  
+  <url>
+    <loc>/fr/tags/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>/fr/villes/troyes/</loc>
+  </url>
+  
+  <url>
+    <loc>/fr/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/"
+                />
+  </url>
+  
+</urlset>

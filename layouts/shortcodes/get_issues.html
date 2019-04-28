@@ -1,0 +1,6 @@
+{{ $issues := getJSON ($.Get 0)}}
+| Token | Adresse | Commentaire |
+| ----- | ------- | ----------- |
+{{- range $issues }}
+| {{ .token }} | {{ .address }} | {{ .comment }} |
+{{- end }}
