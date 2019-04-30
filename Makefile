@@ -19,7 +19,7 @@ version: ## Show hugo version
 generate: themes/hugo-theme-learn ## Generate pages content
 	${HUGO} --debug --cleanDestinationDir
 
-serve: ## Emulate web server
+serve: themes/hugo-theme-learn ## Emulate web server
 	${HUGO} server --buildDrafts --buildExpired --buildFuture --disableFastRender
 
 test: generate ## Test generated webpage
