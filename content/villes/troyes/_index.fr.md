@@ -10,6 +10,4 @@ title: Troyes(Beta)
 
 </iframe>
 
-## Les 10 dernieres observations
-
 {{% get_issues "http://api.vigilo.troyesenselle.fr/get_issues.php?count=10" %}}
