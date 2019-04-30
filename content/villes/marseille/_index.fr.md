@@ -4,9 +4,7 @@ title: Marseille(Beta)
 
 
 ## Carte
-
-{{% umap 306383 %}} 
-
+{{% umap 306383 "43.2942" "5.3757" %}}
 
 ## Les 10 dernieres observations
 
