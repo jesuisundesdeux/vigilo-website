@@ -9,7 +9,7 @@ defaultContentLanguageInSubdir: true
 publishDir: "docs"
 
 params:
-  editURL: 'https://github.com/jesuisundesdeux/vigilo-website/tree/edit/master/content/'
+  editURL: 'https://github.com/jesuisundesdeux/vigilo-website/edit/master/content/'
   description: Site web de l'application Vigilo
   author: JeSuisUnDesDeux
   showVisitedLinks: true
@@ -21,29 +21,9 @@ outputs:
     - RSS
     - JSON
 Languages:
-  en:
-    title: Vigilo website
-    weight: 1
-    languageName: English
-    menu:
-      shortcuts:
-        - name: <i class='fab fa-fw fa-github'></i> Github repo
-          identifier: ds
-          url: 'https://github.com/matcornic/hugo-theme-learn'
-          weight: 10
-        - name: <i class='fas fa-fw fa-camera'></i> Showcases
-          url: showcase
-          weight: 11
-        - name: <i class='fas fa-fw fa-bookmark'></i> Hugo Documentation
-          identifier: hugodoc
-          url: 'https://gohugo.io/'
-          weight: 20
-        - name: <i class='fas fa-fw fa-bullhorn'></i> Credits
-          url: /credits
-          weight: 30
   fr:
     title: Site web Vigilo
-    weight: 2
+    weight: 1
     languageName: Français
     menu:
       shortcuts:
@@ -54,3 +34,13 @@ Languages:
         - name: <i class='fas fa-fw fa-city'></i> Villes
           url: /fr/villes/
           weight: 11
+  en:
+    title: Vigilo website
+    weight: 2
+    languageName: English
+    menu:
+      shortcuts:
+        - name: <i class='fab fa-fw fa-android'></i> Application Android
+          url: >-
+            https://play.google.com/store/apps/details?id=com.velocite34.vigilo&hl=fr
+          weight: 10
