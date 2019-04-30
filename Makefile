@@ -10,10 +10,13 @@ all: help
 help:
 	@grep "##" Makefile | grep -v "@grep"
 
+themes/hugo-theme-learn:
+	git clone git@github.com:matcornic/hugo-theme-learn.git
+
 version: ## Show hugo version
 	docker run --rm -it klakegg/hugo:${VERSION} version
 
-generate: ## Generate pages content
+generate: themes/hugo-theme-learn ## Generate pages content
 	${HUGO} --debug --cleanDestinationDir
 
 serve: ## Emulate web server
