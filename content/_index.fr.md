@@ -11,10 +11,7 @@ Les usagers peuvent maintenant remonter et cartographier les difficultés quotid
 rencontrées lors de leurs déplacements en centre ville ou agglomération (véhicules ou objets gênants,
 aménagements mal conçus, défauts d'entretien, …)
 
-{{% notice note %}}
-A noter que Vigilo a vu le jour suite au mouvement [#JeSuisUnDesDeux](http://www.jesuisundesdeux.org/portfolio/articles-de-presses/) l'application est citoyenne et des bénévoles contribuent à son évolution.
-{{% /notice %}}
-
+> A noter que Vigilo a vu le jour suite au mouvement [#JeSuisUnDesDeux](http://www.jesuisundesdeux.org/portfolio/articles-de-presses/) l'application est citoyenne et des bénévoles contribuent à son évolution.
 
 ### Fonctionnalités principales de Vigilo
 
