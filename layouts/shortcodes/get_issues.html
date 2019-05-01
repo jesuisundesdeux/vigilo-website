@@ -5,5 +5,6 @@
 | Adresse | Commentaire | Liens |
 | ----- | ------- | ----------- |
 {{- range $issues }}
-| {{ .address }} | {{ .comment }} | [Photo]({{ $api }}/generate_panel.php?token={{ .token }}) - [Observations similaires]({{ $api }}/mosaic.php?t={{ .token }}) |
+| {{ .address }} | {{ .comment }} | <a href="{{ $api }}/generate_panel.php?token={{ .token }}" target="_blank">Photo</a> - <a href="{{ $api }}/mosaic.php?t={{ .token }}" target="_blank">Observations similaires</a> |
 {{- end }}
+
