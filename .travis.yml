@@ -5,5 +5,12 @@ services:
   - docker
 
 script:
-  - make generate
-  - make test
+  - make generate test
+
+# https://cjolowicz.github.io/posts/hosting-a-hugo-blog-on-github-pages-with-travis-ci/
+deploy:
+  - provider: script
+    script: bash deploy.sh
+    skip_cleanup: true
+    on:
+      branch: source  

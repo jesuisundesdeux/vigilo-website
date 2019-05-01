@@ -6,10 +6,9 @@ theme: hugo-theme-learn
 themesdir: themes/
 metaDataFormat: yaml
 defaultContentLanguageInSubdir: true
-publishDir: "docs"
 
 params:
-  editURL: 'https://github.com/jesuisundesdeux/vigilo-website/edit/master/content/'
+  editURL: 'https://github.com/jesuisundesdeux/vigilo-website/edit/source/content/'
   description: Site web de l'application Vigilo
   author: JeSuisUnDesDeux
   showVisitedLinks: true
