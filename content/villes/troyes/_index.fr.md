@@ -9,4 +9,4 @@ title: Troyes(Beta)
 
 </iframe>
 
-{{% get_issues "http://api.vigilo.troyesenselle.fr/get_issues.php?count=10" %}}
+{{% get_issues "http://api.vigilo.troyesenselle.fr" %}}
