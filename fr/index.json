@@ -1,0 +1,127 @@
+[
+{
+	"uri": "http://vigilo.city/fr/app/",
+	"title": "Application",
+	"tags": [],
+	"description": "",
+	"content": " Chapite 1 Application Découvrez comment utiliser l\u0026rsquo;application Vigilo\n"
+},
+{
+	"uri": "http://vigilo.city/fr/app/decouverte/",
+	"title": "Vigilo, quésaco ?",
+	"tags": [],
+	"description": "",
+	"content": " A l’instar de l’application parisienne DansMaRue, Vigilo est une application collaborative citoyenne développée par et pour les cyclistes de Montpellier dans la dynamique #JeSuisUnDesDeux. Cette application soutenue par la FUB (Fédération des Usagers de la Bicyclette) est destinée à cartographier les difficultés quotidiennes rencontrées lors de leurs déplacements par les usagers les plus vulnérables : cyclistes mais aussi piétons, PMR, trottinettes.\nL’application est également ouverte aux automobilistes et deux-roues motorisés souhaitant remonter des observations. Il s’agit pour l’essentiel d’incivilités récurrentes, de problèmes d’entretien et d’aménagements du réseau.\nVigilo, à quoi ça sert ? L’objectif est que les collectivites locales les pouvoirs publics puissent s’approprier les données issues de cet outil afin de faciliter les déplacements de leurs citoyens (cyclistes, piétons, PMR). Cette méthode est déjà à l\u0026rsquo;œuvre dans d\u0026rsquo;autres villes (Toulouse par exemple). Vigilo représente un outil ouvert allant dans le sens d’une démarche de concertation et de co-construction entre les usagers et les collectivités publiques.\nVigilo, comment ça marche ? L\u0026rsquo;usager rencontre un obstacle sur sa route ? Pas de compte à créer. Il sort son téléphone portable, prend une photo (dispositif de floutage) et catégorise le type de problème rencontré (véhicule garé sur la piste cyclable, défaut d\u0026rsquo;entretien, mauvais aménagement, \u0026hellip;) La géolocalisation permet ensuite de constituer des bases de données et des cartographies publiques des améliorations souhaitées par les usagers.\nAprès plusieurs mois de développement, Vigilo a été lancé à Montpellier le 16 avril et y a déjà recueilli plus de 1000 observations. Vigilo est aujourd’hui disponible dans plusieurs villes ( Voir la liste des villes ). C’est en effet un outil qui pourra être déployé rapidement vers d’autres villes\nCette accumulation de données permet une analyse très fine des infrastructures existantes et des problèmes rencontrés au quotidien (carte et suivi temporel des véhicules garés sur pistes cyclables et trottoirs, carte de l’entretien à faire, carte des aménagements problématiques ou manquants, récurrences d’incivilités, \u0026hellip;)\nVigilo est une application gratuite actuellement disponible sous Android via le Google Play Store tandis que les versions iOS et web sont actuellement en cours de développement.\n"
+},
+{
+	"uri": "http://vigilo.city/fr/app/accueil/",
+	"title": "Ecran d&#39;accueil",
+	"tags": [],
+	"description": "",
+	"content": "La page principalle de vigilo, depuis cette page, vous pouvez choisir les divers actions :\n Visualiser les observateurs des utilisateurs Visualiser vos observations Visualiser les observations à proximité Visualiser les observations en attente de médération (admin section)  "
+},
+{
+	"uri": "http://vigilo.city/fr/app/ajout/etape-1/",
+	"title": "Selection photo",
+	"tags": [],
+	"description": "Selection de la photo",
+	"content": " Ceci est une page de demo\nSelection photo depuis galerie Selection repertoire Selection photo \u0026amp; validation "
+},
+{
+	"uri": "http://vigilo.city/fr/villes/",
+	"title": "Villes",
+	"tags": [],
+	"description": "",
+	"content": " Chapitre 2 Villes Liste des villes participant à l\u0026rsquo;experience\n"
+},
+{
+	"uri": "http://vigilo.city/fr/api/",
+	"title": "API",
+	"tags": [],
+	"description": "",
+	"content": " Chapite 3 API Découvrez comment est développé le Backend\n"
+},
+{
+	"uri": "http://vigilo.city/fr/app/ajout/",
+	"title": "Ajout observation",
+	"tags": [],
+	"description": "",
+	"content": "Pour ajouter une observation cliquer sur le bouton +\n"
+},
+{
+	"uri": "http://vigilo.city/fr/app/ajout/etape-2/",
+	"title": "Validation localisation photo",
+	"tags": [],
+	"description": "Validation de la localisation photo",
+	"content": " Ceci est une page de demo\nValidation geolocalisation "
+},
+{
+	"uri": "http://vigilo.city/fr/app/ajout/etape-3/",
+	"title": "Ajout description",
+	"tags": [],
+	"description": "Description",
+	"content": " Ceci est une page de demo\nChoix categorie et description "
+},
+{
+	"uri": "http://vigilo.city/fr/app/ajout/etape-4/",
+	"title": "Résumé",
+	"tags": [],
+	"description": "Résumé de l&#39;observation",
+	"content": " Ceci est une page de demo\nChoix categorie et description "
+},
+{
+	"uri": "http://vigilo.city/fr/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "http://vigilo.city/fr/villes/ch%C3%A2tillon/",
+	"title": "Châtillon",
+	"tags": [],
+	"description": "",
+	"content": " Carte   Voir en plein écran  Les 10 dernières observations    Adresse Commentaire Liens     Rue des Roissys, Châtillon Zébra \u0026#43; trottoir \u0026#43; panneau interdit \u0026hellip; Photo - Observations similaires   Rue Pierre Brossolette, Châtillon Stationnement gênant sur le trottoir ! Photo - Observations similaires   Avenue de la Paix, Châtillon Stationnement sur le trottoir Photo - Observations similaires   Avenue de la Paix, Châtillon Stationnement sur le trottoir Photo - Observations similaires   Avenue de la Paix, Châtillon Encore un petit effort pour libérer la bande c. Photo - Observations similaires   Avenue de la Paix, Châtillon Stationnement sur le trottoir ! Photo - Observations similaires   Avenue de la Paix, Châtillon Toujours la même voiture ! Photo - Observations similaires   Rue Gabriel Péri, Châtillon plus que 2 arceaux vélos et ils sont squattés Photo - Observations similaires   Rue Jean-Pierre Timbaud, Châtillon un indice ? le panneau Photo - Observations similaires   Rue Jean-Pierre Timbaud, Châtillon scoot, motos, voitures\u0026hellip;. c\u0026#39;est non-stop\u0026hellip; Photo - Observations similaires    "
+},
+{
+	"uri": "http://vigilo.city/fr/villes/marseille/",
+	"title": "Marseille(Beta)",
+	"tags": [],
+	"description": "",
+	"content": " Carte   Voir en plein écran  Les 10 dernières observations    Adresse Commentaire Liens     Place de la Joliette, Marseille jour de marché Photo - Observations similaires   Place de la Joliette, Marseille jour de marché Photo - Observations similaires   Place de la Joliette, Marseille jour de marché Photo - Observations similaires   Rue Sainte, Marseille voiture recule sans regarder Photo - Observations similaires   Place de la Joliette, Marseille jour de marché Photo - Observations similaires   Quai de la Joliette, Marseille voitures mal garées Photo - Observations similaires   Place de la Joliette, Marseille jour de marché Photo - Observations similaires   Terrasses du Port, Marseille motos garÃ©s sur parking vÃ©los Photo - Observations similaires   Quai de la Joliette, Marseille piÃ©tons empruntent uste cyclable Photo - Observations similaires   Quai du Port, Marseille vÃ©los doivent croiser voitures Photo - Observations similaires    "
+},
+{
+	"uri": "http://vigilo.city/fr/villes/metz/",
+	"title": "Metz(Beta)",
+	"tags": [],
+	"description": "",
+	"content": " Carte   Voir en plein écran  Les 10 dernieres observations Les 10 dernières observations    Adresse Commentaire Liens     Rue du Grand Cerf, Metz Arceaux très sollicités Photo - Observations similaires   Rue Belle-Isle, Metz habituel Photo - Observations similaires   Rue Haute-Seille, Metz Dommage, le parking souterrain est pas loin\u0026hellip; Photo - Observations similaires   Rue de Pont-à-Mousson, Montigny-lès-Metz Je me gare où je veux Photo - Observations similaires   En Fournirue, Metz Il est bon ton kebab chef ? Photo - Observations similaires   Rue de la Basse-Seille, Metz Stationnement gênant Photo - Observations similaires   Rue Royale Véhicule stationné sur le trottoir (habituel) Photo - Observations similaires   Rue Harelle, Metz Stationnement sur piste cyclable (habituel) Photo - Observations similaires    "
+},
+{
+	"uri": "http://vigilo.city/fr/villes/montpellier/",
+	"title": "Montpellier",
+	"tags": [],
+	"description": "",
+	"content": " Carte   Voir en plein écran  Les 10 dernières observations    Adresse Commentaire Liens     Rue Adam de Craponne, Montpellier  Photo - Observations similaires   Plan Cabanes, Montpellier Le combo. Photo - Observations similaires   Rue du Faubourg Figuerolles, Montpellier Magic Photo - Observations similaires   Rue du Faubourg Saint-Jaumes, Montpellier gcum récurrent dans la rue Photo - Observations similaires   Boulevard d\u0026#39;Orient, Montpellier  Photo - Observations similaires   Rue du Faubourg Figuerolles, Montpellier voiture arrêtée au feu rouge, sur le sas vélo. Photo - Observations similaires   Avenue de Toulouse, Montpellier circulation auto à réguler , danger pour les vélos Photo - Observations similaires   Avenue de Toulouse, Montpellier manque cruel de piste cyclable Photo - Observations similaires   Avenue Masséna, Montpellier  Photo - Observations similaires   Rond-Point des Portes de l\u0026#39;Hérault, Montpellier ça fait 10 jours que ça dure Photo - Observations similaires    "
+},
+{
+	"uri": "http://vigilo.city/fr/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "http://vigilo.city/fr/villes/troyes/",
+	"title": "Troyes(Beta)",
+	"tags": [],
+	"description": "",
+	"content": " Carte  \nLes 10 dernières observations    Adresse Commentaire Liens     Avenue Chomedey de Maisonneuve, Troyes GCUM mania Photo - Observations similaires   Avenue Chomedey de Maisonneuve, Troyes GCUM Photo - Observations similaires   Boulevard du 14 Juillet, Troyes GCUM Photo - Observations similaires   Avenue Chomedey de Maisonneuve, Troyes GCUM il doit avoir l\u0026#39;habitude avec son rétro cassé Photo - Observations similaires   Rue de Turenne, Troyes Zone30 sans DSC sur un axe stratégique Photo - Observations similaires   trop peu de place de stationnement proche des Halles  Photo - Observations similaires   Boulevard du 1er Régiment d\u0026#39;Artillerie de Montagne, Troyes GCUM sur bande cyclable et trottoir Photo - Observations similaires   Rue Marie-Pascale Ragueneau, Troyes Angle droit pour les cyclistes Photo - Observations similaires   difficulté à stationner mon vélo cargo à cause du 2RM  Photo - Observations similaires   Avenue Chomedey de Maisonneuve, Troyes GCUM Photo - Observations similaires    "
+},
+{
+	"uri": "http://vigilo.city/fr/",
+	"title": "Vigilo",
+	"tags": [],
+	"description": "",
+	"content": " Vigilo, c\u0026rsquo;est quoi ? Vigilo c\u0026rsquo;est une appli collaborative citoyenne pour améliorer les déplacements des cyclistes, des piétons et de toutes les mobilités actives.\nLes usagers peuvent maintenant remonter et cartographier les difficultés quotidiennes rencontrées lors de leurs déplacements en centre ville ou agglomération (véhicules ou objets gênants, aménagements mal conçus, défauts d\u0026rsquo;entretien, …)\n A noter que Vigilo a vu le jour suite au mouvement #JeSuisUnDesDeux l\u0026rsquo;application est citoyenne et des bénévoles contribuent à son évolution.\n Fonctionnalités principales de Vigilo  Ne nécessite pas de création de compte Faciliter d\u0026rsquo;utilisation: ajout d\u0026rsquo;une observation en moins de 30 secondes, application fluide Respect de la vie privée que ce soit des utilisateurs utilsant vigilo que des observations (floutage des plaques, des visages, \u0026hellip;) Projet Opensource Données des observations disponibles en opendata  "
+}]

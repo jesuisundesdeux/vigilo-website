@@ -1,8 +1,0 @@
-## Les 10 dernières observations
-
-{{ $issues := getJSON ($.Get 0)}}
-| Adresse | Commentaire | Liens |
-| ----- | ------- | ----------- |
-{{- range $issues }}
-| {{ .address }} | {{ .comment }} | [Photo](https://vigilo.jesuisundesdeux.org/generate_panel.php?token={{ .token }}) - [Observations similaires](https://vigilo.jesuisundesdeux.org/mosaic.php?t={{ .token }}) |
-{{- end }}
