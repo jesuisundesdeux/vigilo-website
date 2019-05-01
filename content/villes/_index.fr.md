@@ -1,13 +1,8 @@
 ---
 title: Villes
 weight: 10
-chapter: true
+chapter: false
 pre: "<b>2. </b>"
 ---
 
-### Chapitre 2
-
-# Villes
-
-
-Liste des villes participant à l'experience
+<iframe width="100%" height="1024px" frameborder="0" allowfullscreen src="https://status.vigilo.city/"></iframe>
