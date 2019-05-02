@@ -17,10 +17,16 @@ themes/hugo-theme-learn:
 version: ## Show hugo version
 	docker run --rm -it klakegg/hugo:${VERSION} version
 
-generate: clean themes/hugo-theme-learn ## Generate pages content
+doc-backend:
+	rm -rf /tmp/vigilo-backend
+	git clone https://github.com/jesuisundesdeux/vigilo-backend.git /tmp/vigilo-backend
+	cp content/api/_index.fr.tpl content/api/_index.fr.md
+	cat /tmp/vigilo-backend/doc/REST_API.md >> content/api/_index.fr.md
+
+generate: clean themes/hugo-theme-learn doc-backend ## Generate pages content
 	${HUGO} --debug --cleanDestinationDir
 
-serve: themes/hugo-theme-learn ## Emulate web server
+serve: themes/hugo-theme-learn doc-backend ## Emulate web server
 	${HUGO} server --buildDrafts --buildExpired --buildFuture --disableFastRender
 
 test: generate ## Test generated webpage
