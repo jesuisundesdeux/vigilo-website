@@ -1,5 +1,6 @@
 VERSION := 0.55.4
 IGNOREURL := "/getgrav.org/,/vigilo.jesuisundesdeux.org/"
+FILEIGNORE := "/site/fr/api/index.html/"
 makefile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
 pwd := $(dir $(makefile_path))
 
@@ -30,7 +31,7 @@ serve: themes/hugo-theme-learn doc-backend ## Emulate web server
 	${HUGO} server --buildDrafts --buildExpired --buildFuture --disableFastRender
 
 test: generate ## Test generated webpage
-	docker run -v $(pwd)/public:/site 18fgsa/html-proofer /site --allow_hash_href --url-ignore "${IGNOREURL}"
+	docker run -v $(pwd)/public:/site 18fgsa/html-proofer /site --allow_hash_href --url-ignore "${IGNOREURL}" --file-ignore "${FILEIGNORE}"
 
 clean:
 	${CMD} rm -rf /target/*
