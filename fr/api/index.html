@@ -12,18 +12,18 @@
     <title>API :: Site web Vigilo</title>
 
     
-    <link href="/css/nucleus.css?1556742343" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1556742343" rel="stylesheet">
-    <link href="/css/hybrid.css?1556742343" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1556742343" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1556742343" rel="stylesheet">
-    <link href="/css/auto-complete.css?1556742343" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1556742343" rel="stylesheet">
-    <link href="/css/theme.css?1556742343" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1556742343" rel="stylesheet">
+    <link href="/css/nucleus.css?1556818492" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1556818492" rel="stylesheet">
+    <link href="/css/hybrid.css?1556818492" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1556818492" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1556818492" rel="stylesheet">
+    <link href="/css/auto-complete.css?1556818492" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1556818492" rel="stylesheet">
+    <link href="/css/theme.css?1556818492" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1556818492" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1556742343"></script>
+    <script src="/js/jquery-3.3.1.min.js?1556818492"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1556742343"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1556742343"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1556818492"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1556818492"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/vigilo.city\/\/fr";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1556742343"></script>
+<script type="text/javascript" src="/js/search.js?1556818492"></script>
 
     
   </div>
@@ -605,6 +605,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -624,6 +626,150 @@
                   </span>
                 </div>
                 
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li><a href="#présentation-api-vigilo">Présentation API Vigilo</a>
+<ul>
+<li><a href="#sommaire">Sommaire</a></li>
+<li><a href="#workflows">Workflows</a>
+<ul>
+<li><a href="#ajout-d-une-observation">Ajout d&rsquo;une observation</a></li>
+</ul></li>
+<li><a href="#méthodes">Méthodes</a>
+<ul>
+<li><a href="#récupération-d-informations">Récupération d&rsquo;informations</a>
+<ul>
+<li><a href="#configurations">Configurations</a>
+<ul>
+<li><a href="#vérification-acl">Vérification ACL</a>
+<ul>
+<li><a href="#compatibilité">Compatibilité</a></li>
+<li><a href="#requête">Requête</a></li>
+<li><a href="#arguments">Arguments</a></li>
+<li><a href="#retour">Retour</a></li>
+</ul></li>
+<li><a href="#récupération-catégories">Récupération catégories</a>
+<ul>
+<li><a href="#compatibilité-1">Compatibilité</a></li>
+<li><a href="#requête-1">Requête</a></li>
+<li><a href="#arguments-1">Arguments</a></li>
+<li><a href="#retour-1">Retour</a></li>
+</ul></li>
+<li><a href="#récupération-catégories-legacy">Récupération catégories (legacy)</a>
+<ul>
+<li><a href="#compatibilité-2">Compatibilité</a></li>
+<li><a href="#requête-2">Requête</a></li>
+</ul></li>
+<li><a href="#récupération-informations-scope">Récupération informations scope</a>
+<ul>
+<li><a href="#compatibilité-3">Compatibilité</a></li>
+<li><a href="#requête-3">Requête</a></li>
+<li><a href="#arguments-2">Arguments</a></li>
+<li><a href="#retour-2">Retour</a></li>
+</ul></li>
+<li><a href="#récupération-version-backend-legacy">Récupération version backend (legacy)</a>
+<ul>
+<li><a href="#compatibilité-4">Compatibilité</a></li>
+<li><a href="#requête-4">Requête</a></li>
+<li><a href="#arguments-3">Arguments</a></li>
+<li><a href="#retour-3">Retour</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#observations">Observations</a>
+<ul>
+<li><a href="#récupération-panel">Récupération panel</a>
+<ul>
+<li><a href="#compatibilité-5">Compatibilité</a></li>
+<li><a href="#requête-5">Requête</a></li>
+<li><a href="#arguments-4">Arguments</a></li>
+<li><a href="#retour-4">Retour</a></li>
+</ul></li>
+<li><a href="#récupération-liste-observations">Récupération liste observations</a>
+<ul>
+<li><a href="#compatibilité-6">Compatibilité</a></li>
+<li><a href="#requête-6">Requête</a></li>
+<li><a href="#arguments-5">Arguments</a></li>
+<li><a href="#retour-5">Retour</a></li>
+</ul></li>
+<li><a href="#récupération-photo-originale">Récupération photo originale</a>
+<ul>
+<li><a href="#compatibilité-7">Compatibilité</a></li>
+<li><a href="#requête-7">Requête</a></li>
+<li><a href="#arguments-6">Arguments</a></li>
+<li><a href="#retour-6">Retour</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#ajout-modifications-informations">Ajout/modifications informations</a>
+<ul>
+<li><a href="#observations-1">Observations</a>
+<ul>
+<li><a href="#ajout-d-une-image-à-l-observation">Ajout d&rsquo;une image à l&rsquo;observation</a>
+<ul>
+<li><a href="#compatibilité-8">Compatibilité</a></li>
+<li><a href="#requête-8">Requête</a></li>
+<li><a href="#arguments-7">Arguments</a></li>
+<li><a href="#retour-7">Retour</a></li>
+</ul></li>
+<li><a href="#approuver-observation">Approuver observation</a>
+<ul>
+<li><a href="#compatibilité-9">Compatibilité</a></li>
+<li><a href="#requête-9">Requête</a></li>
+<li><a href="#arguments-8">Arguments</a></li>
+<li><a href="#retour-8">Retour</a></li>
+</ul></li>
+<li><a href="#création-observation">Création observation</a>
+<ul>
+<li><a href="#compatibilité-10">Compatibilité</a></li>
+<li><a href="#requête-10">Requête</a></li>
+<li><a href="#arguments-9">Arguments</a></li>
+<li><a href="#retour-9">Retour</a></li>
+</ul></li>
+<li><a href="#suppression-observation">Suppression observation</a>
+<ul>
+<li><a href="#compatibilité-11">Compatibilité</a></li>
+<li><a href="#requête-11">Requête</a></li>
+<li><a href="#arguments-10">Arguments</a></li>
+<li><a href="#retour-10">Retour</a></li>
+</ul></li>
+<li><a href="#obtenir-liste-observations-en-csv-legacy">Obtenir liste observations en CSV (legacy)</a>
+<ul>
+<li><a href="#compatibilité-12">Compatibilité</a></li>
+<li><a href="#requête-12">Requête</a></li>
+<li><a href="#arguments-11">Arguments</a></li>
+<li><a href="#retour-11">Retour</a></li>
+</ul></li>
+<li><a href="#changer-status-observation">Changer status observation</a>
+<ul>
+<li><a href="#compatibilité-13">Compatibilité</a></li>
+<li><a href="#requête-13">Requête</a></li>
+<li><a href="#arguments-12">Arguments</a></li>
+<li><a href="#retour-12">Retour</a></li>
+</ul></li>
+<li><a href="#obtenir-carte-en-cache">Obtenir carte en cache</a>
+<ul>
+<li><a href="#compatibilité-14">Compatibilité</a></li>
+<li><a href="#requête-14">Requête</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#données">Données</a>
+<ul>
+<li><a href="#catégories">Catégories</a></li>
+<li><a href="#observations-2">Observations</a></li>
+<li><a href="#scope">Scope</a></li>
+<li><a href="#statut">Statut</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
               </div>
             </div>
             
@@ -631,9 +777,12 @@
         
         </div>
         
-          <div id="chapter">
-        
         <div id="body-inner">
+          
+            <h1>
+              
+              API
+            </h1>
           
 
         
@@ -643,11 +792,1363 @@
 
 	
 
-<h3 id="chapite-3">Chapite 3</h3>
+<blockquote>
+<p>Page généré automatiquement depuis <a href="https://github.com/jesuisundesdeux/vigilo-backend/blob/master/doc/REST_API.md">la documentation projet vigilo-backend</a></p>
+</blockquote>
 
-<h1 id="api">API</h1>
+<h1 id="présentation-api-vigilo">Présentation API Vigilo</h1>
 
-<p>Découvrez comment est développé le Backend</p>
+<h2 id="sommaire">Sommaire</h2>
+
+<ul>
+<li>Workflows
+
+<ul>
+<li><a href="#ajout-dune-observation">Ajout d&rsquo;une observation</a></li>
+</ul></li>
+<li>Méthodes
+
+<ul>
+<li>Récupération d&rsquo;informations
+
+<ul>
+<li>Configurations</li>
+<li><a href="#vérification-acl">Vérification Acl</a></li>
+<li><a href="#récupération-catégories">Récupération catégories</a></li>
+<li><a href="#récupération-informations-scope">Récupération informations scope</a></li>
+<li>Observations</li>
+<li><a href="#récupération-panel">Récupération panel</a></li>
+<li><a href="#récupération-liste-observations">Récupération liste observations</a></li>
+<li><a href="#récupération-photo-originale">Récupération photo originale</a></li>
+</ul></li>
+<li>Ajout/modifications informations
+
+<ul>
+<li>Observations</li>
+<li><a href="#ajout-dune-image-à-lobservation">Ajout d&rsquo;une image à l&rsquo;observation</a></li>
+<li><a href="#approuver-observation">Approuver observation</a></li>
+<li><a href="#création-observation">Création observation</a></li>
+<li><a href="#suppression-observation">Suppression observation</a></li>
+<li><a href="#changer-status-observation">Changer status observation</a></li>
+<li><a href="#obtenir-carte-en-cache">Obtenir carte en cache</a></li>
+</ul></li>
+</ul></li>
+<li>Données
+
+<ul>
+<li><a href="#catégories">Catégories</a></li>
+<li><a href="#observations">Observations</a></li>
+<li><a href="#scope">Scope</a></li>
+<li><a href="#statut">Statut</a>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<h2 id="workflows">Workflows</h2>
+
+<h3 id="ajout-d-une-observation">Ajout d&rsquo;une observation</h3>
+
+<ul>
+<li><a href="#création-observation">Création observation</a> : Création de l&rsquo;entrée et récupération des informations d&rsquo;identification</li>
+<li><a href="#ajout-dune-image-à-lobservation">Ajout d&rsquo;une image à l&rsquo;observation</a> : Ajout de l&rsquo;image</li>
+<li><a href="#récupération-panel">Récupération panel</a> : Génération du panel</li>
+</ul>
+
+<h2 id="méthodes">Méthodes</h2>
+
+<h3 id="récupération-d-informations">Récupération d&rsquo;informations</h3>
+
+<h4 id="configurations">Configurations</h4>
+
+<hr />
+
+<h5 id="vérification-acl">Vérification ACL</h5>
+
+<h6 id="compatibilité">Compatibilité</h6>
+
+<p>Version backend &gt;= 0.0.1</p>
+
+<h6 id="requête">Requête</h6>
+
+<pre><code>GET /acl.php?
+</code></pre>
+
+<h6 id="arguments">Arguments</h6>
+
+<table>
+<thead>
+<tr>
+<th>Localisation</th>
+<th>Type</th>
+<th>Nom</th>
+<th>Obligatoire ?</th>
+<th>Description</th>
+<th>Compatibilité</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>URL</td>
+<td>str</td>
+<td>key</td>
+<td>X</td>
+<td>Clé privé de l&rsquo;utilisateur</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+</tbody>
+</table>
+
+<h6 id="retour">Retour</h6>
+
+<p>JSON : Retourne les informations suivantes :</p>
+
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Nom</th>
+<th>Description</th>
+<th>Compatibilité</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>bool</td>
+<td>status</td>
+<td>Retourne le <a href="#statut">statut</a> de l&rsquo;appel</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>str</td>
+<td>role</td>
+<td>Rôle correspondant à la clé (admin)</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h5 id="récupération-catégories">Récupération catégories</h5>
+
+<h6 id="compatibilité-1">Compatibilité</h6>
+
+<p>Version backend &gt;= 0.0.1</p>
+
+<h6 id="requête-1">Requête</h6>
+
+<pre><code>GET /get_categories_list.php?
+</code></pre>
+
+<h6 id="arguments-1">Arguments</h6>
+
+<table>
+<thead>
+<tr>
+<th>Localisation</th>
+<th>Type</th>
+<th>Nom</th>
+<th>Obligatoire ?</th>
+<th>Description</th>
+<th>Compatibilité</th>
+</tr>
+</thead>
+
+<tbody>
+</tbody>
+</table>
+
+<h6 id="retour-1">Retour</h6>
+
+<p>JSON : Retourne les informations des <a href="#categories">Catégories</a>.</p>
+
+<hr />
+
+<h5 id="récupération-catégories-legacy">Récupération catégories (legacy)</h5>
+
+<h6 id="compatibilité-2">Compatibilité</h6>
+
+<p>LEGACY</p>
+
+<h6 id="requête-2">Requête</h6>
+
+<pre><code>GET /get_categories.php?
+</code></pre>
+
+<hr />
+
+<h5 id="récupération-informations-scope">Récupération informations scope</h5>
+
+<h6 id="compatibilité-3">Compatibilité</h6>
+
+<p>Version backend &gt;= 0.0.4</p>
+
+<h6 id="requête-3">Requête</h6>
+
+<pre><code>GET /get_scope.php?
+</code></pre>
+
+<h6 id="arguments-2">Arguments</h6>
+
+<table>
+<thead>
+<tr>
+<th>Localisation</th>
+<th>Type</th>
+<th>Nom</th>
+<th>Obligatoire ?</th>
+<th>Description</th>
+<th>Compatibilité</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>URL</td>
+<td>str</td>
+<td>scope</td>
+<td>X</td>
+<td>Nom du scope</td>
+<td>&gt;= 0.0.4</td>
+</tr>
+</tbody>
+</table>
+
+<h6 id="retour-2">Retour</h6>
+
+<p>JSON : Retourne les informations du <a href="#scope">Scope</a>.</p>
+
+<hr />
+
+<h5 id="récupération-version-backend-legacy">Récupération version backend (legacy)</h5>
+
+<h6 id="compatibilité-4">Compatibilité</h6>
+
+<p>Version backend &lt;= 0.0.3</p>
+
+<h6 id="requête-4">Requête</h6>
+
+<pre><code>GET /get_version.php?
+</code></pre>
+
+<h6 id="arguments-3">Arguments</h6>
+
+<table>
+<thead>
+<tr>
+<th>Localisation</th>
+<th>Type</th>
+<th>Nom</th>
+<th>Obligatoire ?</th>
+<th>Description</th>
+<th>Compatibilité</th>
+</tr>
+</thead>
+
+<tbody>
+</tbody>
+</table>
+
+<h6 id="retour-3">Retour</h6>
+
+<p>JSON : Retourne la version du backend</p>
+
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Nom</th>
+<th>Description</th>
+<th>Compatibilité</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>str</td>
+<td>version</td>
+<td>Version du backend</td>
+<td>&lt;= 0.0.3</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h4 id="observations">Observations</h4>
+
+<h5 id="récupération-panel">Récupération panel</h5>
+
+<h6 id="compatibilité-5">Compatibilité</h6>
+
+<p>Version backend &gt;= 0.0.1</p>
+
+<h6 id="requête-5">Requête</h6>
+
+<pre><code>GET /generate_panel.php?
+</code></pre>
+
+<h6 id="arguments-4">Arguments</h6>
+
+<table>
+<thead>
+<tr>
+<th>Localisation</th>
+<th>Type</th>
+<th>Nom</th>
+<th>Obligatoire ?</th>
+<th>Description</th>
+<th>Compatibilité</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>URL</td>
+<td>str</td>
+<td>token</td>
+<td>X</td>
+<td>Token de l&rsquo;observation</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td>int</td>
+<td>s</td>
+<td></td>
+<td>Largeur de l&rsquo;image</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td>str</td>
+<td>key</td>
+<td></td>
+<td>Clé d&rsquo;admin pour visualisation non pixelisée</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td>str</td>
+<td>secretid</td>
+<td></td>
+<td>Clé secret de l&rsquo;observation pour visualisation non pixelisée</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+</tbody>
+</table>
+
+<h6 id="retour-4">Retour</h6>
+
+<p>Retourne une image</p>
+
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Nom</th>
+<th>Description</th>
+<th>Compatibilité</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>image/png</td>
+<td>/</td>
+<td>Image</td>
+<td>&lt;= 0.0.4</td>
+</tr>
+
+<tr>
+<td>image/jpeg</td>
+<td>/</td>
+<td>Image</td>
+<td>&gt;= 0.0.5</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h5 id="récupération-liste-observations">Récupération liste observations</h5>
+
+<h6 id="compatibilité-6">Compatibilité</h6>
+
+<p>Version backend &gt;= 0.0.1</p>
+
+<h6 id="requête-6">Requête</h6>
+
+<pre><code>GET /get_issues.php?
+</code></pre>
+
+<h6 id="arguments-5">Arguments</h6>
+
+<table>
+<thead>
+<tr>
+<th>Localisation</th>
+<th>Type</th>
+<th>Nom</th>
+<th>Obligatoire ?</th>
+<th>Description</th>
+<th>Compatibilité</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>URL</td>
+<td>int</td>
+<td>c</td>
+<td></td>
+<td>filtre selon catégorie</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td>int</td>
+<td>t</td>
+<td></td>
+<td>filtre selon date</td>
+<td>Changé en timestamp à partir de &gt;= 0.0.5</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td>str</td>
+<td>scope</td>
+<td></td>
+<td>filtre selon scope</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td>int</td>
+<td>status</td>
+<td></td>
+<td>filtre selon statut de l&rsquo;observation</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td>int</td>
+<td>token</td>
+<td></td>
+<td>filtre selon token de l&rsquo;observation</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td>int</td>
+<td>count</td>
+<td></td>
+<td>limite le nombre d&rsquo;occurences</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td>int</td>
+<td>offset</td>
+<td></td>
+<td>démarrage le nombre d&rsquo;occurence en décallé</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td>str</td>
+<td>format</td>
+<td></td>
+<td>format (json,csv,geojson)</td>
+<td>&gt;= 0.0.3</td>
+</tr>
+</tbody>
+</table>
+
+<h6 id="retour-5">Retour</h6>
+
+<p>JSON : Retourne la liste des <a href="#observation">observations</a>.</p>
+
+<hr />
+
+<h5 id="récupération-photo-originale">Récupération photo originale</h5>
+
+<h6 id="compatibilité-7">Compatibilité</h6>
+
+<p>Version backend &gt;= 0.0.1</p>
+
+<h6 id="requête-7">Requête</h6>
+
+<pre><code>GET /get_photo.php?
+</code></pre>
+
+<h6 id="arguments-6">Arguments</h6>
+
+<table>
+<thead>
+<tr>
+<th>Localisation</th>
+<th>Type</th>
+<th>Nom</th>
+<th>Obligatoire ?</th>
+<th>Description</th>
+<th>Compatibilité</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>URL</td>
+<td>str</td>
+<td>key</td>
+<td>X</td>
+<td>Clé privé de l&rsquo;utilisateur</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td>str</td>
+<td>token</td>
+<td>X</td>
+<td>Token de l&rsquo;observation</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+</tbody>
+</table>
+
+<h6 id="retour-6">Retour</h6>
+
+<p>Retourne une image</p>
+
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Nom</th>
+<th>Description</th>
+<th>Compatibilité</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>image/jpeg</td>
+<td>/</td>
+<td>Image</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h3 id="ajout-modifications-informations">Ajout/modifications informations</h3>
+
+<h4 id="observations-1">Observations</h4>
+
+<h5 id="ajout-d-une-image-à-l-observation">Ajout d&rsquo;une image à l&rsquo;observation</h5>
+
+<h6 id="compatibilité-8">Compatibilité</h6>
+
+<p>Version backend &gt;= 0.0.1</p>
+
+<h6 id="requête-8">Requête</h6>
+
+<pre><code>POST /add_image.php?
+</code></pre>
+
+<h6 id="arguments-7">Arguments</h6>
+
+<table>
+<thead>
+<tr>
+<th>Localisation</th>
+<th>Type</th>
+<th>Nom</th>
+<th>Obligatoire ?</th>
+<th>Description</th>
+<th>Compatibilité</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>URL</td>
+<td>str</td>
+<td>token</td>
+<td>X</td>
+<td>Token de l&rsquo;observation</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td>str</td>
+<td>secretid</td>
+<td>X</td>
+<td>Clé secrète de l&rsquo;observation &gt;= 0.0.1</td>
+<td></td>
+</tr>
+
+<tr>
+<td>RAW</td>
+<td>image/jpeg</td>
+<td>/</td>
+<td>X</td>
+<td>Flux de l&rsquo;image en JPEG</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+</tbody>
+</table>
+
+<h6 id="retour-7">Retour</h6>
+
+<p>JSON : Retourne les informations d&rsquo;identification de l&rsquo;observation</p>
+
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Nom</th>
+<th>Description</th>
+<th>Compatibilité</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>bool</td>
+<td>status</td>
+<td>Retourne le <a href="#statut">statut</a> de l&rsquo;appel</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h5 id="approuver-observation">Approuver observation</h5>
+
+<h6 id="compatibilité-9">Compatibilité</h6>
+
+<p>Version backend &gt;= 0.0.1</p>
+
+<h6 id="requête-9">Requête</h6>
+
+<pre><code>POST /approve.php?
+</code></pre>
+
+<h6 id="arguments-8">Arguments</h6>
+
+<table>
+<thead>
+<tr>
+<th>Localisation</th>
+<th>Type</th>
+<th>Nom</th>
+<th>Obligatoire ?</th>
+<th>Description</th>
+<th>Compatibilité</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>URL</td>
+<td>str</td>
+<td>key</td>
+<td></td>
+<td>Clé privé de l&rsquo;utilisateur</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>Form</td>
+<td>str</td>
+<td>token</td>
+<td>Uniquement en cas de modif</td>
+<td>Token de l&rsquo;observation</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+</tbody>
+</table>
+
+<h6 id="retour-8">Retour</h6>
+
+<p>JSON : Retourne les informations d&rsquo;identification de l&rsquo;observation</p>
+
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Nom</th>
+<th>Description</th>
+<th>Compatibilité</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>bool</td>
+<td>status</td>
+<td>Retourne le <a href="#statut">statut</a> de l&rsquo;appel</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h5 id="création-observation">Création observation</h5>
+
+<h6 id="compatibilité-10">Compatibilité</h6>
+
+<p>Version backend &gt;= 0.0.1</p>
+
+<h6 id="requête-10">Requête</h6>
+
+<pre><code>POST /create_issue.php?
+</code></pre>
+
+<h6 id="arguments-9">Arguments</h6>
+
+<table>
+<thead>
+<tr>
+<th>Localisation</th>
+<th>Type</th>
+<th>Nom</th>
+<th>Obligatoire ?</th>
+<th>Description</th>
+<th>Compatibilité</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>URL</td>
+<td>str</td>
+<td>key</td>
+<td></td>
+<td>Clé privé de l&rsquo;utilisateur</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>Form</td>
+<td>str</td>
+<td>token</td>
+<td>Uniquement en cas de modif</td>
+<td>Token de l&rsquo;observation</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>Form</td>
+<td>str</td>
+<td>coordinates_lat&rsquo;</td>
+<td>X</td>
+<td>Latitude de l&rsquo;observation</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>Form</td>
+<td>str</td>
+<td>coordinates_lon</td>
+<td>X</td>
+<td>Longitude de l&rsquo;observation</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>Form</td>
+<td>str</td>
+<td>comment</td>
+<td>X</td>
+<td>Remarque de l&rsquo;observation</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>Form</td>
+<td>str</td>
+<td>explanation</td>
+<td>X</td>
+<td>Explications observation</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>Form</td>
+<td>str</td>
+<td>categorie</td>
+<td>X</td>
+<td>ID de catégorie</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>Form</td>
+<td>str</td>
+<td>address</td>
+<td>X</td>
+<td>Adresse de l&rsquo;observation</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>Form</td>
+<td>str</td>
+<td>time</td>
+<td>X</td>
+<td>Timestamp de l&rsquo;observation en ms</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>Form</td>
+<td>str</td>
+<td>version</td>
+<td>X</td>
+<td>Version de l&rsquo;application cliente</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>Form</td>
+<td>str</td>
+<td>scope</td>
+<td>X</td>
+<td>Identifiant du scope</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+</tbody>
+</table>
+
+<h6 id="retour-9">Retour</h6>
+
+<p>JSON : Retourne les informations d&rsquo;identification de l&rsquo;observation</p>
+
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Nom</th>
+<th>Description</th>
+<th>Compatibilité</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>bool</td>
+<td>status</td>
+<td>Retourne le <a href="#statut">statut</a> de l&rsquo;appel</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>str</td>
+<td>token</td>
+<td>Retourne le token généré</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>str</td>
+<td>secretid</td>
+<td>Retourne la clé secrete de l&rsquo;observation</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>int</td>
+<td>group</td>
+<td>LEGACY</td>
+<td>LEGACY</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h5 id="suppression-observation">Suppression observation</h5>
+
+<h6 id="compatibilité-11">Compatibilité</h6>
+
+<p>Version backend &gt;= 0.0.1</p>
+
+<h6 id="requête-11">Requête</h6>
+
+<pre><code>GET /delete.php?
+</code></pre>
+
+<h6 id="arguments-10">Arguments</h6>
+
+<table>
+<thead>
+<tr>
+<th>Localisation</th>
+<th>Type</th>
+<th>Nom</th>
+<th>Obligatoire ?</th>
+<th>Description</th>
+<th>Compatibilité</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>URL</td>
+<td>str</td>
+<td>key</td>
+<td>Si secretid non fourni</td>
+<td></td>
+<td>Clé privé de l&rsquo;utilisateur</td>
+</tr>
+
+<tr>
+<td>Form</td>
+<td>str</td>
+<td>token</td>
+<td>Uniquement en cas de modif</td>
+<td>Token de l&rsquo;observation</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td>str</td>
+<td>secretid</td>
+<td>Si key non fourni</td>
+<td></td>
+<td>Clé secrète de l&rsquo;observation &gt;= 0.0.1</td>
+</tr>
+</tbody>
+</table>
+
+<h6 id="retour-10">Retour</h6>
+
+<p>JSON : Retourne les informations d&rsquo;identification de l&rsquo;observation</p>
+
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Nom</th>
+<th>Description</th>
+<th>Compatibilité</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>bool</td>
+<td>status</td>
+<td>Retourne le <a href="#statut">statut</a> de l&rsquo;appel</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h5 id="obtenir-liste-observations-en-csv-legacy">Obtenir liste observations en CSV (legacy)</h5>
+
+<h6 id="compatibilité-12">Compatibilité</h6>
+
+<p>Version backend &lt;= 0.0.5</p>
+
+<h6 id="requête-12">Requête</h6>
+
+<pre><code>GET /to_csv.php?
+</code></pre>
+
+<h6 id="arguments-11">Arguments</h6>
+
+<table>
+<thead>
+<tr>
+<th>Localisation</th>
+<th>Type</th>
+<th>Nom</th>
+<th>Obligatoire ?</th>
+<th>Description</th>
+<th>Compatibilité</th>
+</tr>
+</thead>
+
+<tbody>
+</tbody>
+</table>
+
+<h6 id="retour-11">Retour</h6>
+
+<p>CSV : Retourne les informations d&rsquo;identification de l&rsquo;observation</p>
+
+<hr />
+
+<h5 id="changer-status-observation">Changer status observation</h5>
+
+<h6 id="compatibilité-13">Compatibilité</h6>
+
+<p>Version backend &gt;= 0.0.5</p>
+
+<h6 id="requête-13">Requête</h6>
+
+<pre><code>GET /update_status.php?
+</code></pre>
+
+<h6 id="arguments-12">Arguments</h6>
+
+<table>
+<thead>
+<tr>
+<th>Localisation</th>
+<th>Type</th>
+<th>Nom</th>
+<th>Obligatoire ?</th>
+<th>Description</th>
+<th>Compatibilité</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>URL</td>
+<td>str</td>
+<td>key</td>
+<td>Si secretid non fourni</td>
+<td>Clé privé de l&rsquo;utilisateur</td>
+<td>&gt;= 0.0.5</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td>str</td>
+<td>token</td>
+<td>X</td>
+<td>Token de l&rsquo;observation</td>
+<td>&gt;= 0.0.5</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td>str</td>
+<td>secretid</td>
+<td>Si key non fourni</td>
+<td>Clé secrète de l&rsquo;observation</td>
+<td>&gt;= 0.0.5</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td>int</td>
+<td>statusobs</td>
+<td>X</td>
+<td>Status à appliquer (0: non résolu / 1 : résolu)</td>
+<td>&gt;= 0.0.5</td>
+</tr>
+</tbody>
+</table>
+
+<h6 id="retour-12">Retour</h6>
+
+<p>JSON : Retourne les informations d&rsquo;identification de l&rsquo;observation</p>
+
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Nom</th>
+<th>Description</th>
+<th>Compatibilité</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>bool</td>
+<td>status</td>
+<td>Retourne le <a href="#statut">statut</a> de l&rsquo;appel</td>
+<td>&gt;= 0.0.5</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h5 id="obtenir-carte-en-cache">Obtenir carte en cache</h5>
+
+<h6 id="compatibilité-14">Compatibilité</h6>
+
+<p>Version backend &gt;= 0.0.1</p>
+
+<h6 id="requête-14">Requête</h6>
+
+<pre><code>GET /maps/{TOKEN}_zoom.jpg
+</code></pre>
+
+<hr />
+
+<h2 id="données">Données</h2>
+
+<h3 id="catégories">Catégories</h3>
+
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Nom</th>
+<th>Description</th>
+<th>Compatibilité</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>int</td>
+<td>catid</td>
+<td>Identifiant unique de catégorie</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>str</td>
+<td>catname</td>
+<td>Nom affiché de la catégorie</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="observations-2">Observations</h3>
+
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Nom</th>
+<th>Description</th>
+<th>Compatibilité</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>str</td>
+<td>token</td>
+<td>Token de l&rsquo;observation</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>str</td>
+<td>coordinate_lat</td>
+<td>Latitude de l&rsquo;observation en dégré décimal</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>str</td>
+<td>coordinate_lon</td>
+<td>Longitude de l&rsquo;observation en dégré décimal</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>str</td>
+<td>address</td>
+<td>Adresse de l&rsquo;observation</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>str</td>
+<td>comment</td>
+<td>Remarque de l&rsquo;observation</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>str</td>
+<td>explanation</td>
+<td>Explications de l&rsquo;observation</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>int</td>
+<td>time</td>
+<td>Timestamp (en secondes) de l&rsquo;observation</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>int</td>
+<td>status</td>
+<td>Statut de l&rsquo;observation (0 non résolue / 1 résolue)</td>
+<td>&gt;= 0.0.6</td>
+</tr>
+
+<tr>
+<td>int</td>
+<td>group</td>
+<td>Groupe de l&rsquo;observation</td>
+<td>LEGACY</td>
+</tr>
+
+<tr>
+<td>int</td>
+<td>categorie</td>
+<td>Identifiant de catégorie de l&rsquo;obseration</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>int</td>
+<td>approved</td>
+<td>Etat d&rsquo;approbation de l&rsquo;observation</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="scope">Scope</h3>
+
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Nom</th>
+<th>Description</th>
+<th>Compatibilité</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>str</td>
+<td>display_name</td>
+<td>Nom affiché du scope dans Vigilo</td>
+<td>&gt;= 0.0.5</td>
+</tr>
+
+<tr>
+<td>str</td>
+<td>coordinate_lat_min</td>
+<td>Latitude minimum de la zone en dégré décimal</td>
+<td>&gt;= 0.0.5</td>
+</tr>
+
+<tr>
+<td>str</td>
+<td>coordinate_lat_max</td>
+<td>Latitude maximum de la zone en dégré décimal</td>
+<td>&gt;= 0.0.5</td>
+</tr>
+
+<tr>
+<td>str</td>
+<td>coordinate_lon_min</td>
+<td>Longitude minimum de la zone en dégré décimal</td>
+<td>&gt;= 0.0.5</td>
+</tr>
+
+<tr>
+<td>str</td>
+<td>coordinate_lon_max</td>
+<td>Longitude maximum de la zone en dégré décimal</td>
+<td>&gt;= 0.0.5</td>
+</tr>
+
+<tr>
+<td>str</td>
+<td>map_center_string</td>
+<td>Latitude + &ldquo;,&rdquo; + Longitude du centre de la carte qui doit être affichée</td>
+<td>&gt;= 0.0.5</td>
+</tr>
+
+<tr>
+<td>int</td>
+<td>map_zoom</td>
+<td>Zoom de la carte à afficher</td>
+<td>&gt;= 0.0.5</td>
+</tr>
+
+<tr>
+<td>str</td>
+<td>contact_email</td>
+<td>Adresse mail de contact du scope</td>
+<td>&gt;= 0.0.5</td>
+</tr>
+
+<tr>
+<td>str</td>
+<td>tweet_content</td>
+<td>ontenu du tweet qui mis par défaut via le composant de partage de l&rsquo;application</td>
+<td>&gt;= 0.0.5</td>
+</tr>
+
+<tr>
+<td>str</td>
+<td>map_url</td>
+<td>Adresse de la carte où sont affichées les observations</td>
+<td>&gt;= 0.0.5</td>
+</tr>
+
+<tr>
+<td>str</td>
+<td>backend_version</td>
+<td>Version du backend</td>
+<td>&gt;= 0.0.5</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="statut">Statut</h3>
+
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Nom</th>
+<th>Description</th>
+<th>Compatibilité</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>bool</td>
+<td>status</td>
+<td>0 =&gt; OK / 1 =&gt; NOK</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -657,8 +2158,6 @@
 	
 </footer>
 
-        
-            </div> 
         
         </div> 
         
@@ -957,20 +2456,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1556742343"></script>
-    <script src="/js/perfect-scrollbar.min.js?1556742343"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1556742343"></script>
-    <script src="/js/jquery.sticky.js?1556742343"></script>
-    <script src="/js/featherlight.min.js?1556742343"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1556742343"></script>
-    <script src="/js/highlight.pack.js?1556742343"></script>
+    <script src="/js/clipboard.min.js?1556818492"></script>
+    <script src="/js/perfect-scrollbar.min.js?1556818492"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1556818492"></script>
+    <script src="/js/jquery.sticky.js?1556818492"></script>
+    <script src="/js/featherlight.min.js?1556818492"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1556818492"></script>
+    <script src="/js/highlight.pack.js?1556818492"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1556742343"></script>
-    <script src="/js/learn.js?1556742343"></script>
-    <script src="/js/hugo-learn.js?1556742343"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1556818492"></script>
+    <script src="/js/learn.js?1556818492"></script>
+    <script src="/js/hugo-learn.js?1556818492"></script>
 
-    <link href="/mermaid/mermaid.css?1556742343" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1556742343"></script>
+    <link href="/mermaid/mermaid.css?1556818492" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1556818492"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
