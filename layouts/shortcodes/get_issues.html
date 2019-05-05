@@ -10,7 +10,7 @@
 
 {{ $issues := getJSON $endpoint }}
 
-| {{ $endpoint }} | Commentaire | Liens |
+| Adresse | Commentaire | Liens |
 | ----- | ------- | ----------- |
 {{- range $issues }}
 | {{ .address }} | {{ .comment }} | [Photo]({{ $api }}/generate_panel.php?token={{ .token }}) - [Observations similaires]({{ $api }}/mosaic.php?t={{ .token }}) |
