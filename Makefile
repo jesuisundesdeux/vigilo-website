@@ -1,5 +1,5 @@
 VERSION := 0.55.4
-IGNOREURL := "/getgrav.org/,/vigilo.jesuisundesdeux.org/"
+IGNOREURL := "/getgrav.org/,/vigilo.jesuisundesdeux.org/,/\/vigilo-website\/edit\/source\/content/"
 FILEIGNORE := "/site/fr/api/index.html/"
 makefile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
 pwd := $(dir $(makefile_path))
