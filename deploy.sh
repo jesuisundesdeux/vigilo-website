@@ -18,8 +18,6 @@ cd deployment
 curl -Lo preview.png "https://manet.herokuapp.com/?url=vigilo.city%2Ffr%2Fvilles%2Fmontpellier&clipRect=0%2C0%2C1024%2C1200"
 cp ../README.md . 
 
-ls -alh 
-
 git add -A
 # we need the || true, as sometimes you do not have any content changes
 # and git woundn't commit and you don't want to break the CI because of that

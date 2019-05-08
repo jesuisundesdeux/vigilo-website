@@ -9,4 +9,4 @@ chapter: true
 
 # Application
 
-Découvrez comment utiliser l'application Vigilo
+Découvrez les différentes version de l'application Vigilo (Android, Web (Beta))

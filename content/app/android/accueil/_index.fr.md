@@ -12,4 +12,4 @@ La page principalle de vigilo, depuis cette page, vous pouvez choisir les divers
  * Visualiser les observations en attente de médération (admin section)
 
 
-![Magic](/fr/app/accueil/images/accueil.jpg?width=400&classes=shadow)
+![Magic](/fr/app/android/accueil/images/accueil.jpg?width=400&classes=shadow)

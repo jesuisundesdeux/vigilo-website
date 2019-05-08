@@ -1,8 +1,11 @@
 ---
 title: Vigilo, quésaco ?
-weight: 5
-disableToc: false
+weight: 4
+chapter: true
 ---
+
+# Vigilo, quésaco ?
+
 
 A l’instar de l’application parisienne DansMaRue, Vigilo est une application collaborative citoyenne
 développée par et pour les cyclistes de Montpellier dans la dynamique [#JeSuisUnDesDeux](http://www.jesuisundesdeux.org/portfolio/articles-de-presses/). Cette application soutenue par la FUB (Fédération des Usagers de la Bicyclette) est destinée à cartographier les difficultés quotidiennes rencontrées lors de leurs déplacements par les usagers les plus vulnérables : cyclistes mais aussi piétons, PMR, trottinettes. 

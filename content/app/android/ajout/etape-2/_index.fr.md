@@ -8,4 +8,4 @@ Ceci est une page de demo
 
 ### Validation geolocalisation
 
-![Magic](/fr/app/ajout/etape-2/images/etape-1.jpg?width=300&classes=shadow)
+![Magic](/fr/app/android/ajout/etape-2/images/etape-1.jpg?width=300&classes=shadow)
