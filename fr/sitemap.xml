@@ -3,19 +3,23 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://vigilo.city/fr/app/quesaco/</loc>
+  </url>
+  
+  <url>
+    <loc>http://vigilo.city/fr/app/android/</loc>
+  </url>
+  
+  <url>
     <loc>http://vigilo.city/fr/app/</loc>
   </url>
   
   <url>
-    <loc>http://vigilo.city/fr/app/decouverte/</loc>
+    <loc>http://vigilo.city/fr/app/android/accueil/</loc>
   </url>
   
   <url>
-    <loc>http://vigilo.city/fr/app/accueil/</loc>
-  </url>
-  
-  <url>
-    <loc>http://vigilo.city/fr/app/ajout/etape-1/</loc>
+    <loc>http://vigilo.city/fr/app/android/ajout/etape-1/</loc>
   </url>
   
   <url>
@@ -23,23 +27,31 @@
   </url>
   
   <url>
+    <loc>http://vigilo.city/fr/app/web/</loc>
+  </url>
+  
+  <url>
     <loc>http://vigilo.city/fr/api/</loc>
   </url>
   
   <url>
-    <loc>http://vigilo.city/fr/app/ajout/</loc>
+    <loc>http://vigilo.city/fr/app/android/ajout/</loc>
   </url>
   
   <url>
-    <loc>http://vigilo.city/fr/app/ajout/etape-2/</loc>
+    <loc>http://vigilo.city/fr/app/android/ajout/etape-2/</loc>
   </url>
   
   <url>
-    <loc>http://vigilo.city/fr/app/ajout/etape-3/</loc>
+    <loc>http://vigilo.city/fr/app/android/ajout/etape-3/</loc>
   </url>
   
   <url>
-    <loc>http://vigilo.city/fr/app/ajout/etape-4/</loc>
+    <loc>http://vigilo.city/fr/app/android/ajout/etape-4/</loc>
+  </url>
+  
+  <url>
+    <loc>http://vigilo.city/fr/villes/caen/</loc>
   </url>
   
   <url>
@@ -62,6 +74,10 @@
   </url>
   
   <url>
+    <loc>http://vigilo.city/fr/villes/dunkerque/</loc>
+  </url>
+  
+  <url>
     <loc>http://vigilo.city/fr/villes/marseille/</loc>
   </url>
   
@@ -71,6 +87,10 @@
   
   <url>
     <loc>http://vigilo.city/fr/villes/montpellier/</loc>
+  </url>
+  
+  <url>
+    <loc>http://vigilo.city/fr/villes/rouen/</loc>
   </url>
   
   <url>
