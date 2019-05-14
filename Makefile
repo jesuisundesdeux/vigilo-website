@@ -5,6 +5,7 @@ makefile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
 pwd := $(dir $(makefile_path))
 
 HUGO := docker run --rm -it -v $(pwd):/src -v $(pwd)/public:/target -p 1313:1313 klakegg/hugo:${VERSION}
+HTMLPROOFER := docker run -v $(pwd)/public:/site 18fgsa/html-proofer /site --allow_hash_href --url-ignore "${IGNOREURL}" --file-ignore "${FILEIGNORE}"
 CMD := docker run --rm -it -v $(pwd):/src -v $(pwd)/public:/target alpine
 
 all: help
@@ -24,6 +25,10 @@ doc-backend:
 	cp content/api/_index.fr.tpl content/api/_index.fr.md
 	cat /tmp/vigilo-backend/doc/REST_API.md >> content/api/_index.fr.md
 
+retrievecytie: ## Get city informations
+	python3 get_city_informations.py
+
+
 generate: clean themes/hugo-theme-learn doc-backend ## Generate pages content
 	${HUGO} --debug --cleanDestinationDir
 
@@ -31,7 +36,7 @@ serve: themes/hugo-theme-learn doc-backend ## Emulate web server
 	${HUGO} server --buildDrafts --buildExpired --buildFuture --disableFastRender
 
 test: generate ## Test generated webpage
-	docker run -v $(pwd)/public:/site 18fgsa/html-proofer /site --allow_hash_href --url-ignore "${IGNOREURL}" --file-ignore "${FILEIGNORE}"
+	${HTMLPROOFER}
 
 clean:
 	${CMD} rm -rf /target/*
