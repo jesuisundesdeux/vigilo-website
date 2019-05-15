@@ -25,14 +25,13 @@ doc-backend:
 	cp content/api/_index.fr.tpl content/api/_index.fr.md
 	cat /tmp/vigilo-backend/doc/REST_API.md >> content/api/_index.fr.md
 
-retrievecytie: ## Get city informations
+generate-cities-content: ## generate-cities-content
 	python3 get_city_informations.py
 
-
-generate: clean themes/hugo-theme-learn doc-backend ## Generate pages content
+generate: clean themes/hugo-theme-learn doc-backend generate-cities-content ## Generate pages content
 	${HUGO} --debug --cleanDestinationDir
 
-serve: themes/hugo-theme-learn doc-backend ## Emulate web server
+serve: themes/hugo-theme-learn doc-backend generate-cities-content ## Emulate web server
 	${HUGO} server --buildDrafts --buildExpired --buildFuture --disableFastRender
 
 test: generate ## Test generated webpage
