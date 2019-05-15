@@ -58,8 +58,7 @@ def downloadFile(url):
     return text
 
 def createContentForCity(key, city_info, scope_info):
-    country_code = countries[city_info['country']]
-    foldername = normalize(f"{scope_info['display_name']}-{country_code}")
+    foldername = normalize("%s-%s" % (scope_info['display_name'],countries[city_info['country']]))
     
     version = 'Beta'
     if city_info['prod']:
@@ -67,43 +66,41 @@ def createContentForCity(key, city_info, scope_info):
         if 'backend_version' in scope_info: 
             version = scope_info['backend_version']
 
-    print (f"{foldername} => {scope_info['display_name'] }{version}")
-
     contact = ""
     if 'contact_email' in scope_info and scope_info['contact_email']!='':
-        contact = f"- **Contact:** {protectEmail(scope_info['contact_email'])}"
+        contact = "- **Contact:** %s" % protectEmail(scope_info['contact_email'])
 
     carte = ""
     if 'map_url' in scope_info and scope_info['map_url']!='':
-        carte = f"- **Carte:** {scope_info['map_url']}"
+        carte = "- **Carte:** %s" % scope_info['map_url']
 
 
-    content = f"""---
-title: {scope_info['display_name']} ({version})
+    content = """---
+title: %s (%s)
 ---
 
-{{{{% vigilo-stats "{key}" %}}}}
+{{{{%% vigilo-stats "%s" %%}}}}
 
 
-{{{{% get_issues "{city_info['api_path']}" "&scope={city_info['scope']}" %}}}}
+{{{{%% get_issues "%s" "&scope=%s" %%}}}}
 
 
 ## Informations complémentaires
 
-{contact}
-{carte}
-"""
+%s
+%s
+""" % (scope_info['display_name'], version, key, city_info['api_path'], city_info['scope'], contact, carte)
 
 
     # Write content
-    foldercontent = f"content/villes/{foldername}" 
+    foldercontent = "content/villes/%s" % foldername 
     os.makedirs(foldercontent,exist_ok=True)
-    with open(f"{foldercontent}/_index.fr.md", 'w') as f:
+    with open("%s/_index.fr.md" % foldercontent, 'w') as f:
         f.write(content)
 
     # Add folder to gitignore
-    with open(f".gitignore", 'a+') as f:
-        gitignoreline = f"# Add from {MAKEFILE_ACTION}\n{foldercontent}\n\n"
+    with open(".gitignore", 'a+') as f:
+        gitignoreline = "# Add from %s\n%s\n\n" % (MAKEFILE_ACTION,foldercontent)
         f.write(gitignoreline)
 
 
@@ -120,6 +117,6 @@ if __name__ == "__main__":
         city_info['api_path'] = city_info['api_path'].replace('%3A%2F%2F','://')
 
         # Get scope information
-        data = downloadFile(f"{city_info['api_path']}/get_scope.php?scope={city_info['scope']}")
+        data = downloadFile("%s/get_scope.php?scope=%s" % (city_info['api_path'],city_info['scope']))
         scope_info = json.loads(data)
         createContentForCity(k, city_info,scope_info)
