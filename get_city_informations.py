@@ -58,7 +58,8 @@ def downloadFile(url):
     return text
 
 def createContentForCity(key, city_info, scope_info):
-    foldername = normalize(f"{scope_info['display_name']}-{countries[city_info['country']]}")
+    country_code = countries[city_info['country']]
+    foldername = normalize(f"{scope_info['display_name']}-{country_code}")
     
     version = 'Beta'
     if city_info['prod']:
@@ -67,9 +68,6 @@ def createContentForCity(key, city_info, scope_info):
             version = scope_info['backend_version']
 
     print (f"{foldername} => {scope_info['display_name'] }{version}")
-
-    print(city_info)
-    print(scope_info)
 
     contact = ""
     if 'contact_email' in scope_info and scope_info['contact_email']!='':
