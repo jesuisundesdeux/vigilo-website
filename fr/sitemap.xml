@@ -51,7 +51,7 @@
   </url>
   
   <url>
-    <loc>http://vigilo.city/fr/villes/caen/</loc>
+    <loc>http://vigilo.city/fr/villes/caen-fr/</loc>
   </url>
   
   <url>
@@ -70,27 +70,27 @@
   </url>
   
   <url>
-    <loc>http://vigilo.city/fr/villes/ch%C3%A2tillon/</loc>
+    <loc>http://vigilo.city/fr/villes/le-mans-fr/</loc>
   </url>
   
   <url>
-    <loc>http://vigilo.city/fr/villes/dunkerque/</loc>
+    <loc>http://vigilo.city/fr/villes/marseille-fr/</loc>
   </url>
   
   <url>
-    <loc>http://vigilo.city/fr/villes/marseille/</loc>
+    <loc>http://vigilo.city/fr/villes/metz-fr/</loc>
   </url>
   
   <url>
-    <loc>http://vigilo.city/fr/villes/metz/</loc>
+    <loc>http://vigilo.city/fr/villes/mons-be/</loc>
   </url>
   
   <url>
-    <loc>http://vigilo.city/fr/villes/montpellier/</loc>
+    <loc>http://vigilo.city/fr/villes/montpellier-fr/</loc>
   </url>
   
   <url>
-    <loc>http://vigilo.city/fr/villes/rouen/</loc>
+    <loc>http://vigilo.city/fr/villes/rouen-fr/</loc>
   </url>
   
   <url>
@@ -109,7 +109,11 @@
   </url>
   
   <url>
-    <loc>http://vigilo.city/fr/villes/troyes/</loc>
+    <loc>http://vigilo.city/fr/villes/troyes-fr/</loc>
+  </url>
+  
+  <url>
+    <loc>http://vigilo.city/fr/villes/vallee-sud-grand-paris-fr/</loc>
   </url>
   
   <url>
