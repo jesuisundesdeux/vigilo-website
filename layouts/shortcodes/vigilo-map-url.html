@@ -1,0 +1,15 @@
+{{ $url := .Get 0 }}
+
+{{ if ne $url "" }}
+
+## Carte
+
+<iframe width="100%" height="500px" frameborder="0" scrolling="no" allowfullscreen
+        src="{{ .Get 0 }}">
+</iframe>
+<p>
+  <a href="{{ .Get 0 }}">
+    Voir en plein écran
+  </a>
+</p>
+{{ end }}

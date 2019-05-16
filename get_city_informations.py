@@ -66,14 +66,15 @@ def createContentForCity(key, city_info, scope_info):
         if 'backend_version' in scope_info: 
             version = scope_info['backend_version']
 
-    contact = ""
+    contact_info = ""
     if 'contact_email' in scope_info and scope_info['contact_email']!='':
-        contact = "- **Contact:** %s" % protectEmail(scope_info['contact_email'])
+        contact_info = "- **Contact:** %s" % protectEmail(scope_info['contact_email'])
 
-    carte = ""
+    carte_info = ""
     if 'map_url' in scope_info and scope_info['map_url']!='':
-        carte = "- **Carte:** %s" % scope_info['map_url']
-
+        carte_info = "- **Carte:** %s" % scope_info['map_url']
+ 
+    api_scope = "- **Scope info:** %s/get_scope.php?scope=%s" % (city_info['api_path'],city_info['scope'])
 
     content = """---
 title: %s (%s)
@@ -81,6 +82,7 @@ title: %s (%s)
 
 {{%% vigilo-stats "%s" %%}}
 
+{{%% vigilo-map-url "%s" %%}}
 
 {{%% get_issues "%s" "&scope=%s" %%}}
 
@@ -89,7 +91,17 @@ title: %s (%s)
 
 %s
 %s
-""" % (scope_info['display_name'], version, key, city_info['api_path'], city_info['scope'], contact, carte)
+%s
+""" % (
+    scope_info['display_name'],
+    version, key,
+    scope_info['map_url'],
+    city_info['api_path'],
+    city_info['scope'], 
+    contact_info, 
+    carte_info,
+    api_scope
+    )
 
 
     # Write content
