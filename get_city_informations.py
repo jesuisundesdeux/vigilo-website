@@ -79,10 +79,10 @@ def createContentForCity(key, city_info, scope_info):
 title: %s (%s)
 ---
 
-{{{{%% vigilo-stats "%s" %%}}}}
+{{%% vigilo-stats "%s" %%}}
 
 
-{{{{%% get_issues "%s" "&scope=%s" %%}}}}
+{{%% get_issues "%s" "&scope=%s" %%}}
 
 
 ## Informations complémentaires
