@@ -32,7 +32,7 @@ def normalize(text):
     # Remove accent
     for c in iter(REMOVE_SYMBOLS_ACCENTS):
         for r in REMOVE_SYMBOLS_ACCENTS[c]:
-            text = text.replace(r,c)    
+            text = text.replace(r,c)
 
     # Remove multiple spaces
     text = "-".join(text.split())
@@ -59,11 +59,11 @@ def downloadFile(url):
 
 def createContentForCity(key, city_info, scope_info):
     foldername = normalize("%s-%s" % (scope_info['display_name'],countries[city_info['country']]))
-    
+
     version = 'Beta'
     if city_info['prod']:
         version = 'inconnue'
-        if 'backend_version' in scope_info: 
+        if 'backend_version' in scope_info:
             version = scope_info['backend_version']
 
     contact_info = ""
@@ -73,16 +73,15 @@ def createContentForCity(key, city_info, scope_info):
     carte_info = ""
     if 'map_url' in scope_info and scope_info['map_url']!='':
         carte_info = "- **Carte:** %s" % scope_info['map_url']
- 
+
     api_scope = "- **Scope info:** %s/get_scope.php?scope=%s" % (city_info['api_path'],city_info['scope'])
 
     content = """---
 title: %s (%s)
 ---
+{{%% vigilo-map-url "%s" %%}}
 
 {{%% vigilo-stats "%s" %%}}
-
-{{%% vigilo-map-url "%s" %%}}
 
 {{%% get_issues "%s" "&scope=%s" %%}}
 
@@ -94,18 +93,19 @@ title: %s (%s)
 %s
 """ % (
     scope_info['display_name'],
-    version, key,
+    version,
     scope_info['map_url'],
+    key,
     city_info['api_path'],
-    city_info['scope'], 
-    contact_info, 
+    city_info['scope'],
+    contact_info,
     carte_info,
     api_scope
     )
 
 
     # Write content
-    foldercontent = "content/villes/%s" % foldername 
+    foldercontent = "content/villes/%s" % foldername
     os.makedirs(foldercontent,exist_ok=True)
     with open("%s/_index.fr.md" % foldercontent, 'w') as f:
         f.write(content)
@@ -119,13 +119,13 @@ title: %s (%s)
 if __name__ == "__main__":
     data = downloadFile(CITYLIST)
     jcity = json.loads(data)
-    
+
     # Init .gitignore
     shutil.copyfile(".gitignore.tpl", ".gitignore")
 
     # Get cities informations
     for k in jcity:
-        city_info = jcity[k] 
+        city_info = jcity[k]
         city_info['api_path'] = city_info['api_path'].replace('%3A%2F%2F','://')
 
         # Get scope information
