@@ -15,8 +15,8 @@ aménagements mal conçus, défauts d'entretien, …)
 
 ### Fonctionnalités principales de Vigilo
 
-* Ne nécessite pas de création de compte
-* Faciliter d'utilisation: ajout d'une observation en moins de 30 secondes, application fluide
-* Respect de la vie privée que ce soit des  utilisateurs utilsant vigilo que des observations (floutage des plaques, des visages, ...)
+* Ne nécessite pas de création de compte : données anonymes validées par les modérateurs des associations de mobilités actives
+* Facilité d'utilisation : ajout d'une observation en moins de 30 secondes, application fluide
+* Respect de la vie privée que ce soit des utilisateurs de vigilo que des observations (floutage des plaques, des visages, ...)
 * [Projet Opensource](https://github.com/jesuisundesdeux)
 * Données des observations disponibles en opendata
