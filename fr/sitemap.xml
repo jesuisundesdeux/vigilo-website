@@ -51,6 +51,10 @@
   </url>
   
   <url>
+    <loc>http://vigilo.city/fr/villes/agglomeration-troyenne-fr/</loc>
+  </url>
+  
+  <url>
     <loc>http://vigilo.city/fr/villes/aix-marseille-provence-metropole-fr/</loc>
   </url>
   
@@ -78,6 +82,10 @@
   </url>
   
   <url>
+    <loc>http://vigilo.city/fr/villes/kentiss-uat-fr/</loc>
+  </url>
+  
+  <url>
     <loc>http://vigilo.city/fr/villes/le-mans-fr/</loc>
   </url>
   
@@ -91,6 +99,10 @@
   
   <url>
     <loc>http://vigilo.city/fr/villes/montpellier-fr/</loc>
+  </url>
+  
+  <url>
+    <loc>http://vigilo.city/fr/villes/paris-saclay-fr/</loc>
   </url>
   
   <url>
@@ -110,10 +122,6 @@
                 hreflang="fr"
                 href="http://vigilo.city/fr/tags/"
                 />
-  </url>
-  
-  <url>
-    <loc>http://vigilo.city/fr/villes/troyes-fr/</loc>
   </url>
   
   <url>
