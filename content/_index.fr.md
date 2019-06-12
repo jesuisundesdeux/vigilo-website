@@ -4,19 +4,38 @@ title: "Vigilo"
 
 # Vigilo, c'est quoi ?
 
-Vigilo c'est une appli collaborative citoyenne pour améliorer les déplacements des cyclistes, des
-piétons et de toutes les [mobilités actives](https://fr.wikipedia.org/wiki/Mobilit%C3%A9_active).
+C'est **l'appli collaborative citoyenne** pour améliorer **les déplacements des cyclistes, des
+piétons et de toutes les [mobilités actives](https://fr.wikipedia.org/wiki/Mobilit%C3%A9_active).**
 
-Les usagers peuvent maintenant remonter et cartographier les difficultés quotidiennes
+Les usagers peuvent maintenant **remonter et cartographier les difficultés quotidiennes**
 rencontrées lors de leurs déplacements en centre ville ou agglomération (véhicules ou objets gênants,
 aménagements mal conçus, défauts d'entretien, …)
 
-> A noter que Vigilo a vu le jour suite au mouvement [#JeSuisUnDesDeux](http://www.jesuisundesdeux.org/portfolio/articles-de-presses/) l'application est citoyenne et des bénévoles contribuent à son évolution.
+## Comment ça marche ?
+Par [l'application Web](https://app.vigilo.city/) (pour ordinateur, tablette ou mobile), [Android](https://play.google.com/store/apps/details?id=com.velocite34.vigilo) via le Play Store, ou iOS (bientôt disponible), prenez une photo, catégorisez le type de problème et envoyez votre observation.
 
-### Fonctionnalités principales de Vigilo
+<a href="https://play.google.com/store/apps/details?id=com.velocite34.vigilo">
+  <img src="/images/google-play-badge.png" width="200" style="display:initial; margin:0;" alt="google-play" />
+</a> <a href="https://app.vigilo.city" title="Bientôt disponible, en attendant utiliser l'application web">
+  <img src="/images/badge-ios.png" width="160" style="display:initial; margin:12px;" alt="iOS" />
+</a> <a href="https://app.vigilo.city" title="L'application web">
+  <img src="/images/firefox.png" width="70" style="display:initial; margin:5px;" alt="web" />
+  <img src="/images/chrome.png" width="70" style="display:initial; margin:5px;" alt="web" />
+  <img src="/images/safari.png" width="70" style="display:initial; margin:5px;" alt="web" />
+  <img src="/images/edge.png" width="70" style="display:initial; margin:5px;" alt="web" />
+</a>  
 
-* Ne nécessite pas de création de compte : données anonymes validées par les modérateurs des associations de mobilités actives
-* Facilité d'utilisation : ajout d'une observation en moins de 30 secondes, application fluide
-* Respect de la vie privée que ce soit des utilisateurs de vigilo que des observations (floutage des plaques, des visages, ...)
-* [Projet Opensource](https://github.com/jesuisundesdeux)
-* Données des observations disponibles en opendata
+## Fonctionnalités principales de Vigilo
+* Pas de création de compte : données **anonymes** validées par les **modérateurs des associations de mobilités actives**
+* Facilité d'utilisation : **ajout d'une observation en moins de 30 secondes**
+* **Respect de la vie privée** que ce soit des utilisateurs de vigilo que des observations (floutage des plaques, des visages, ...)
+* **[Projet Opensource](https://github.com/jesuisundesdeux)** développé par des **citoyens bénévoles**
+* Données des observations disponibles en **libre accès**
+
+### Soutiens
+<img src="/images/FUB.jpg" width="150" style="display:initial; margin:0;" alt="FUB" />
+<img src="/images/velo-en-ville-marseille.png" width="150" style="display:initial; margin:0;"  alt="marseille" />
+<img src="/images/logo-velocite-montpellier.png" width="250" style="display:initial; margin:0;"  alt="montpellier" />
+<img src="/images/velo-pieton-chatillon.jpg" width="150" style="display:initial; margin:0;"  alt="chatillon" />
+<img src="/images/troyes-en-selle.png" width="150" style="display:initial; margin:0;"  alt="troyes" />
+Et plein d'autres
