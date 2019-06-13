@@ -6,6 +6,4 @@ chapter: true
 
 # Web
 
-Découvrez comment utiliser l'application web
-
-Actuellement en beta, elle est accessible ici https://app.vigilo.city
+Elle est accessible ici https://app.vigilo.city
