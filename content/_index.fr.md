@@ -12,7 +12,7 @@ rencontrées lors de leurs déplacements en centre ville ou agglomération (véh
 aménagements mal conçus, défauts d'entretien, …)
 
 ## Comment ça marche ?
-Par [l'application Web](https://app.vigilo.city/) (pour ordinateur, tablette ou mobile), [Android](https://play.google.com/store/apps/details?id=com.velocite34.vigilo) via le Play Store, ou iOS (bientôt disponible), prenez une photo, catégorisez le type de problème et envoyez votre observation.
+Par [l'application Web](https://app.vigilo.city/) pour ordinateur, mobile ou tablette, [Android](https://play.google.com/store/apps/details?id=com.velocite34.vigilo) via le Play Store, ou iOS ([uniquement disponible via votre navigateur web](https://twitter.com/VigiloObsApp/status/1175391021066326016)), prenez une photo, catégorisez le type de problème et envoyez votre observation sur place ou chez soi.
 
 <a href="https://play.google.com/store/apps/details?id=com.velocite34.vigilo">
   <img src="/images/google-play-badge.png" width="200" style="display:initial; margin:0;" alt="google-play" />
