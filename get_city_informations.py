@@ -128,7 +128,8 @@ if __name__ == "__main__":
         city_info = jcity[k]
         city_info['api_path'] = city_info['api_path'].replace('%3A%2F%2F','://')
 
-        # Get scope information
-        data = downloadFile("%s/get_scope.php?scope=%s" % (city_info['api_path'],city_info['scope']))
-        scope_info = json.loads(data)
-        createContentForCity(k, city_info,scope_info)
+        if city_info['prod']:
+            # Get scope information
+            data = downloadFile("%s/get_scope.php?scope=%s" % (city_info['api_path'],city_info['scope']))
+            scope_info = json.loads(data)
+            createContentForCity(k, city_info,scope_info)
