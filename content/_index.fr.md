@@ -12,13 +12,22 @@ rencontrées lors de leurs déplacements en centre ville ou agglomération (véh
 aménagements mal conçus, défauts d'entretien, …)
 
 ## Comment ça marche ?
-Par [l'application Web](https://app.vigilo.city/) pour ordinateur, mobile ou tablette, [Android](https://play.google.com/store/apps/details?id=com.velocite34.vigilo) via le Play Store, ou iOS ([uniquement disponible via votre navigateur web](https://twitter.com/VigiloObsApp/status/1175391021066326016)), prenez une photo, catégorisez le type de problème et envoyez votre observation sur place ou chez soi.
-
+Par [l'application Web](https://app.vigilo.city/) pour **ordinateur, mobile ou tablette**, [Android via le Play Store](https://play.google.com/store/apps/details?id=com.velocite34.vigilo), ou [iOS (uniquement disponible via votre navigateur web](https://twitter.com/VigiloObsApp/status/1175391021066326016)):
+<ol>
+  <li>
+    Prenez une photo
+  </li>
+  <li>
+    Catégorisez le type de problème
+  </li>
+  <li>
+   Envoyez votre observation sur place ou chez soi.
+  </li>
+</ol>
 <a href="https://play.google.com/store/apps/details?id=com.velocite34.vigilo">
   <img src="/images/google-play-badge.png" width="200" style="display:initial; margin:0;" alt="google-play" />
-</a> <a href="https://app.vigilo.city" title="Bientôt disponible, en attendant utiliser l'application web">
-  <img src="/images/badge-ios.png" width="160" style="display:initial; margin:12px;" alt="iOS" />
-</a> <a href="https://app.vigilo.city" title="L'application web">
+</a>
+ <a href="https://app.vigilo.city" title="L'application web">
   <img src="/images/firefox.png" width="70" style="display:initial; margin:5px;" alt="web" />
   <img src="/images/chrome.png" width="70" style="display:initial; margin:5px;" alt="web" />
   <img src="/images/safari.png" width="70" style="display:initial; margin:5px;" alt="web" />
@@ -38,4 +47,5 @@ Par [l'application Web](https://app.vigilo.city/) pour ordinateur, mobile ou tab
 <img src="/images/logo-velocite-montpellier.png" width="250" style="display:initial; margin:0;"  alt="montpellier" />
 <img src="/images/velo-pieton-chatillon.jpg" width="150" style="display:initial; margin:0;"  alt="chatillon" />
 <img src="/images/troyes-en-selle.png" width="150" style="display:initial; margin:0;"  alt="troyes" />
-Et plein d'autres
+<img src="/images/place_au_velo_nantes.png" width="150" style="display:initial; margin:0;"  alt="Nantes" />
+<a href="villes">Et plein d'autres</a>
