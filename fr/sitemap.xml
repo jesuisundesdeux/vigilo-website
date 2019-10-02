@@ -63,10 +63,6 @@
   </url>
   
   <url>
-    <loc>http://vigilo.city/fr/villes/caen-fr/</loc>
-  </url>
-  
-  <url>
     <loc>http://vigilo.city/fr/categories/</loc>
     <priority>0</priority>
     <xhtml:link
@@ -79,18 +75,6 @@
                 hreflang="fr"
                 href="http://vigilo.city/fr/categories/"
                 />
-  </url>
-  
-  <url>
-    <loc>http://vigilo.city/fr/villes/kentiss-uat-fr/</loc>
-  </url>
-  
-  <url>
-    <loc>http://vigilo.city/fr/villes/le-mans-fr/</loc>
-  </url>
-  
-  <url>
-    <loc>http://vigilo.city/fr/villes/metz-fr/</loc>
   </url>
   
   <url>
@@ -107,14 +91,6 @@
   
   <url>
     <loc>http://vigilo.city/fr/villes/paris-saclay-fr/</loc>
-  </url>
-  
-  <url>
-    <loc>http://vigilo.city/fr/villes/rouen-fr/</loc>
-  </url>
-  
-  <url>
-    <loc>http://vigilo.city/fr/villes/saint-brieuc-armor-agglomeration-fr/</loc>
   </url>
   
   <url>
@@ -152,10 +128,6 @@
   
   <url>
     <loc>http://vigilo.city/fr/villes/maville/</loc>
-  </url>
-  
-  <url>
-    <loc>http://vigilo.city/fr/villes/valence-co-fr/</loc>
   </url>
   
 </urlset>
