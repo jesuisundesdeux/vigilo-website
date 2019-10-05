@@ -3,13 +3,15 @@ title: "Vigilo"
 ---
 
 # Vigilo, c'est quoi ?
-
+## À pied ou à vélo, ayez le réflexe Vigilo
 C'est **l'appli collaborative citoyenne** pour améliorer **les déplacements des cyclistes, des
 piétons et de toutes les [mobilités actives](https://fr.wikipedia.org/wiki/Mobilit%C3%A9_active).**
 
 Les usagers peuvent maintenant **remonter et cartographier les difficultés quotidiennes**
 rencontrées lors de leurs déplacements en centre ville ou agglomération (véhicules ou objets gênants,
 aménagements mal conçus, défauts d'entretien, …)
+
+
 
 ## Comment ça marche ?
 Par [l'application Web](https://app.vigilo.city/) pour **ordinateur, mobile ou tablette**, [Android via le Play Store](https://play.google.com/store/apps/details?id=com.velocite34.vigilo), ou [iOS (uniquement disponible via votre navigateur web](https://twitter.com/VigiloObsApp/status/1175391021066326016)):
@@ -42,10 +44,10 @@ Par [l'application Web](https://app.vigilo.city/) pour **ordinateur, mobile ou t
 * Données des observations disponibles en **libre accès**
 
 ### Soutiens
-<img src="/images/FUB.jpg" width="150" style="display:initial; margin:0;" alt="FUB" />
-<img src="/images/velo-en-ville-marseille.png" width="150" style="display:initial; margin:0;"  alt="marseille" />
-<img src="/images/logo-velocite-montpellier.png" width="250" style="display:initial; margin:0;"  alt="montpellier" />
-<img src="/images/velo-pieton-chatillon.jpg" width="150" style="display:initial; margin:0;"  alt="chatillon" />
-<img src="/images/troyes-en-selle.png" width="150" style="display:initial; margin:0;"  alt="troyes" />
-<img src="/images/place_au_velo_nantes.png" width="150" style="display:initial; margin:0;"  alt="Nantes" />
+<a href="https://www.fub.fr/"><img src="/images/FUB.jpg" width="150" style="display:initial; margin:0;" alt="FUB" /></a>
+<a href="https://www.velosenville.org"><img src="/images/velo-en-ville-marseille.png" width="150" style="display:initial; margin:0;"  alt="marseille" /></a>
+<a href="https://www.velocite-montpellier.fr"><img src="/images/LogoVelocite.jpg" width="250" style="display:initial; margin:0;"  alt="montpellier" /></a>
+<a href="https://www.vpchatillon.fr"><img src="/images/velo-pieton-chatillon.jpg" width="150" style="display:initial; margin:0;"  alt="chatillon" /></a>
+<a href="https://troyesenselle.fr/"><img src="/images/troyes-en-selle.png" width="150" style="display:initial; margin:0;"  alt="troyes" /></a>
+<a href="http://placeauvelo-nantes.fr/"><img src="/images/place_au_velo_nantes.png" width="150" style="display:initial; margin:0;"  alt="Nantes" /></a>
 <a href="villes">Et plein d'autres</a>
