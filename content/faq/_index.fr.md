@@ -19,7 +19,7 @@ FAQ Vigilo
    - [Pourquoi certaines photos sont pixelisées ?](#pourquoi-certaines-photos-sont-pixelisées)
    - [Pourquoi mon observation n'est plus visible ?](#pourquoi-mon-observation-n-est-plus-visible)
    - [J'ai d'autres problèmes dans l'utilisation de l'application Android](#j-ai-d-autres-problèmes-dans-l-utilisation-de-l-application-android)
-   - [Je constate qu'il y a des trackers dans l'application Android, pourquoi ?](#je-constate-qu-il-y-a-des-trackers-dans-l-application-android-pourquoi)
+   - [Pourquoi il y a des trackers dans l'application Android ?](#pourquoi-il-y-a-des-trackers-dans-l-application-android)
  - Je suis une association)
    - [Je souhaiterais mettre en place Vigilo dans ma ville](#je-souhaiterais-mettre-en-place-vigilo-dans-ma-ville)
    - [Comment ajouter un moderateur ?](#comment-ajouter-un-moderateur)
@@ -106,7 +106,7 @@ Si le problème persiste, contacter les developpeurs Vigilo sur velocite34@gmail
 
 Ne pas oublier qu'il s'agit d'un projet developpé par des benevoles : le traitement des demandes se fait selon les disponibilités de chacun.
 
-### Je constate qu'il y a des trackers dans l'application, pourquoi ?
+### Pourquoi il y a des trackers dans l'application Android ?
 
 L'application Android est acutellement developpée avec le framework Kodular.
 
