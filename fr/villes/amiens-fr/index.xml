@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Amiens (0.0.13) on À pied ou à vélo, ayez le réflexe Vigilo</title>
+    <link>http://vigilo.city/fr/villes/amiens-fr/</link>
+    <description>Recent content in Amiens (0.0.13) on À pied ou à vélo, ayez le réflexe Vigilo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-FR</language>
+    
+	<atom:link href="http://vigilo.city/fr/villes/amiens-fr/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>
