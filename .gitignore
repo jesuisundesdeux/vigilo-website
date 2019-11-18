@@ -9,9 +9,6 @@ content/api/_index.fr.md
 ###############################
 
 # Add from make generate-cities-content
-content/villes/nantes-metropole-fr
-
-# Add from make generate-cities-content
 content/villes/paris-saclay-fr
 
 # Add from make generate-cities-content
@@ -21,17 +18,20 @@ content/villes/vallee-sud-grand-paris-fr
 content/villes/amiens-fr
 
 # Add from make generate-cities-content
-content/villes/aix-marseille-provence-metropole-fr
+content/villes/agglomeration-troyenne-fr
 
 # Add from make generate-cities-content
-content/villes/montpellier-fr
-
-# Add from make generate-cities-content
-content/villes/brest-fr
+content/villes/nantes-metropole-fr
 
 # Add from make generate-cities-content
 content/villes/mons-be
 
 # Add from make generate-cities-content
-content/villes/agglomeration-troyenne-fr
+content/villes/montpellier-fr
+
+# Add from make generate-cities-content
+content/villes/aix-marseille-provence-metropole-fr
+
+# Add from make generate-cities-content
+content/villes/brest-metropole-fr
 

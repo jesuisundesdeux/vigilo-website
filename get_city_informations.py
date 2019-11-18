@@ -76,6 +76,7 @@ def createContentForCity(key, city_info, scope_info):
 
     api_scope = "- **Scope info:** %s/get_scope.php?scope=%s" % (city_info['api_path'],city_info['scope'])
 
+    opendata = '- **Données ouvertes:** <a href="%s/get_issues.php?scope=%s&format=json">JSON</a> - <a href="%s/get_issues.php?scope=%s&format=geojson">GeoJSON</a> - <a href="%s/get_issues.php?scope=%s&format=csv">CSV</a>' % (city_info['api_path'],city_info['scope'],city_info['api_path'],city_info['scope'],city_info['api_path'],city_info['scope'])
     content = """---
 title: %s (%s)
 ---
@@ -91,6 +92,7 @@ title: %s (%s)
 %s
 %s
 %s
+%s
 """ % (
     scope_info['display_name'],
     version,
@@ -100,7 +102,8 @@ title: %s (%s)
     city_info['scope'],
     contact_info,
     carte_info,
-    api_scope
+    api_scope,
+    opendata
     )
 
 
