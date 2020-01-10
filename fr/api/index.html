@@ -12,18 +12,18 @@
     <title>API :: À pied ou à vélo, ayez le réflexe Vigilo</title>
 
     
-    <link href="/css/nucleus.css?1574067490" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1574067490" rel="stylesheet">
-    <link href="/css/hybrid.css?1574067490" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1574067490" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1574067490" rel="stylesheet">
-    <link href="/css/auto-complete.css?1574067490" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1574067490" rel="stylesheet">
-    <link href="/css/theme.css?1574067490" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1574067490" rel="stylesheet">
+    <link href="/css/nucleus.css?1578650437" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1578650437" rel="stylesheet">
+    <link href="/css/hybrid.css?1578650437" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1578650437" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1578650437" rel="stylesheet">
+    <link href="/css/auto-complete.css?1578650437" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1578650437" rel="stylesheet">
+    <link href="/css/theme.css?1578650437" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1578650437" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1574067490"></script>
+    <script src="/js/jquery-3.3.1.min.js?1578650437"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1574067490"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1574067490"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1578650437"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1578650437"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/vigilo.city\/\/fr";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1574067490"></script>
+<script type="text/javascript" src="/js/search.js?1578650437"></script>
 
     
   </div>
@@ -969,31 +969,38 @@
 <li><a href="#arguments-9">Arguments</a></li>
 <li><a href="#retour-9">Retour</a></li>
 </ul></li>
-<li><a href="#suppression-observation">Suppression observation</a>
+<li><a href="#créer-résolution">Créer résolution</a></li>
+<li><a href="#compatibilité-11">Compatibilité</a>
 <ul>
-<li><a href="#compatibilité-11">Compatibilité</a></li>
 <li><a href="#requête-11">Requête</a></li>
 <li><a href="#arguments-10">Arguments</a></li>
 <li><a href="#retour-10">Retour</a></li>
 </ul></li>
-<li><a href="#obtenir-liste-observations-en-csv-legacy">Obtenir liste observations en CSV (legacy)</a>
+<li><a href="#suppression-observation">Suppression observation</a>
 <ul>
 <li><a href="#compatibilité-12">Compatibilité</a></li>
 <li><a href="#requête-12">Requête</a></li>
 <li><a href="#arguments-11">Arguments</a></li>
 <li><a href="#retour-11">Retour</a></li>
 </ul></li>
-<li><a href="#changer-status-observation">Changer status observation</a>
+<li><a href="#obtenir-liste-observations-en-csv-legacy">Obtenir liste observations en CSV (legacy)</a>
 <ul>
 <li><a href="#compatibilité-13">Compatibilité</a></li>
 <li><a href="#requête-13">Requête</a></li>
 <li><a href="#arguments-12">Arguments</a></li>
 <li><a href="#retour-12">Retour</a></li>
 </ul></li>
-<li><a href="#obtenir-carte-en-cache">Obtenir carte en cache</a>
+<li><a href="#changer-status-observation">Changer status observation</a>
 <ul>
 <li><a href="#compatibilité-14">Compatibilité</a></li>
 <li><a href="#requête-14">Requête</a></li>
+<li><a href="#arguments-13">Arguments</a></li>
+<li><a href="#retour-13">Retour</a></li>
+</ul></li>
+<li><a href="#obtenir-carte-en-cache">Obtenir carte en cache</a>
+<ul>
+<li><a href="#compatibilité-15">Compatibilité</a></li>
+<li><a href="#requête-15">Requête</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -1003,7 +1010,7 @@
 <li><a href="#catégories">Catégories</a></li>
 <li><a href="#observations-2">Observations</a></li>
 <li><a href="#scope">Scope</a></li>
-<li><a href="#statut">Statut</a></li>
+<li><a href="#status-des-observations">Status des observations</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -1630,6 +1637,15 @@
 <td>Token de l&rsquo;observation</td>
 <td>&gt;= 0.0.1</td>
 </tr>
+
+<tr>
+<td>URL</td>
+<td>str</td>
+<td>type</td>
+<td></td>
+<td>Type d&rsquo;image (resolution/obs)</td>
+<td>&gt;= 0.0.14</td>
+</tr>
 </tbody>
 </table>
 
@@ -1705,6 +1721,15 @@
 <td>X</td>
 <td>Clé secrète de l&rsquo;observation</td>
 <td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td>str</td>
+<td>type</td>
+<td></td>
+<td>Type d&rsquo;image (resolution/obs)</td>
+<td>&gt;= 0.0.14</td>
 </tr>
 
 <tr>
@@ -2017,18 +2042,140 @@
 
 <hr />
 
+<h5 id="créer-résolution">Créer résolution</h5>
+
+<h5 id="compatibilité-11">Compatibilité</h5>
+
+<p>Version backend &gt;= 0.0.14</p>
+
+<h6 id="requête-11">Requête</h6>
+
+<pre><code>GET /create_resolution.php
+</code></pre>
+
+<h6 id="arguments-10">Arguments</h6>
+
+<table>
+<thead>
+<tr>
+<th>Localisation</th>
+<th>Type</th>
+<th>Nom</th>
+<th>Obligatoire ?</th>
+<th>Description</th>
+<th>Compatibilité</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>URL</td>
+<td>str</td>
+<td>token</td>
+<td></td>
+<td>Token de l&rsquo;observation</td>
+<td>&gt;= 0.0.14</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td>str</td>
+<td>secretid</td>
+<td>Si key non fourni</td>
+<td>Clé secrète de l&rsquo;observation</td>
+<td>&gt;= 0.0.14</td>
+</tr>
+
+<tr>
+<td>Form</td>
+<td>str</td>
+<td>comment</td>
+<td></td>
+<td>Commentaire de résolution (max 50 chars)</td>
+<td>&gt;= 0.0.14</td>
+</tr>
+
+<tr>
+<td>Form</td>
+<td>int</td>
+<td>time</td>
+<td>X</td>
+<td>Timestamp format Unix</td>
+<td>&gt;= 0.0.14</td>
+</tr>
+
+<tr>
+<td>Form</td>
+<td>str</td>
+<td>tokenlist</td>
+<td>X</td>
+<td>Liste, séparée par une virgule des tokens de la résolution</td>
+<td>&gt;= 0.0.14</td>
+</tr>
+
+<tr>
+<td>Form</td>
+<td>str</td>
+<td>version</td>
+<td></td>
+<td>Version du client</td>
+<td>&gt;= 0.0.14</td>
+</tr>
+</tbody>
+</table>
+
+<h6 id="retour-10">Retour</h6>
+
+<p>JSON : Retourne les informations d&rsquo;identification de la résolution</p>
+
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Nom</th>
+<th>Description</th>
+<th>Compatibilité</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>bool</td>
+<td>status</td>
+<td>Retourne le <a href="#statut">statut</a> de l&rsquo;appel</td>
+<td>&gt;= 0.0.14</td>
+</tr>
+
+<tr>
+<td>str</td>
+<td>token</td>
+<td>Retourne le token généré</td>
+<td>&gt;= 0.0.1</td>
+</tr>
+
+<tr>
+<td>str</td>
+<td>secretid</td>
+<td>Retourne la clé secrete de l&rsquo;observation</td>
+<td>&gt;= 0.0.14</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
 <h5 id="suppression-observation">Suppression observation</h5>
 
-<h6 id="compatibilité-11">Compatibilité</h6>
+<h6 id="compatibilité-12">Compatibilité</h6>
 
 <p>Version backend &gt;= 0.0.1</p>
 
-<h6 id="requête-11">Requête</h6>
+<h6 id="requête-12">Requête</h6>
 
 <pre><code>GET /delete.php?
 </code></pre>
 
-<h6 id="arguments-10">Arguments</h6>
+<h6 id="arguments-11">Arguments</h6>
 
 <table>
 <thead>
@@ -2072,7 +2219,7 @@
 </tbody>
 </table>
 
-<h6 id="retour-10">Retour</h6>
+<h6 id="retour-11">Retour</h6>
 
 <p>JSON : Retourne les informations d&rsquo;identification de l&rsquo;observation</p>
 
@@ -2100,16 +2247,16 @@
 
 <h5 id="obtenir-liste-observations-en-csv-legacy">Obtenir liste observations en CSV (legacy)</h5>
 
-<h6 id="compatibilité-12">Compatibilité</h6>
+<h6 id="compatibilité-13">Compatibilité</h6>
 
 <p>Version backend &lt;= 0.0.5</p>
 
-<h6 id="requête-12">Requête</h6>
+<h6 id="requête-13">Requête</h6>
 
 <pre><code>GET /to_csv.php?
 </code></pre>
 
-<h6 id="arguments-11">Arguments</h6>
+<h6 id="arguments-12">Arguments</h6>
 
 <table>
 <thead>
@@ -2127,24 +2274,22 @@
 </tbody>
 </table>
 
-<h6 id="retour-11">Retour</h6>
+<h6 id="retour-12">Retour</h6>
 
 <p>CSV : Retourne les informations d&rsquo;identification de l&rsquo;observation</p>
 
-<hr />
-
 <h5 id="changer-status-observation">Changer status observation</h5>
 
-<h6 id="compatibilité-13">Compatibilité</h6>
+<h6 id="compatibilité-14">Compatibilité</h6>
 
-<p>Version backend &gt;= 0.0.5</p>
+<p><em>LEGACY</em></p>
 
-<h6 id="requête-13">Requête</h6>
+<h6 id="requête-14">Requête</h6>
 
 <pre><code>GET /update_status.php?
 </code></pre>
 
-<h6 id="arguments-12">Arguments</h6>
+<h6 id="arguments-13">Arguments</h6>
 
 <table>
 <thead>
@@ -2215,7 +2360,7 @@
 </tbody>
 </table>
 
-<h6 id="retour-12">Retour</h6>
+<h6 id="retour-13">Retour</h6>
 
 <p>JSON : Retourne les informations d&rsquo;identification de l&rsquo;observation</p>
 
@@ -2243,11 +2388,11 @@
 
 <h5 id="obtenir-carte-en-cache">Obtenir carte en cache</h5>
 
-<h6 id="compatibilité-14">Compatibilité</h6>
+<h6 id="compatibilité-15">Compatibilité</h6>
 
 <p>Version backend &gt;= 0.0.1</p>
 
-<h6 id="requête-14">Requête</h6>
+<h6 id="requête-15">Requête</h6>
 
 <pre><code>GET /maps/{TOKEN}_zoom.jpg
 </code></pre>
@@ -2350,7 +2495,7 @@
 <tr>
 <td>int</td>
 <td>status</td>
-<td>Statut de l&rsquo;observation (0 non résolue / 1 résolue)</td>
+<td>Statut de l&rsquo;observation (voir &ldquo;Status des observations&rdquo;)</td>
 <td>&gt;= 0.0.6</td>
 </tr>
 
@@ -2483,7 +2628,7 @@
 </tbody>
 </table>
 
-<h3 id="statut">Statut</h3>
+<h3 id="status-des-observations">Status des observations</h3>
 
 <table>
 <thead>
@@ -2497,10 +2642,10 @@
 
 <tbody>
 <tr>
-<td>bool</td>
+<td>int</td>
 <td>status</td>
-<td>0 =&gt; OK / 1 =&gt; NOK</td>
-<td>&gt;= 0.0.1 / &lt; 0.0.10</td>
+<td>0 =&gt; Nouvelle observation <br> 1 =&gt; Observation résolue <br> 2 =&gt; Prise en compte <br> 3 =&gt; En cours de résolution <br> 4 =&gt; Indiquée comme résolue</td>
+<td>&gt;= 0.0.10</td>
 </tr>
 </tbody>
 </table>
@@ -2960,20 +3105,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1574067490"></script>
-    <script src="/js/perfect-scrollbar.min.js?1574067490"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1574067490"></script>
-    <script src="/js/jquery.sticky.js?1574067490"></script>
-    <script src="/js/featherlight.min.js?1574067490"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1574067490"></script>
-    <script src="/js/highlight.pack.js?1574067490"></script>
+    <script src="/js/clipboard.min.js?1578650437"></script>
+    <script src="/js/perfect-scrollbar.min.js?1578650437"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1578650437"></script>
+    <script src="/js/jquery.sticky.js?1578650437"></script>
+    <script src="/js/featherlight.min.js?1578650437"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1578650437"></script>
+    <script src="/js/highlight.pack.js?1578650437"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1574067490"></script>
-    <script src="/js/learn.js?1574067490"></script>
-    <script src="/js/hugo-learn.js?1574067490"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1578650437"></script>
+    <script src="/js/learn.js?1578650437"></script>
+    <script src="/js/hugo-learn.js?1578650437"></script>
 
-    <link href="/mermaid/mermaid.css?1574067490" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1574067490"></script>
+    <link href="/mermaid/mermaid.css?1578650437" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1578650437"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
