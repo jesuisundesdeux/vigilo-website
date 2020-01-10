@@ -4,12 +4,12 @@ weight: 10
 disableToc: false
 ---
 
-La page principalle de vigilo, depuis cette page, vous pouvez choisir les divers actions :
+Depuis la page principale de vigilo vous pouvez choisir les actions suivantes :
 
- * Visualiser les observateurs des utilisateurs
+ * Visualiser les observations des utilisateurs
  * Visualiser vos observations
  * Visualiser les observations à proximité
- * Visualiser les observations en attente de médération (admin section)
+ * Visualiser les observations en attente de modération (admin section)
 
 
 ![Magic](/fr/app/android/accueil/images/accueil.jpg?width=400&classes=shadow)
