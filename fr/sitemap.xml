@@ -94,11 +94,11 @@
   </url>
   
   <url>
-    <loc>http://vigilo.city/fr/villes/mons-be/</loc>
+    <loc>http://vigilo.city/fr/villes/grand-montpellier-fr/</loc>
   </url>
   
   <url>
-    <loc>http://vigilo.city/fr/villes/montpellier-fr/</loc>
+    <loc>http://vigilo.city/fr/villes/mons-be/</loc>
   </url>
   
   <url>
@@ -107,6 +107,10 @@
   
   <url>
     <loc>http://vigilo.city/fr/villes/paris-saclay-fr/</loc>
+  </url>
+  
+  <url>
+    <loc>http://vigilo.city/fr/villes/sud-oise-fr/</loc>
   </url>
   
   <url>
