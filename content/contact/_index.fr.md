@@ -10,15 +10,19 @@ chapter: false
 <form action="https://getform.io/f/1d636600-c2c5-4a36-8975-11c03a9f9400"
       method="POST"
       accept-charset="UTF-8">
-    
+
 Nom :
     <input type="text" name="fullname">
 
-Adresse mail : 
+Adresse mail :
     <input type="email" name="email">
 
-Message : 
+Message :
     <textarea name="message"></textarea>
-    
+
     <button type="submit">Send</button>
 </form>
+
+## Alternatives
+* [Twitter - VigiloObsApp](https://twitter.com/VigiloObsApp)
+* [Github - En créant une issue](https://github.com/jesuisundesdeux/vigilo-website/issues)
