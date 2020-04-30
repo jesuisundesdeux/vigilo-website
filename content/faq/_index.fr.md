@@ -44,11 +44,11 @@ Vigilo est une application qui permet d'enregistrer des observations sur les dif
 
 Ces observations alimentent une base de données qui est réutilisée afin d'extraire des informations sur les conditions de déplacements de ces mobilités.
 
-Vigilo n'a pas vocation à faire de la denonciation, mais uniquement de remonter des élements factuels constatés par chacun sur le terrain. 
-Afin de renforcer cette position, l'ensemble des elements permettant l'identification d'une personnes (plaques d'immatriculations, visages, ...) doivent être floutés avant publication. 
+Vigilo n'a pas vocation à faire de la denonciation, mais uniquement de remonter des élements factuels constatés par chacun sur le terrain.
+Afin de renforcer cette position, l'ensemble des elements permettant l'identification d'une personnes (plaques d'immatriculations, visages, ...) doivent être floutés avant publication.
 Des modérateurs valident les observations et ajoutent ces floutages si besoin.
 
-### Je souhaiterais que Vigilo soit installé dans ma ville 
+### Je souhaiterais que Vigilo soit installé dans ma ville
 
 Vigilo est une application necessitant un suivi régulier, des compétences techniques, une responsabilité sur les données publiées ainsi qu'une démarche de valorisation des données.
 
@@ -92,7 +92,7 @@ Les observations ne respectant pas les règles d'utilisation de Vigilo sont dés
 * Photo sous licence (Google Street View par exemple)
 * Observation ne mettant pas en evidence une gène évidente
 * Observation avec des informations manquantes et/ou incorrectes
-* Propos inappropriés 
+* Propos inappropriés
 * Observation detectée comme fausse
 * Photo de mauvaise qualité
 
@@ -177,7 +177,7 @@ Il est ainsi possible d'obtenir au fil du temps un aperçu de l'état du terrain
 
 ### Comment utiliser Vigilo dans ma collectivité ?
 
-Vigilo est à exploiter idéalement par une association. 
+Vigilo est à exploiter idéalement par une association.
 
 Dans le cas où aucune association n'est en mesure de prendre en charge sa mise en place, il est possible sous couvert de répondre aux pré-requis, de mettre en place l'application. [Voir ici pour plus d'informations](#je-souhaiterais-que-vigilo-soit-installé-dans-ma-ville)
 
@@ -195,14 +195,14 @@ A charge à chaque exploitant d'utiliser les données selon ses besoins. Voir [i
 
 ### Quelles sont les technologies utilisées par Vigilo ?
 
-Vigilo utilise les langages de programtion suivants :
+Vigilo utilise les langages de programmation suivants :
 
 * PHP / HTML / CSS (Backend)
 * Javascript (Vigilo Web)
 * Pÿthon (VigiloTools)
 * Java (Application iOS)
 
-Vigilo utilise les technologies de containerisation Docker sur OS Linux Debian. 
+Vigilo utilise les technologies de containerisation Docker sur OS Linux Debian.
 
 ### Comment fonctionne la communauté OpenSource Vigilo ?
 
@@ -211,5 +211,3 @@ La communauté fonctionne autour de [GitHub](https://github.com/jesuisundesdeux/
 Chaque projet est géré par un Lead Dev qui valide les Pull Requests.
 
 Pour contribuer, il suffit de forker une branche, réaliser les modifications et faire une Pull Request vers la branche originale.
-
-
