@@ -23,6 +23,8 @@ FAQ Vigilo
  - Je suis une association)
    - [Je souhaiterais mettre en place Vigilo dans ma ville](#je-souhaiterais-mettre-en-place-vigilo-dans-ma-ville)
    - [Comment ajouter un moderateur ?](#comment-ajouter-un-moderateur)
+   - [Comment modérer sur l'interface web ?](#comment-modérer-sur-l-interface-web)
+   - [Comment modérer sur l'application Android ?](#comment-moderer-app-android)
    - [Comment sont utilisées les données Vigilo ?](#comment-sont-utilisées-les-données-vigilo)
    - [Pourquoi je dois mettre à jour mon instance ?](#pourquoi-je-dois-mettre-à-jour-mon-instance)
    - [Il manque certaines fonctionnalités dans Vigilo pour mon association](#il-manque-certaines-fonctionnalités-dans-vigilo-pour-mon-association)
@@ -129,6 +131,37 @@ L'ajout d'un modérateur se fait comme suit :
 * Le futur modérateur genere une clé dans son application
 * Il envoie la clé à un administrateur
 * La clé doit être ajoutée dans le champs prévu à cet effet sur le panneau d'admin de l'instance dans la section "Comptes".
+
+### Comment modérer sur l'interface web ?
+
+Pour gérer la modération une clé unique associée à votre compte doit être envoyée à un administrateur.
+Si vous ne l'avez jamais fait :
+* Cliquer 10 fois sur le logo Vigilo dans le menu sur la page de l'application web https://app.vigilo.city
+* Générer un clé
+* Puis l'enregistrer
+* Envoyer cette clé à l'administrateur du Vigilo de votre zone géographique
+Cette clé est commune à l'application web et à l'application android.
+
+Une fois que l'administrateur vous confirme votre statut de modérateur :
+* A partir du menu de l'application, cliquer sur Activer le mode Admin
+* Le fond de la page passe en rouge
+* En cliquant sur chaque observation, vous avez accès à un bouton Sens interdit bleu. En cliquant dessus, vous accéderez aux différentes fonctionnalités de la modération (approuver, supprimer, modifier)
+
+### Comment modérer sur l'application android ?
+
+Pour gérer la modération une clé unique associée à votre compte doit être envoyée à un administrateur.
+Si vous ne l'avez jamais fait :
+* L'application Vigilo doit être installée sur votre smartphone
+* Dans le menu principal, Générer une clé
+* Copier la clé générée
+* Envoyer cette clé à l'administrateur du Vigilo de votre zone géographique
+Cette clé est commune à l'application web et à l'application android.
+
+Une fois que l'administrateur vous confirme votre statut de modérateur :
+* ouvrir l'application
+* si besoin, sélectionner votre zone géographique
+* sélectionner une observation
+* vous accédez aux options de modération (approuver, désapprouver, modifier, supprimer) en cliquant sur le bouton jaune orné des 3 points noirs
 
 ### Comment sont utilisées les données Vigilo ?
 
