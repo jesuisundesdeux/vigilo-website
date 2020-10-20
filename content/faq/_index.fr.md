@@ -11,30 +11,32 @@ FAQ Vigilo
 ## Sommaire
 
  - Je suis un utilisateur
-   - [A quoi sert Vigilo ?](#a-quoi-sert-vigilo)
+   - [A quoi sert Vigilo ?](#a-quoi-sert-vigilo-)
    - [Je souhaiterais que Vigilo soit installé dans ma ville](#je-souhaiterais-que-vigilo-soit-installé-dans-ma-ville)
-   - [Pourquoi Vigilo n'est pas disponible sur iOS ?)](#pourquoi-vigilo-n-est-pas-disponible-sur-ios)
-   - [J'ai une erreur de "copie du fichier sur Android"](#j-ai-une-erreur-de-copie-du-fichier-sur-android)
-   - [L'application est lente](#l-application-est-lente)
-   - [Pourquoi certaines photos sont pixelisées ?](#pourquoi-certaines-photos-sont-pixelisées)
-   - [Pourquoi mon observation n'est plus visible ?](#pourquoi-mon-observation-n-est-plus-visible)
-   - [J'ai d'autres problèmes dans l'utilisation de l'application Android](#j-ai-d-autres-problèmes-dans-l-utilisation-de-l-application-android)
-   - [Pourquoi il y a des trackers dans l'application Android ?](#pourquoi-il-y-a-des-trackers-dans-l-application-android)
+   - [Pourquoi Vigilo n'est pas disponible sur iOS ?](#pourquoi-vigilo-nest-pas-disponible-sur-ios-)
+   - [J'ai une erreur de "copie du fichier sur Android"](#jai-une-erreur-de-copie-du-fichier-sur-android)
+   - [L'application est lente](#lapplication-est-lente)
+   - [Pourquoi certaines photos sont pixelisées ?](#pourquoi-certaines-photos-sont-pixelisées-)
+   - [Pourquoi mon observation n'est plus visible ?](#pourquoi-mon-observation-nest-plus-visible-)
+   - [J'ai d'autres problèmes dans l'utilisation de l'application Android](#jai-dautres-problèmes-dans-lutilisation-de-lapplication-android)
+   - [Pourquoi il y a des trackers dans l'application Android ?](#pourquoi-il-y-a-des-trackers-dans-lapplication-android-)
  - Je suis une association)
    - [Je souhaiterais mettre en place Vigilo dans ma ville](#je-souhaiterais-mettre-en-place-vigilo-dans-ma-ville)
-   - [Comment ajouter un moderateur ?](#comment-ajouter-un-moderateur)
-   - [Comment sont utilisées les données Vigilo ?](#comment-sont-utilisées-les-données-vigilo)
-   - [Pourquoi je dois mettre à jour mon instance ?](#pourquoi-je-dois-mettre-à-jour-mon-instance)
+   - [Comment ajouter un moderateur ?](#comment-ajouter-un-moderateur-)
+   - [Comment modérer sur l'interface web ?](#comment-modérer-sur-linterface-web-)
+   - [Comment modérer sur l'application Android ?](#comment-modérer-sur-lapplication-android-)
+   - [Comment sont utilisées les données Vigilo ?](#comment-sont-utilisées-les-données-vigilo-)
+   - [Pourquoi je dois mettre à jour mon instance ?](#pourquoi-je-dois-mettre-à-jour-mon-instance-)
    - [Il manque certaines fonctionnalités dans Vigilo pour mon association](#il-manque-certaines-fonctionnalités-dans-vigilo-pour-mon-association)
-   - [Comment obtenir du support pour installer et/ou exploiter Vigilo ?](#comment-obtenir-du-support-pour-installer-et-ou-exploiter-vigilo)
+   - [Comment obtenir du support pour installer et/ou exploiter Vigilo ?](#comment-obtenir-du-support-pour-installer-etou-exploiter-vigilo-)
  - Je suis une collectivité)
-   - [Que peut apporter Vigilo à ma collectivité ?](#que-peut-apporter-vigilo-à-ma-collectivité)
-   - [Comment utiliser Vigilo dans ma collectivité ?](#comment-utiliser-vigilo-dans-ma-collectivité)
-   - [Est-ce que Vigilo est payant ?](#est-ce-que-vigilo-est-payant)
-   - [Est-il possible de générer des moyens d'utiliser les données Vigilo ?](#est-il-possible-de-générer-des-moyens-d-utiliser-les-données-vigilo)
+   - [Que peut apporter Vigilo à ma collectivité ?](#que-peut-apporter-vigilo-à-ma-collectivité-)
+   - [Comment utiliser Vigilo dans ma collectivité ?](#comment-utiliser-vigilo-dans-ma-collectivité-)
+   - [Est-ce que Vigilo est payant ?](#est-ce-que-vigilo-est-payant-)
+   - [Est-il possible de générer des moyens d'utiliser les données Vigilo ?](#est-il-possible-de-générer-des-moyens-dutiliser-les-données-vigilo-)
  - Je veux contribuer à Vigilo
-   - [Quelles sont les technologies utilisées par Vigilo ?](#quelles-sont-les-technologies-utilisées-par-vigilo)
-   - [Comment fonctionne la communauté OpenSource Vigilo ?](#comment-fonctionne-la-communauté-opensource-vigilo)
+   - [Quelles sont les technologies utilisées par Vigilo ?](#quelles-sont-les-technologies-utilisées-par-vigilo-)
+   - [Comment fonctionne la communauté OpenSource Vigilo ?](#comment-fonctionne-la-communauté-opensource-vigilo-)
 
 ## Je suis un utilisateur
 
@@ -129,6 +131,37 @@ L'ajout d'un modérateur se fait comme suit :
 * Le futur modérateur genere une clé dans son application
 * Il envoie la clé à un administrateur
 * La clé doit être ajoutée dans le champs prévu à cet effet sur le panneau d'admin de l'instance dans la section "Comptes".
+
+### Comment modérer sur l'interface web ?
+
+Pour gérer la modération une clé unique associée à votre compte doit être envoyée à un administrateur.
+Si vous ne l'avez jamais fait :
+* Cliquer 10 fois sur le logo Vigilo dans le menu sur la page de l'application web https://app.vigilo.city
+* Générer un clé
+* Puis l'enregistrer
+* Envoyer cette clé à l'administrateur du Vigilo de votre zone géographique
+Cette clé est commune à l'application web et à l'application android.
+
+Une fois que l'administrateur vous confirme votre statut de modérateur :
+* A partir du menu de l'application, cliquer sur Activer le mode Admin
+* Le fond de la page passe en rouge
+* En cliquant sur chaque observation, vous avez accès à un bouton Sens interdit bleu. En cliquant dessus, vous accéderez aux différentes fonctionnalités de la modération (approuver, supprimer, modifier)
+
+### Comment modérer sur l'application android ?
+
+Pour gérer la modération une clé unique associée à votre compte doit être envoyée à un administrateur.
+Si vous ne l'avez jamais fait :
+* L'application Vigilo doit être installée sur votre smartphone
+* Dans le menu principal, Générer une clé
+* Copier la clé générée
+* Envoyer cette clé à l'administrateur du Vigilo de votre zone géographique
+Cette clé est commune à l'application web et à l'application android.
+
+Une fois que l'administrateur vous confirme votre statut de modérateur :
+* ouvrir l'application
+* si besoin, sélectionner votre zone géographique
+* sélectionner une observation
+* vous accédez aux options de modération (approuver, désapprouver, modifier, supprimer) en cliquant sur le bouton jaune orné des 3 points noirs
 
 ### Comment sont utilisées les données Vigilo ?
 
