@@ -42,7 +42,9 @@ Par [l'application Web](https://app.vigilo.city/) pour **ordinateur, mobile ou t
 * Facilité d'utilisation : **ajout d'une observation en moins de 30 secondes**
 * **Respect de la vie privée** que ce soit des utilisateurs de vigilo que des observations (floutage des plaques, des visages, ...)
 * **[Projet Opensource](https://github.com/jesuisundesdeux)** développé par des **citoyens bénévoles**
-* Données des observations disponibles en **libre accès**
+* Données des observations disponibles en **libre accès** sous [licence Creative Common Zero (CC0) pour placer les données dans le domaine public](https://fr.wikipedia.org/wiki/Licence_CC0)
+
+### Fonctionnalités principales de Vigilo
 
 ### Soutiens
 <a href="https://www.fub.fr/"><img src="/images/FUB.jpg" width="150" style="display:initial; margin:0;" alt="FUB" /></a>

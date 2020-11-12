@@ -1,5 +1,5 @@
 # vigilo-website
-vigilo website
+Listant les articles de presses, une documentation d'utilisation, la licence opendata (CC0)
 
 ## Edition avant commit
 Lancer dans un premier temps le serveur web avec la commande `make serve` editer les fichiers dans le repertoire `content` et visualiser les modifications en temps réel sur votre navigateur. Avant de commiter vous pouvez eventuellement lancer `make test`
