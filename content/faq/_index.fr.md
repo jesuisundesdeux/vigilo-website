@@ -136,6 +136,7 @@ L'ajout d'un modérateur se fait comme suit :
 
 Pour gérer la modération une clé unique associée à votre compte doit être envoyée à un administrateur.
 Si vous ne l'avez jamais fait :
+
 * Cliquer 10 fois sur le logo Vigilo dans le menu sur la page de l'application web https://app.vigilo.city
 * Générer un clé
 * Puis l'enregistrer
@@ -143,6 +144,7 @@ Si vous ne l'avez jamais fait :
 Cette clé est commune à l'application web et à l'application android.
 
 Une fois que l'administrateur vous confirme votre statut de modérateur :
+
 * A partir du menu de l'application, cliquer sur Activer le mode Admin
 * Le fond de la page passe en rouge
 * En cliquant sur chaque observation, vous avez accès à un bouton Sens interdit bleu. En cliquant dessus, vous accéderez aux différentes fonctionnalités de la modération (approuver, supprimer, modifier)
@@ -151,6 +153,7 @@ Une fois que l'administrateur vous confirme votre statut de modérateur :
 
 Pour gérer la modération une clé unique associée à votre compte doit être envoyée à un administrateur.
 Si vous ne l'avez jamais fait :
+
 * L'application Vigilo doit être installée sur votre smartphone
 * Dans le menu principal, Générer une clé
 * Copier la clé générée
@@ -158,6 +161,7 @@ Si vous ne l'avez jamais fait :
 Cette clé est commune à l'application web et à l'application android.
 
 Une fois que l'administrateur vous confirme votre statut de modérateur :
+
 * ouvrir l'application
 * si besoin, sélectionner votre zone géographique
 * sélectionner une observation
