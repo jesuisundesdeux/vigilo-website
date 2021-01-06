@@ -5,6 +5,6 @@ public
 themes
 
 content/api/_index.fr.md
-
+Pipfile.lock
 ###############################
 
