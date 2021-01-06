@@ -1,11 +1,10 @@
 VERSION := 0.55.4
-IGNOREURL := "/getgrav.org/,/vigilo.jesuisundesdeux.org/,/\/vigilo-website\/edit\/source\/content/"
 FILEIGNORE := "/site/fr/api/index.html/"
 makefile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
 pwd := $(dir $(makefile_path))
 
 HUGO := docker run --rm -it -v $(pwd):/src -v $(pwd)/public:/target -p 1313:1313 klakegg/hugo:${VERSION}
-HTMLPROOFER := docker run -v $(pwd)/public:/site 18fgsa/html-proofer /site --allow_hash_href --url-ignore "${IGNOREURL}" --file-ignore "${FILEIGNORE}"
+HTMLPROOFER := docker run -v $(pwd)/public:/site 18fgsa/html-proofer /site --allow_hash_href --disable-external true --file-ignore "${FILEIGNORE}"
 CMD := docker run --rm -it -v $(pwd):/src -v $(pwd)/public:/target alpine
 
 all: help
