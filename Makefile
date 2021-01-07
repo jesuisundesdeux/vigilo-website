@@ -23,7 +23,8 @@ doc-backend:
 	git clone https://github.com/jesuisundesdeux/vigilo-backend.git /tmp/vigilo-backend
 	cp content/api/_index.fr.tpl content/api/_index.fr.md
 	cat /tmp/vigilo-backend/doc/REST_API.md >> content/api/_index.fr.md
-
+	cp content/documentation/upgrade/_index.fr.tpl content/documentation/upgrade/_index.fr.md
+	cat /tmp/vigilo-backend/doc/UPGRADE.md >> content/documentation/upgrade/_index.fr.md
 
 generate-cities-content: ## generate-cities-content
 	python3 get_city_informations.py

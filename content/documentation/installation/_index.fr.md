@@ -1,6 +1,6 @@
 ---
 title: Installation de Vigilo
-weight: 1
+weight: 2
 ---
 
 ## Installation du back-end

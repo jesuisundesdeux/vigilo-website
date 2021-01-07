@@ -1,9 +1,19 @@
 ---
 title: Guide d'utilisation
-weight: 3
+weight: 1
 ---
 
 
-## Modération
+## Utilisation Application Android
 
-Afin d'ajouter des modérateurs sur l'application, suivre [cette procédure](/fr/documentation/utilisation/moderation/)
+Découvrez comment utiliser l'application Android
+
+[Procédure ici](/fr/app/android/)
+
+## Utilisation Application Web
+
+Découvrez comment utiliser l'application Web
+
+[Procédure ici](/fr/app/web/)
+
+

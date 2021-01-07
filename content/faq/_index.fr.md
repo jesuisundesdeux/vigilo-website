@@ -100,17 +100,16 @@ Les observations ne respectant pas les règles d'utilisation de Vigilo sont dés
 
 ### J'ai d'autres problèmes dans l'utilisation de l'application Android
 
-S'assurer que l'application est à jour.
+Tenter les étapes suivantes :
 
-Si besoin désinstaller/réinstaller.
-
-Si le problème persiste, contacter les developpeurs Vigilo sur velocite34@gmail.com avec le maximum d'informations et captures d'écrans.
-
-Ne pas oublier qu'il s'agit d'un projet developpé par des benevoles : le traitement des demandes se fait selon les disponibilités de chacun.
+* S'assurer que l'application est à jour.
+* Si besoin désinstaller/réinstaller.
+* Si le problème persiste, contacter les developpeurs Vigilo sur velocite34@gmail.com avec le maximum d'informations et captures d'écrans.
+* Ne pas oublier qu'il s'agit d'un projet developpé par des benevoles : le traitement des demandes se fait selon les disponibilités de chacun.
 
 ### Pourquoi il y a des trackers dans l'application Android ?
 
-L'application Android est acutellement developpée avec le framework Kodular.
+L'application Android est actuellement developpée avec le framework Kodular.
 
 Ce framework embarque des trackers que l'on retrouve dans Vigilo.
 
@@ -126,46 +125,15 @@ L'ensemble des informations sont diponibles sur [cette page](https://vigilo.city
 
 ### Comment ajouter un moderateur ?
 
-L'ajout d'un modérateur se fait comme suit :
-
-* Le futur modérateur genere une clé dans son application
-* Il envoie la clé à un administrateur
-* La clé doit être ajoutée dans le champs prévu à cet effet sur le panneau d'admin de l'instance dans la section "Comptes".
+Vous trouverez plus d'informations sur la [documentation](/fr/documentation/administration/moderation/)
 
 ### Comment modérer sur l'interface web ?
 
-Pour gérer la modération une clé unique associée à votre compte doit être envoyée à un administrateur.
-Si vous ne l'avez jamais fait :
-
-* Cliquer 10 fois sur le logo Vigilo dans le menu sur la page de l'application web https://app.vigilo.city
-* Générer un clé
-* Puis l'enregistrer
-* Envoyer cette clé à l'administrateur du Vigilo de votre zone géographique
-Cette clé est commune à l'application web et à l'application android.
-
-Une fois que l'administrateur vous confirme votre statut de modérateur :
-
-* A partir du menu de l'application, cliquer sur Activer le mode Admin
-* Le fond de la page passe en rouge
-* En cliquant sur chaque observation, vous avez accès à un bouton Sens interdit bleu. En cliquant dessus, vous accéderez aux différentes fonctionnalités de la modération (approuver, supprimer, modifier)
+Vous trouverez plus d'informations sur la [documentation](/fr/documentation/administration/moderation/#via-vigilo-web)
 
 ### Comment modérer sur l'application android ?
 
-Pour gérer la modération une clé unique associée à votre compte doit être envoyée à un administrateur.
-Si vous ne l'avez jamais fait :
-
-* L'application Vigilo doit être installée sur votre smartphone
-* Dans le menu principal, Générer une clé
-* Copier la clé générée
-* Envoyer cette clé à l'administrateur du Vigilo de votre zone géographique
-Cette clé est commune à l'application web et à l'application android.
-
-Une fois que l'administrateur vous confirme votre statut de modérateur :
-
-* ouvrir l'application
-* si besoin, sélectionner votre zone géographique
-* sélectionner une observation
-* vous accédez aux options de modération (approuver, désapprouver, modifier, supprimer) en cliquant sur le bouton jaune orné des 3 points noirs
+Vous trouverez plus d'informations sur la [documentation](/fr/documentation/administration/moderation/#via-vigilo-android)
 
 ### Comment sont utilisées les données Vigilo ?
 

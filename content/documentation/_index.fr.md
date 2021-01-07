@@ -1,5 +1,5 @@
 ---
-title: Documentation Installation
+title: Documentation
 weight: 16
 pre: "<b>5. </b>"
 chapter: false

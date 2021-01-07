@@ -1,6 +1,6 @@
 ---
 title: Configuration Vigilo
-weight: 2
+weight: 3
 ---
 
 
