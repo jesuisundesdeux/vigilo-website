@@ -33,11 +33,12 @@ Cloner le repo git complet en adaptant la version en remplacant X.</description>
     
     <item>
       <title>Modération</title>
-      <link>http://vigilo.city/fr/documentation/utilisation/moderation/</link>
+      <link>http://vigilo.city/fr/documentation/administration/moderation/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://vigilo.city/fr/documentation/utilisation/moderation/</guid>
-      <description> Ajout d&amp;rsquo;un modérateur Via Vigilo Android  Ouvrir Vigilo Panneau latérale (accessible via les trois barres en haut à gauche) Générer une clé Un message affichant &amp;ldquo;texte copié&amp;rdquo; s&amp;rsquo;affiche / votre clé est copié automatiquement Ajouter la clé sur la ligne du compte dans admin/  Via Vigilo Web  Panneau latérale (accessible via les trois barres en haut à gauche) &amp;ldquo;Presque modérateur&amp;rdquo; Ajouter la clé sur la ligne du compte dans admin  </description>
+      <guid>http://vigilo.city/fr/documentation/administration/moderation/</guid>
+      <description>Ajout d&amp;rsquo;un modérateur Actions modérateur Via Vigilo Android Pour gérer la modération une clé unique associée à votre compte doit être envoyée à un administrateur. Si vous ne l&amp;rsquo;avez jamais fait :
+ L&amp;rsquo;application Vigilo doit être installée sur votre smartphone Dans le menu principal, Générer une clé Copier la clé générée Envoyer cette clé à l&amp;rsquo;administrateur du Vigilo de votre zone géographique Cette clé est commune à l&amp;rsquo;application web et à l&amp;rsquo;application android.</description>
     </item>
     
     <item>

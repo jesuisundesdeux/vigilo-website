@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Guide d&#39;administration on À pied ou à vélo, ayez le réflexe Vigilo</title>
+    <link>http://vigilo.city/fr/documentation/administration/</link>
+    <description>Recent content in Guide d&#39;administration on À pied ou à vélo, ayez le réflexe Vigilo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-FR</language>
+    
+	<atom:link href="http://vigilo.city/fr/documentation/administration/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Modération</title>
+      <link>http://vigilo.city/fr/documentation/administration/moderation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://vigilo.city/fr/documentation/administration/moderation/</guid>
+      <description>Ajout d&amp;rsquo;un modérateur Actions modérateur Via Vigilo Android Pour gérer la modération une clé unique associée à votre compte doit être envoyée à un administrateur. Si vous ne l&amp;rsquo;avez jamais fait :
+ L&amp;rsquo;application Vigilo doit être installée sur votre smartphone Dans le menu principal, Générer une clé Copier la clé générée Envoyer cette clé à l&amp;rsquo;administrateur du Vigilo de votre zone géographique Cette clé est commune à l&amp;rsquo;application web et à l&amp;rsquo;application android.</description>
+    </item>
+    
+  </channel>
+</rss>

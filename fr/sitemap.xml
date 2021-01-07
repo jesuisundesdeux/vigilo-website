@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>http://vigilo.city/fr/documentation/installation/</loc>
+    <loc>http://vigilo.city/fr/documentation/utilisation/</loc>
   </url>
   
   <url>
@@ -19,7 +19,7 @@
   </url>
   
   <url>
-    <loc>http://vigilo.city/fr/documentation/utilisation/moderation/</loc>
+    <loc>http://vigilo.city/fr/documentation/administration/moderation/</loc>
   </url>
   
   <url>
@@ -27,7 +27,7 @@
   </url>
   
   <url>
-    <loc>http://vigilo.city/fr/documentation/configuration/</loc>
+    <loc>http://vigilo.city/fr/documentation/installation/</loc>
   </url>
   
   <url>
@@ -39,7 +39,7 @@
   </url>
   
   <url>
-    <loc>http://vigilo.city/fr/documentation/utilisation/</loc>
+    <loc>http://vigilo.city/fr/documentation/configuration/</loc>
   </url>
   
   <url>
@@ -51,7 +51,7 @@
   </url>
   
   <url>
-    <loc>http://vigilo.city/fr/documentation/exploitation_donnees/</loc>
+    <loc>http://vigilo.city/fr/documentation/administration/</loc>
   </url>
   
   <url>
@@ -68,6 +68,14 @@
   
   <url>
     <loc>http://vigilo.city/fr/app/</loc>
+  </url>
+  
+  <url>
+    <loc>http://vigilo.city/fr/documentation/exploitation_donnees/</loc>
+  </url>
+  
+  <url>
+    <loc>http://vigilo.city/fr/documentation/upgrade/</loc>
   </url>
   
   <url>
