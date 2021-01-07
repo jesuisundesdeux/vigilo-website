@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Guide d&#39;utilisation on À pied ou à vélo, ayez le réflexe Vigilo</title>
+    <link>http://vigilo.city/fr/documentation/utilisation/</link>
+    <description>Recent content in Guide d&#39;utilisation on À pied ou à vélo, ayez le réflexe Vigilo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-FR</language>
+    
+	<atom:link href="http://vigilo.city/fr/documentation/utilisation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Modération</title>
+      <link>http://vigilo.city/fr/documentation/utilisation/moderation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://vigilo.city/fr/documentation/utilisation/moderation/</guid>
+      <description> Ajout d&amp;rsquo;un modérateur Via Vigilo Android  Ouvrir Vigilo Panneau latérale (accessible via les trois barres en haut à gauche) Générer une clé Un message affichant &amp;ldquo;texte copié&amp;rdquo; s&amp;rsquo;affiche / votre clé est copié automatiquement Ajouter la clé sur la ligne du compte dans admin/  Via Vigilo Web  Panneau latérale (accessible via les trois barres en haut à gauche) &amp;ldquo;Presque modérateur&amp;rdquo; Ajouter la clé sur la ligne du compte dans admin  </description>
+    </item>
+    
+  </channel>
+</rss>

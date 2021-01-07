@@ -10,5 +10,99 @@
 	<atom:link href="http://vigilo.city/fr/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>Configuration MapQuest</title>
+      <link>http://vigilo.city/fr/documentation/configuration/mapquest/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://vigilo.city/fr/documentation/configuration/mapquest/</guid>
+      <description>MapQuest Mapquest est utilisé pour générer les images de carte dans le poster qui est généré.
+Pour obtenir une clé d&amp;rsquo;API MapQuest sur le module StaticMAP API =&amp;gt; https://developer.mapquest.com/
+Créer un compte sur la plate-forme et générer une clé via le lien &amp;ldquo;Manage Key&amp;rdquo;. Récupérer ensuite le &amp;ldquo;Consumer Key&amp;rdquo; qui sera à renseigner dans Vigilo.</description>
+    </item>
+    
+    <item>
+      <title>Installation sur serveur dédié avec Docker</title>
+      <link>http://vigilo.city/fr/documentation/installation/installation_dedie/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://vigilo.city/fr/documentation/installation/installation_dedie/</guid>
+      <description>Installation Vigilo sur serveur dédié avec Docker Pré-requis Logiciel  OS Linux Docker Docker-compose Un reserve-proxy comme Nginx afin de géré la couche SSL et l&amp;rsquo;accès public à Vigilo  Connaissances  OS Linux / PHP / MySQL / Docker  Mise en place A charge à l&amp;rsquo;administrateur d&amp;rsquo;installer le necessaire en amont pour permettre la mise en place d&amp;rsquo;un certificat SSL (LetsEncrypt).
+Cloner le repo git complet en adaptant la version en remplacant X.</description>
+    </item>
+    
+    <item>
+      <title>Modération</title>
+      <link>http://vigilo.city/fr/documentation/utilisation/moderation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://vigilo.city/fr/documentation/utilisation/moderation/</guid>
+      <description> Ajout d&amp;rsquo;un modérateur Via Vigilo Android  Ouvrir Vigilo Panneau latérale (accessible via les trois barres en haut à gauche) Générer une clé Un message affichant &amp;ldquo;texte copié&amp;rdquo; s&amp;rsquo;affiche / votre clé est copié automatiquement Ajouter la clé sur la ligne du compte dans admin/  Via Vigilo Web  Panneau latérale (accessible via les trois barres en haut à gauche) &amp;ldquo;Presque modérateur&amp;rdquo; Ajouter la clé sur la ligne du compte dans admin  </description>
+    </item>
+    
+    <item>
+      <title>Configuration Instance</title>
+      <link>http://vigilo.city/fr/documentation/configuration/global/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://vigilo.city/fr/documentation/configuration/global/</guid>
+      <description> Configuration de l&amp;rsquo;instance Aller sur https://adresse_du_serveur/admin/
+Configuration Remplir les différents champs :
+ URL base : adresse de vigilo (exemple : vigilo.jesuisundesdeux.org) Protocole d&amp;rsquo;accès : http ou https Nom de l&amp;rsquo;instance (exemple Vigilo Montpellier) Afficher observations non modérées : Determine si les observations doivent être visibles du public (floutée) avant modération Langue : fr-Fr (pas utilisé à ce jour) Clé Mapquest : clé définie dans Configuraiton MapQuest Nombre d&amp;rsquo;heure max pour Tweeter observations : Age maximum en heures des observations qui seront postées sur twitter automatiquement Charset : utf8 Timezone : Fuseau horaire normalisé  </description>
+    </item>
+    
+    <item>
+      <title>Installation sur hebergement PHP/MySQL</title>
+      <link>http://vigilo.city/fr/documentation/installation/installation_mutualise/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://vigilo.city/fr/documentation/installation/installation_mutualise/</guid>
+      <description>Installation sur serveur mutualisé Pré-requis Logiciel  PHP &amp;gt;= 7.1 avec php-gd Une base de données MySQL/MariaDB  Connaissances  PHP/MySQL  Mise en place Mise en place sources Cloner le repo git complet en adaptant la version en remplacant X.X.X par la dernière branche du git existante.
+$ git clone https://github.com/jesuisundesdeux/vigilo-backend.git -b X.X.X --single-branch  Importer le contenu de app/ dans l&amp;rsquo;arborescence web.
+Sur un hebrgement OVH : il est necessaire de supprimer le fichier .</description>
+    </item>
+    
+    <item>
+      <title>Configuration Twitter</title>
+      <link>http://vigilo.city/fr/documentation/configuration/twitter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://vigilo.city/fr/documentation/configuration/twitter/</guid>
+      <description>Configuration Twitter Création compte twitter  Créer un compte Twitter dédié à votre scope. Par soucis de cohérence avec toutes les autres instances, il est recommandé d&amp;rsquo;utiliser le modèle @VigiloVille. Exemples : VigiloTroyes, VigiloMtp34, VigiloValleeSud, VigiloMetz  Pour la suite, tout se passe en Anglais.
+ Se rendre sur https://developer.twitter.com et se connecter avec votre compte Twitter. Cliquer sur « Apply » en haut à droite (Apply for a developer account) Choisir « Doing something else » Choisir « France » à la réponse « What country do you live in?</description>
+    </item>
+    
+    <item>
+      <title>Initialisation</title>
+      <link>http://vigilo.city/fr/documentation/installation/initialisation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://vigilo.city/fr/documentation/installation/initialisation/</guid>
+      <description>Vérifications S&amp;rsquo;assurer que l&amp;rsquo;appli peut écrire dans les repertoires images/,caches/ et maps/
+Initialisation  Copier le fichier install_app/install.php sur l&amp;rsquo;hebergement et y accéder via https://adresse_du_serveur/install.php Remplir les champs permettant de créer un compte admin Supprimer install.php.  Configuration A cette étape, il est possible à présent de configurer l&amp;rsquo;application : Procédure Ici</description>
+    </item>
+    
+    <item>
+      <title>Ajout scope</title>
+      <link>http://vigilo.city/fr/documentation/configuration/scopes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://vigilo.city/fr/documentation/configuration/scopes/</guid>
+      <description> Configuration Scope Les scopes sont des zones géographiques indépendantes au sein d&amp;rsquo;une même instance.
+Il correspondent en règle générale à une Metropole, Agglomération voire un ville.
+En règle générale, un seul scope est necessaire.
+Ajouter un scope et remplir ses information comme suit :
+ Identifiant : XX_yyyyyyy où &amp;ldquo;xx&amp;rdquo; correspond au numero de departement ou code pays si non français (be, uk, &amp;hellip;) et &amp;ldquo;yyyyyyy&amp;rdquo; à un nom court (sans espace, ni accents, ni caractères spéciaux) correspondant au nom de la zone Nom affiché : Nom qui sera affiché correspondant à la zone Departement : Numero du département ou 0 si non applicable Latitude/Longitude minimale/maximale : Permet de limiter géographiquement la zone Coordonées centre du scope : Coordonnées du centre des cartes qui seront affichées dans l&amp;rsquo;application Zoom cartes : Zoom des cartes qui seront affichées dans l&amp;rsquo;application Email Contact : Email de contact de l&amp;rsquo;association en charge du scope Text de partage par défaut : Texte de partage qui sera mis par défaut quand les utilisateur utiliseront la fonction partage de l&amp;rsquo;application Compte Twitter affiché : Compte twitter affiché correspondant au scope Identifiant compte twitter : Numero du compte twitter configuré précédement qui sera utilisé par le scope Contenu des tweets autos : Contenu des tweets qui seront postés par le compte twitter lors de la validation des observations URL carte externe : Si besoin, URL d&amp;rsquo;une carte qui affiche les observations (voir Configuration UMAP)  </description>
+    </item>
+    
+    <item>
+      <title>Ajout villes</title>
+      <link>http://vigilo.city/fr/documentation/configuration/villes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://vigilo.city/fr/documentation/configuration/villes/</guid>
+      <description>Configuration Villes Ajouter dans cette section l&amp;rsquo;ensemble des villes du territoire. Celà permettra ensuite de filtrer les observations pour chaque ville.</description>
+    </item>
+    
   </channel>
 </rss>
