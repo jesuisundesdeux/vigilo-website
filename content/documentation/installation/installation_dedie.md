@@ -28,7 +28,7 @@ Cloner le repo git complet en adaptant la version en remplacant X.X.X par la der
 $ git clone https://github.com/jesuisundesdeux/vigilo-backend.git -b X.X.X --single-branch
 ```
 
-Copier le .env_sample vers .env
+Copier le .env_sample vers .env_prod
 
 ```
 $ cp .env_sample .env_prod
