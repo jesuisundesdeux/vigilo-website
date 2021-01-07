@@ -45,6 +45,7 @@ Une fois que l'administrateur vous confirme votre statut de modérateur :
 ### Actions administrateur
 
 Sur le panneau d'administration
+
 * Aller sur le panneau "Comptes"
 * Ajouter si besoin un compte 
 * Renseigner la clé sur la ligne du compte 
