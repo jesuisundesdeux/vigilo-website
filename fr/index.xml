@@ -27,7 +27,7 @@ Créer un compte sur la plate-forme et générer une clé via le lien &amp;ldquo
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://vigilo.city/fr/documentation/installation/installation_dedie/</guid>
-      <description>Installation Vigilo sur serveur dédié avec Docker Pré-requis Logiciel  OS Linux Docker Docker-compose Un reserve-proxy comme Nginx afin de géré la couche SSL et l&amp;rsquo;accès public à Vigilo  Connaissances  OS Linux / PHP / MySQL / Docker  Mise en place A charge à l&amp;rsquo;administrateur d&amp;rsquo;installer le necessaire en amont pour permettre la mise en place d&amp;rsquo;un certificat SSL (LetsEncrypt).
+      <description>Installation Vigilo sur serveur dédié avec Docker Pré-requis Logiciel  OS Linux Docker Docker-compose Un reverse-proxy comme Nginx afin de géré la couche SSL et l&amp;rsquo;accès public à Vigilo  Connaissances  OS Linux / PHP / MySQL / Docker  Mise en place A charge à l&amp;rsquo;administrateur d&amp;rsquo;installer le necessaire en amont pour permettre la mise en place d&amp;rsquo;un certificat SSL (LetsEncrypt).
 Cloner le repo git complet en adaptant la version en remplacant X.</description>
     </item>
     
