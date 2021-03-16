@@ -23,6 +23,10 @@
   </url>
   
   <url>
+    <loc>http://vigilo.city/fr/documentation/maintenance/sauvegarde/</loc>
+  </url>
+  
+  <url>
     <loc>http://vigilo.city/fr/documentation/configuration/global/</loc>
   </url>
   
@@ -76,6 +80,10 @@
   
   <url>
     <loc>http://vigilo.city/fr/documentation/upgrade/</loc>
+  </url>
+  
+  <url>
+    <loc>http://vigilo.city/fr/documentation/maintenance/</loc>
   </url>
   
   <url>
@@ -179,10 +187,6 @@
   
   <url>
     <loc>http://vigilo.city/fr/villes/montpellier-fr/</loc>
-  </url>
-  
-  <url>
-    <loc>http://vigilo.city/fr/villes/nantes-metropole-fr/</loc>
   </url>
   
   <url>

@@ -42,6 +42,18 @@ Cloner le repo git complet en adaptant la version en remplacant X.</description>
     </item>
     
     <item>
+      <title>Sauvegarde</title>
+      <link>http://vigilo.city/fr/documentation/maintenance/sauvegarde/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://vigilo.city/fr/documentation/maintenance/sauvegarde/</guid>
+      <description>Données à sauvegarder Il est important de sauvegarder quotidiennement les données Vigilo à un endroit différent que celui où est hebergé le site.
+Les données Vigilo sont présentes sous forme de fichiers et d&amp;rsquo;une base de données.
+Fichiers Les repertoires suivants doivent être sauvegardés :
+ images/ : IMPORTANT ! contient les photos Vigilo maps/ : générations des cartes via Mapquest caches/ : moins important, contient les caches mais permet d&amp;rsquo;éviter des problèmes de performances en cas de réinstallation  Base de données Avec Docker Ajouter en crontab :</description>
+    </item>
+    
+    <item>
       <title>Configuration Instance</title>
       <link>http://vigilo.city/fr/documentation/configuration/global/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
