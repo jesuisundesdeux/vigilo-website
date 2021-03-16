@@ -26,7 +26,7 @@ Example :
 
 #### Specific actions
 
-#### 0.0.11/0.0.12 to 0.0.13
+#### 0.0.11 - 0.0.12 to 0.0.13
 
 * Go the page https://URL/admin/ and go to the "Observations" pages and follow the instructions
 

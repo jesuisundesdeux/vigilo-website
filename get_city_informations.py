@@ -51,11 +51,16 @@ def protectEmail(email):
     return email
 
 def downloadFile(url):
-    response = urllib.request.urlopen(url)
-    data = response.read()
-    text = data.decode('utf-8')
 
-    return text
+    try:
+      response = urllib.request.urlopen(url, timeout=10)
+      data = response.read()
+      text = data.decode('utf-8')
+      return text
+    except Exception as err:
+      print('skip')
+      return False;
+
 
 def createContentForCity(key, city_info, scope_info):
     foldername = normalize("%s-%s" % (scope_info['display_name'],countries[city_info['country']]))
@@ -132,7 +137,10 @@ if __name__ == "__main__":
         city_info['api_path'] = city_info['api_path'].replace('%3A%2F%2F','://')
 
         if city_info['prod']:
+            print(k)
             # Get scope information
             data = downloadFile("%s/get_scope.php?scope=%s" % (city_info['api_path'],city_info['scope']))
-            scope_info = json.loads(data)
-            createContentForCity(k, city_info,scope_info)
+            if data:
+              scope_info = json.loads(data)
+              createContentForCity(k, city_info,scope_info)
+           

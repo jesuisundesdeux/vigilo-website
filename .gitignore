@@ -9,44 +9,41 @@ Pipfile.lock
 ###############################
 
 # Add from make generate-cities-content
-content/villes/aix-marseille-provence-metropole-fr
-
-# Add from make generate-cities-content
-content/villes/amiens-fr
-
-# Add from make generate-cities-content
-content/villes/beauvaisis-fr
-
-# Add from make generate-cities-content
-content/villes/brest-metropole-fr
-
-# Add from make generate-cities-content
-content/villes/nord-isere-(apie)-fr
-
-# Add from make generate-cities-content
-content/villes/mons-be
-
-# Add from make generate-cities-content
 content/villes/grand-montpellier-fr
-
-# Add from make generate-cities-content
-content/villes/nantes-metropole-fr
 
 # Add from make generate-cities-content
 content/villes/paris-saclay-fr
 
 # Add from make generate-cities-content
-content/villes/perigueux-agglo-fr
-
-# Add from make generate-cities-content
 content/villes/saint-brieuc-armor-agglomeration-fr
-
-# Add from make generate-cities-content
-content/villes/sud-oise-fr
 
 # Add from make generate-cities-content
 content/villes/thau-fr
 
 # Add from make generate-cities-content
+content/villes/amiens-fr
+
+# Add from make generate-cities-content
+content/villes/nord-isere-(apie)-fr
+
+# Add from make generate-cities-content
+content/villes/aix-marseille-provence-metropole-fr
+
+# Add from make generate-cities-content
+content/villes/perigueux-agglo-fr
+
+# Add from make generate-cities-content
+content/villes/mons-be
+
+# Add from make generate-cities-content
+content/villes/sud-oise-fr
+
+# Add from make generate-cities-content
+content/villes/beauvaisis-fr
+
+# Add from make generate-cities-content
 content/villes/agglomeration-troyenne-fr
+
+# Add from make generate-cities-content
+content/villes/bassin-d-arcachon-fr
 
