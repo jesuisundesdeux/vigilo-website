@@ -37,6 +37,5 @@ Un slack est mis à disposition afin de permettre une mise en place avec les con
 
 ## Contact
 
-Pour la mise en place d'une instance Vigilo, vous pouvez contacter sur twitter [@kentiss34](https://twitter.com/kentiss34) ou [@jesuislibre](https://twitter.com/jesuislibre)
-
+Pour la mise en place d'une instance Vigilo, vous pouvez contacter via le lien "Nous contacter" de ce site.
 
