@@ -10,7 +10,7 @@ L'ajout de votre ville ou zone géographique est possible.
 Il faut en outre remplir ces conditions :
 
 * Etre une association afin de garantir la pérénité du service
-* Disposer d'une ou plusieurs personnes ayant des bases en informatique afin de maintenir l'application sur le périmètre de la zone voulue
+* Disposer d'une ou plusieurs personnes ayant des compéténces solides en informatique (PHP/MySQL/Sauvegarde...) afin d'installer et de maintenir l'application sur le périmètre de la zone voulue en toute autonomie
 * Assurer le suivi des mises à jour de l'application
 * Avoir des modérateurs qui valideront les observations et réaliseront le floutage des éléments liés à la vie privée sur les photos
 * Restreindre la zone de manière cohérente (plus la zone est grande, plus la modération et le suivi seront importants)
