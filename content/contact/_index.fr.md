@@ -7,6 +7,8 @@ chapter: false
 
 ## Remplir le formulaire pour nous contacter
 
+Avant de nous contacter, merci de prendre connaissance de la [FAQ](https://vigilo.city/fr/faq/) qui contient déjà une grande partie des réponses aux questions les plus récurrentes.
+
 <form action="https://getform.io/f/1d636600-c2c5-4a36-8975-11c03a9f9400"
       method="POST"
       accept-charset="UTF-8">
