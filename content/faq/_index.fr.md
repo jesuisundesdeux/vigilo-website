@@ -20,7 +20,7 @@ FAQ Vigilo
    - [Pourquoi mon observation n'est plus visible ?](#pourquoi-mon-observation-n-est-plus-visible)
    - [J'ai d'autres problèmes dans l'utilisation de l'application Android](#j-ai-d-autres-problèmes-dans-l-utilisation-de-l-application-android)
    - [Pourquoi il y a des trackers dans l'application Android ?](#pourquoi-il-y-a-des-trackers-dans-l-application-android)
- - Je suis une association)
+ - Je suis une association
    - [Je souhaiterais mettre en place Vigilo dans ma ville](#je-souhaiterais-mettre-en-place-vigilo-dans-ma-ville)
    - [Comment ajouter un moderateur ?](#comment-ajouter-un-moderateur)
    - [Comment modérer sur l'interface web ?](#comment-modérer-sur-l-interface-web)
@@ -29,7 +29,7 @@ FAQ Vigilo
    - [Pourquoi je dois mettre à jour mon instance ?](#pourquoi-je-dois-mettre-à-jour-mon-instance)
    - [Il manque certaines fonctionnalités dans Vigilo pour mon association](#il-manque-certaines-fonctionnalités-dans-vigilo-pour-mon-association)
    - [Comment obtenir du support pour installer et/ou exploiter Vigilo ?](#comment-obtenir-du-support-pour-installer-et-ou-exploiter-vigilo)
- - Je suis une collectivité)
+ - Je suis une collectivité
    - [Que peut apporter Vigilo à ma collectivité ?](#que-peut-apporter-vigilo-à-ma-collectivité)
    - [Comment utiliser Vigilo dans ma collectivité ?](#comment-utiliser-vigilo-dans-ma-collectivité)
    - [Est-ce que Vigilo est payant ?](#est-ce-que-vigilo-est-payant)
@@ -155,15 +155,14 @@ Si l'instance n'est pas à jour elle risque de ne plus fonctionner avec les nouv
 
 ### Il manque certaines fonctionnalités dans Vigilo pour mon association
 
-Toute suggestion est la bienvenue, mais ne sera pas obligatoirement mise en place.
+vigilo est une application développée sur le modèle libre et Open-Source par des bénévoles. 
 
-L'application est developpée par des bénévoles et dispose d'une roadmap déjà bien fournie.
+Si une fonctionnalité est manquante, il est tout à fait possible à chacun de contribuer et de proposer une contribution. 
+Voir [Comment fonctionne la communauté OpenSource Vigilo ?](#comment-fonctionne-la-communauté-opensource-vigilo)
 
-Le traitement de cette roadmap se fait selon des priorités et les disponibilités.
+Il est également possible d'ajouter des fonctionnalités de manière indépendante et s'appuyant sur les données Open-DATA fournies par Vigilo.
 
-Si cette suggestion est vraiment indispensable et urgente, toute aide est la bienvenue !
-
-### Comment obtenir du support pour installer et/ou exploiter Vigilo ?
+### Comment obtenir de l'aide pour installer et/ou exploiter Vigilo ?
 
 Un Slack est à disposition pour échanger avec les developpeurs et les autres associations.
 
