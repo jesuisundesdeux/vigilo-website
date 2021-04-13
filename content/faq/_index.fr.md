@@ -28,7 +28,7 @@ FAQ Vigilo
    - [Comment sont utilisées les données Vigilo ?](#comment-sont-utilisées-les-données-vigilo)
    - [Pourquoi je dois mettre à jour mon instance ?](#pourquoi-je-dois-mettre-à-jour-mon-instance)
    - [Il manque certaines fonctionnalités dans Vigilo pour mon association](#il-manque-certaines-fonctionnalités-dans-vigilo-pour-mon-association)
-   - [Comment obtenir de l'aide pour installer et/ou exploiter Vigilo ?](#comment-obtenir-de-laide-pour-installer-etou-exploiter-vigilo)
+   - [Comment obtenir de l'aide pour installer et/ou exploiter Vigilo ?](#comment-obtenir-de-laide-pour-installer-etou-exploiter-vigilo-)
  - Je suis une collectivité
    - [Que peut apporter Vigilo à ma collectivité ?](#que-peut-apporter-vigilo-à-ma-collectivité)
    - [Comment utiliser Vigilo dans ma collectivité ?](#comment-utiliser-vigilo-dans-ma-collectivité)
