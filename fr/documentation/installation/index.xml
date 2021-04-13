@@ -26,9 +26,10 @@ Cloner le repo git complet en adaptant la version en remplacant X.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://vigilo.city/fr/documentation/installation/installation_mutualise/</guid>
-      <description>Installation sur serveur mutualisé Pré-requis Logiciel  PHP &amp;gt;= 7.1 avec php-gd Une base de données MySQL/MariaDB  Connaissances  PHP/MySQL  Mise en place Mise en place sources Cloner le repo git complet en adaptant la version en remplacant X.X.X par la dernière branche du git existante.
-$ git clone https://github.com/jesuisundesdeux/vigilo-backend.git -b X.X.X --single-branch  Importer le contenu de app/ dans l&amp;rsquo;arborescence web.
-Sur un hebrgement OVH : il est necessaire de supprimer le fichier .</description>
+      <description>Installation sur serveur mutualisé Pré-requis Logiciel  PHP &amp;gt;= 7.1 avec php-gd Une base de données MySQL/MariaDB  Connaissances  PHP/MySQL  Mise en place Téléchargement release Télécharger la dernière release sur la page https://github.com/jesuisundesdeux/vigilo-backend/tags
+Importer le contenu de app/ dans l&amp;rsquo;arborescence web.
+Sur un hebergement type OVH : il est necessaire de supprimer le fichier .htaccess (sinon : erreur 500 lors de l&amp;rsquo;accès aux pages php).
+Mise en place base de données Executer l&amp;rsquo;ensemble des scripts MySQL présents dans mysql/init/ dans l&amp;rsquo;ordre sur MySQL.</description>
     </item>
     
     <item>

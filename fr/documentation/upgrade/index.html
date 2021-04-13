@@ -12,18 +12,18 @@
     <title>Mise à jour de Vigilo :: À pied ou à vélo, ayez le réflexe Vigilo</title>
 
     
-    <link href="/css/nucleus.css?1617954672" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1617954672" rel="stylesheet">
-    <link href="/css/hybrid.css?1617954672" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1617954672" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1617954672" rel="stylesheet">
-    <link href="/css/auto-complete.css?1617954672" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1617954672" rel="stylesheet">
-    <link href="/css/theme.css?1617954672" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1617954672" rel="stylesheet">
+    <link href="/css/nucleus.css?1618304870" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1618304870" rel="stylesheet">
+    <link href="/css/hybrid.css?1618304870" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1618304870" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1618304870" rel="stylesheet">
+    <link href="/css/auto-complete.css?1618304870" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1618304870" rel="stylesheet">
+    <link href="/css/theme.css?1618304870" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1618304870" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1617954672"></script>
+    <script src="/js/jquery-3.3.1.min.js?1618304870"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1617954672"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1617954672"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1618304870"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1618304870"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/vigilo.city\/\/fr";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1617954672"></script>
+<script type="text/javascript" src="/js/search.js?1618304870"></script>
 
     
   </div>
@@ -1520,7 +1520,7 @@
     <section id="footer">
       <center>
     
-    <a class="github-button" href="https://github.com/jesuisundesdeux/vigilo-backend/archive/master.zip" data-icon="octicon-cloud-download" aria-label="Download matcornic/hugo-theme-learn on GitHub">Download</a>
+    <a class="github-button" href="https://github.com/jesuisundesdeux/vigilo-backend/releases/latest" data-icon="octicon-cloud-download" aria-label="Download matcornic/hugo-theme-learn on GitHub">Download</a>
 
     
     <a class="github-button" href="https://github.com/jesuisundesdeux/vigilo-backend" data-icon="octicon-star" data-show-count="true" aria-label="Star matcornic/hugo-theme-learn on GitHub">Star</a>
@@ -1602,11 +1602,19 @@
 <ul>
 <li>
 <ul>
-<li><a href="#upgrade">Upgrade</a>
+<li><a href="#mise-à-jour">Mise à jour</a>
 <ul>
-<li><a href="#for-all-upgrades">For all upgrades</a></li>
-<li><a href="#specific-actions">Specific actions</a></li>
-<li><a href="#0-0-11-0-0-12-to-0-0-13">0.0.<sup>11</sup>&frasl;<sub>0</sub>.0.12 to 0.0.13</a></li>
+<li><a href="#pour-chaque-mise-à-jour">Pour chaque mise à jour</a>
+<ul>
+<li><a href="#mise-à-jour-du-code">Mise à jour du code</a>
+<ul>
+<li><a href="#versions-0-0-17">Versions &lt; 0.0.17</a></li>
+<li><a href="#versions-0-0-17-1">Versions &gt;= 0.0.17</a></li>
+</ul></li>
+<li><a href="#mettre-à-jour-la-base-de-données">Mettre à jour la base de données</a></li>
+</ul></li>
+<li><a href="#actions-spciéfiques">Actions spciéfiques</a></li>
+<li><a href="#0-0-11-0-0-12-vers-0-0-13">0.0.<sup>11</sup>&frasl;<sub>0</sub>.0.12 vers 0.0.13</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -1642,35 +1650,62 @@
 <p>Page généré automatiquement depuis <a href="https://github.com/jesuisundesdeux/vigilo-backend/blob/master/doc/UPGRADE.md">la documentation projet vigilo-backend</a></p>
 </blockquote>
 
-<h3 id="upgrade">Upgrade</h3>
+<h3 id="mise-à-jour">Mise à jour</h3>
 
-<p>Before upgrading you should disable INNODB STRICT MODE by launching in MySQL CLI:</p>
+<p>Avant de mettre à jour désactiver INNODB STRICT MODE en lancant MySQL CLI:</p>
 
 <pre><code>SET SESSION innodb_strict_mode=OFF;
 </code></pre>
 
-<h4 id="for-all-upgrades">For all upgrades</h4>
+<h4 id="pour-chaque-mise-à-jour">Pour chaque mise à jour</h4>
+
+<h5 id="mise-à-jour-du-code">Mise à jour du code</h5>
+
+<h6 id="versions-0-0-17">Versions &lt; 0.0.17</h6>
 
 <ul>
-<li><p>Update source code from last version branch (replace X.X.X by the latest release)
-<code>git pull origin X.X.X</code></p></li>
-
-<li><p>Launch in MySQL the SQL scripts in mysql/init/ corresponding to the superior versions order by the version number.</p></li>
+<li>Récupérer et choisir la dernière branche
+<code>
+$ git fetch origin
+$ git checkout X.X.X
+</code></li>
 </ul>
 
-<p>Example :
-  If your current version is 0.0.12, launch init-0.0.13.sql then init-0.0.14.sql then init-0.0.15.sql then &hellip;</p>
+<h6 id="versions-0-0-17-1">Versions &gt;= 0.0.17</h6>
+
+<p>Depuis la version 0.0.17, les versions ont été fixées via les tags plutôt que les branches</p>
+
+<p><strong>Pour un serveur dédié :</strong></p>
+
+<p>Mettre à jour le repo et changer le tag :</p>
+
+<pre><code>$ git fetch --all --tags --prune
+$ git checkout vX.X.X
+</code></pre>
+
+<p><strong>Pour un hebergement mutualisé :</strong></p>
 
 <ul>
-<li>Execute if needed the specific actions below</li>
+<li>Télécharger le package en provenance de <a href="https://github.com/jesuisundesdeux/vigilo-backend/tags">https://github.com/jesuisundesdeux/vigilo-backend/tags</a> avec la dernière version</li>
+<li>Sauvegarder le contenu des repertoires maps, cache et images.</li>
+<li>Extraire le package et copier le contenu de app sur le serveur dédié (écraser les fichiers si besoin)</li>
 </ul>
 
-<h4 id="specific-actions">Specific actions</h4>
-
-<h4 id="0-0-11-0-0-12-to-0-0-13">0.0.<sup>11</sup>&frasl;<sub>0</sub>.0.12 to 0.0.13</h4>
+<h5 id="mettre-à-jour-la-base-de-données">Mettre à jour la base de données</h5>
 
 <ul>
-<li>Go the page <a href="https://URL/admin/">https://URL/admin/</a> and go to the &ldquo;Observations&rdquo; pages and follow the instructions</li>
+<li>Lancer dans l&rsquo;ordre les fichiers SQL de mysql/init/ correspondant aux versions supérieures à la votre
+Exemple : Si votre version est 0.0.12, lancer init-0.0.13.sql puis init-0.0.14.sql puis init-0.0.15.sql &hellip;</li>
+</ul>
+
+<h4 id="actions-spciéfiques">Actions spciéfiques</h4>
+
+<p>Certaines mises à jour de version necessitent des actions supplémentaires</p>
+
+<h4 id="0-0-11-0-0-12-vers-0-0-13">0.0.<sup>11</sup>&frasl;<sub>0</sub>.0.12 vers 0.0.13</h4>
+
+<ul>
+<li>Aller sur l&rsquo;admin <a href="https://URL/admin/">https://URL/admin/</a> puis sur &ldquo;Observations&rdquo; et suivre les instructions</li>
 </ul>
 
 
@@ -2584,20 +2619,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1617954672"></script>
-    <script src="/js/perfect-scrollbar.min.js?1617954672"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1617954672"></script>
-    <script src="/js/jquery.sticky.js?1617954672"></script>
-    <script src="/js/featherlight.min.js?1617954672"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1617954672"></script>
-    <script src="/js/highlight.pack.js?1617954672"></script>
+    <script src="/js/clipboard.min.js?1618304870"></script>
+    <script src="/js/perfect-scrollbar.min.js?1618304870"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1618304870"></script>
+    <script src="/js/jquery.sticky.js?1618304870"></script>
+    <script src="/js/featherlight.min.js?1618304870"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1618304870"></script>
+    <script src="/js/highlight.pack.js?1618304870"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1617954672"></script>
-    <script src="/js/learn.js?1617954672"></script>
-    <script src="/js/hugo-learn.js?1617954672"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1618304870"></script>
+    <script src="/js/learn.js?1618304870"></script>
+    <script src="/js/hugo-learn.js?1618304870"></script>
 
-    <link href="/mermaid/mermaid.css?1617954672" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1617954672"></script>
+    <link href="/mermaid/mermaid.css?1618304870" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1618304870"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
