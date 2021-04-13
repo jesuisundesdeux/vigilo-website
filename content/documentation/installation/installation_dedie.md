@@ -25,7 +25,8 @@ A charge à l'administrateur d'installer le necessaire en amont pour permettre l
 Cloner le repo git complet en adaptant la version en remplacant X.X.X par la dernière branche du git existante.
 
 ```
-$ git clone https://github.com/jesuisundesdeux/vigilo-backend.git -b X.X.X --single-branch
+$ git clone https://github.com/jesuisundesdeux/vigilo-backend.git
+$ git checkout vX.X.X
 ```
 
 Copier le .env_sample vers .env_prod
