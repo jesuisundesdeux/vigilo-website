@@ -18,17 +18,13 @@ weight: 2
 
 ### Mise en place
 
-#### Mise en place sources
+#### Téléchargement release
 
-Cloner le repo git complet en adaptant la version en remplacant X.X.X par la dernière branche du git existante.
-
-```
-$ git clone https://github.com/jesuisundesdeux/vigilo-backend.git -b X.X.X --single-branch
-```
+Télécharger la dernière release sur la page https://github.com/jesuisundesdeux/vigilo-backend/tags
 
 Importer le contenu de ```app/``` dans l'arborescence web.
 
-Sur un hebrgement OVH : il est necessaire de supprimer le fichier ```.htaccess``` (sinon : erreur 500 lors de l'accès aux pages php).
+Sur un hebergement type OVH : il est necessaire de supprimer le fichier ```.htaccess``` (sinon : erreur 500 lors de l'accès aux pages php).
 
 #### Mise en place base de données
 
