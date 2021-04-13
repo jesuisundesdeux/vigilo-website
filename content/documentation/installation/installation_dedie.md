@@ -22,7 +22,7 @@ weight: 1
 
 A charge à l'administrateur d'installer le necessaire en amont pour permettre la mise en place d'un certificat SSL (LetsEncrypt).
 
-Cloner le repo git complet en adaptant la version en remplacant X.X.X par la dernière branche du git existante.
+Cloner le repo git complet en adaptant la version en remplacant X.X.X par le dernier tag existant (voir https://github.com/jesuisundesdeux/vigilo-backend/tags)
 
 ```
 $ git clone https://github.com/jesuisundesdeux/vigilo-backend.git
