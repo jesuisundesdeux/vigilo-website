@@ -5,28 +5,56 @@ weight: 7
 
 > Page généré automatiquement depuis [la documentation projet vigilo-backend](https://github.com/jesuisundesdeux/vigilo-backend/blob/master/doc/UPGRADE.md)
 
-### Upgrade
-Before upgrading you should disable INNODB STRICT MODE by launching in MySQL CLI:
+### Mise à jour
+Avant de mettre à jour désactiver INNODB STRICT MODE en lancant MySQL CLI:
 
 ```
 SET SESSION innodb_strict_mode=OFF;
 ```
 
-#### For all upgrades
+#### Pour chaque mise à jour
 
-* Update source code from last version branch (replace X.X.X by the latest release)
-```git pull origin X.X.X```
+##### Mise à jour du code
 
-* Launch in MySQL the SQL scripts in mysql/init/ corresponding to the superior versions order by the version number.
+###### Versions < 0.0.17
 
-Example :
-  If your current version is 0.0.12, launch init-0.0.13.sql then init-0.0.14.sql then init-0.0.15.sql then ...
+* Récupérer et choisir la dernière branche
+```
+$ git fetch origin
+$ git checkout X.X.X
+```
 
-* Execute if needed the specific actions below 
+###### Versions >= 0.0.17
 
-#### Specific actions
+Depuis la version 0.0.17, les versions ont été fixées via les tags plutôt que les branches
 
-#### 0.0.11 - 0.0.12 to 0.0.13
+**Pour un serveur dédié :**
 
-* Go the page https://URL/admin/ and go to the "Observations" pages and follow the instructions
+Mettre à jour le repo et changer le tag :
+
+```
+$ git fetch --all --tags --prune
+$ git checkout vX.X.X
+```
+
+**Pour un hebergement mutualisé :**
+
+* Télécharger le package en provenance de https://github.com/jesuisundesdeux/vigilo-backend/tags avec la dernière version
+* Sauvegarder le contenu des repertoires maps, cache et images.
+* Extraire le package et copier le contenu de app sur le serveur dédié (écraser les fichiers si besoin)
+
+
+##### Mettre à jour la base de données
+
+* Lancer dans l'ordre les fichiers SQL de mysql/init/ correspondant aux versions supérieures à la votre 
+  Exemple : Si votre version est 0.0.12, lancer init-0.0.13.sql puis init-0.0.14.sql puis init-0.0.15.sql ...
+
+
+#### Actions spciéfiques
+
+Certaines mises à jour de version necessitent des actions supplémentaires 
+
+#### 0.0.11/0.0.12 vers 0.0.13
+
+* Aller sur l'admin https://URL/admin/ puis sur "Observations" et suivre les instructions
 
