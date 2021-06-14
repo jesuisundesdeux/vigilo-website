@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Configuration Vigilo on À pied ou à vélo, ayez le réflexe Vigilo</title>
-    <link>http://vigilo.city/fr/documentation/configuration/</link>
+    <link>https://vigilo.city/fr/documentation/configuration/</link>
     <description>Recent content in Configuration Vigilo on À pied ou à vélo, ayez le réflexe Vigilo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-FR</language>
     
-	<atom:link href="http://vigilo.city/fr/documentation/configuration/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vigilo.city/fr/documentation/configuration/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Configuration MapQuest</title>
-      <link>http://vigilo.city/fr/documentation/configuration/mapquest/</link>
+      <link>https://vigilo.city/fr/documentation/configuration/mapquest/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://vigilo.city/fr/documentation/configuration/mapquest/</guid>
+      <guid>https://vigilo.city/fr/documentation/configuration/mapquest/</guid>
       <description>MapQuest Mapquest est utilisé pour générer les images de carte dans le poster qui est généré.
 Pour obtenir une clé d&amp;rsquo;API MapQuest sur le module StaticMAP API =&amp;gt; https://developer.mapquest.com/
 Créer un compte sur la plate-forme et générer une clé via le lien &amp;ldquo;Manage Key&amp;rdquo;. Récupérer ensuite le &amp;ldquo;Consumer Key&amp;rdquo; qui sera à renseigner dans Vigilo.</description>
@@ -23,10 +23,10 @@ Créer un compte sur la plate-forme et générer une clé via le lien &amp;ldquo
     
     <item>
       <title>Configuration Instance</title>
-      <link>http://vigilo.city/fr/documentation/configuration/global/</link>
+      <link>https://vigilo.city/fr/documentation/configuration/global/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://vigilo.city/fr/documentation/configuration/global/</guid>
+      <guid>https://vigilo.city/fr/documentation/configuration/global/</guid>
       <description> Configuration de l&amp;rsquo;instance Aller sur https://adresse_du_serveur/admin/
 Configuration Remplir les différents champs :
  URL base : adresse de vigilo (exemple : vigilo.jesuisundesdeux.org) Protocole d&amp;rsquo;accès : http ou https Nom de l&amp;rsquo;instance (exemple Vigilo Montpellier) Afficher observations non modérées : Determine si les observations doivent être visibles du public (floutée) avant modération Langue : fr-Fr (pas utilisé à ce jour) Clé Mapquest : clé définie dans Configuraiton MapQuest Nombre d&amp;rsquo;heure max pour Tweeter observations : Age maximum en heures des observations qui seront postées sur twitter automatiquement Charset : utf8 Timezone : Fuseau horaire normalisé  </description>
@@ -34,20 +34,20 @@ Configuration Remplir les différents champs :
     
     <item>
       <title>Configuration Twitter</title>
-      <link>http://vigilo.city/fr/documentation/configuration/twitter/</link>
+      <link>https://vigilo.city/fr/documentation/configuration/twitter/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://vigilo.city/fr/documentation/configuration/twitter/</guid>
+      <guid>https://vigilo.city/fr/documentation/configuration/twitter/</guid>
       <description>Configuration Twitter Création compte twitter  Créer un compte Twitter dédié à votre scope. Par soucis de cohérence avec toutes les autres instances, il est recommandé d&amp;rsquo;utiliser le modèle @VigiloVille. Exemples : VigiloTroyes, VigiloMtp34, VigiloValleeSud, VigiloMetz  Pour la suite, tout se passe en Anglais.
  Se rendre sur https://developer.twitter.com et se connecter avec votre compte Twitter. Cliquer sur « Apply » en haut à droite (Apply for a developer account) Choisir « Doing something else » Choisir « France » à la réponse « What country do you live in?</description>
     </item>
     
     <item>
       <title>Ajout scope</title>
-      <link>http://vigilo.city/fr/documentation/configuration/scopes/</link>
+      <link>https://vigilo.city/fr/documentation/configuration/scopes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://vigilo.city/fr/documentation/configuration/scopes/</guid>
+      <guid>https://vigilo.city/fr/documentation/configuration/scopes/</guid>
       <description> Configuration Scope Les scopes sont des zones géographiques indépendantes au sein d&amp;rsquo;une même instance.
 Il correspondent en règle générale à une Metropole, Agglomération voire un ville.
 En règle générale, un seul scope est necessaire.
@@ -57,10 +57,10 @@ Ajouter un scope et remplir ses information comme suit :
     
     <item>
       <title>Ajout villes</title>
-      <link>http://vigilo.city/fr/documentation/configuration/villes/</link>
+      <link>https://vigilo.city/fr/documentation/configuration/villes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://vigilo.city/fr/documentation/configuration/villes/</guid>
+      <guid>https://vigilo.city/fr/documentation/configuration/villes/</guid>
       <description>Configuration Villes Ajouter dans cette section l&amp;rsquo;ensemble des villes du territoire. Celà permettra ensuite de filtrer les observations pour chaque ville.</description>
     </item>
     

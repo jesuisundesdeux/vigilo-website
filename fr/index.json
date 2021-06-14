@@ -1,377 +1,377 @@
 [
 {
-	"uri": "http://vigilo.city/fr/documentation/exploitation_donnees/umap/",
+	"uri": "https://vigilo.city/fr/documentation/exploitation_donnees/umap/",
 	"title": "Carte UMAP",
 	"tags": [],
 	"description": "",
 	"content": "Générer la carte\ngit clone git@github.com:jesuisundesdeux/vigilo-backend.git cd vigilo-backend/scripts/umap ./generate_map.sh # Répondre aux questions  Uploader la carte\nCréer une carte depuis le site Openstreetmap Umap\nSuivre les étapes suivantes\n"
 },
 {
-	"uri": "http://vigilo.city/fr/documentation/configuration/mapquest/",
+	"uri": "https://vigilo.city/fr/documentation/configuration/mapquest/",
 	"title": "Configuration MapQuest",
 	"tags": [],
 	"description": "",
 	"content": " MapQuest Mapquest est utilisé pour générer les images de carte dans le poster qui est généré.\nPour obtenir une clé d\u0026rsquo;API MapQuest sur le module StaticMAP API =\u0026gt; https://developer.mapquest.com/\nCréer un compte sur la plate-forme et générer une clé via le lien \u0026ldquo;Manage Key\u0026rdquo;. Récupérer ensuite le \u0026ldquo;Consumer Key\u0026rdquo; qui sera à renseigner dans Vigilo.\n"
 },
 {
-	"uri": "http://vigilo.city/fr/documentation/utilisation/",
+	"uri": "https://vigilo.city/fr/documentation/utilisation/",
 	"title": "Guide d&#39;utilisation",
 	"tags": [],
 	"description": "",
 	"content": " Utilisation Application Android Découvrez comment utiliser l\u0026rsquo;application Android\nProcédure ici\nUtilisation Application Web Découvrez comment utiliser l\u0026rsquo;application Web\nProcédure ici\n"
 },
 {
-	"uri": "http://vigilo.city/fr/documentation/installation/installation_dedie/",
+	"uri": "https://vigilo.city/fr/documentation/installation/installation_dedie/",
 	"title": "Installation sur serveur dédié avec Docker",
 	"tags": [],
 	"description": "",
 	"content": " Installation Vigilo sur serveur dédié avec Docker Pré-requis Logiciel  OS Linux Docker Docker-compose Un reverse-proxy comme Nginx afin de géré la couche SSL et l\u0026rsquo;accès public à Vigilo  Connaissances  OS Linux / PHP / MySQL / Docker  Mise en place A charge à l\u0026rsquo;administrateur d\u0026rsquo;installer le necessaire en amont pour permettre la mise en place d\u0026rsquo;un certificat SSL (LetsEncrypt).\nCloner le repo git complet en adaptant la version en remplacant X.X.X par le dernier tag existant (voir https://github.com/jesuisundesdeux/vigilo-backend/tags)\n$ git clone https://github.com/jesuisundesdeux/vigilo-backend.git $ git checkout vX.X.X  Copier le .env_sample vers .env_prod\n$ cp .env_sample .env_prod  Adapter les valeurs dans .env_prod :\n VOLUME_PATH : Repertoire persistent sur le serveur où seront stockées les données de Vigilo MYSQL_ROOT_PASSWORD : Mot de passe root de la base de données MYSQL_PASSWORD : Mot de passe du compte vigilo de la base de données BIND : Adresse d\u0026rsquo;écoute HOST:PORT permettant d\u0026rsquo;accéder au conteneur à partir d\u0026rsquo;un reverse proxy sur l\u0026rsquo;hote ou à partir d\u0026rsquo;un autre container.  Adapter si besoin ce fichier au contexte du serveur sur lequel il est hebergé.\nLancer le service :\n$ make ENV=prod install  Initialisation Dés que la partie serveur est installée, il est impératif de passer à l\u0026rsquo;étape d\u0026rsquo;initialisation : Procédure Ici\n"
 },
 {
-	"uri": "http://vigilo.city/fr/documentation/administration/moderation/",
+	"uri": "https://vigilo.city/fr/documentation/administration/moderation/",
 	"title": "Modération",
 	"tags": [],
 	"description": "",
 	"content": " Ajout d\u0026rsquo;un modérateur Actions modérateur Via Vigilo Android Pour gérer la modération une clé unique associée à votre compte doit être envoyée à un administrateur. Si vous ne l\u0026rsquo;avez jamais fait :\n L\u0026rsquo;application Vigilo doit être installée sur votre smartphone Dans le menu principal, Générer une clé Copier la clé générée Envoyer cette clé à l\u0026rsquo;administrateur du Vigilo de votre zone géographique Cette clé est commune à l\u0026rsquo;application web et à l\u0026rsquo;application android.  Une fois que l\u0026rsquo;administrateur vous confirme votre statut de modérateur :\n ouvrir l\u0026rsquo;application si besoin, sélectionner votre zone géographique sélectionner une observation vous accédez aux options de modération (approuver, désapprouver, modifier, supprimer) en cliquant sur le bouton jaune orné des 3 points noirs  Via Vigilo Web Pour gérer la modération une clé unique associée à votre compte doit être envoyée à un administrateur. Si vous ne l\u0026rsquo;avez jamais fait :\n Cliquer 10 fois sur le logo Vigilo dans le menu sur la page de l\u0026rsquo;application web https://app.vigilo.city Générer un clé Puis l\u0026rsquo;enregistrer Envoyer cette clé à l\u0026rsquo;administrateur du Vigilo de votre zone géographique Cette clé est commune à l\u0026rsquo;application web et à l\u0026rsquo;application android.  Une fois que l\u0026rsquo;administrateur vous confirme votre statut de modérateur :\n A partir du menu de l\u0026rsquo;application, cliquer sur Activer le mode Admin Le fond de la page passe en rouge En cliquant sur chaque observation, vous avez accès à un bouton Sens interdit bleu. En cliquant dessus, vous accéderez aux différentes fonctionnalités de la modération (approuver, supprimer, modifier)  Actions administrateur Sur le panneau d\u0026rsquo;administration\n Aller sur le panneau \u0026ldquo;Comptes\u0026rdquo; Ajouter si besoin un compte Renseigner la clé sur la ligne du compte  "
 },
 {
-	"uri": "http://vigilo.city/fr/documentation/maintenance/sauvegarde/",
+	"uri": "https://vigilo.city/fr/documentation/maintenance/sauvegarde/",
 	"title": "Sauvegarde",
 	"tags": [],
 	"description": "",
 	"content": " Données à sauvegarder Il est important de sauvegarder quotidiennement les données Vigilo à un endroit différent que celui où est hebergé le site.\nLes données Vigilo sont présentes sous forme de fichiers et d\u0026rsquo;une base de données.\nFichiers Les repertoires suivants doivent être sauvegardés :\n images/ : IMPORTANT ! contient les photos Vigilo maps/ : générations des cartes via Mapquest caches/ : moins important, contient les caches mais permet d\u0026rsquo;éviter des problèmes de performances en cas de réinstallation  Base de données Avec Docker Ajouter en crontab :\n# crontab -e -u root  La ligne :\n0 1 * * * /usr/bin/docker exec [CONTAINER_DB_1] sh -c 'exec mysqldump --all-databases -uroot -p\u0026quot;$MYSQL_ROOT_PASSWORD\u0026quot;' | gzip -c -9 \u0026gt; [REPERTOIRE_BACKUP]/dump.$(date +\\%Y\\%m\\%d\\%H\\%M).sql.gz  Remplacer :\n [CONTAINER_DB_1] par le nom du container de la base de données (visible via docker ps) [REPERTOIRE_BACKUP] par le repertoire de savuvegarde  Ne pas oublier de copier régulierement le contenu de REPERTOIRE_BACKUP sur un autre serveur/machines !!!\nHebergement mutualisé Cette procédure dépend de l\u0026rsquo;hebergeur.\nEn général la procédure se base sur PhpMyAdmin, vous trouverez un tuto pour effectuer la sauvegarde dessus via le lien https://help.one.com/hc/fr/articles/115005593645-Comment-faire-une-sauvegarde-de-ma-base-de-donn%C3%A9es-\n"
 },
 {
-	"uri": "http://vigilo.city/fr/documentation/configuration/global/",
+	"uri": "https://vigilo.city/fr/documentation/configuration/global/",
 	"title": "Configuration Instance",
 	"tags": [],
 	"description": "",
 	"content": " Configuration de l\u0026rsquo;instance Aller sur https://adresse_du_serveur/admin/\nConfiguration Remplir les différents champs :\n URL base : adresse de vigilo (exemple : vigilo.jesuisundesdeux.org) Protocole d\u0026rsquo;accès : http ou https Nom de l\u0026rsquo;instance (exemple Vigilo Montpellier) Afficher observations non modérées : Determine si les observations doivent être visibles du public (floutée) avant modération Langue : fr-Fr (pas utilisé à ce jour) Clé Mapquest : clé définie dans Configuraiton MapQuest Nombre d\u0026rsquo;heure max pour Tweeter observations : Age maximum en heures des observations qui seront postées sur twitter automatiquement Charset : utf8 Timezone : Fuseau horaire normalisé  "
 },
 {
-	"uri": "http://vigilo.city/fr/documentation/installation/",
+	"uri": "https://vigilo.city/fr/documentation/installation/",
 	"title": "Installation de Vigilo",
 	"tags": [],
 	"description": "",
 	"content": " Installation du back-end Chaque instance dispose de son backend qui peut être installé de deux manières possibles.\nServeur dédié avec Docker : Le serveur dédié offre plus de souplesse, et permet d\u0026rsquo;heberger également d\u0026rsquo;autres applications. Il necessite en outre plus de compétences en informatique pour l\u0026rsquo;installation ainsi que la maintenabilité.\nLa procédure est disponible ici\nHebergement mutualisé PHP/MySQL : L\u0026rsquo;hebergement mutualisé est une solution plus accessible en terme de connaissances informatiques, mais il est possible que des problèmes de compatibilité soient constatés avec l\u0026rsquo;application.\nLa procédure est disponible ici\n"
 },
 {
-	"uri": "http://vigilo.city/fr/documentation/installation/installation_mutualise/",
+	"uri": "https://vigilo.city/fr/documentation/installation/installation_mutualise/",
 	"title": "Installation sur hebergement PHP/MySQL",
 	"tags": [],
 	"description": "",
 	"content": " Installation sur serveur mutualisé Pré-requis Logiciel  PHP \u0026gt;= 7.1 avec php-gd Une base de données MySQL/MariaDB  Connaissances  PHP/MySQL  Mise en place Téléchargement release Télécharger la dernière release sur la page https://github.com/jesuisundesdeux/vigilo-backend/tags\nImporter le contenu de app/ dans l\u0026rsquo;arborescence web.\nSur un hebergement type OVH : il est necessaire de supprimer le fichier .htaccess (sinon : erreur 500 lors de l\u0026rsquo;accès aux pages php).\nMise en place base de données Executer l\u0026rsquo;ensemble des scripts MySQL présents dans mysql/init/ dans l\u0026rsquo;ordre sur MySQL.\nChez OVH : dans phpMyAdmin, enlever les lignes commentées des requêtes SQL (sinon : erreur lors de l\u0026rsquo;exécution).\nConfiguration  config/config.php  Copier le fichier config/config.php.tpl vers config/config.php\nRenseigner les différents valeurs à configurer concernant la base de données.\nInitialisation Dés que l\u0026rsquo;application est deployée, il est impératif de passer à l\u0026rsquo;étape d\u0026rsquo;initialisation : Procédure Ici\n"
 },
 {
-	"uri": "http://vigilo.city/fr/documentation/configuration/twitter/",
+	"uri": "https://vigilo.city/fr/documentation/configuration/twitter/",
 	"title": "Configuration Twitter",
 	"tags": [],
 	"description": "",
 	"content": " Configuration Twitter Création compte twitter  Créer un compte Twitter dédié à votre scope. Par soucis de cohérence avec toutes les autres instances, il est recommandé d\u0026rsquo;utiliser le modèle @VigiloVille. Exemples : VigiloTroyes, VigiloMtp34, VigiloValleeSud, VigiloMetz  Pour la suite, tout se passe en Anglais.\n Se rendre sur https://developer.twitter.com et se connecter avec votre compte Twitter. Cliquer sur « Apply » en haut à droite (Apply for a developer account) Choisir « Doing something else » Choisir « France » à la réponse « What country do you live in? » Choisir le nom de votre association dans « What would you like us to call you? » Sur la page « How will you use the Twitter API or Twitter data? », renseignez le texte suivant dans le champ « In your words »   Our application is called Vigilo and is a service allowing users to post observations from the street (badly parked cars, dangers on the road, infrastructure issues, etc.) through a mobile application.\nWe want to make a Twitter account that will Tweet programmatically content from our Vigilo server. When a user post a new observation on our application and when the observation is moderated, our server will automatically tweet the observation (picture + text).\nThen Tweeter users can interact with those tweets and retweet them. Nobody will access Twitter data. It\u0026rsquo;s a one-way broadcast from our application.\n  Répondre No à toutes les questions « The specifics » Cliquer sur « Looks good! » Cocher les conditions d\u0026rsquo;utilisation puis cliquer sur « Accept » puis « Submit Application »  Une fois que votre compte est validé\n Retourner sur https://developer.twitter.com et aller sur « Create an app » Dans « App name » choisissez « Vigilo Votre Ville / agglo » Dans « Application description » renseigner le texte suivant   Vigilo is a service allowing users to post observations from the street (badly parked cars, dangers on the road, infrastructure issues, etc.) through a mobile application.\n  Dans « Website URL », renseigner le site web associé à votre association.\n Dans « Tell us how this app will be used », renseigner le texte suivant\n   Our Twitter account will Tweet programmatically content from our server. When a user posts a new observation on our application and when the observation is moderated, our server will automatically tweet the observation (picture + text). Then Tweeter users can interact with those tweets and retweet them. Nobody will access Twitter data. It\u0026rsquo;s a one-way broadcast from our application.\n  Cliquer sur « Create » et encore « Create » pour valider. Normalement votre application devrait être créée à ce stade. Rendez-vous dans l\u0026rsquo;onglet « Keys and tokens » et récupérez l\u0026rsquo;API key (consumer) et l\u0026rsquo;API secret key (consumersecret) Créez un Access token dans « Access token \u0026amp; access token secret » et récupérez l\u0026rsquo;Access token (accesstoken) et l\u0026rsquo;Access token secret (accesstokensecret) Renseignez enfin ces 4 clés dans votre configuration Vigilo.  Ajout dans Vigilo Ajouter ensuite les informations récupérée dans la section Twitter dans l\u0026rsquo;administration\n"
 },
 {
-	"uri": "http://vigilo.city/fr/documentation/configuration/",
+	"uri": "https://vigilo.city/fr/documentation/configuration/",
 	"title": "Configuration Vigilo",
 	"tags": [],
 	"description": "",
 	"content": " Configuration Vigilo Il est imperatif de bien configurer Vigilo afin de pouvoir l\u0026rsquo;utiliser\nIl est conseillé de suivre ces étapes dans l\u0026rsquo;ordre :\nConfiguration MapQuest MapQuest permet de créer l\u0026rsquo;image de la carte présente sur l\u0026rsquo;image générée représentant l\u0026rsquo;observation.\nProcédure disponible ici\nConfiguration de l\u0026rsquo;instance Cette configuration (non necessaire en mode SaaS), permet d\u0026rsquo;effectuer les réglages de l\u0026rsquo;instance\nProcédure disponible ici\nConfiguration Twitter Cette configuration permet de lier un compte Twitter à chaque scope permettant de poster sur le réseau social les dernières observations.\nProcédure disponible ici\nCréation du scope Cette configuration (déjà initialisé en mode SaaS), permet d\u0026rsquo;effectuer les réglages des différents territoires gérés par l\u0026rsquo;instance\nProcédure disponible ici\nAjout des villes Cette configuration est indispensable afin de rendre efficace la gestion par ville des observations\nProcédure disponible ici\n"
 },
 {
-	"uri": "http://vigilo.city/fr/documentation/installation/initialisation/",
+	"uri": "https://vigilo.city/fr/documentation/installation/initialisation/",
 	"title": "Initialisation",
 	"tags": [],
 	"description": "",
 	"content": " Vérifications S\u0026rsquo;assurer que l\u0026rsquo;appli peut écrire dans les repertoires images/,caches/ et maps/\nInitialisation  Copier le fichier install_app/install.php sur l\u0026rsquo;hebergement et y accéder via https://adresse_du_serveur/install.php Remplir les champs permettant de créer un compte admin Supprimer install.php.  Configuration A cette étape, il est possible à présent de configurer l\u0026rsquo;application : Procédure Ici\n"
 },
 {
-	"uri": "http://vigilo.city/fr/documentation/configuration/scopes/",
+	"uri": "https://vigilo.city/fr/documentation/configuration/scopes/",
 	"title": "Ajout scope",
 	"tags": [],
 	"description": "",
 	"content": " Configuration Scope Les scopes sont des zones géographiques indépendantes au sein d\u0026rsquo;une même instance.\nIl correspondent en règle générale à une Metropole, Agglomération voire un ville.\nEn règle générale, un seul scope est necessaire.\nAjouter un scope et remplir ses information comme suit :\n Identifiant : XX_yyyyyyy où \u0026ldquo;xx\u0026rdquo; correspond au numero de departement ou code pays si non français (be, uk, \u0026hellip;) et \u0026ldquo;yyyyyyy\u0026rdquo; à un nom court (sans espace, ni accents, ni caractères spéciaux) correspondant au nom de la zone Nom affiché : Nom qui sera affiché correspondant à la zone Departement : Numero du département ou 0 si non applicable Latitude/Longitude minimale/maximale : Permet de limiter géographiquement la zone Coordonées centre du scope : Coordonnées du centre des cartes qui seront affichées dans l\u0026rsquo;application Zoom cartes : Zoom des cartes qui seront affichées dans l\u0026rsquo;application Email Contact : Email de contact de l\u0026rsquo;association en charge du scope Text de partage par défaut : Texte de partage qui sera mis par défaut quand les utilisateur utiliseront la fonction partage de l\u0026rsquo;application Compte Twitter affiché : Compte twitter affiché correspondant au scope Identifiant compte twitter : Numero du compte twitter configuré précédement qui sera utilisé par le scope Contenu des tweets autos : Contenu des tweets qui seront postés par le compte twitter lors de la validation des observations URL carte externe : Si besoin, URL d\u0026rsquo;une carte qui affiche les observations (voir Configuration UMAP)  "
 },
 {
-	"uri": "http://vigilo.city/fr/documentation/administration/",
+	"uri": "https://vigilo.city/fr/documentation/administration/",
 	"title": "Guide d&#39;administration",
 	"tags": [],
 	"description": "",
 	"content": " Modération Afin d\u0026rsquo;ajouter des modérateurs sur l\u0026rsquo;application, suivre cette procédure\n"
 },
 {
-	"uri": "http://vigilo.city/fr/app/quesaco/",
+	"uri": "https://vigilo.city/fr/app/quesaco/",
 	"title": "Vigilo, quésaco ?",
 	"tags": [],
 	"description": "",
 	"content": " Vigilo, quésaco ? A l’instar de l’application parisienne DansMaRue, Vigilo est une application collaborative citoyenne développée par et pour les cyclistes de Montpellier dans la dynamique #JeSuisUnDesDeux. Cette application soutenue par la FUB (Fédération des Usagers de la Bicyclette) est destinée à cartographier les difficultés quotidiennes rencontrées lors de leurs déplacements par les usagers les plus vulnérables : cyclistes mais aussi piétons, PMR, trottinettes.\nL’application est également ouverte aux automobilistes et deux-roues motorisés souhaitant remonter des observations. Il s’agit pour l’essentiel d’incivilités récurrentes, de problèmes d’entretien et d’aménagements du réseau.\nVigilo, à quoi ça sert ? L’objectif est que les collectivites locales les pouvoirs publics puissent s’approprier les données issues de cet outil afin de faciliter les déplacements de leurs citoyens (cyclistes, piétons, PMR). Cette méthode est déjà à l\u0026rsquo;œuvre dans d\u0026rsquo;autres villes (Toulouse par exemple). Vigilo représente un outil ouvert allant dans le sens d’une démarche de concertation et de co-construction entre les usagers et les collectivités publiques.\nVigilo, comment ça marche ? L\u0026rsquo;usager rencontre un obstacle sur sa route ? Pas de compte à créer. Il sort son téléphone portable, prend une photo (dispositif de floutage) et catégorise le type de problème rencontré (véhicule garé sur la piste cyclable, défaut d\u0026rsquo;entretien, mauvais aménagement, \u0026hellip;) La géolocalisation permet ensuite de constituer des bases de données et des cartographies publiques des améliorations souhaitées par les usagers.\nAprès plusieurs mois de développement, Vigilo a été lancé à Montpellier le 16 avril et y a déjà recueilli plus de 1000 observations. Vigilo est aujourd’hui disponible dans plusieurs villes ( Voir la liste des villes ). C’est en effet un outil qui pourra être déployé rapidement vers d’autres villes\nCette accumulation de données permet une analyse très fine des infrastructures existantes et des problèmes rencontrés au quotidien (carte et suivi temporel des véhicules garés sur pistes cyclables et trottoirs, carte de l’entretien à faire, carte des aménagements problématiques ou manquants, récurrences d’incivilités, \u0026hellip;)\nVigilo est une application gratuite actuellement disponible sous Android via le Google Play Store tandis que les versions iOS et web sont actuellement en cours de développement.\n"
 },
 {
-	"uri": "http://vigilo.city/fr/documentation/configuration/villes/",
+	"uri": "https://vigilo.city/fr/documentation/configuration/villes/",
 	"title": "Ajout villes",
 	"tags": [],
 	"description": "",
 	"content": " Configuration Villes Ajouter dans cette section l\u0026rsquo;ensemble des villes du territoire. Celà permettra ensuite de filtrer les observations pour chaque ville.\n"
 },
 {
-	"uri": "http://vigilo.city/fr/app/android/",
+	"uri": "https://vigilo.city/fr/app/android/",
 	"title": "Android",
 	"tags": [],
 	"description": "",
 	"content": " Android Découvrez comment utiliser l\u0026rsquo;application Vigilo sur smartphone Android\n"
 },
 {
-	"uri": "http://vigilo.city/fr/app/",
+	"uri": "https://vigilo.city/fr/app/",
 	"title": "Application",
 	"tags": [],
 	"description": "",
 	"content": " Chapite 1 Application Découvrez les différentes version de l\u0026rsquo;application Vigilo (Android, Web (Beta))\n"
 },
 {
-	"uri": "http://vigilo.city/fr/documentation/exploitation_donnees/",
+	"uri": "https://vigilo.city/fr/documentation/exploitation_donnees/",
 	"title": "Exploitation des données",
 	"tags": [],
 	"description": "",
 	"content": " Cette page liste les possibilités d\u0026rsquo;exploitation des données. Elle n\u0026rsquo;est en aucun cas exhaustive, n\u0026rsquo;hesitez pas à y ajouter votre contribution.\nAffichage sur carte Umap La cartographie la plus courante se fait sur Umap.\nAfin de configurer Umap pour votre instance, suivre cette procédure\n"
 },
 {
-	"uri": "http://vigilo.city/fr/documentation/upgrade/",
+	"uri": "https://vigilo.city/fr/documentation/upgrade/",
 	"title": "Mise à jour de Vigilo",
 	"tags": [],
 	"description": "",
 	"content": "  Page généré automatiquement depuis la documentation projet vigilo-backend\n Mise à jour Avant de mettre à jour désactiver INNODB STRICT MODE en lancant MySQL CLI:\nSET SESSION innodb_strict_mode=OFF;  Pour chaque mise à jour Mise à jour du code Versions \u0026lt; 0.0.17  Récupérer et choisir la dernière branche  $ git fetch origin $ git checkout X.X.X  Versions \u0026gt;= 0.0.17 Depuis la version 0.0.17, les versions ont été fixées via les tags plutôt que les branches\nPour un serveur dédié :\nMettre à jour le repo et changer le tag :\n$ git fetch --all --tags --prune $ git checkout vX.X.X  Pour un hebergement mutualisé :\n Télécharger le package en provenance de https://github.com/jesuisundesdeux/vigilo-backend/tags avec la dernière version Sauvegarder le contenu des repertoires maps, cache et images. Extraire le package et copier le contenu de app sur le serveur dédié (écraser les fichiers si besoin)  Mettre à jour la base de données Lancer dans l\u0026rsquo;ordre les fichiers SQL de mysql/init/ correspondant aux versions supérieures à la votre\nExemple : Si votre version est 0.0.12, lancer init-0.0.13.sql puis init-0.0.14.sql puis init-0.0.15.sql \u0026hellip;\nActions spécifiques Certaines mises à jour de version necessitent des actions supplémentaires\nMise à jour vers 0.0.13  Aller sur l\u0026rsquo;admin https://URL/admin/ puis sur \u0026ldquo;Observations\u0026rdquo; et suivre les instructions  "
 },
 {
-	"uri": "http://vigilo.city/fr/documentation/maintenance/",
+	"uri": "https://vigilo.city/fr/documentation/maintenance/",
 	"title": "Maintenance",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "http://vigilo.city/fr/app/android/accueil/",
+	"uri": "https://vigilo.city/fr/app/android/accueil/",
 	"title": "Ecran d&#39;accueil",
 	"tags": [],
 	"description": "",
 	"content": "Depuis la page principale de vigilo vous pouvez choisir les actions suivantes :\n Visualiser les observations des utilisateurs Visualiser vos observations Visualiser les observations à proximité Visualiser les observations en attente de modération (admin section)  "
 },
 {
-	"uri": "http://vigilo.city/fr/app/android/ajout/etape-1/",
+	"uri": "https://vigilo.city/fr/app/android/ajout/etape-1/",
 	"title": "Selection photo",
 	"tags": [],
 	"description": "Selection de la photo",
 	"content": " Ceci est une page de demo\nSelection photo depuis galerie Selection repertoire Selection photo \u0026amp; validation "
 },
 {
-	"uri": "http://vigilo.city/fr/villes/",
+	"uri": "https://vigilo.city/fr/villes/",
 	"title": "Villes",
 	"tags": [],
 	"description": "",
 	"content": " "
 },
 {
-	"uri": "http://vigilo.city/fr/app/web/",
+	"uri": "https://vigilo.city/fr/app/web/",
 	"title": "Web",
 	"tags": [],
 	"description": "",
 	"content": " Web Elle est accessible ici https://app.vigilo.city\n"
 },
 {
-	"uri": "http://vigilo.city/fr/api/",
+	"uri": "https://vigilo.city/fr/api/",
 	"title": "API",
 	"tags": [],
 	"description": "",
 	"content": "  Page généré automatiquement depuis la documentation projet vigilo-backend\n Présentation API Vigilo Sommaire  Workflows  Ajout d\u0026rsquo;une observation  Méthodes  Récupération d\u0026rsquo;informations  Configurations Vérification Acl Récupération catégories Récupération informations scope Observations Récupération panel Récupération liste observations Récupération photo originale  Ajout/modifications informations  Observations Ajout d\u0026rsquo;une image à l\u0026rsquo;observation Approuver observation Création observation Suppression observation Changer status observation Obtenir carte en cache   Données  Catégories Observations Scope Statut    Workflows Ajout d\u0026rsquo;une observation  Création observation : Création de l\u0026rsquo;entrée et récupération des informations d\u0026rsquo;identification Ajout d\u0026rsquo;une image à l\u0026rsquo;observation : Ajout de l\u0026rsquo;image Récupération panel : Génération du panel  Méthodes Récupération d\u0026rsquo;informations Configurations Vérification ACL Compatibilité Version backend \u0026gt;= 0.0.1\nRequête GET /acl.php?  Arguments    Localisation Type Nom Obligatoire ? Description Compatibilité     URL str key X Clé privé de l\u0026rsquo;utilisateur \u0026gt;= 0.0.1    Retour JSON : Retourne les informations suivantes :\n   Type Nom Description Compatibilité     str role Rôle correspondant à la clé (admin) \u0026gt;= 0.0.1    Récupération catégories Compatibilité LEGACY\nRequête GET /get_categories_list.php?  Arguments    Localisation Type Nom Obligatoire ? Description Compatibilité      Retour JSON : Retourne les informations des Catégories.\nRécupération catégories (legacy) Compatibilité LEGACY\nRequête GET /get_categories.php?  Récupération informations scope Compatibilité Version backend \u0026gt;= 0.0.4\nRequête GET /get_scope.php?  Arguments    Localisation Type Nom Obligatoire ? Description Compatibilité     URL str scope X Nom du scope \u0026gt;= 0.0.4    Retour JSON : Retourne les informations du Scope.\nRécupération version backend (legacy) Compatibilité Version backend \u0026lt;= 0.0.3\nRequête GET /get_version.php?  Arguments    Localisation Type Nom Obligatoire ? Description Compatibilité      Retour JSON : Retourne la version du backend\n   Type Nom Description Compatibilité     str version Version du backend \u0026lt;= 0.0.3    Observations Récupération panel Compatibilité Version backend \u0026gt;= 0.0.1\nRequête GET /generate_panel.php?  Arguments    Localisation Type Nom Obligatoire ? Description Compatibilité     URL str token X Token de l\u0026rsquo;observation \u0026gt;= 0.0.1   URL int s  Largeur de l\u0026rsquo;image \u0026gt;= 0.0.1   URL str key  Clé d\u0026rsquo;admin pour visualisation non pixelisée \u0026gt;= 0.0.1   URL str secretid  Clé secret de l\u0026rsquo;observation pour visualisation non pixelisée \u0026gt;= 0.0.1    Retour Retourne une image\n   Type Nom Description Compatibilité     image/png / Image \u0026lt;= 0.0.4   image/jpeg / Image \u0026gt;= 0.0.5    Récupération liste observations Compatibilité Version backend \u0026gt;= 0.0.1\nRequête GET /get_issues.php?  Arguments    Localisation Type Nom Obligatoire ? Description Compatibilité     URL int c  filtre selon catégorie \u0026gt;= 0.0.1   URL int t  filtre selon date Changé en timestamp à partir de \u0026gt;= 0.0.5   URL str scope X filtre selon scope \u0026gt;= 0.0.1   URL int status  filtre selon statut de l\u0026rsquo;observation \u0026gt;= 0.0.1   URL int token  filtre selon token de l\u0026rsquo;observation \u0026gt;= 0.0.1   URL str / int lat / lon / radius  filtre selon les coordonnées lat et lon et les observations autour dans la limite de radius (en mètres) \u0026gt;= 0.0.1   URL str tokenfilters / fdistance  Se combine avec \u0026ldquo;token\u0026rdquo; pour afficher les observations similaires avec les filtres distance, categorie et/ou address. fdistance (distance est mètre) est à renseigner si distance est utilisé \u0026gt;= 0.0.9   URL int count  limite le nombre d\u0026rsquo;occurences \u0026gt;= 0.0.1   URL int offset  démarrage le nombre d\u0026rsquo;occurence en décallé \u0026gt;= 0.0.1   URL str format  format (json,csv,geojson) \u0026gt;= 0.0.3   URL int approved  filtre selon approbation) \u0026gt;= 0.0.10   URL bool cityfield  Affiche la ville dans un champs dédié plutôt que dans l\u0026rsquo;adresse \u0026gt;= 0.0.13   URL int cityid  filtre selon id de la ville \u0026gt;= 0.0.13   URL str key  Clé d\u0026rsquo;admin pour donner accès à toutes les observations \u0026gt;= 0.0.13    Retour JSON : Retourne la liste des observations.\nRécupération photo originale Compatibilité Version backend \u0026gt;= 0.0.1\nRequête GET /get_photo.php?  Arguments    Localisation Type Nom Obligatoire ? Description Compatibilité     URL str key X Clé privé de l\u0026rsquo;utilisateur \u0026gt;= 0.0.1   URL str token X Token de l\u0026rsquo;observation \u0026gt;= 0.0.1   URL str type  Type d\u0026rsquo;image (resolution/obs) \u0026gt;= 0.0.14    Retour Retourne une image\n   Type Nom Description Compatibilité     image/jpeg / Image \u0026gt;= 0.0.1    Ajout/modifications informations Observations Ajout d\u0026rsquo;une image à l\u0026rsquo;observation Compatibilité Version backend \u0026gt;= 0.0.1\nRequête POST /add_image.php?  Arguments    Localisation Type Nom Obligatoire ? Description Compatibilité     URL str token X Token de l\u0026rsquo;observation \u0026gt;= 0.0.1   URL str secretid X Clé secrète de l\u0026rsquo;observation \u0026gt;= 0.0.1   URL str type  Type d\u0026rsquo;image (resolution/obs) \u0026gt;= 0.0.14   RAW image/jpeg / X Flux de l\u0026rsquo;image en JPEG si method=stdin \u0026gt;= 0.0.1   URL str method  Methode d\u0026rsquo;upload d\u0026rsquo;image (par defaut stdin pour upload en RAW / base64 pour upload en base64 dans le champs imagebin64) \u0026gt;= 0.0.16   POST JPEG base64 imagebin64  Image encodée en base64 = 0.0.16    Retour JSON : Retourne les informations d\u0026rsquo;identification de l\u0026rsquo;observation\n   Type Nom Description Compatibilité     bool status Retourne le statut de l\u0026rsquo;appel \u0026gt;= 0.0.1 / \u0026lt; 0.0.10    Approuver observation Compatibilité Version backend \u0026gt;= 0.0.1\nRequête POST /approve.php?  Arguments    Localisation Type Nom Obligatoire ? Description Compatibilité     URL str key  Clé privé de l\u0026rsquo;utilisateur \u0026gt;= 0.0.1   POST str token Uniquement en cas de modif Token de l\u0026rsquo;observation \u0026gt;= 0.0.1   POST int approved  0 =\u0026gt; A approuver / 1 =\u0026gt; Approuvé / 2 =\u0026gt; Désapprouvé \u0026gt;= 0.0.1    Retour JSON : Retourne les informations d\u0026rsquo;identification de l\u0026rsquo;observation\n   Type Nom Description Compatibilité            Création observation Compatibilité Version backend \u0026gt;= 0.0.1\nRequête POST /create_issue.php?  Arguments    Localisation Type Nom Obligatoire ? Description Compatibilité     URL str key  Clé privé de l\u0026rsquo;utilisateur \u0026gt;= 0.0.1   POST str token Uniquement en cas de modif Token de l\u0026rsquo;observation \u0026gt;= 0.0.1   POST str coordinates_lat\u0026rsquo; création Latitude de l\u0026rsquo;observation \u0026gt;= 0.0.1   POST str coordinates_lon création Longitude de l\u0026rsquo;observation \u0026gt;= 0.0.1   POST str comment non Remarque de l\u0026rsquo;observation (max 50 caractères) \u0026gt;= 0.0.1   POST str explanation non Explications observation \u0026gt;= 0.0.1   POST str categorie création ID de catégorie \u0026gt;= 0.0.1   POST str address création Adresse de l\u0026rsquo;observation \u0026gt;= 0.0.1   POST str time création Timestamp de l\u0026rsquo;observation au format Unix en ms \u0026gt;= 0.0.1   POST str version création Version de l\u0026rsquo;application cliente \u0026gt;= 0.0.1   POST str scope création Identifiant du scope \u0026gt;= 0.0.1   POST str cityid création Identifiant de la ville \u0026gt;= 0.0.13   POST str cityname création Nom de la ville \u0026gt;= 0.0.13    Retour JSON : Retourne les informations d\u0026rsquo;identification de l\u0026rsquo;observation\n   Type Nom Description Compatibilité     str token Retourne le token généré \u0026gt;= 0.0.1   str secretid Retourne la clé secrete de l\u0026rsquo;observation \u0026gt;= 0.0.1   int group LEGACY LEGACY    Créer résolution Compatibilité Version backend \u0026gt;= 0.0.14\nRequête POST /create_resolution.php  Arguments    Localisation Type Nom Obligatoire ? Description Compatibilité     URL str token  Token de la résolution \u0026gt;= 0.0.14   POST str comment  Commentaire de résolution (max 50 chars) \u0026gt;= 0.0.14   POST int time X Timestamp format Unix \u0026gt;= 0.0.14   POST str tokenlist X Liste, séparée par une virgule des tokens d\u0026rsquo;observations \u0026gt;= 0.0.14   POST str version  Version du client \u0026gt;= 0.0.14    Retour JSON : Retourne les informations d\u0026rsquo;identification de la résolution\n   Type Nom Description Compatibilité     str token Retourne le token généré \u0026gt;= 0.0.1   str secretid Retourne la clé secrete de l\u0026rsquo;observation \u0026gt;= 0.0.14    Suppression observation Compatibilité Version backend \u0026gt;= 0.0.1\nRequête GET /delete.php?  Arguments    Localisation Type Nom Obligatoire ? Description Compatibilité     URL str key Si secretid non fourni  Clé privé de l\u0026rsquo;utilisateur   URL str token Uniquement en cas de modif Token de l\u0026rsquo;observation \u0026gt;= 0.0.1   URL str secretid Si key non fourni  Clé secrète de l\u0026rsquo;observation \u0026gt;= 0.0.1    Retour JSON : Retourne les informations d\u0026rsquo;identification de l\u0026rsquo;observation\n   Type Nom Description Compatibilité            Obtenir liste observations en CSV (legacy) Compatibilité Version backend \u0026lt;= 0.0.5\nRequête GET /to_csv.php?  Arguments    Localisation Type Nom Obligatoire ? Description Compatibilité      Retour CSV : Retourne les informations d\u0026rsquo;identification de l\u0026rsquo;observation\nChanger status observation Compatibilité LEGACY\nRequête GET /update_status.php?  Arguments    Localisation Type Nom Obligatoire ? Description Compatibilité     URL str key Si secretid non fourni Clé privé de l\u0026rsquo;utilisateur \u0026gt;= 0.0.5   URL str token X Token de l\u0026rsquo;observation \u0026gt;= 0.0.5   URL str secretid Si key non fourni Clé secrète de l\u0026rsquo;observation \u0026gt;= 0.0.5   URL int statusobs X Status à appliquer (0: non résolu / 1 : résolu) \u0026gt;= 0.0.5   POST str comment  Commentaire de résolution (max 50 chars) \u0026gt;= 0.0.10   POST int time  Timestamp format Unix \u0026gt;= 0.0.10    Retour JSON : Retourne les informations d\u0026rsquo;identification de l\u0026rsquo;observation\n   Type Nom Description Compatibilité            Obtenir carte en cache Compatibilité Version backend \u0026gt;= 0.0.1\nRequête GET /maps/{TOKEN}_zoom.jpg  Données Catégories Les catégories sont disponibles sur toutes les instance sur l\u0026rsquo;adresse https://vigilo-bf7f2.firebaseio.com/categorieslist.json\n   Type Nom Description Compatibilité     int catid Identifiant unique de catégorie \u0026gt;= 0.0.1   str catname Nom affiché de la catégorie \u0026gt;= 0.0.1    Observations    Type Nom Description Compatibilité     str token Token de l\u0026rsquo;observation \u0026gt;= 0.0.1   str coordinate_lat Latitude de l\u0026rsquo;observation en dégré décimal \u0026gt;= 0.0.1   str coordinate_lon Longitude de l\u0026rsquo;observation en dégré décimal \u0026gt;= 0.0.1   str address Adresse de l\u0026rsquo;observation \u0026gt;= 0.0.1   str comment Remarque de l\u0026rsquo;observation \u0026gt;= 0.0.1   str explanation Explications de l\u0026rsquo;observation \u0026gt;= 0.0.1   int time Timestamp (en secondes) de l\u0026rsquo;observation \u0026gt;= 0.0.1   int status Statut de l\u0026rsquo;observation (voir \u0026ldquo;Status des observations\u0026rdquo;) \u0026gt;= 0.0.6   int group Groupe de l\u0026rsquo;observation LEGACY   int categorie Identifiant de catégorie de l\u0026rsquo;obseration \u0026gt;= 0.0.1   int approved Etat d\u0026rsquo;approbation de l\u0026rsquo;observation \u0026gt;= 0.0.1   int cityname Nom de la ville (si existe, n\u0026rsquo;est pas affiché dans l\u0026rsquo;adresse) \u0026gt;= 0.0.13    Scope    Type Nom Description Compatibilité     str display_name Nom affiché du scope dans Vigilo \u0026gt;= 0.0.5   str coordinate_lat_min Latitude minimum de la zone en dégré décimal \u0026gt;= 0.0.5   str coordinate_lat_max Latitude maximum de la zone en dégré décimal \u0026gt;= 0.0.5   str coordinate_lon_min Longitude minimum de la zone en dégré décimal \u0026gt;= 0.0.5   str coordinate_lon_max Longitude maximum de la zone en dégré décimal \u0026gt;= 0.0.5   str map_center_string Latitude + \u0026ldquo;,\u0026rdquo; + Longitude du centre de la carte qui doit être affichée \u0026gt;= 0.0.5   int map_zoom Zoom de la carte à afficher \u0026gt;= 0.0.5   str contact_email Adresse mail de contact du scope \u0026gt;= 0.0.5   str tweet_content ontenu du tweet qui mis par défaut via le composant de partage de l\u0026rsquo;application \u0026gt;= 0.0.5   str map_url Adresse de la carte où sont affichées les observations \u0026gt;= 0.0.5   str nominatim_urlbase URL base du service nominatim \u0026gt;= 0.0.14   str backend_version Version du backend \u0026gt;= 0.0.5    Status des observations    Type Nom Description Compatibilité     int status 0 =\u0026gt; Nouvelle observation 1 =\u0026gt; Observation résolue 2 =\u0026gt; Prise en compte 3 =\u0026gt; En cours de résolution 4 =\u0026gt; Indiquée comme résolue \u0026gt;= 0.0.10    "
 },
 {
-	"uri": "http://vigilo.city/fr/app/android/ajout/",
+	"uri": "https://vigilo.city/fr/app/android/ajout/",
 	"title": "Ajout observation",
 	"tags": [],
 	"description": "",
 	"content": "Pour ajouter une observation cliquer sur le bouton +\n"
 },
 {
-	"uri": "http://vigilo.city/fr/faq/",
+	"uri": "https://vigilo.city/fr/faq/",
 	"title": "FAQ",
 	"tags": [],
 	"description": "",
 	"content": " FAQ Vigilo Sommaire  Je suis un utilisateur  A quoi sert Vigilo ? Je souhaiterais que Vigilo soit installé dans ma ville Pourquoi Vigilo n\u0026rsquo;est pas disponible sur iOS ? J\u0026rsquo;ai une erreur de \u0026ldquo;copie du fichier sur Android\u0026rdquo; L\u0026rsquo;application est lente Pourquoi certaines photos sont pixelisées ? Pourquoi mon observation n\u0026rsquo;est plus visible ? J\u0026rsquo;ai d\u0026rsquo;autres problèmes dans l\u0026rsquo;utilisation de l\u0026rsquo;application Android Pourquoi il y a des trackers dans l\u0026rsquo;application Android ?  Je suis une association  Je souhaiterais mettre en place Vigilo dans ma ville Comment ajouter un moderateur ? Comment modérer sur l\u0026rsquo;interface web ? Comment modérer sur l\u0026rsquo;application Android ? Comment sont utilisées les données Vigilo ? Pourquoi je dois mettre à jour mon instance ? Il manque certaines fonctionnalités dans Vigilo pour mon association Comment obtenir de l\u0026rsquo;aide pour installer et/ou exploiter Vigilo ?  Je suis une collectivité  Que peut apporter Vigilo à ma collectivité ? Comment utiliser Vigilo dans ma collectivité ? Est-ce que Vigilo est payant ? Est-il possible de générer des moyens d\u0026rsquo;utiliser les données Vigilo ?  Je veux contribuer à Vigilo  Quelles sont les technologies utilisées par Vigilo ? Comment fonctionne la communauté OpenSource Vigilo ?   Je suis un utilisateur A quoi sert Vigilo ? Vigilo est une application qui permet d\u0026rsquo;enregistrer des observations sur les difficultés rencontrées sur le domaine publique par les mobilités actives (pietons, trottinettes, cyclistes, personnes à mobilités réduites\u0026hellip;)\nCes observations alimentent une base de données qui est réutilisée afin d\u0026rsquo;extraire des informations sur les conditions de déplacements de ces mobilités.\nVigilo n\u0026rsquo;a pas vocation à faire de la denonciation, mais uniquement de remonter des élements factuels constatés par chacun sur le terrain. Afin de renforcer cette position, l\u0026rsquo;ensemble des elements permettant l\u0026rsquo;identification d\u0026rsquo;une personnes (plaques d\u0026rsquo;immatriculations, visages, \u0026hellip;) doivent être floutés avant publication. Des modérateurs valident les observations et ajoutent ces floutages si besoin.\nJe souhaiterais que Vigilo soit installé dans ma ville Vigilo est une application necessitant un suivi régulier, des compétences techniques, une responsabilité sur les données publiées ainsi qu\u0026rsquo;une démarche de valorisation des données.\nPour ces raisons, une association ayant pour sujet les mobilités actives pourra prendre en charge son installation.\nVous trouverez plus d\u0026rsquo;informations ici\nPourquoi Vigilo n\u0026rsquo;est pas disponible sur iOS ? Vigilo a été developpé sur iOS. Malgré celà, la politique de publication sur l\u0026rsquo;Apple Store ne permet pas sa publication.\nDes tentatives seront de nouveau effectuées.\nEn attendant, il est possible d\u0026rsquo;utiliser l\u0026rsquo;application web qui a aussi été concue pour une utilisation sur mobile.:elle est disponible ici\nJ\u0026rsquo;ai une erreur de \u0026ldquo;copie du fichier\u0026rdquo; sur Android S\u0026rsquo;assurer que l\u0026rsquo;application est bien à jour sur le Play Store.\nIl se peut que l\u0026rsquo;application ne soit pas fonctionnelle lorsqu\u0026rsquo;elle est installée sur la carte SD : il est alors necessaire de la deplacer sur le stockage interne.\nSi le problème persiste, désinstaller l\u0026rsquo;application et effacer les données ainsi que le cache de celle-ci.\nL\u0026rsquo;application est lente L\u0026rsquo;application necessite d\u0026rsquo;être connecté à Internet, vérifier que la qualité de la connexion est bonne.\nIl est également conseillé de restreindre le nombre d\u0026rsquo;observations affichées dans les filtres, permettant d\u0026rsquo;alleger le chargement.\nPourquoi certaines photos sont pixelisées ? Lorsqu\u0026rsquo;une observation est postée, elle est mise à disposition de tous mais de manière limitée avec une pixelisation de la photo en attendant sa modération.\nUne fois l\u0026rsquo;observation validée, la photo est affichée de manière nette.\nPourquoi mon observation n\u0026rsquo;est plus visible ? Les observations ne respectant pas les règles d\u0026rsquo;utilisation de Vigilo sont désactivées :\n Photo sous licence (Google Street View par exemple) Observation ne mettant pas en evidence une gène évidente Observation avec des informations manquantes et/ou incorrectes Propos inappropriés Observation detectée comme fausse Photo de mauvaise qualité  J\u0026rsquo;ai d\u0026rsquo;autres problèmes dans l\u0026rsquo;utilisation de l\u0026rsquo;application Android Tenter les étapes suivantes :\n S\u0026rsquo;assurer que l\u0026rsquo;application est à jour. Si besoin désinstaller/réinstaller. Si le problème persiste, contacter les developpeurs Vigilo sur velocite34@gmail.com avec le maximum d\u0026rsquo;informations et captures d\u0026rsquo;écrans. Ne pas oublier qu\u0026rsquo;il s\u0026rsquo;agit d\u0026rsquo;un projet developpé par des benevoles : le traitement des demandes se fait selon les disponibilités de chacun.  Pourquoi il y a des trackers dans l\u0026rsquo;application Android ? L\u0026rsquo;application Android est actuellement developpée avec le framework Kodular.\nCe framework embarque des trackers que l\u0026rsquo;on retrouve dans Vigilo.\nVigilo ne prévoit pas d\u0026rsquo;autres trackers qu\u0026rsquo;une clé d\u0026rsquo;authentification liée à chaque observation, permettant de supprimer celle-ci.\nNous cherchons des volontaires pour redevelopper l\u0026rsquo;application en natif, permettant ainsi de ne plus avoir ces trackers.\nJe suis une association Je souhaiterais mettre en place Vigilo dans ma ville L\u0026rsquo;ensemble des informations sont diponibles sur cette page\nComment ajouter un moderateur ? Vous trouverez plus d\u0026rsquo;informations sur la documentation\nComment modérer sur l\u0026rsquo;interface web ? Vous trouverez plus d\u0026rsquo;informations sur la documentation\nComment modérer sur l\u0026rsquo;application android ? Vous trouverez plus d\u0026rsquo;informations sur la documentation\nComment sont utilisées les données Vigilo ? Vigilo n\u0026rsquo;a pas vocation à exploiter les données mais seulement à les relever et les stocker.\nCes données sont disponibles en CSV, JSON et GeoJSON permettant à chacun de les exploiter selon ses besoins.\nDes projets openSource ont également été mis en place pour cette partie : - Notebook - Vigilotools\nPourquoi je dois mettre à jour mon instance ? Vigilo évolue en permanence, via de nouvelles fonctionnalités, des corrections de bugs et de failles de sécurité.\nAfin de suivre ces évolutions, il est indispensable de maintenir la version de votre instance à jour.\nSi l\u0026rsquo;instance n\u0026rsquo;est pas à jour elle risque de ne plus fonctionner avec les nouvelles versions des applications clientes qui se basent sur les dernières versions du backend.\nIl manque certaines fonctionnalités dans Vigilo pour mon association vigilo est une application développée sur le modèle libre et Open-Source par des bénévoles.\nSi une fonctionnalité est manquante, il est tout à fait possible à chacun de contribuer et de proposer une contribution. Voir Comment fonctionne la communauté OpenSource Vigilo ?\nIl est également possible d\u0026rsquo;ajouter des fonctionnalités de manière indépendante et s\u0026rsquo;appuyant sur les données Open-DATA fournies par Vigilo.\nComment obtenir de l\u0026rsquo;aide pour installer et ou exploiter Vigilo ? Un Slack est à disposition pour échanger avec les developpeurs et les autres associations.\nPour toute demande d\u0026rsquo;ajout d\u0026rsquo;instance par une association, une invitiation à ce Slack est envoyée.\nJe suis une collectivité Que peut apporter Vigilo à ma collectivité ? Les observations de Vigilo sont ajoutées à titre collaboratif par les nombreux usagers avec des faits constatés directement sur le terrain.\nCelà permet d\u0026rsquo;obtenir une base de données à grande échelle avec des usagers contributeurs répartis sur le territoire.\nIl est ainsi possible d\u0026rsquo;obtenir au fil du temps un aperçu de l\u0026rsquo;état du terrain afin de s\u0026rsquo;appuyer dessus pour plannifier et arbitrer des chantiers d\u0026rsquo;amélioration liés aux deplacements.\nComment utiliser Vigilo dans ma collectivité ? Vigilo est à exploiter idéalement par une association.\nDans le cas où aucune association n\u0026rsquo;est en mesure de prendre en charge sa mise en place, il est possible sous couvert de répondre aux pré-requis, de mettre en place l\u0026rsquo;application. Voir ici pour plus d\u0026rsquo;informations\nEst-ce que Vigilo est payant ? Vigilo est 100% gratuit et n\u0026rsquo;a qu\u0026rsquo;un seul objectif : fournir un outil permettant à tous d\u0026rsquo;avoir de la visiblité sur les problématiques rencontrées au quotidiens par les mobilités actives.\nEst-il possible de générer des moyens d\u0026rsquo;utiliser les données Vigilo ? Les besoins de chaque association/collectivité étant différents, il n\u0026rsquo;est pas possible de fournir une methode d\u0026rsquo;exploitation automatique des données universelle.\nA charge à chaque exploitant d\u0026rsquo;utiliser les données selon ses besoins. Voir ici pour plus d\u0026rsquo;informations\nJe veux contribuer à Vigilo Quelles sont les technologies utilisées par Vigilo ? Vigilo utilise les langages de programmation suivants :\n PHP / HTML / CSS (Backend) Javascript (Vigilo Web) Pÿthon (VigiloTools) Java (Application iOS)  Vigilo utilise les technologies de containerisation Docker sur OS Linux Debian.\nComment fonctionne la communauté OpenSource Vigilo ? La communauté fonctionne autour de GitHub pour le code et Slack pour les communications.\nChaque projet est géré par un Lead Dev qui valide les Pull Requests.\nPour contribuer, il suffit de forker une branche, réaliser les modifications et faire une Pull Request vers la branche originale.\n"
 },
 {
-	"uri": "http://vigilo.city/fr/app/android/ajout/etape-2/",
+	"uri": "https://vigilo.city/fr/app/android/ajout/etape-2/",
 	"title": "Validation localisation photo",
 	"tags": [],
 	"description": "Validation de la localisation photo",
 	"content": " Ceci est une page de demo\nValidation geolocalisation "
 },
 {
-	"uri": "http://vigilo.city/fr/documentation/",
+	"uri": "https://vigilo.city/fr/documentation/",
 	"title": "Documentation",
 	"tags": [],
 	"description": "",
 	"content": " Mise en place Vous trouverez dans cette section tout le necessaire afin d\u0026rsquo;installer une instance Vigilo.\nSi elle remplit les critères définis sur cette page, vous pouvez nous contacter afin quelle soit ajoutée dans la base nationale et listée sur l\u0026rsquo;application\nPour commencer l\u0026rsquo;installation cliquer ici\n"
 },
 {
-	"uri": "http://vigilo.city/fr/contact/",
+	"uri": "https://vigilo.city/fr/contact/",
 	"title": "Nous contacter",
 	"tags": [],
 	"description": "",
 	"content": " Remplir le formulaire pour nous contacter Avant de nous contacter, merci de prendre connaissance de la FAQ qui contient déjà une grande partie des réponses aux questions les plus récurrentes.\nNom : Adresse mail : Message :  Send  Alternatives  Twitter - VigiloObsApp Github - En créant une issue  "
 },
 {
-	"uri": "http://vigilo.city/fr/app/android/ajout/etape-3/",
+	"uri": "https://vigilo.city/fr/app/android/ajout/etape-3/",
 	"title": "Ajout description",
 	"tags": [],
 	"description": "Description",
 	"content": " Ceci est une page de demo\nChoix categorie et description "
 },
 {
-	"uri": "http://vigilo.city/fr/app/android/ajout/etape-4/",
+	"uri": "https://vigilo.city/fr/app/android/ajout/etape-4/",
 	"title": "Résumé",
 	"tags": [],
 	"description": "Résumé de l&#39;observation",
 	"content": " Ceci est une page de demo\nChoix categorie et description "
 },
 {
-	"uri": "http://vigilo.city/fr/villes/agglomeration-troyenne-fr/",
+	"uri": "https://vigilo.city/fr/villes/agglomeration-troyenne-fr/",
 	"title": "Agglomération troyenne (0.0.13)",
 	"tags": [],
 	"description": "",
 	"content": " Carte   Voir en plein écran  Statistique   Voir en plein écran  Les 10 dernières observations    Adresse Commentaire Liens     Avenue des Viennes, La Rivière-de-Corps quel est ce panneau ??? Photo - Observations similaires   Rue Victor Hugo, La Rivière-de-Corps passage une personne difficile Photo - Observations similaires   Rue Édouard Vaillant, Troyes Véhicule sur trottoir Photo - Observations similaires   Avenue des Lombards, Troyes Une voiture que sur les passages piétons Photo - Observations similaires   Avenue du Général Gallieni, Sainte-Savine Personnes qui jettent des mégots par terre de mar Photo - Observations similaires   Avenue du Général Gallieni, Sainte-Savine Peut dire qu\u0026#39;il est bien garée Photo - Observations similaires   Rue des Vignes, Villechétif Scooter sur place pour personnes a mobilité rédu Photo - Observations similaires   Avenue Chomedey de Maisonneuve, Troyes  Photo - Observations similaires   Avenue Chomedey de Maisonneuve, Troyes  Photo - Observations similaires   Boulevard Danton, Troyes bloque bande cyclable et passage piéton Photo - Observations similaires    Informations complémentaires  Contact: contact ✉ troyesenselle ⊙ fr Carte: https://vigilo.troyesenselle.fr Scope info: https://api.vigilo.troyesenselle.fr/get_scope.php?scope=10_troyes Données ouvertes: JSON - GeoJSON - CSV  "
 },
 {
-	"uri": "http://vigilo.city/fr/villes/aix-marseille-provence-metropole-fr/",
+	"uri": "https://vigilo.city/fr/villes/aix-marseille-provence-metropole-fr/",
 	"title": "Aix Marseille Provence Metropole (0.0.15)",
 	"tags": [],
 	"description": "",
 	"content": " Carte   Voir en plein écran  Statistique   Voir en plein écran  Les 10 dernières observations    Adresse Commentaire Liens     Quai de Rive-Neuve, Marseille parking moto sauvage Photo - Observations similaires   Boulevard du Redon, Marseille trottoir et piste cyclable inaccessibles Photo - Observations similaires   Avenue des Chutes Lavie, Marseille Jeter les cyclistes dans un double sens cyclable ? Photo - Observations similaires   Avenue des Chutes Lavie, Marseille Faut pas se manquer pour prendre la piste :/ Photo - Observations similaires   Boulevard Chave, Marseille terrasse sur piste cyclable Photo - Observations similaires   Boulevard Chave, Marseille terrasse sur piste cyclable, slalom extrême Photo - Observations similaires   Avenue Robert Schuman, Marseille l\u0026#39;arrogance de l\u0026#39;espace dédié à la voiture Photo - Observations similaires   Place du 4 Septembre, Marseille Terrasse sur \u0026#34;piste cyclable\u0026#34; Photo - Observations similaires   Chemin de Morgiou, Marseille voiture garée sur passage piéton Photo - Observations similaires   Rue Paradis, Marseille bouchon ➡️ moto qui roule sur le trottoir Photo - Observations similaires    Informations complémentaires  Contact: collectif ✉ velosenville ⊙ org Carte: https://umap.openstreetmap.fr/fr/map/vigiloaixmarseilleprovencemetropole_329304 Scope info: https://vigilo.velosenville.org/get_scope.php?scope=13_aixmarseillemetro Données ouvertes: JSON - GeoJSON - CSV  "
 },
 {
-	"uri": "http://vigilo.city/fr/villes/amiens-fr/",
+	"uri": "https://vigilo.city/fr/villes/amiens-fr/",
 	"title": "Amiens (0.0.16)",
 	"tags": [],
 	"description": "",
 	"content": " Carte   Voir en plein écran  Statistique   Voir en plein écran  Les 10 dernières observations    Adresse Commentaire Liens     Rue Le Mattre, Amiens Sortie de DSC mal sécurisée Photo - Observations similaires   Rue Jules Barni, Amiens poubelles sur piste cyvlable Photo - Observations similaires   Rue De Latour, Amiens gcup sur trottoir Photo - Observations similaires   Rue Jules Barni, Amiens stationnement gcum Photo - Observations similaires   Rue Jean Macé, Amiens sortie d\u0026#39;école Photo - Observations similaires   Avenue Henri Barbusse, Longueau déchargement via trottoir Photo - Observations similaires   Rue du Marché Lanselles, Amiens place livraison occupé par une vp camion sur pist Photo - Observations similaires   Rue Alexandre Dumas, Amiens stationnement voiture sur la voie verte Photo - Observations similaires   Boulevard Chateaudun, Amiens Création d\u0026#39;une nouvelle contraite Photo - Observations similaires   Rue Jules Barni, Amiens gcum Photo - Observations similaires    Informations complémentaires  Contact: francois ✉ varas-genestier ⊙ net Carte: https://umap.openstreetmap.fr/en/map/vigilo-de-cycliste_373928#12/49.9152/2.3397 Scope info: https://velo.varas-genestier.net/get_scope.php?scope=80_amiens Données ouvertes: JSON - GeoJSON - CSV  "
 },
 {
-	"uri": "http://vigilo.city/fr/villes/bassin-d-arcachon-fr/",
+	"uri": "https://vigilo.city/fr/villes/bassin-d-arcachon-fr/",
 	"title": "Bassin d&#39;Arcachon (0.0.17)",
 	"tags": [],
 	"description": "",
 	"content": " Carte   Voir en plein écran  Statistique   Voir en plein écran  Les 10 dernières observations    Adresse Commentaire Liens     Rue Edmond Daubric, Gujan-Mestras stationnement voitures sur piste cyclable Photo - Observations similaires   Rue Georges Clemenceau, Gujan-Mestras virage dangereux. Photo - Observations similaires   Avenue de la Gare, Gujan-Mestras La rue a plusieurs trous . Photo - Observations similaires   Piste Cyclable La Teste de Buch - Biscarrosse Plage, La Teste de Buch piste temporaire solide Photo - Observations similaires   Rond Point Decathlon, La Teste de Buch Suppression de la Photo - Observations similaires   inconnu, Gujan-Mestras Sable sur la piste depuis plusieurs mois Photo - Observations similaires   angle rue du Maréchal Foch et allée des plaçot, Gujan-Mestras terre plein mal conçu. Photo - Observations similaires   Rue Pierre Daney, Gujan-Mestras double sens cyclable bien fait a généraliser Photo - Observations similaires   Rue Edmond Daubric, Gujan-Mestras piste sur trottoir- stop inapproprié Photo - Observations similaires   gare de Gujan , Gujan-Mestras  Photo - Observations similaires    Informations complémentaires  Contact: pierre ⊙ gaudillere ✉ velobassin ⊙ org Carte: https://umap.openstreetmap.fr/fr/map/vigilo-de-velobassin_591216 Scope info: https://vigilo.velobassin.org/get_scope.php?scope=33_arcachon Données ouvertes: JSON - GeoJSON - CSV  "
 },
 {
-	"uri": "http://vigilo.city/fr/villes/beauvaisis-fr/",
+	"uri": "https://vigilo.city/fr/villes/beauvaisis-fr/",
 	"title": "Beauvaisis (0.0.16)",
 	"tags": [],
 	"description": "",
 	"content": " Statistique   Voir en plein écran  Les 10 dernières observations    Adresse Commentaire Liens     Boulevard Aristide Briand, Beauvais Trottoir élargi = stationnement de véhicule ! Photo - Observations similaires   Rue du Colonel Agel, Beauvais Un arceau de stationnement est tombé Photo - Observations similaires   Rue de Tilloy, Beauvais le marquage de la rive s\u0026#39;efface déjà Photo - Observations similaires   Avenue Corot, Beauvais pas de continuité Photo - Observations similaires   Avenue Corot, Beauvais repartir vers le flux de voiture sur la gauche Photo - Observations similaires   Rue de Marissel, Beauvais Stationnements gênants journaliers Photo - Observations similaires   Rue de Paris, Beauvais quand les commerces de Voisinlieu seront ils équi Photo - Observations similaires   Rue Saint-Quentin, Beauvais Contre-sens cyclable mal créé Photo - Observations similaires   Rue Pierre Jacoby, Beauvais Priorité donnée aux voitures Photo - Observations similaires   Avenue Corot, Beauvais Panneau Photo - Observations similaires    Informations complémentaires  Contact: vellovaquebeauvais ✉ gmail ⊙ com\n Scope info: https://vigilo.vellovaque.fr/get_scope.php?scope=60_beauvaisis\n Données ouvertes: JSON - GeoJSON - CSV\n  "
 },
 {
-	"uri": "http://vigilo.city/fr/villes/brest-metropole-fr/",
+	"uri": "https://vigilo.city/fr/villes/brest-metropole-fr/",
 	"title": "Brest Métropole (0.0.15)",
 	"tags": [],
 	"description": "",
 	"content": " Statistique   Voir en plein écran  Les 10 dernières observations    Adresse Commentaire Liens     Yves Giloux, Brest Trous au milieu du carrefour Photo - Observations similaires   rue Beranger, Brest les mêmes tous les matins \u0026#43; 3 en manœuvre Photo - Observations similaires   rue du Bot, Brest  Photo - Observations similaires   avenue Foch, Brest souvent garé à cet endroit Photo - Observations similaires   Rue de la Frégate le Vengeur, Brest Véhicules occupant les deux trottoirs Photo - Observations similaires   Route De Tremaidic, Plouzané espace insuffisant pour accéder à la pc Photo - Observations similaires   Keroudot, Brest véhicule garé entièrement sur le trottoir Photo - Observations similaires   saint Exupéry , Brest camion sur tout le trottoir Photo - Observations similaires   saint Exupéry , Brest encore un véhicule gare sur le trottoir Photo - Observations similaires   Anatole France , Brest aucun dispositif de stationnement dans le quartier Photo - Observations similaires    Informations complémentaires  Contact: admin ✉ bapav ⊙ org\n Scope info: https://vigilo.bapav.org/get_scope.php?scope=29_brest\n Données ouvertes: JSON - GeoJSON - CSV\n  "
 },
 {
-	"uri": "http://vigilo.city/fr/categories/",
+	"uri": "https://vigilo.city/fr/categories/",
 	"title": "Categories",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "http://vigilo.city/fr/villes/grand-montpellier-fr/",
+	"uri": "https://vigilo.city/fr/villes/grand-montpellier-fr/",
 	"title": "Grand Montpellier (0.0.16)",
 	"tags": [],
 	"description": "",
 	"content": " Carte   Voir en plein écran  Statistique   Voir en plein écran  Les 10 dernières observations    Adresse Commentaire Liens     Avenue Georges Frêche, Pérols  Photo - Observations similaires   Chemin de Halage, Palavas-les-flots Signalisation travaux en plein sur piste cyclable Photo - Observations similaires   Avenue de Boirargues, Lattes Racines des pins Photo - Observations similaires   Avenue de la Galine, Castelnau-Le-Lez  Photo - Observations similaires   Rue du Pas du Loup, Montpellier tranquillou à l\u0026#39;ombre, sur le trottoir Photo - Observations similaires   Avenue de Villeneuve-Angoulème, Montpellier sur BC et trottoir Photo - Observations similaires   Rue du Pas du Loup, Montpellier sur BC et trottoir Photo - Observations similaires   Boulevard Henri IV, Montpellier voitures sur trottoir Photo - Observations similaires   Rue du Dahlia, Montpellier circulation des voitures sur la PC Photo - Observations similaires   Rue du Pas du Loup, Montpellier contresens, à moitié sur la BC Photo - Observations similaires    Informations complémentaires  Contact: velocite34 ✉ gmail ⊙ com Carte: https://umap.openstreetmap.fr/en/map/vigilo_286846 Scope info: https://api-vigilo.jesuisundesdeux.org/get_scope.php?scope=34_montpellier Données ouvertes: JSON - GeoJSON - CSV  "
 },
 {
-	"uri": "http://vigilo.city/fr/villes/mons-be/",
+	"uri": "https://vigilo.city/fr/villes/mons-be/",
 	"title": "Mons (0.0.11)",
 	"tags": [],
 	"description": "",
 	"content": " Carte   Voir en plein écran  Statistique   Voir en plein écran  Les 10 dernières observations    Adresse Commentaire Liens     Boulevard Dolez, Mons Dépassement dangereux (bus tec accordéon) Photo - Observations similaires   Digue de Cuesmes 100, Mons  Photo - Observations similaires   Passage Souterrain , Mons éclairage défectueux Photo - Observations similaires   Digue de Cuesmes, Mons trou sur piste cyclable Photo - Observations similaires   Digue de Cuesmes, Mons trou important sur piste cyclable Photo - Observations similaires   Avenue du Gouverneur Émile Cornez, Mons  Photo - Observations similaires   Avenue du Général de Gaulle, Mons Bel cachant la vue des automobilistes Photo - Observations similaires   Mons Carrefour avenue de Gaullet fo et digue de Cuesmes, Mons Ce bel arbre cache la vue des automobilistes Photo - Observations similaires   Rue Théophile Massart, Mons trottoirs systématiquement encombrés par voiture Photo - Observations similaires   Résidence du Rieu, Mons Chemin barré alors que panneau C13d Photo - Observations similaires    Informations complémentaires  Contact: admin ✉ geckonline ⊙ be Carte: https://umap.openstreetmap.fr/fr/map/vigilo-de-mons-gracq_373553#12/50.4459/3.9304 Scope info: https://vigilo.geckonline.be/get_scope.php?scope=be_mons Données ouvertes: JSON - GeoJSON - CSV  "
 },
 {
-	"uri": "http://vigilo.city/fr/villes/nantes-metropole-fr/",
+	"uri": "https://vigilo.city/fr/villes/nantes-metropole-fr/",
 	"title": "Nantes Métropole (0.0.16)",
 	"tags": [],
 	"description": "",
 	"content": " Carte   Voir en plein écran  Statistique   Voir en plein écran  Les 10 dernières observations    Adresse Commentaire Liens     Rue Louis Braille, Nantes force le passage et me frôle Photo - Observations similaires   Boulevard Joliot-Curie, Nantes passage piéton impraticable (travaux) Photo - Observations similaires   Rue de la Bâclerie, Nantes Scooter @RasLeScootNtes en zone piétonne Photo - Observations similaires   Route de Clisson, Nantes positionnement volontaire dans le sas vélo Photo - Observations similaires   Rue du Bois Hercé, Nantes trottoir occupé sur quasi toute sa longueur par d Photo - Observations similaires   Rue Bonne Garde, Saint-Sébastien-sur-Loire Stationnement sur le trottoir de cette voiture SFR Photo - Observations similaires   Boulevard des Pas Enchantés, Saint-Sébastien-sur-Loire Stationnement #GCUM sur le trottoir Photo - Observations similaires   Rue de la Galtière, Saint-Sébastien-sur-Loire Stationnement #GCUM sur le trottoir Photo - Observations similaires   Rue des Iris, Saint-Sébastien-sur-Loire stationnement sur trottoir Photo - Observations similaires   Passerelle Porthcawl, Saint-Sébastien-sur-Loire Scooter @RasLeScootNtes en zone piétonne Photo - Observations similaires    Informations complémentaires  Contact: vigilo ✉ placeauvelo-nantes ⊙ fr Carte: https://umap.openstreetmap.fr/en/map/vigilo-nantes-metropole_367886 Scope info: https://vigilo.placeauvelo-nantes.fr//get_scope.php?scope=44_nantesmetropole Données ouvertes: JSON - GeoJSON - CSV  "
 },
 {
-	"uri": "http://vigilo.city/fr/villes/nord-isere-apie-fr/",
+	"uri": "https://vigilo.city/fr/villes/nord-isere-apie-fr/",
 	"title": "Nord-Isère (APIE) (0.0.15)",
 	"tags": [],
 	"description": "",
 	"content": " Carte   Voir en plein écran  Statistique   Voir en plein écran  Les 10 dernières observations    Adresse Commentaire Liens     Rue Louis Braille, Bourgoin-Jallieu stationnement gênant récurrent Photo - Observations similaires   Voie Verte de la Bourbre, L\u0026#39;Isle-d\u0026#39;Abeau Superbe jungle mais croisements difficiles ! Photo - Observations similaires   Rue de Puizat, Bourgoin-Jallieu Tunnel sous RD non indiqué! Photo - Observations similaires   Avenue des Marronniers, Bourgoin-Jallieu signalisation piste cyclable incompréhensible Photo - Observations similaires   Route de la Commanderie du Temple, Vaulx-Milieu Itinéraire vélo mal signalé Photo - Observations similaires   Rue de Presle, L\u0026#39;Isle-d\u0026#39;Abeau Manque \u0026#34;Sauf vélo\u0026#34; \u0026#43; indications Photo - Observations similaires   Avenue du Général de Gaulle, La Verpillière Voie cyclable non indiquée Photo - Observations similaires   Rue de l\u0026#39;Etissey, Bourgoin-Jallieu camion déchargeant véhicules en double file Photo - Observations similaires   Chaussée de l\u0026#39;Étang, Villefontaine Signaler la voie vélo qui traverse la route Photo - Observations similaires   D 36, Vaulx-Milieu Un arrêt de bus posé sur une belle piste cyclabl Photo - Observations similaires    Informations complémentaires  Contact: vigilo ✉ apie-asso ⊙ net Carte: https://umap.openstreetmap.fr/fr/map/vigilo-apie_373959 Scope info: https://vigilo.apie-asso.net/get_scope.php?scope=38_capi Données ouvertes: JSON - GeoJSON - CSV  "
 },
 {
-	"uri": "http://vigilo.city/fr/villes/paris-saclay-fr/",
+	"uri": "https://vigilo.city/fr/villes/paris-saclay-fr/",
 	"title": "Paris Saclay (0.0.11)",
 	"tags": [],
 	"description": "",
 	"content": " Carte   Voir en plein écran  Statistique   Voir en plein écran  Les 10 dernières observations    Adresse Commentaire Liens     Parc Les Algorithmes, Saint-Aubin florilège de détails mal faits sur piste cyclabl Photo - Observations similaires   Sente Rurale, Saclay barrière sur voie verte passage trop étroit Photo - Observations similaires   Rue Jean-Baptiste Clément, Verrières-le-Buisson piste cyclable fermée depuis x années limite cd9 Photo - Observations similaires   RD 63, Châtenay-Malabry gravillon sur piste cyclable Photo - Observations similaires   Avenue du Général de Gaulle, Massy Jalonnement @Véloscenie met en danger Photo - Observations similaires   Avenue de l\u0026#39;Europe, Massy Cora : rateliers vélos ineptes Photo - Observations similaires   Avenue de l\u0026#39;Europe, Massy  Photo - Observations similaires   Boulevard Gaspard Monge, Palaiseau sur piste cyclable toujours et toujours Photo - Observations similaires   TCSP École Polytechnique - Saint-Aubin, Palaiseau sur piste cyclable Photo - Observations similaires   Voie de la Vallée de la Bièvre, Massy Piste cyclable majeure coupée par un marché Photo - Observations similaires    Informations complémentaires  Contact: thibault ⊙ armengaud ✉ gmail ⊙ com Carte: https://umap.openstreetmap.fr/en/map/vigilo-paris-saclay_326390 Scope info: https://api.vigilo-parissaclay.mdb-idf.org//get_scope.php?scope=91_parissaclay Données ouvertes: JSON - GeoJSON - CSV  "
 },
 {
-	"uri": "http://vigilo.city/fr/villes/perigueux-agglo-fr/",
+	"uri": "https://vigilo.city/fr/villes/perigueux-agglo-fr/",
 	"title": "Périgueux Agglo (0.0.17)",
 	"tags": [],
 	"description": "",
 	"content": " Carte   Voir en plein écran  Statistique   Voir en plein écran  Les 10 dernières observations    Adresse Commentaire Liens     Velo Route Voie Verte, Trélissac Une piscine ? Photo - Observations similaires   rond point du lion face étoile du sud, Périgueux affaissement suite travaux : chutes 2 riues Photo - Observations similaires   Voie Verte Derrière LACIS Groupe NGE Ex-Brissaud , Marsac-sur-l\u0026#39;Isle  Photo - Observations similaires   Rue Jacques Emile Lafon, Périgueux Vélo identique a la photo volé en pleine nuit Photo - Observations similaires   Place Francheville, Périgueux pas de connexion à la piste cyclable l Photo - Observations similaires   Place Francheville, Périgueux Nouvel aménagement Monoprix catastrophique Photo - Observations similaires   Avenue du Général de Gaulle, Coulounieix-Chamiers il vaut mieux porter un casque Photo - Observations similaires   Espace Grandou, Trélissac Pas d\u0026#39;arceaux ! Photo - Observations similaires   Velo Route Voie Verte, Trélissac Arrivée sur trottoir, qui plus est minuscule ! Photo - Observations similaires   Voie verte / Giratoire Mémoire, Boulazac Isle Manoire barrière gênante Photo - Observations similaires    Informations complémentaires  Contact: contact ✉ velorution-perigourdine ⊙ fr Carte: https://umap.openstreetmap.fr/fr/map/vigilo-de-velorution-perigourdine_485621 Scope info: https://vigilo.velorution-perigourdine.fr/get_scope.php?scope=24_AggloPgx Données ouvertes: JSON - GeoJSON - CSV  "
 },
 {
-	"uri": "http://vigilo.city/fr/villes/saint-marcellin-vercors-isere-communaute-fr/",
+	"uri": "https://vigilo.city/fr/villes/saint-marcellin-vercors-isere-communaute-fr/",
 	"title": "Saint Marcellin Vercors Isère Communauté (0.0.17)",
 	"tags": [],
 	"description": "",
 	"content": " Carte   Voir en plein écran  Statistique   Voir en plein écran  Les 10 dernières observations    Adresse Commentaire Liens     Place d\u0026#39;Armes, Saint Marcellin 2 arceaux soit 4 vélos devant la mairie Photo - Observations similaires   Avenue de la Saulaie, Saint Marcellin 30 m de bande cyclable, point. Photo - Observations similaires   place Lacombe Malloc, Saint Marcellin Ajout d\u0026#39;un M12 Photo - Observations similaires   Avenue du Docteur Carrier, Saint Marcellin fin brutale de bande cyclable Photo - Observations similaires   Impasse de Brochenu, Murinais Entrave du sentier par des arbres Photo - Observations similaires   rue du Faubourg, Saint Marcellin 10.000 véhicules jour, quelle place pour le vélo Photo - Observations similaires   Rue des Peupliers, Saint Vérand manque le passage Velo Photo - Observations similaires   Rue de la Plaine, Saint Marcellin slalom entre panneaux et bouches d\u0026#39;égouts Photo - Observations similaires   rue jean Rony, Saint Marcellin emplacement et couleur des potelets Photo - Observations similaires   Rue des Lavandes, Saint Sauveur Voie qui se rétrécit, conflits piétons Photo - Observations similaires    Informations complémentaires  Contact: vigilo ✉ roulavelo ⊙ org Carte: https://umap.openstreetmap.fr/fr/map/vigilo-de-roulavelo_591331 Scope info: https://vigilo.roulavelo.org/get_scope.php?scope=38_SMVIC Données ouvertes: JSON - GeoJSON - CSV  "
 },
 {
-	"uri": "http://vigilo.city/fr/villes/saint-brieuc-armor-agglomeration-fr/",
+	"uri": "https://vigilo.city/fr/villes/saint-brieuc-armor-agglomeration-fr/",
 	"title": "Saint-Brieuc Armor Agglomération (0.0.16)",
 	"tags": [],
 	"description": "",
 	"content": " Carte   Voir en plein écran  Statistique   Voir en plein écran  Les 10 dernières observations    Adresse Commentaire Liens     N12, Plérin des camions stationnent sur la piste Photo - Observations similaires   Parking Leclerc, Plérin pince roue ne permettant pas de securiser le velo Photo - Observations similaires   Rue Pinot-Duclos, Saint-Brieuc gcum tous les jours Photo - Observations similaires   Avenue Henri Barbusse, Plérin aussitôt repeinte, aussitôt occupée Photo - Observations similaires   Rue Saint-Gouéno, Saint-Brieuc c\u0026#39;est parfois compliqué de trouver un arceau lib Photo - Observations similaires   Rue Michelet, Saint-Brieuc un bac sur une place vélo ! Photo - Observations similaires   Rue Abbé Garnier, Saint-Brieuc virage en epingle pour entrer sur la piste Photo - Observations similaires   Rue Abbé Garnier, Saint-Brieuc bande cyclable dans le caniveau Photo - Observations similaires   Place François Mitterrand, Saint-Brieuc Trouvez votre chemin\u0026hellip; Photo - Observations similaires   Place François Mitterrand, Saint-Brieuc Slalomer entre poteaux, jardinières, panneaux\u0026hellip; Photo - Observations similaires    Informations complémentaires  Contact: vigilo ⊙ admin ✉ velo-utile ⊙ fr Carte: http://umap.openstreetmap.fr/fr/map/vigilo-de-veloutile_514608 Scope info: https://api-vigilo.velo-utile.fr/get_scope.php?scope=22_SBAA Données ouvertes: JSON - GeoJSON - CSV  "
 },
 {
-	"uri": "http://vigilo.city/fr/villes/sud-oise-fr/",
+	"uri": "https://vigilo.city/fr/villes/sud-oise-fr/",
 	"title": "Sud Oise (0.0.15)",
 	"tags": [],
 	"description": "",
 	"content": " Statistique   Voir en plein écran  Les 10 dernières observations    Adresse Commentaire Liens     Avenue de Toutevoie, Gouvieux Pont inaccessible PMR / vélo Photo - Observations similaires   14e Avenue Barrière anti intrusion dangereuse et inefficace Photo - Observations similaires   Allée des Hêtres Abaissé de trottoir Photo - Observations similaires   Trans\u0026#39;Oise, Senlis Senlis éclairage volé ou cassé tout au long de Photo - Observations similaires   Avenue Félix Louat, Senlis Senlis panneau dangereux sur piste cyclable en vir Photo - Observations similaires   Avenue du Poteau rue de la Fontaine des Malades, Senlis Senlis, rampe vélo détériorée Photo - Observations similaires   Avenue Marie Amelie, Chantilly  Photo - Observations similaires   Rue de Compiègne, Le Meux Poteau trop près de la route et risque de chute Photo - Observations similaires   Grande Rue, Avilly-Saint-Léonard Rue limitée à 30-absence d\u0026#39;un double sens cycla Photo - Observations similaires   Rue de l\u0026#39;Oise, Compiègne Excité du volant Photo - Observations similaires    Informations complémentaires  Contact: vigilo ✉ au5v ⊙ fr\n Scope info: https://vigilo.au5v.fr//get_scope.php?scope=60_SudOise\n Données ouvertes: JSON - GeoJSON - CSV\n  "
 },
 {
-	"uri": "http://vigilo.city/fr/tags/",
+	"uri": "https://vigilo.city/fr/tags/",
 	"title": "Tags",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "http://vigilo.city/fr/villes/thau-fr/",
+	"uri": "https://vigilo.city/fr/villes/thau-fr/",
 	"title": "Thau (0.0.15)",
 	"tags": [],
 	"description": "",
 	"content": " Statistique   Voir en plein écran  Les 10 dernières observations    Adresse Commentaire Liens     Avenue Émile Zola, Frontignan Véhicule en stationnement sur voie cyclable . Photo - Observations similaires   Rue des Airolles, Frontignan stationnement véhicule Photo - Observations similaires    Informations complémentaires  Contact: zerepciol ✉ laposte ⊙ net\n Scope info: https://sete34.vigilo.city//get_scope.php?scope=34_setethau\n Données ouvertes: JSON - GeoJSON - CSV\n  "
 },
 {
-	"uri": "http://vigilo.city/fr/villes/vannes-fr/",
+	"uri": "https://vigilo.city/fr/villes/vannes-fr/",
 	"title": "Vannes (0.0.18)",
 	"tags": [],
 	"description": "",
 	"content": " Statistique   Voir en plein écran  Les 10 dernières observations    Adresse Commentaire Liens      Informations complémentaires  Contact: velomotive ✉ orange ⊙ fr\n Scope info: https://vigilo.kaz.bzh/get_scope.php?scope=56_vannes\n Données ouvertes: JSON - GeoJSON - CSV\n  "
 },
 {
-	"uri": "http://vigilo.city/fr/",
+	"uri": "https://vigilo.city/fr/",
 	"title": "Vigilo",
 	"tags": [],
 	"description": "",
 	"content": " Vigilo, c\u0026rsquo;est quoi ? À pied ou à vélo, ayez le réflexe Vigilo C\u0026rsquo;est l\u0026rsquo;appli collaborative citoyenne pour améliorer les déplacements des cyclistes, des piétons et de toutes les mobilités actives.\nLes usagers peuvent maintenant remonter et cartographier les difficultés quotidiennes rencontrées lors de leurs déplacements en centre ville ou agglomération (véhicules ou objets gênants, aménagements mal conçus, défauts d\u0026rsquo;entretien, …)\nLes données factuelles sont libres et à disposition des collectivités et associations qui pourront les exploiter et analyser afin d’axer des chantiers pour améliorer la mobilité de chacun.\nComment ça marche ? Par l\u0026rsquo;application Web pour ordinateur, mobile ou tablette, Android via le Play Store, ou iOS (uniquement disponible via votre navigateur web):   Prenez une photo   Catégorisez le type de problème   Envoyez votre observation sur place ou chez soi.    \nFonctionnalités principales de Vigilo  Pas de création de compte : données anonymes validées par les modérateurs des associations de mobilités actives Facilité d\u0026rsquo;utilisation : ajout d\u0026rsquo;une observation en moins de 30 secondes Respect de la vie privée que ce soit des utilisateurs de vigilo que des observations (floutage des plaques, des visages, \u0026hellip;) Projet Opensource développé par des citoyens bénévoles Données des observations disponibles en libre accès sous licence Creative Common Zero (CC0) pour placer les données dans le domaine public  Fonctionnalités principales de Vigilo Soutiens       Et plein d\u0026rsquo;autres\nPresse  Canal + - Detours : Vigilo, l’appli qui cartographie les obstacles des cyclistes en ville Midi Libre - Montpellier : une carte participative qui recense les points noirs cyclables et les \u0026ldquo;GCUM\u0026rdquo; Le Mouvement - Vigilo, l’appli qui va faire bosser toutes les métropoles sur les mobilités actives Made In Marseille - Vigilo : une appli collaborative pour améliorer la vie des cyclistes à Marseille Ouest France - L’appli Vigilo invite les cyclistes à photographier les obstacles Actu.fr - Vigilo, l’application collaborative citoyenne pour les cyclistes et piétons, arrive à Brest France 3 Nantes - Vigilo, l\u0026rsquo;appli mobile qui permet de signaler les endroits dangereux à vélo France 3 - Vigilo : l\u0026rsquo;appli mobile qui vient au secours des cyclistes à Marseille Rtbf.be - Vigilo: une application smartphone pour améliorer la vie des cyclistes à Mons  "
 },
 {
-	"uri": "http://vigilo.city/fr/villes/maville/",
+	"uri": "https://vigilo.city/fr/villes/maville/",
 	"title": "Votre ville ici",
 	"tags": [],
 	"description": "",

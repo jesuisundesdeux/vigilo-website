@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nord-Isère (APIE) (0.0.15) on À pied ou à vélo, ayez le réflexe Vigilo</title>
-    <link>http://vigilo.city/fr/villes/nord-isere-apie-fr/</link>
+    <link>https://vigilo.city/fr/villes/nord-isere-apie-fr/</link>
     <description>Recent content in Nord-Isère (APIE) (0.0.15) on À pied ou à vélo, ayez le réflexe Vigilo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-FR</language>
     
-	<atom:link href="http://vigilo.city/fr/villes/nord-isere-apie-fr/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vigilo.city/fr/villes/nord-isere-apie-fr/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

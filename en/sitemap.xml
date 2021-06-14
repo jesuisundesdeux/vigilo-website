@@ -3,47 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://vigilo.city/en/categories/</loc>
+    <loc>https://vigilo.city/en/categories/</loc>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="http://vigilo.city/fr/categories/"
+                href="https://vigilo.city/fr/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://vigilo.city/en/categories/"
+                href="https://vigilo.city/en/categories/"
                 />
   </url>
   
   <url>
-    <loc>http://vigilo.city/en/tags/</loc>
+    <loc>https://vigilo.city/en/tags/</loc>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="http://vigilo.city/fr/tags/"
+                href="https://vigilo.city/fr/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://vigilo.city/en/tags/"
+                href="https://vigilo.city/en/tags/"
                 />
   </url>
   
   <url>
-    <loc>http://vigilo.city/en/</loc>
+    <loc>https://vigilo.city/en/</loc>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="http://vigilo.city/fr/"
+                href="https://vigilo.city/fr/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://vigilo.city/en/"
+                href="https://vigilo.city/en/"
                 />
   </url>
   

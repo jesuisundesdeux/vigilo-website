@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on À pied ou à vélo, ayez le réflexe Vigilo</title>
-    <link>http://vigilo.city/fr/categories/</link>
+    <link>https://vigilo.city/fr/categories/</link>
     <description>Recent content in Categories on À pied ou à vélo, ayez le réflexe Vigilo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-FR</language>
     
-	<atom:link href="http://vigilo.city/fr/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vigilo.city/fr/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
