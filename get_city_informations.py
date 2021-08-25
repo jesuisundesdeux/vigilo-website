@@ -7,7 +7,7 @@ import json
 import shutil
 import urllib.request
 
-CITYLIST="https://vigilo-bf7f2.firebaseio.com/citylist.json"
+CITYLIST="https://raw.githubusercontent.com/jesuisundesdeux/vigilo-conf/main/main/citylist.json"
 
 countries = {
     "France": "fr",
