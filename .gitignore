@@ -48,6 +48,9 @@ content/villes/saint-marcellin-vercors-isere-communaute-fr
 content/villes/saint-brieuc-armor-agglomeration-fr
 
 # Add from make generate-cities-content
+content/villes/strasbourg-fr
+
+# Add from make generate-cities-content
 content/villes/sud-oise-fr
 
 # Add from make generate-cities-content
@@ -55,4 +58,7 @@ content/villes/thau-fr
 
 # Add from make generate-cities-content
 content/villes/agglomeration-troyenne-fr
+
+# Add from make generate-cities-content
+content/villes/vannes-fr
 
