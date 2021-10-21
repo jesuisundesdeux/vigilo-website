@@ -163,10 +163,6 @@
   </url>
   
   <url>
-    <loc>https://vigilo.city/fr/villes/brest-metropole-fr/</loc>
-  </url>
-  
-  <url>
     <loc>https://vigilo.city/fr/categories/</loc>
     <priority>0</priority>
     <xhtml:link
@@ -183,10 +179,6 @@
   
   <url>
     <loc>https://vigilo.city/fr/villes/grand-montpellier-fr/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vigilo.city/fr/villes/mons-be/</loc>
   </url>
   
   <url>
@@ -211,6 +203,10 @@
   
   <url>
     <loc>https://vigilo.city/fr/villes/saint-brieuc-armor-agglomeration-fr/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vigilo.city/fr/villes/strasbourg-fr/</loc>
   </url>
   
   <url>
