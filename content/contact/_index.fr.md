@@ -5,26 +5,38 @@ pre: "<b>6. </b>"
 chapter: false
 ---
 
-## Remplir le formulaire pour nous contacter
+## Contacter l'équipe Vigilo
 
-Avant de nous contacter, merci de prendre connaissance de la [FAQ](https://vigilo.city/fr/faq/) qui contient déjà une grande partie des réponses aux questions les plus récurrentes.
+### Besoin d'informations sur l'application ou sa mise en place:
 
-<form action="https://getform.io/f/1d636600-c2c5-4a36-8975-11c03a9f9400"
-      method="POST"
-      accept-charset="UTF-8">
+Vous trouverez la plupart des réponses à vos questions sur :
 
-Nom :
-    <input type="text" name="fullname">
+ * La [FAQ](https://vigilo.city/fr/faq/)
+ * La [Documentation](https://vigilo.city/fr/documentation/)
 
-Adresse mail :
-    <input type="email" name="email">
+### Ajouter votre ville sur Vigilo
 
-Message :
-    <textarea name="message"></textarea>
+Vous souhaitez ajouter votre ville sur l'application Vigilo ? 
 
-    <button type="submit">Send</button>
-</form>
+Vous devez tout d'abord vérifier que les critères sur la page [Votre ville ici](/fr/villes/maville/) sont bien remplis
 
-## Alternatives
-* [Twitter - VigiloObsApp](https://twitter.com/VigiloObsApp)
-* [Github - En créant une issue](https://github.com/jesuisundesdeux/vigilo-website/issues)
+Si c'est le cas, vous pouvez créer une nouvelle issue sur [Vigilo-conf](https://github.com/jesuisundesdeux/vigilo-conf/issues)
+
+### Contacter le responsable d'une instance locale Vigilo
+
+Une adresse de contact est disponible en bas de la page de chaque ville ([Voir la page villes](/fr/villes/))
+
+### Signaler un bug ou une amélioration
+
+Le projet Vigilo est réparti sur plusieurs projets Github.
+
+Pour signaler un bug ou une amélioration, vous pouvez créer une nouvelle issue selon le composant concerné
+
+  * Application Android : [Voir ici](https://github.com/jesuisundesdeux/vigilo-android/issues)
+  * Application web (app.vigilo.city) : [Voir ici](https://github.com/jesuisundesdeux/vigilo-webapp/issues)
+  * Back-end (API pour les instances locales) : [Voir ici](https://github.com/jesuisundesdeux/vigilo-backend/issues)
+
+Il est également possible de proposer des contributions sur ces projets.
+
+
+
