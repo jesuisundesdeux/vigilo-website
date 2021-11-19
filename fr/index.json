@@ -329,6 +329,13 @@
 	"content": " Carte   Voir en plein écran  Statistique   Voir en plein écran  Les 10 dernières observations    Adresse Commentaire Liens     Rue de la Guyonnerie, Orsay Stop grillé régulièrement Photo - Observations similaires   Route d\u0026#39;Orsay, Saclay véhicule garée sur la piste cyclable Photo - Observations similaires   Route d\u0026#39;Orsay, Saclay véhicule garée sur la piste cyclable Photo - Observations similaires   Rue de la Division Leclerc, Massy voiture bloquant accroche vélo Photo - Observations similaires   Voie de Briis, Massy végétation recouvre le trottoir Photo - Observations similaires   Place de l\u0026#39;Union Européenne, Massy motos bloquent les accroche velos Photo - Observations similaires   Chemin de la Sablonnière, Verrières-le-Buisson piste cyclable jamais ouverte depuis sa création Photo - Observations similaires   Rue Jean-Baptiste Clément, Verrières-le-Buisson .#GCUM sur trottoir Photo - Observations similaires   Avenue Georges Pompidou, Verrières-le-Buisson piste cyclable inondée Photo - Observations similaires   Avenue de la République, Verrières-le-Buisson cycle des feux très défavorable aux cyclistes Photo - Observations similaires    Informations complémentaires  Contact: thibault ⊙ armengaud ✉ gmail ⊙ com Carte: https://umap.openstreetmap.fr/en/map/vigilo-paris-saclay_326390 Scope info: https://api.vigilo-parissaclay.mdb-idf.org//get_scope.php?scope=91_parissaclay Données ouvertes: JSON - GeoJSON - CSV  "
 },
 {
+	"uri": "https://vigilo.city/fr/villes/pays-de-chateaugiron-fr/",
+	"title": "Pays de Châteaugiron (0.0.17)",
+	"tags": [],
+	"description": "",
+	"content": " Statistique   Voir en plein écran  Les 10 dernières observations    Adresse Commentaire Liens      Informations complémentaires  Contact: collectif ⊙ chateaugiron ✉ ecomail ⊙ bzh\n Scope info: https://pouliquen.net/vigilo/get_scope.php?scope=35_Chateaugiron\n Données ouvertes: JSON - GeoJSON - CSV\n  "
+},
+{
 	"uri": "https://vigilo.city/fr/villes/perigueux-agglo-fr/",
 	"title": "Périgueux Agglo (0.0.17)",
 	"tags": [],
