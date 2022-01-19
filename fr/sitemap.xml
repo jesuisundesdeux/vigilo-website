@@ -147,10 +147,6 @@
   </url>
   
   <url>
-    <loc>https://vigilo.city/fr/villes/amiens-fr/</loc>
-  </url>
-  
-  <url>
     <loc>https://vigilo.city/fr/villes/bassin-d-arcachon-fr/</loc>
   </url>
   
@@ -186,6 +182,10 @@
   </url>
   
   <url>
+    <loc>https://vigilo.city/fr/villes/la-rochelle-fr/</loc>
+  </url>
+  
+  <url>
     <loc>https://vigilo.city/fr/villes/mons-be/</loc>
   </url>
   
@@ -199,6 +199,10 @@
   
   <url>
     <loc>https://vigilo.city/fr/villes/paris-saclay-fr/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vigilo.city/fr/villes/pays-de-chateaugiron-fr/</loc>
   </url>
   
   <url>
