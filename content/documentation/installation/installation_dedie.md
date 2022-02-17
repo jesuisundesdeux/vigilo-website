@@ -32,10 +32,10 @@ $ git checkout vX.X.X
 Copier le .env_sample vers .env_prod
 
 ```
-$ cp .env_sample .env_prod
+$ cp .env_sample .env
 ```
 
-Adapter les valeurs dans ```.env_prod``` :
+Adapter les valeurs dans ```.env``` :
 
 * VOLUME_PATH : Repertoire persistent sur le serveur où seront stockées les données de Vigilo
 * MYSQL_ROOT_PASSWORD : Mot de passe root de la base de données
@@ -47,7 +47,7 @@ Adapter si besoin ce fichier au contexte du serveur sur lequel il est hebergé.
 Lancer le service :
 
 ```
-$ make ENV=prod install
+$ docker-compose up -d
 ```
 
 ### Initialisation 
