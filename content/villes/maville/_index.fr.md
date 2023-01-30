@@ -21,7 +21,7 @@ Il faut en outre remplir ces conditions :
 
 Il est possible, dans la limite de 5 testeurs maximum de bénéficier d'une instance de test pour votre zone géographique.
 
-Pour celà, n'hesitez pas à nous contacter en précisant les informations suivantes :
+Pour celà, n'hesitez pas à [créer une pull request](https://github.com/jesuisundesdeux/vigilo-conf/issues) ayant comme titre "Instance de demonstration" et en y précisant les informations suivantes :
 
 * Nom de la zone géographique 
 * Limites géographique en degrés décimales (latitude min/max, longitude min/max)
