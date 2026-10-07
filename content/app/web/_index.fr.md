@@ -14,6 +14,8 @@ aliases:
 
 Vigilo s'utilise directement dans le navigateur, sur **[app.vigilo.city](https://app.vigilo.city)** : rien à télécharger, pas de compte à créer.
 
+> **L'application Android n'est plus supportée.** Elle n'est plus maintenue et peut ne plus fonctionner : utilisez l'application web, qui peut être [installée sur l'écran d'accueil](#installer-l-application) de votre téléphone.
+
 ## Installer l'application
 
 L'application web peut être ajoutée à l'écran d'accueil de votre téléphone, de votre tablette ou de votre ordinateur, pour l'ouvrir comme une application :

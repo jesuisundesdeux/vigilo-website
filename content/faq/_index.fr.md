@@ -12,6 +12,7 @@ FAQ Vigilo
    - [A quoi sert Vigilo ?](#a-quoi-sert-vigilo)
    - [Je souhaiterais que Vigilo soit installé dans ma ville](#je-souhaiterais-que-vigilo-soit-installé-dans-ma-ville)
    - [Comment installer Vigilo sur mon téléphone ?](#comment-installer-vigilo-sur-mon-téléphone)
+   - [L'application Android est-elle toujours disponible ?](#l-application-android-est-elle-toujours-disponible)
    - [L'application est lente](#l-application-est-lente)
    - [Pourquoi certaines photos sont pixelisées ?](#pourquoi-certaines-photos-sont-pixelisées)
    - [Pourquoi mon observation n'est plus visible ?](#pourquoi-mon-observation-n-est-plus-visible)
@@ -58,6 +59,12 @@ Pour ces raisons, une association ayant pour sujet les mobilités actives pourra
 Vigilo est une application web : elle s'ouvre directement dans le navigateur sur [app.vigilo.city](https://app.vigilo.city), sans passer par un store.
 
 Pour l'avoir sur l'écran d'accueil comme une application, utilisez la bannière ou l'entrée **« Installer l'appli »** du menu, ou l'option « Installer l'application » / « Sur l'écran d'accueil » de votre navigateur. [Plus de détails ici](/fr/app/web/#installer-l-application)
+
+### L'application Android est-elle toujours disponible ?
+
+Non : **l'application Android n'est plus supportée**. Elle n'est plus maintenue et peut ne plus fonctionner avec les instances à jour.
+
+Utilisez l'application web [app.vigilo.city](https://app.vigilo.city), qui offre les mêmes fonctionnalités (et davantage) et s'installe sur l'écran d'accueil de votre téléphone. Si l'application Android est installée sur votre téléphone, vous pouvez la désinstaller.
 
 ### L'application est lente
 
