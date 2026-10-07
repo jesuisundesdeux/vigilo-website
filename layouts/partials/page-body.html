@@ -1,0 +1,48 @@
+{{/* Documentation-like page: section navigation, content, table of contents */}}
+{{ $top := .FirstSection }}
+{{ $hasNav := and (ne $top site.Home) (gt (len $top.Pages) 0) }}
+{{ $toc := and (not .Params.disableToc) (gt (len (findRE `<h[23]` .Content)) 2) }}
+<div class="container docs{{ if $hasNav }} has-nav{{ end }}{{ if $toc }} has-toc{{ end }}">
+  {{ if $hasNav }}
+    <aside class="docs-nav" aria-label="Pages de la section">
+      <details open>
+        <summary><a href="{{ $top.RelPermalink }}">{{ $top.LinkTitle }}</a></summary>
+        {{ partial "docs-tree.html" (dict "section" $top "current" .) }}
+      </details>
+    </aside>
+  {{ end }}
+  <article class="docs-content">
+    {{ if ne . $top }}
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        {{ range .Ancestors.Reverse }}{{ if not .IsHome }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a><span>/</span>{{ end }}{{ end }}
+      </nav>
+    {{ end }}
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.description }}<p class="lead">{{ . }}</p>{{ end }}
+    <div class="prose">
+      {{ .Content }}
+    </div>
+    {{ if and .IsSection .Pages }}
+      <div class="cards">
+        {{ range .Pages.ByWeight }}
+          <a class="card card-link" href="{{ .RelPermalink }}">
+            <h3>{{ .LinkTitle }}</h3>
+            <p class="muted">{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 120 }}{{ end }}</p>
+          </a>
+        {{ end }}
+      </div>
+    {{ end }}
+    {{ if not .IsSection }}
+      <nav class="prev-next">
+        {{ with .PrevInSection }}<a href="{{ .RelPermalink }}">← {{ .LinkTitle }}</a>{{ end }}
+        {{ with .NextInSection }}<a class="next" href="{{ .RelPermalink }}">{{ .LinkTitle }} →</a>{{ end }}
+      </nav>
+    {{ end }}
+  </article>
+  {{ if $toc }}
+    <aside class="docs-toc" aria-label="Sur cette page">
+      <p class="toc-title">Sur cette page</p>
+      {{ .TableOfContents }}
+    </aside>
+  {{ end }}
+</div>

@@ -1,0 +1,17 @@
+{
+  "name": "vigilo-website",
+  "private": true,
+  "description": "Site vigilo.city (Hugo)",
+  "license": "AGPL-3.0-or-later",
+  "scripts": {
+    "data": "python3 scripts/fetch_instances.py",
+    "build": "npm run data && hugo --gc --minify",
+    "serve": "npm run data && hugo server"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.2.8",
+    "leaflet": "^1.9.4",
+    "leaflet.markercluster": "^1.5.3",
+    "swagger-ui-dist": "^5.33.1"
+  }
+}

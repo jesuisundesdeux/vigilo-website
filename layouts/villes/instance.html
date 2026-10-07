@@ -1,0 +1,48 @@
+{{ define "main" }}
+{{ $name := .Params.instance }}
+{{ $i := index (where hugo.Data.instances "name" $name) 0 }}
+{{ $api := $i.api_path }}
+{{ $q := printf "%s/get_issues.php?scope=%s" $api $i.scope }}
+<div class="container page-head">
+  <nav class="breadcrumb"><a href="{{ "fr/villes/" | relURL }}">Villes</a><span>/</span></nav>
+  <h1>{{ $i.display_name }}</h1>
+  <p class="instance-meta">
+    {{ if $i.online }}<span class="badge badge-ok">En ligne</span>{{ else }}<span class="badge badge-off">Injoignable lors de la dernière mise à jour du site</span>{{ end }}
+    {{ with $i.backend_version }}<span class="badge">Backend v{{ . }}</span>{{ end }}
+    {{ with $i.last_observation }}<span class="muted">Dernière observation le {{ time.Format "2 January 2006" (time.AsTime .) }}</span>{{ end }}
+  </p>
+  <div class="cta">
+    <a class="btn btn-dark" href="{{ site.Params.webapp }}/?instance={{ $name }}">Signaler dans l'application</a>
+    <a class="btn btn-ghost" href="{{ site.Params.webapp }}/stats-iframe.html?instance={{ $name }}">Statistiques</a>
+    {{ with $i.contact_email }}{{ $parts := split . "@" }}{{ if eq (len $parts) 2 }}
+      <a class="btn btn-ghost" href="#" data-mail-user="{{ index $parts 0 }}" data-mail-domain="{{ index $parts 1 }}">Contacter l'association</a>
+    {{ end }}{{ end }}
+  </div>
+</div>
+<div class="container">
+  <div class="map map-large" data-map="observations" data-api="{{ $api }}" data-scope="{{ $i.scope }}" data-instance="{{ $name }}"{{ with $i.bbox }} data-bbox="{{ . | jsonify }}"{{ end }}></div>
+  <p id="observations-status" class="muted small">Chargement des observations…</p>
+
+  <div class="instance-grid section">
+    <section>
+      <h2>Dernières observations</h2>
+      <ul id="latest-observations" class="obs-list"></ul>
+    </section>
+    <section>
+      <h2>Données ouvertes</h2>
+      <p>Observations de ce territoire, sous licence <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.fr">CC0</a> :</p>
+      <p class="downloads">
+        <a class="btn btn-ghost btn-small" href="{{ $q }}&format=json">JSON</a>
+        <a class="btn btn-ghost btn-small" href="{{ $q }}&format=geojson">GeoJSON</a>
+        <a class="btn btn-ghost btn-small" href="{{ $q }}&format=csv">CSV</a>
+      </p>
+      <p class="small muted">API : <code>{{ $api }}</code> · scope <code>{{ $i.scope }}</code> · <a href="{{ "fr/api/" | relURL }}">documentation</a></p>
+      {{ with $i.cities }}
+        <h2>Communes</h2>
+        <p class="cities">{{ delimit . ", " }}</p>
+      {{ end }}
+    </section>
+  </div>
+</div>
+{{ end }}
+{{ define "scripts" }}{{ partial "map-assets.html" . }}{{ end }}

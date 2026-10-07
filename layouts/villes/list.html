@@ -1,0 +1,28 @@
+{{ define "main" }}
+{{ $instances := hugo.Data.instances }}
+<div class="container page-head">
+  <h1>{{ .Title }}</h1>
+  <p class="lead">Vigilo est déployé sur {{ len (where $instances "online" true) }} territoires, chacun géré par une association locale. Cliquez sur un territoire pour voir ses observations.</p>
+</div>
+<div class="container">
+  <div class="map map-large" data-map="instances"></div>
+  <div class="instances-grid">
+    {{ range $instances }}
+      {{ if .online }}
+        <a class="card card-link instance-card" href="{{ .url | relURL }}">{{ partial "instance-card.html" . }}</a>
+      {{ else }}
+        <div class="card instance-card offline">{{ partial "instance-card.html" . }}</div>
+      {{ end }}
+    {{ end }}
+  </div>
+  <div class="prose section">
+    {{ .Content }}
+  </div>
+  <div class="cards">
+    {{ range where .Pages "Params.instance" "==" nil }}
+      <a class="card card-link" href="{{ .RelPermalink }}"><h3>{{ .Title }}</h3><p class="muted">{{ .Summary | plainify | truncate 140 }}</p></a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
+{{ define "scripts" }}{{ partial "map-assets.html" . }}{{ end }}

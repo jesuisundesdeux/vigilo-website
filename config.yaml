@@ -1,45 +1,86 @@
 baseURL: https://vigilo.city/
-languageCode: fr-FR
+locale: fr-FR
 defaultContentLanguage: fr
-title: À pied ou à vélo, ayez le réflexe Vigilo
-theme: hugo-theme-learn
-themesdir: themes/
-metaDataFormat: yaml
 defaultContentLanguageInSubdir: true
+title: Vigilo
+enableRobotsTXT: true
+
+languages:
+  fr:
+    label: Français
+    weight: 1
+    title: Vigilo
 
 params:
-  editURL: 'https://github.com/jesuisundesdeux/vigilo-website/edit/source/content/'
-  description: À pied ou à vélo, ayez le réflexe Vigilo
-  author: JeSuisUnDesDeux
-  showVisitedLinks: true
-  disableBreadcrumb: false
-  disableNextPrev: false
+  description: "À pied ou à vélo, ayez le réflexe Vigilo : l'appli collaborative citoyenne pour signaler les problèmes de déplacement des piétons et cyclistes."
+  editURL: https://github.com/jesuisundesdeux/vigilo-website/edit/source/content/
+  webapp: https://app.vigilo.city
+  playstore: https://play.google.com/store/apps/details?id=com.velocite34.vigilo
+  github: https://github.com/jesuisundesdeux
+
+menus:
+  main:
+    - name: Application
+      pageRef: /app
+      weight: 10
+    - name: Villes
+      pageRef: /villes
+      weight: 20
+    - name: Documentation
+      pageRef: /documentation
+      weight: 30
+    - name: API
+      pageRef: /api
+      weight: 40
+    - name: FAQ
+      pageRef: /faq
+      weight: 50
+    - name: Contact
+      pageRef: /contact
+      weight: 60
+
+markup:
+  goldmark:
+    renderer:
+      # the content mixes Markdown and HTML
+      unsafe: true
+    parser:
+      # keep the anchors of the previous site (Hugo 0.55 / Blackfriday)
+      autoHeadingIDType: blackfriday
+  tableOfContents:
+    startLevel: 2
+    endLevel: 3
+
+disableKinds: [taxonomy, term]
+
 outputs:
-  home:
-    - HTML
-    - RSS
-    - JSON
-Languages:
-  fr:
-    title: À pied ou à vélo, ayez le réflexe Vigilo
-    weight: 1
-    languageName: Français
-    menu:
-      shortcuts:
-        - name: <i class='fab fa-fw fa-android'></i> Application Android
-          url: >-
-            https://play.google.com/store/apps/details?id=com.velocite34.vigilo&hl=fr
-          weight: 10
-        - name: <i class='fas fa-fw fa-city'></i> Villes
-          url: /fr/villes/
-          weight: 11
-  en:
-    title: Vigilo website
-    weight: 2
-    languageName: English
-    menu:
-      shortcuts:
-        - name: <i class='fab fa-fw fa-android'></i> Application Android
-          url: >-
-            https://play.google.com/store/apps/details?id=com.velocite34.vigilo&hl=fr
-          weight: 10
+  home: [HTML, RSS]
+  section: [HTML]
+
+module:
+  mounts:
+    - source: content
+      target: content
+    - source: _generated/content
+      target: content
+    - source: data
+      target: data
+    - source: _generated/data
+      target: data
+    - source: assets
+      target: assets
+    - source: layouts
+      target: layouts
+    - source: static
+      target: static
+    # front-end dependencies, managed with npm (package.json)
+    - source: node_modules/leaflet/dist
+      target: assets/vendor/leaflet
+    - source: node_modules/leaflet.markercluster/dist
+      target: assets/vendor/markercluster
+    - source: node_modules/swagger-ui-dist
+      target: assets/vendor/swagger-ui
+    - source: node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2
+      target: static/fonts/inter-latin-wght-normal.woff2
+    - source: node_modules/@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2
+      target: static/fonts/inter-latin-ext-wght-normal.woff2

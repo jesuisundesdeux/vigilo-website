@@ -1,8 +1,6 @@
 ---
 title: FAQ
 weight: 15
-pre: "<b>4. </b>"
-chapter: false
 ---
 
 FAQ Vigilo

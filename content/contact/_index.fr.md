@@ -1,8 +1,6 @@
 ---
 title: Nous contacter
 weight: 18
-pre: "<b>6. </b>"
-chapter: false
 ---
 
 ## Contacter l'équipe Vigilo
