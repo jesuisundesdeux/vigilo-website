@@ -87,7 +87,6 @@ function instancesMap(el) {
 	if (bounds.length && el.dataset.fit !== 'false') {
 		map.fitBounds(bounds, { padding: [30, 30], maxZoom: 9 });
 	}
-	enablePanoramax(map);
 }
 
 /* ---- Observations of one instance */
