@@ -1,12 +1,13 @@
 ---
 title: Villes
 weight: 10
-chapter: false
-pre: "<b>2. </b>"
+description: Les territoires où Vigilo est déployé
 ---
 
-## Statut des instances
+## À propos de cette liste
 
-Ce lien permet de voir si une instance est hors service ou non : <a href="https://stats.uptimerobot.com/q8ygnUO5pQ">Statut des instances</a>
+La liste des territoires vient de [vigilo-conf](https://github.com/jesuisundesdeux/vigilo-conf/blob/main/main/citylist.json), la configuration partagée par l'application web et l'application Android. Le site est reconstruit chaque jour : un territoire dont le serveur ne répond pas est signalé « Injoignable ».
 
-<!--<iframe width="100%" height="1024px" frameborder="0" allowfullscreen src="https://stats.uptimerobot.com/q8ygnUO5pQ"></iframe>-->
+Sur la carte de chaque territoire, **cliquez n'importe où** pour voir la rue en vue immersive avec [Panoramax](https://panoramax.fr), le géocommun des photos de terrain.
+
+Vous souhaitez Vigilo dans votre ville ? Consultez les conditions ci-dessous.

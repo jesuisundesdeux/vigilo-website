@@ -1,0 +1,33 @@
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="brand" href="{{ site.Home.RelPermalink }}">
+        <img src="{{ "images/favicon.png" | relURL }}" alt="" width="28" height="28"><span>Vigilo</span>
+      </a>
+      <p class="muted">L'appli collaborative citoyenne pour améliorer les déplacements des piétons, des cyclistes et de toutes les mobilités actives.</p>
+    </div>
+    <div>
+      <h4>Utiliser Vigilo</h4>
+      <ul>
+        <li><a href="{{ site.Params.webapp }}">Application web</a></li>
+        <li><a href="{{ site.Params.playstore }}">Application Android</a></li>
+        <li><a href="{{ "fr/villes/" | relURL }}">Les villes</a></li>
+        <li><a href="{{ "fr/faq/" | relURL }}">FAQ</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contribuer</h4>
+      <ul>
+        <li><a href="{{ "fr/documentation/" | relURL }}">Documentation</a></li>
+        <li><a href="{{ "fr/api/" | relURL }}">API</a></li>
+        <li><a href="{{ site.Params.github }}">Code source (GitHub)</a></li>
+        <li><a href="{{ "fr/contact/" | relURL }}">Nous contacter</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom muted">
+    Données des observations sous licence <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.fr">CC0</a>
+    · Fonds de carte © contributeurs <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>
+    {{ with .File }}{{ if not $.Params.instance }} · <a href="{{ site.Params.editURL }}{{ .Path }}">Modifier cette page</a>{{ end }}{{ end }}
+  </div>
+</footer>

@@ -1,0 +1,523 @@
+# OpenAPI description of the Vigilo backend (https://github.com/jesuisundesdeux/vigilo-backend).
+# Rendered with Swagger UI on /fr/api/. The list of servers (one per instance) is added
+# when the site is built, from vigilo-conf.
+openapi: 3.0.3
+info:
+  title: API Vigilo
+  version: 0.0.21
+  description: |
+    API REST des instances [vigilo-backend](https://github.com/jesuisundesdeux/vigilo-backend).
+
+    Chaque territoire a sa propre instance : choisissez-la dans la liste **Servers** ci-dessous,
+    puis indiquez son **scope** (affiché sur la page de chaque ville). La liste des instances
+    est publiée dans [vigilo-conf](https://github.com/jesuisundesdeux/vigilo-conf/blob/main/main/citylist.json).
+
+    Les observations sont des données ouvertes sous licence CC0. Les appels en lecture (`GET`) peuvent
+    être testés directement depuis cette page (bouton **Try it out**).
+
+    En cas d'erreur, les méthodes répondent avec le code HTTP correspondant et un objet
+    [`Error`](#/components/schemas/Error). La colonne « Compatibilité » de l'ancienne documentation
+    est reprise dans les descriptions (« backend ≥ 0.0.x »).
+  license:
+    name: AGPL-3.0 (code) / CC0 (données)
+    url: https://github.com/jesuisundesdeux/vigilo-backend/blob/master/LICENSE
+servers: []
+tags:
+  - name: Observations
+    description: Lecture des observations et de leurs images
+  - name: Contribution
+    description: Création d'observations, ajout de photos, résolutions
+  - name: Modération
+    description: Méthodes réservées aux modérateurs (clé privée)
+  - name: Configuration
+    description: Informations sur l'instance
+paths:
+  /get_scope.php:
+    get:
+      tags: [Configuration]
+      summary: Informations sur le scope (territoire)
+      description: Backend ≥ 0.0.4.
+      operationId: getScope
+      parameters:
+        - $ref: '#/components/parameters/scope'
+      responses:
+        '200':
+          description: Informations du scope
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Scope' }
+        '404': { $ref: '#/components/responses/Error' }
+  /get_version.php:
+    get:
+      tags: [Configuration]
+      summary: Version du backend
+      operationId: getVersion
+      responses:
+        '200':
+          description: Version
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  version: { type: string, example: 0.0.21 }
+  /get_categories_list.php:
+    get:
+      tags: [Configuration]
+      summary: Liste des catégories (legacy)
+      description: |
+        *Legacy*. Les catégories sont publiées pour toutes les instances dans
+        [vigilo-conf](https://raw.githubusercontent.com/jesuisundesdeux/vigilo-conf/main/main/categorielist.json).
+      deprecated: true
+      operationId: getCategories
+      responses:
+        '200':
+          description: Catégories
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Category' }
+  /get_issues.php:
+    get:
+      tags: [Observations]
+      summary: Liste des observations
+      description: |
+        Observations approuvées du scope, les plus récentes d'abord. Backend ≥ 0.0.1 ;
+        la compatibilité de chaque filtre est indiquée dans sa description.
+      operationId: getIssues
+      parameters:
+        - $ref: '#/components/parameters/scope'
+        - name: format
+          in: query
+          description: Format de sortie (backend ≥ 0.0.3)
+          schema: { type: string, enum: [json, geojson, csv], default: json }
+        - name: count
+          in: query
+          description: Nombre maximum d'observations
+          schema: { type: integer, minimum: 1 }
+          example: 20
+        - name: offset
+          in: query
+          description: Décalage (pagination, avec `count`)
+          schema: { type: integer, minimum: 0 }
+        - name: c
+          in: query
+          description: Filtre par identifiant de catégorie
+          schema: { type: integer }
+        - name: status
+          in: query
+          description: Filtre par statut de résolution (voir `Issue.status`)
+          schema: { type: integer, enum: [0, 1, 2, 3, 4] }
+        - name: t
+          in: query
+          description: Observations postérieures à ce timestamp Unix (backend ≥ 0.0.5)
+          schema: { type: integer }
+        - name: since
+          in: query
+          description: Filtre relatif sur la date, en nombre d'unités `since_unit` (backend ≥ 0.0.19)
+          schema: { type: integer }
+        - name: since_unit
+          in: query
+          description: Unité du filtre `since` (backend ≥ 0.0.19)
+          schema: { type: string, enum: [day, week, month, year] }
+        - name: token
+          in: query
+          description: Une observation précise
+          schema: { type: string }
+        - name: tokenfilters
+          in: query
+          description: |
+            Avec `token` : observations similaires, selon les filtres `distance`, `categorie` et/ou `address`
+            séparés par des virgules (backend ≥ 0.0.9)
+          schema: { type: string }
+          example: distance,categorie
+        - name: fdistance
+          in: query
+          description: Distance en mètres pour le filtre `distance` de `tokenfilters`
+          schema: { type: integer }
+        - name: lat
+          in: query
+          description: Latitude du centre de recherche (avec `lon` et `radius`)
+          schema: { type: number, format: double }
+        - name: lon
+          in: query
+          description: Longitude du centre de recherche
+          schema: { type: number, format: double }
+        - name: radius
+          in: query
+          description: Rayon de recherche en mètres autour de `lat`/`lon`
+          schema: { type: integer }
+        - name: approved
+          in: query
+          description: Filtre selon l'approbation (backend ≥ 0.0.10). Seules les observations approuvées sont publiques.
+          schema: { type: integer, enum: [0, 1, 2] }
+        - name: cityid
+          in: query
+          description: Filtre par identifiant de commune (backend ≥ 0.0.13)
+          schema: { type: integer }
+        - name: cityfield
+          in: query
+          description: "1 : la commune est retournée dans `cityname` au lieu d'être ajoutée à l'adresse (backend ≥ 0.0.13)"
+          schema: { type: integer, enum: [0, 1] }
+        - $ref: '#/components/parameters/keyOptional'
+      responses:
+        '200':
+          description: Observations
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: array
+                    items: { $ref: '#/components/schemas/Issue' }
+                  - $ref: '#/components/schemas/IssueFeatureCollection'
+            text/csv:
+              schema: { type: string }
+  /generate_panel.php:
+    get:
+      tags: [Observations]
+      summary: Panneau image de l'observation
+      description: |
+        Image composée (photo, carte, catégorie, commentaire). Les observations non approuvées sont
+        pixelisées sans `key` ni `secretid`. JPEG depuis le backend 0.0.5 (PNG avant).
+      operationId: generatePanel
+      parameters:
+        - $ref: '#/components/parameters/token'
+        - name: s
+          in: query
+          description: Largeur de l'image en pixels
+          schema: { type: integer }
+          example: 800
+        - $ref: '#/components/parameters/keyOptional'
+        - $ref: '#/components/parameters/secretidOptional'
+      responses:
+        '200':
+          description: Image
+          content:
+            image/jpeg:
+              schema: { type: string, format: binary }
+        '404': { $ref: '#/components/responses/Error' }
+  /get_photo.php:
+    get:
+      tags: [Observations]
+      summary: Photo originale de l'observation
+      description: |
+        Photo de l'observation (ou de sa résolution avec `type=resolution`). Accessible pour les
+        observations approuvées, ou avec une clé de modérateur.
+      operationId: getPhoto
+      parameters:
+        - $ref: '#/components/parameters/token'
+        - name: type
+          in: query
+          description: Photo de l'observation ou de la résolution (backend ≥ 0.0.14)
+          schema: { type: string, enum: [obs, resolution], default: obs }
+        - $ref: '#/components/parameters/keyOptional'
+      responses:
+        '200':
+          description: Photo
+          content:
+            image/jpeg:
+              schema: { type: string, format: binary }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+  /mosaic.php:
+    get:
+      tags: [Observations]
+      summary: Page des observations similaires
+      description: Page HTML listant les observations proches et de même catégorie.
+      operationId: mosaic
+      parameters:
+        - name: t
+          in: query
+          required: true
+          description: Token de l'observation
+          schema: { type: string }
+      responses:
+        '200':
+          description: Page HTML
+          content:
+            text/html:
+              schema: { type: string }
+  /create_issue.php:
+    post:
+      tags: [Contribution]
+      summary: Créer (ou modifier) une observation
+      description: |
+        Première étape de l'ajout d'une observation, suivie de l'envoi de la photo
+        ([`add_image.php`](#/Contribution/addImage)). Retourne le `token` de l'observation et sa clé
+        secrète `secretid`, à conserver pour la compléter ou la supprimer.
+        Avec `token` et une clé de modérateur, modifie une observation existante.
+      operationId: createIssue
+      parameters:
+        - $ref: '#/components/parameters/keyOptional'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required: [coordinates_lat, coordinates_lon, categorie, address, time, scope]
+              properties:
+                token: { type: string, description: Uniquement pour modifier une observation (avec `key`) }
+                coordinates_lat: { type: string, example: '43.6109' }
+                coordinates_lon: { type: string, example: '3.8772' }
+                categorie: { type: integer, description: Identifiant de catégorie }
+                address: { type: string }
+                comment: { type: string, maxLength: 50, description: Remarque courte }
+                explanation: { type: string }
+                time: { type: integer, description: Timestamp Unix en millisecondes }
+                version: { type: string, description: Version du client }
+                scope: { type: string }
+                cityid: { type: integer, description: Identifiant de la commune (backend ≥ 0.0.13) }
+                cityname: { type: string, description: Nom de la commune (backend ≥ 0.0.13) }
+      responses:
+        '200':
+          description: Observation créée
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token: { type: string }
+                  secretid: { type: string }
+                  group: { type: integer, deprecated: true }
+        '400': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+  /add_image.php:
+    post:
+      tags: [Contribution]
+      summary: Envoyer la photo d'une observation
+      operationId: addImage
+      parameters:
+        - $ref: '#/components/parameters/token'
+        - name: secretid
+          in: query
+          required: true
+          description: Clé secrète retournée par `create_issue.php`
+          schema: { type: string }
+        - name: type
+          in: query
+          description: Photo de l'observation ou de sa résolution (backend ≥ 0.0.14)
+          schema: { type: string, enum: [obs, resolution], default: obs }
+        - name: method
+          in: query
+          description: "`stdin` : JPEG brut dans le corps (défaut) ; `base64` : champ `imagebin64` (backend ≥ 0.0.16)"
+          schema: { type: string, enum: [stdin, base64], default: stdin }
+      requestBody:
+        required: true
+        content:
+          image/jpeg:
+            schema: { type: string, format: binary }
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                imagebin64: { type: string, description: JPEG encodé en base64 (avec `method=base64`) }
+      responses:
+        '200': { $ref: '#/components/responses/Status' }
+        '400': { $ref: '#/components/responses/Error' }
+  /create_resolution.php:
+    post:
+      tags: [Contribution]
+      summary: Créer une résolution
+      description: Indique qu'une ou plusieurs observations sont résolues (backend ≥ 0.0.14). Envoyer ensuite la photo avec `add_image.php?type=resolution`.
+      operationId: createResolution
+      parameters:
+        - $ref: '#/components/parameters/keyOptional'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required: [time, tokenlist]
+              properties:
+                token: { type: string, description: Token de la résolution (modification) }
+                tokenlist: { type: string, description: Tokens des observations résolues, séparés par des virgules }
+                comment: { type: string, maxLength: 50 }
+                time: { type: integer, description: Timestamp Unix }
+                version: { type: string }
+      responses:
+        '200':
+          description: Résolution créée
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token: { type: string }
+                  secretid: { type: string }
+  /delete.php:
+    get:
+      tags: [Contribution]
+      summary: Supprimer une observation
+      description: Avec la clé secrète de l'observation (son auteur, tant qu'elle n'est pas approuvée) ou une clé de modérateur.
+      operationId: deleteIssue
+      parameters:
+        - $ref: '#/components/parameters/token'
+        - $ref: '#/components/parameters/secretidOptional'
+        - $ref: '#/components/parameters/keyOptional'
+      responses:
+        '200': { $ref: '#/components/responses/Status' }
+        '400': { $ref: '#/components/responses/Error' }
+  /approve.php:
+    get:
+      tags: [Modération]
+      summary: Approuver ou refuser une observation
+      operationId: approveIssue
+      parameters:
+        - $ref: '#/components/parameters/token'
+        - $ref: '#/components/parameters/key'
+        - name: approved
+          in: query
+          required: true
+          description: "0 : à modérer ; 1 : approuvée ; 2 : refusée"
+          schema: { type: integer, enum: [0, 1, 2] }
+      responses:
+        '200': { $ref: '#/components/responses/Status' }
+        '403': { $ref: '#/components/responses/Error' }
+  /acl.php:
+    get:
+      tags: [Modération]
+      summary: Rôle associé à une clé
+      operationId: acl
+      parameters:
+        - $ref: '#/components/parameters/key'
+      responses:
+        '200':
+          description: Rôle
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  role: { type: string, example: admin }
+        '400': { $ref: '#/components/responses/Error' }
+components:
+  parameters:
+    scope:
+      name: scope
+      in: query
+      required: true
+      description: Identifiant du territoire (voir la page de chaque ville)
+      schema: { type: string }
+      example: 34_montpellier
+    token:
+      name: token
+      in: query
+      required: true
+      description: Token de l'observation
+      schema: { type: string }
+    key:
+      name: key
+      in: query
+      required: true
+      description: Clé privée de modérateur
+      schema: { type: string }
+    keyOptional:
+      name: key
+      in: query
+      description: Clé privée de modérateur (accès aux observations non approuvées)
+      schema: { type: string }
+    secretidOptional:
+      name: secretid
+      in: query
+      description: Clé secrète de l'observation, retournée à sa création
+      schema: { type: string }
+  responses:
+    Status:
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status: { type: integer, example: 0, description: "Toujours 0 (conservé pour les anciennes applications : le code HTTP fait foi)" }
+    Error:
+      description: Erreur
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            status: { type: integer, example: 404 }
+            code: { type: string, example: SCOPENOTEXIST }
+            message: { type: string }
+    Category:
+      type: object
+      properties:
+        catid: { type: integer }
+        catname: { type: string }
+        catcolor: { type: string }
+        catresolvable: { type: boolean }
+    City:
+      type: object
+      properties:
+        id: { type: string }
+        name: { type: string }
+        postcode: { type: string }
+        area: { type: string }
+        population: { type: string }
+        website: { type: string }
+    Scope:
+      type: object
+      properties:
+        display_name: { type: string }
+        department: { type: string }
+        coordinate_lat_min: { type: string }
+        coordinate_lat_max: { type: string }
+        coordinate_lon_min: { type: string }
+        coordinate_lon_max: { type: string }
+        map_center_string: { type: string, description: '"latitude,longitude" du centre de la carte' }
+        map_zoom: { type: string }
+        contact_email: { type: string }
+        tweet_content: { type: string }
+        twitter: { type: string }
+        map_url: { type: string }
+        nominatim_urlbase: { type: string, description: Backend ≥ 0.0.14 }
+        backend_version: { type: string }
+        cities:
+          type: array
+          items: { $ref: '#/components/schemas/City' }
+    Issue:
+      type: object
+      properties:
+        token: { type: string, example: 52299F01 }
+        coordinates_lat: { type: string }
+        coordinates_lon: { type: string }
+        address: { type: string }
+        comment: { type: string }
+        explanation: { type: string }
+        time: { type: string, description: Timestamp Unix (secondes) }
+        status:
+          type: integer
+          description: "0 : nouvelle ; 1 : résolue ; 2 : prise en compte ; 3 : en cours de résolution ; 4 : indiquée comme résolue (backend ≥ 0.0.10)"
+        group: { type: integer, deprecated: true }
+        categorie: { type: string, description: Identifiant de catégorie }
+        approved: { type: string, description: "0 : à modérer ; 1 : approuvée ; 2 : refusée" }
+        cityname: { type: string, description: Backend ≥ 0.0.13 }
+    IssueFeatureCollection:
+      type: object
+      description: Réponse avec `format=geojson`
+      properties:
+        type: { type: string, example: FeatureCollection }
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type: { type: string, example: Feature }
+              geometry:
+                type: object
+                properties:
+                  type: { type: string, example: Point }
+                  coordinates:
+                    type: array
+                    items: { type: number }
+              properties:
+                type: object

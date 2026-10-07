@@ -1,0 +1,14 @@
+{{/* Navigation tree of a section. Context: dict "section" "current" */}}
+{{ $current := .current }}
+<ul>
+  {{ range .section.Pages.ByWeight }}
+    {{ $active := eq . $current }}
+    {{ $open := or $active ($current.IsDescendant .) }}
+    <li{{ if $open }} class="open"{{ end }}>
+      <a href="{{ .RelPermalink }}"{{ if $active }} class="active" aria-current="page"{{ end }}>{{ .LinkTitle }}</a>
+      {{ if and .IsSection $open .Pages }}
+        {{ partial "docs-tree.html" (dict "section" . "current" $current) }}
+      {{ end }}
+    </li>
+  {{ end }}
+</ul>

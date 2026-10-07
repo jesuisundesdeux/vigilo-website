@@ -1,0 +1,56 @@
+{{ define "head" }}
+  {{ $css := resources.Get "vendor/swagger-ui/swagger-ui.css" | fingerprint }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+{{ end }}
+{{ define "main" }}
+{{/* OpenAPI spec (data/openapi.yaml) + one server per instance, from vigilo-conf */}}
+{{ $servers := slice }}
+{{ range hugo.Data.instances }}
+  {{ if .online }}
+    {{ $servers = $servers | append (dict "url" .api_path "description" (printf "%s — scope %s" .display_name .scope)) }}
+  {{ end }}
+{{ end }}
+{{ $spec := merge hugo.Data.openapi (dict "servers" $servers) }}
+{{ $specFile := $spec | jsonify (dict "indent" "  ") | resources.FromString "api/openapi.json" }}
+<div class="container page-head">
+  <h1>{{ .Title }}</h1>
+  <div class="prose">{{ .Content }}</div>
+  <p class="cta">
+    <a class="btn btn-ghost btn-small" href="{{ $specFile.RelPermalink }}" download>Télécharger la spécification OpenAPI</a>
+    <a class="btn btn-ghost btn-small" href="https://github.com/jesuisundesdeux/vigilo-backend">Code du backend</a>
+  </p>
+  {{ with $servers }}
+    <details class="scopes">
+      <summary>Instances et scopes ({{ len . }})</summary>
+      <table>
+        <thead><tr><th>Territoire</th><th>API</th><th>Scope</th></tr></thead>
+        <tbody>
+          {{ range where hugo.Data.instances "online" true }}
+            <tr><td><a href="{{ .url | relURL }}">{{ .display_name }}</a></td><td><code>{{ .api_path }}</code></td><td><code>{{ .scope }}</code></td></tr>
+          {{ end }}
+        </tbody>
+      </table>
+    </details>
+  {{ end }}
+</div>
+<div class="container">
+  <div id="swagger-ui"></div>
+</div>
+<script type="application/json" id="openapi-spec">{{ $spec | jsonify | safeJS }}</script>
+{{ end }}
+{{ define "scripts" }}
+  {{ $bundle := resources.Get "vendor/swagger-ui/swagger-ui-bundle.js" | fingerprint }}
+  <script src="{{ $bundle.RelPermalink }}" integrity="{{ $bundle.Data.Integrity }}"></script>
+  <script>
+    window.ui = SwaggerUIBundle({
+      spec: JSON.parse(document.getElementById('openapi-spec').textContent),
+      dom_id: '#swagger-ui',
+      deepLinking: true,
+      docExpansion: 'list',
+      defaultModelsExpandDepth: 0,
+      tryItOutEnabled: false,
+      supportedSubmitMethods: ['get'],
+      presets: [SwaggerUIBundle.presets.apis]
+    });
+  </script>
+{{ end }}

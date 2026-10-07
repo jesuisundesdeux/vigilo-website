@@ -1,0 +1,7 @@
+<h3>{{ .display_name }}</h3>
+<p class="muted">{{ with .cities }}{{ len . }} commune{{ if gt (len .) 1 }}s{{ end }} · {{ end }}{{ .country }}</p>
+<p class="small">
+  {{ if .online }}<span class="badge badge-ok">En ligne</span>{{ else }}<span class="badge badge-off">Injoignable</span>{{ end }}
+  {{ with .backend_version }}<span class="badge">v{{ . }}</span>{{ end }}
+  {{ with .last_observation }}<span class="muted">Dernière observation : {{ time.Format "2 January 2006" (time.AsTime .) }}</span>{{ end }}
+</p>

@@ -1,0 +1,8 @@
+{{/* Markdown images; keeps the "?width=300&classes=shadow" options of the previous theme */}}
+{{ $u := urls.Parse .Destination }}
+{{ $width := $u.Query.Get "width" }}
+{{ $classes := $u.Query.Get "classes" }}
+{{ $src := $u.Path }}
+{{ if not (or $u.IsAbs (hasPrefix $src "/")) }}{{ with .Page.Resources.Get $src }}{{ $src = .RelPermalink }}{{ end }}{{ end }}
+<img src="{{ $src }}" alt="{{ .Text }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ with $width }} width="{{ . }}"{{ end }} class="md-img{{ with $classes }} {{ replace . "," " " }}{{ end }}" loading="lazy">
+{{- /**/ -}}

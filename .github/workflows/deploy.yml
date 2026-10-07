@@ -1,0 +1,76 @@
+name: Build and deploy
+
+# Builds the site with Hugo and publishes it on the master branch (GitHub Pages, vigilo.city).
+# Runs on every push to "source", every day (to refresh the instances from vigilo-conf)
+# and on demand. Pull requests are built but not published.
+on:
+  push:
+    branches: [source]
+  pull_request:
+  schedule:
+    - cron: '23 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  HUGO_VERSION: 0.166.0
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install Hugo
+        run: |
+          curl -sSL -o /tmp/hugo.tgz "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+          tar -xzf /tmp/hugo.tgz -C /usr/local/bin hugo
+          hugo version
+      - name: Install front-end dependencies
+        run: npm ci
+      - name: Fetch the instances (vigilo-conf)
+        run: python3 scripts/fetch_instances.py
+      - name: Fetch the upgrade documentation (vigilo-backend)
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/jesuisundesdeux/vigilo-backend/master/doc/UPGRADE.md -o /tmp/UPGRADE.md
+          cat content/documentation/upgrade/_index.fr.tpl /tmp/UPGRADE.md > content/documentation/upgrade/_index.fr.md
+      - name: Build
+        run: hugo --gc --minify
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: public
+          retention-days: 7
+
+  deploy:
+    needs: build
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/source'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v5
+        with:
+          name: site
+          path: public
+      - name: Publish on the master branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: master
+          publish_dir: public
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: 'Site regenerated from'

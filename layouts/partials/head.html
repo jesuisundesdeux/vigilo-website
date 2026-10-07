@@ -1,0 +1,14 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ if .IsHome }}{{ site.Title }} · À pied ou à vélo, ayez le réflexe Vigilo{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+<meta name="theme-color" content="#fdd835">
+<link rel="icon" type="image/png" href="{{ "images/favicon.png" | relURL }}">
+<meta property="og:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}">
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+<meta property="og:image" content="{{ "images/vigilo.png" | absURL }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<link rel="preload" href="{{ "fonts/inter-latin-wght-normal.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+{{ $css := resources.Get "css/main.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+{{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" href="{{ .RelPermalink }}" title="{{ site.Title }}">{{ end }}

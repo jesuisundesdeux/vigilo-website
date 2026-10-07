@@ -1,0 +1,61 @@
+{{ define "bodyclass" }}home{{ end }}
+{{ define "main" }}
+{{ $instances := hugo.Data.instances }}
+{{ $online := where $instances "online" true }}
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <p class="eyebrow">Application collaborative citoyenne</p>
+      <h1>À pied ou à vélo, ayez le réflexe <span class="hl">Vigilo</span></h1>
+      <p class="lead">Signalez en 30 secondes les obstacles et les difficultés que vous rencontrez lors de vos déplacements : véhicules gênants, aménagements mal conçus, défauts d'entretien… Les observations, modérées par des associations locales, sont ouvertes à tous.</p>
+      <div class="cta">
+        <a class="btn btn-dark btn-large" href="{{ site.Params.webapp }}">Ouvrir l'application web</a>
+        <a class="btn btn-ghost btn-large" href="{{ site.Params.playstore }}">Android (Play Store)</a>
+      </div>
+      <p class="muted small">L'application web s'installe aussi sur iPhone et Android depuis le navigateur.</p>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><strong>{{ len $online }}</strong><span>territoires couverts</span></div>
+      <div class="stat"><strong>{{ $n := 0 }}{{ range $online }}{{ $n = add $n (len (.cities | default slice)) }}{{ end }}{{ $n }}</strong><span>communes</span></div>
+      <div class="stat"><strong>CC0</strong><span>données libres</span></div>
+      <div class="stat"><strong>0</strong><span>compte à créer</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="container section">
+  <h2 class="section-title">Comment ça marche ?</h2>
+  <ol class="steps">
+    <li><span class="step-num">1</span><h3>Prenez une photo</h3><p>Sur place, ou plus tard depuis votre galerie : la position est reprise de la photo ou placée sur la carte.</p></li>
+    <li><span class="step-num">2</span><h3>Catégorisez</h3><p>Véhicule ou objet gênant, aménagement mal conçu, défaut d'entretien, absence d'aménagement…</p></li>
+    <li><span class="step-num">3</span><h3>Envoyez</h3><p>Les modérateurs de l'association locale valident l'observation et floutent ce qui relève de la vie privée.</p></li>
+  </ol>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">Vigilo près de chez vous</h2>
+      <a href="{{ "fr/villes/" | relURL }}">Toutes les villes →</a>
+    </div>
+    <div class="map map-large" data-map="instances"></div>
+  </div>
+</section>
+
+<section class="container section">
+  <h2 class="section-title">Pourquoi Vigilo ?</h2>
+  <div class="features">
+    <div class="feature"><h3>Anonyme</h3><p>Pas de compte : les observations sont validées par les modérateurs des associations de mobilités actives.</p></div>
+    <div class="feature"><h3>Rapide</h3><p>Une observation s'ajoute en moins de 30 secondes, sur place ou depuis chez soi.</p></div>
+    <div class="feature"><h3>Respect de la vie privée</h3><p>Plaques et visages sont floutés avant publication.</p></div>
+    <div class="feature"><h3>Données ouvertes</h3><p>Les observations sont dans le domaine public (<a href="https://fr.wikipedia.org/wiki/Licence_CC0">CC0</a>) et téléchargeables en JSON, GeoJSON ou CSV, et via l'<a href="{{ "fr/api/" | relURL }}">API</a>.</p></div>
+    <div class="feature"><h3>Libre</h3><p><a href="{{ site.Params.github }}">Projet open source</a> développé par des citoyens bénévoles.</p></div>
+    <div class="feature"><h3>Local</h3><p>Chaque territoire est géré par une association locale, qui s'appuie sur ces données auprès des collectivités.</p></div>
+  </div>
+</section>
+
+<section class="container section prose home-content">
+  {{ .Content }}
+</section>
+{{ end }}
+{{ define "scripts" }}{{ partial "map-assets.html" . }}{{ end }}
