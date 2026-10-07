@@ -40,7 +40,9 @@ def slugify(text):
     text = unicodedata.normalize("NFKD", text.lower())
     text = "".join(c for c in text if not unicodedata.combining(c))
     text = re.sub(r"['\"/.]", "-", text)
-    return "-".join(text.split())
+    text = "-".join(text.split())
+    # "Toulon - Var" -> "toulon-var", not "toulon---var"
+    return re.sub(r"-{2,}", "-", text).strip("-")
 
 
 def to_float(value):
