@@ -15,7 +15,6 @@ params:
   description: "À pied ou à vélo, ayez le réflexe Vigilo : l'appli collaborative citoyenne pour signaler les problèmes de déplacement des piétons et cyclistes."
   editURL: https://github.com/jesuisundesdeux/vigilo-website/edit/source/content/
   webapp: https://app.vigilo.city
-  playstore: https://play.google.com/store/apps/details?id=com.velocite34.vigilo
   github: https://github.com/jesuisundesdeux
 
 menus:

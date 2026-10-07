@@ -11,18 +11,15 @@ FAQ Vigilo
  - Je suis un utilisateur
    - [A quoi sert Vigilo ?](#a-quoi-sert-vigilo)
    - [Je souhaiterais que Vigilo soit installé dans ma ville](#je-souhaiterais-que-vigilo-soit-installé-dans-ma-ville)
-   - [Pourquoi Vigilo n'est pas disponible sur iOS ?](#pourquoi-vigilo-n-est-pas-disponible-sur-ios)
-   - [J'ai une erreur de "copie du fichier sur Android"](#j-ai-une-erreur-de-copie-du-fichier-sur-android)
+   - [Comment installer Vigilo sur mon téléphone ?](#comment-installer-vigilo-sur-mon-téléphone)
    - [L'application est lente](#l-application-est-lente)
    - [Pourquoi certaines photos sont pixelisées ?](#pourquoi-certaines-photos-sont-pixelisées)
    - [Pourquoi mon observation n'est plus visible ?](#pourquoi-mon-observation-n-est-plus-visible)
-   - [J'ai d'autres problèmes dans l'utilisation de l'application Android](#j-ai-d-autres-problèmes-dans-l-utilisation-de-l-application-android)
-   - [Pourquoi il y a des trackers dans l'application Android ?](#pourquoi-il-y-a-des-trackers-dans-l-application-android)
+   - [J'ai d'autres problèmes dans l'utilisation de l'application](#j-ai-d-autres-problèmes-dans-l-utilisation-de-l-application)
  - Je suis une association
    - [Je souhaiterais mettre en place Vigilo dans ma ville](#je-souhaiterais-mettre-en-place-vigilo-dans-ma-ville)
    - [Comment ajouter un moderateur ?](#comment-ajouter-un-moderateur)
    - [Comment modérer sur l'interface web ?](#comment-modérer-sur-l-interface-web)
-   - [Comment modérer sur l'application Android ?](#comment-modérer-sur-l-application-android)
    - [Comment sont utilisées les données Vigilo ?](#comment-sont-utilisées-les-données-vigilo)
    - [Pourquoi je dois mettre à jour mon instance ?](#pourquoi-je-dois-mettre-à-jour-mon-instance)
    - [Il manque certaines fonctionnalités dans Vigilo pour mon association](#il-manque-certaines-fonctionnalités-dans-vigilo-pour-mon-association)
@@ -56,22 +53,11 @@ Pour ces raisons, une association ayant pour sujet les mobilités actives pourra
 
 [Vous trouverez plus d'informations ici](https://vigilo.city/fr/villes/maville/)
 
-### Pourquoi Vigilo n'est pas disponible sur iOS ?
+### Comment installer Vigilo sur mon téléphone ?
 
-Vigilo a été developpé sur iOS. Malgré celà, la politique de publication sur l'Apple Store ne permet pas sa publication.
+Vigilo est une application web : elle s'ouvre directement dans le navigateur sur [app.vigilo.city](https://app.vigilo.city), sans passer par un store.
 
-Des tentatives seront de nouveau effectuées.
-
-En attendant, il est possible d'utiliser l'application web qui a aussi été concue pour une utilisation sur mobile.:[elle est disponible ici](https://app.vigilo.city)
-
-### J'ai une erreur de "copie du fichier" sur Android
-
-S'assurer que l'application est bien à jour sur le Play Store.
-
-Il se peut que l'application ne soit pas fonctionnelle lorsqu'elle est installée sur la carte SD : il est alors necessaire de la deplacer sur le stockage interne.
-
-Si le problème persiste, désinstaller l'application et effacer les données ainsi que le cache de celle-ci.
-
+Pour l'avoir sur l'écran d'accueil comme une application, utilisez la bannière ou l'entrée **« Installer l'appli »** du menu, ou l'option « Installer l'application » / « Sur l'écran d'accueil » de votre navigateur. [Plus de détails ici](/fr/app/web/#installer-l-application)
 
 ### L'application est lente
 
@@ -96,24 +82,14 @@ Les observations ne respectant pas les règles d'utilisation de Vigilo sont dés
 * Observation detectée comme fausse
 * Photo de mauvaise qualité
 
-### J'ai d'autres problèmes dans l'utilisation de l'application Android
+### J'ai d'autres problèmes dans l'utilisation de l'application
 
 Tenter les étapes suivantes :
 
-* S'assurer que l'application est à jour.
-* Si besoin désinstaller/réinstaller.
+* Recharger la page de l'application (ou la fermer puis la rouvrir si elle est installée).
+* Vérifier que le navigateur est à jour.
 * Si le problème persiste, contacter les developpeurs Vigilo sur velocite34@gmail.com avec le maximum d'informations et captures d'écrans.
 * Ne pas oublier qu'il s'agit d'un projet developpé par des benevoles : le traitement des demandes se fait selon les disponibilités de chacun.
-
-### Pourquoi il y a des trackers dans l'application Android ?
-
-L'application Android est actuellement developpée avec le framework Kodular.
-
-Ce framework embarque des trackers que l'on retrouve dans Vigilo.
-
-Vigilo ne prévoit pas d'autres trackers qu'une clé d'authentification liée à chaque observation, permettant de supprimer celle-ci.
-
-Nous cherchons des volontaires pour redevelopper l'application en natif, permettant ainsi de ne plus avoir ces trackers.
 
 ## Je suis une association
 
@@ -128,10 +104,6 @@ Vous trouverez plus d'informations sur la [documentation](/fr/documentation/admi
 ### Comment modérer sur l'interface web ?
 
 Vous trouverez plus d'informations sur la [documentation](/fr/documentation/administration/moderation/#via-vigilo-web)
-
-### Comment modérer sur l'application android ?
-
-Vous trouverez plus d'informations sur la [documentation](/fr/documentation/administration/moderation/#via-vigilo-android)
 
 ### Comment sont utilisées les données Vigilo ?
 
@@ -149,7 +121,7 @@ Vigilo évolue en permanence, via de nouvelles fonctionnalités, des corrections
 
 Afin de suivre ces évolutions, il est indispensable de maintenir la version de votre instance à jour.
 
-Si l'instance n'est pas à jour elle risque de ne plus fonctionner avec les nouvelles versions des applications clientes qui se basent sur les dernières versions du backend.
+Si l'instance n'est pas à jour elle risque de ne plus fonctionner avec les nouvelles versions de l'application web, qui se base sur les dernières versions du backend.
 
 ### Il manque certaines fonctionnalités dans Vigilo pour mon association
 
@@ -202,7 +174,6 @@ Vigilo utilise les langages de programmation suivants :
 * PHP / HTML / CSS (Backend)
 * Javascript (Vigilo Web)
 * Pÿthon (VigiloTools)
-* Java (Application iOS)
 
 Vigilo utilise les technologies de containerisation Docker sur OS Linux Debian.
 

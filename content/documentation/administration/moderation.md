@@ -7,40 +7,22 @@ weight: 1
 
 ### Actions modérateur
 
-#### Via Vigilo Android
+#### Via l'application web
 
-Pour gérer la modération une clé unique associée à votre compte doit être envoyée à un administrateur.
-Si vous ne l'avez jamais fait :
+Pour modérer, une clé unique doit être associée à votre compte par un administrateur de votre territoire. Si vous ne l'avez jamais fait :
 
-* L'application Vigilo doit être installée sur votre smartphone
-* Dans le menu principal, Générer une clé
-* Copier la clé générée
+* Ouvrir l'application web https://app.vigilo.city et son menu
+* Appuyer 10 fois sur le logo Vigilo en haut du menu : la fenêtre « Devenir modérateur » s'ouvre
+* Cliquer sur **Générer** pour créer une clé (ou coller la clé fournie par un administrateur), puis **Enregistrer**
 * Envoyer cette clé à l'administrateur du Vigilo de votre zone géographique
-Cette clé est commune à l'application web et à l'application android.
+
+Tant que la clé n'est pas validée, le menu affiche « Presque modérateur ».
 
 Une fois que l'administrateur vous confirme votre statut de modérateur :
 
-* ouvrir l'application
-* si besoin, sélectionner votre zone géographique
-* sélectionner une observation
-* vous accédez aux options de modération (approuver, désapprouver, modifier, supprimer) en cliquant sur le bouton jaune orné des 3 points noirs
-
-#### Via Vigilo Web
-
-Pour gérer la modération une clé unique associée à votre compte doit être envoyée à un administrateur.
-Si vous ne l'avez jamais fait :
-
-* Cliquer 10 fois sur le logo Vigilo dans le menu sur la page de l'application web https://app.vigilo.city
-* Générer un clé
-* Puis l'enregistrer
-* Envoyer cette clé à l'administrateur du Vigilo de votre zone géographique
-Cette clé est commune à l'application web et à l'application android.
-
-Une fois que l'administrateur vous confirme votre statut de modérateur :
-
-* A partir du menu de l'application, cliquer sur Activer le mode Admin
-* Le fond de la page passe en rouge
-* En cliquant sur chaque observation, vous avez accès à un bouton Sens interdit bleu. En cliquant dessus, vous accéderez aux différentes fonctionnalités de la modération (approuver, supprimer, modifier)
+* Dans le menu, cliquer sur **Activer mode admin** et confirmer : le fond de la page passe en rouge
+* La liste affiche alors par défaut les observations à modérer (modifiable dans les filtres)
+* En ouvrant une observation, les boutons de modération apparaissent en bas de la fiche : approuver, refuser, modifier, ou remettre en modération. La liste se met à jour sans rechargement, ce qui permet d'enchaîner les observations
 
 ### Actions administrateur
 

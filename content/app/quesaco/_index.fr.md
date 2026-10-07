@@ -21,4 +21,4 @@ Après plusieurs mois de développement, Vigilo a été lancé à Montpellier le
 Cette accumulation de données permet une analyse très fine des infrastructures existantes et des problèmes rencontrés au
 quotidien (carte et suivi temporel des véhicules garés sur pistes cyclables et trottoirs, carte de l’entretien à faire, carte des aménagements problématiques ou manquants, récurrences d’incivilités, ...)
 
-Vigilo est une application gratuite, disponible [sur le web](https://app.vigilo.city) (ordinateur, Android et iPhone, installable sur l'écran d'accueil) et sous Android via le [Google Play Store](https://play.google.com/store/apps/details?id=com.velocite34.vigilo&hl=fr).
+Vigilo est une application web gratuite, disponible sur [app.vigilo.city](https://app.vigilo.city) depuis un smartphone, une tablette ou un ordinateur, et installable sur l'écran d'accueil.

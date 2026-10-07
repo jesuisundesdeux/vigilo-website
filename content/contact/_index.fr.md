@@ -30,7 +30,6 @@ Le projet Vigilo est réparti sur plusieurs projets Github.
 
 Pour signaler un bug ou une amélioration, vous pouvez créer une nouvelle issue selon le composant concerné
 
-  * Application Android : [Voir ici](https://github.com/jesuisundesdeux/vigilo-android/issues)
   * Application web (app.vigilo.city) : [Voir ici](https://github.com/jesuisundesdeux/vigilo-webapp/issues)
   * Back-end (API pour les instances locales) : [Voir ici](https://github.com/jesuisundesdeux/vigilo-backend/issues)
 
