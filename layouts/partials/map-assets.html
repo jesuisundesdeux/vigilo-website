@@ -1,14 +1,10 @@
-{{/* Leaflet (+ marker clusters) and the site's map script; data passed as JSON script tags */}}
+{{/* Leaflet and the site's map script; data passed as JSON script tags */}}
 {{ $leafletCss := resources.Get "vendor/leaflet/leaflet.css" }}
 {{/* publish the images referenced by leaflet.css next to it */}}
 {{ range resources.Match "vendor/leaflet/images/*" }}{{ $_ := .RelPermalink }}{{ end }}
 <link rel="stylesheet" href="{{ $leafletCss.RelPermalink }}">
-{{ $cluster := slice (resources.Get "vendor/markercluster/MarkerCluster.css") (resources.Get "vendor/markercluster/MarkerCluster.Default.css") | resources.Concat "css/markercluster.css" | minify | fingerprint }}
-<link rel="stylesheet" href="{{ $cluster.RelPermalink }}">
 {{ $leaflet := resources.Get "vendor/leaflet/leaflet.js" | fingerprint }}
 <script src="{{ $leaflet.RelPermalink }}" integrity="{{ $leaflet.Data.Integrity }}" defer></script>
-{{ $markercluster := resources.Get "vendor/markercluster/leaflet.markercluster.js" | fingerprint }}
-<script src="{{ $markercluster.RelPermalink }}" integrity="{{ $markercluster.Data.Integrity }}" defer></script>
 {{ $js := resources.Get "js/site.js" | js.Build (dict "minify" hugo.IsProduction "target" "es2018") | fingerprint }}
 <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
 <script type="application/json" id="instances-data">{{ hugo.Data.instances | jsonify | safeJS }}</script>

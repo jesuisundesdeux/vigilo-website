@@ -76,8 +76,6 @@ module:
     # front-end dependencies, managed with npm (package.json)
     - source: node_modules/leaflet/dist
       target: assets/vendor/leaflet
-    - source: node_modules/leaflet.markercluster/dist
-      target: assets/vendor/markercluster
     - source: node_modules/swagger-ui-dist
       target: assets/vendor/swagger-ui
     - source: node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2

@@ -2,21 +2,22 @@
 const ATTRIB_OSM = '&copy; <a href="https://www.openstreetmap.org/copyright">contributeurs OpenStreetMap</a>';
 
 export function addBaseLayers(map) {
+	// street maps are muted (see .tiles-muted) so that the observations stand out
 	const osmFr = L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
-		maxZoom: 20, maxNativeZoom: 19, subdomains: 'abc',
+		maxZoom: 20, maxNativeZoom: 19, subdomains: 'abc', className: 'tiles-muted',
 		attribution: ATTRIB_OSM + ', tuiles <a href="https://www.openstreetmap.fr/">OSM France</a>'
 	});
 	const osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-		maxZoom: 20, maxNativeZoom: 19, attribution: ATTRIB_OSM
+		maxZoom: 20, maxNativeZoom: 19, className: 'tiles-muted', attribution: ATTRIB_OSM
 	});
-	const geopf = (layer, format) => L.tileLayer(
+	const geopf = (layer, format, className) => L.tileLayer(
 		'https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&STYLE=normal&TILEMATRIXSET=PM'
 		+ '&LAYER=' + layer + '&FORMAT=' + format + '&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}',
-		{ maxZoom: 20, maxNativeZoom: 18, attribution: '&copy; <a href="https://www.ign.fr/">IGN</a>' });
+		{ maxZoom: 20, maxNativeZoom: 18, className: className || '', attribution: '&copy; <a href="https://www.ign.fr/">IGN</a>' });
 	const layers = {
 		'OSM France': osmFr,
 		'OpenStreetMap': osm,
-		'Plan IGN': geopf('GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2', 'image/png'),
+		'Plan IGN': geopf('GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2', 'image/png', 'tiles-muted'),
 		'Photos aériennes': geopf('ORTHOIMAGERY.ORTHOPHOTOS', 'image/jpeg')
 	};
 	osmFr.addTo(map);
