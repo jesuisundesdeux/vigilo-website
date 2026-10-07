@@ -26,7 +26,6 @@ Pour celà, n'hesitez pas à [créer une pull request](https://github.com/jesuis
 * Nom de la zone géographique 
 * Limites géographique en degrés décimales (latitude min/max, longitude min/max)
 * Adresse mail de contact
-* Liste des compte playstore des testeurs
 
 ## Mise en place
 

@@ -3,4 +3,4 @@ title: Application
 weight: 5
 ---
 
-Découvrez les différentes versions de l'application Vigilo : [web](/fr/app/web/) (ordinateur, Android, iPhone) et [Android](/fr/app/android/).
+Vigilo est une application web, disponible sur [app.vigilo.city](https://app.vigilo.city) depuis un smartphone, une tablette ou un ordinateur, et installable sur l'écran d'accueil.

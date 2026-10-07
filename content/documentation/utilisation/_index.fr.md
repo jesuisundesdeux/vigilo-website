@@ -3,17 +3,6 @@ title: Guide d'utilisation
 weight: 1
 ---
 
+Vigilo s'utilise depuis l'application web [app.vigilo.city](https://app.vigilo.city), sur smartphone, tablette ou ordinateur.
 
-## Utilisation Application Android
-
-Découvrez comment utiliser l'application Android
-
-[Procédure ici](/fr/app/android/)
-
-## Utilisation Application Web
-
-Découvrez comment utiliser l'application Web
-
-[Procédure ici](/fr/app/web/)
-
-
+[Découvrir comment l'utiliser](/fr/app/web/)
