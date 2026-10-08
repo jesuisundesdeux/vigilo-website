@@ -5,6 +5,6 @@ weight: 5
 
 ## Configuration Villes
 
-Ajouter dans cette section l'ensemble des villes du territoire.
-Celà permettra ensuite de filtrer les observations pour chaque ville.
-
+Dans le panneau d'administration, menu **Villes**, ajouter l'ensemble des villes du territoire.
+Cela permet de filtrer les observations par ville et de limiter les comptes des services municipaux (citystaff) aux
+observations de leurs villes.

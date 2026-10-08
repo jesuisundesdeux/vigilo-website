@@ -3,16 +3,19 @@ title: Initialisation
 weight: 3
 ---
 
-## Vérifications 
+## Création du compte administrateur
 
-S'assurer que l'appli peut écrire dans les repertoires images/,caches/ et maps/
+* Docker : `install.php` est mis en place automatiquement au premier démarrage.
+  Hébergement mutualisé : copier `install_app/install.php` (de l'archive) à la racine du site.
+* Ouvrir `https://adresse_du_serveur/install.php` et remplir les champs pour créer le compte administrateur.
+* Le fichier `install.php` se supprime ensuite (il refuse de fonctionner dès qu'un compte existe).
 
-## Initialisation
+## Vérifications
 
-* Copier le fichier install_app/install.php sur l'hebergement et y accéder via https://adresse_du_serveur/install.php
-* Remplir les champs permettant de créer un compte admin
-* Supprimer install.php.
+Le panneau d'administration (`https://adresse_du_serveur/admin/`, menu **Mises à jour**) affiche des vérifications de
+sécurité : répertoires `images/` et `caches/` non accessibles depuis le web, absence de `install.php`, HTTPS,
+version de PHP.
 
 ## Configuration
 
-A cette étape, il est possible à présent de configurer l'application : [Procédure Ici](/fr/documentation/configuration/)
+Il est à présent possible de configurer l'application : [procédure ici](/fr/documentation/configuration/)

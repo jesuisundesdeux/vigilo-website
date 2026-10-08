@@ -9,38 +9,37 @@ weight: 2
 
 #### Logiciel
 
-* PHP >= 7.1 avec php-gd
-* Une base de données MySQL/MariaDB
+* PHP 7.3 à 8.3 avec les extensions `mysqli`, `gd`, `curl` et `fileinfo` (`zip` et `sodium` pour les mises à jour depuis l'administration)
+* Une base de données MySQL ou MariaDB
+* Un certificat HTTPS (les applications refusent les instances en HTTP)
 
 #### Connaissances
 
-* PHP/MySQL
+* PHP / MySQL, transfert de fichiers (FTP/SFTP), phpMyAdmin
 
 ### Mise en place
 
-#### Téléchargement release
+#### Téléchargement
 
-Télécharger la dernière release sur la page https://github.com/jesuisundesdeux/vigilo-backend/tags
+Télécharger l'archive **Source code** de la dernière version sur https://github.com/jesuisundesdeux/vigilo-backend/releases
+et copier le contenu du répertoire `app/` à la racine du site.
 
-Importer le contenu de ```app/``` dans l'arborescence web.
+Le serveur web doit pouvoir écrire dans `images/` et `caches/` (et dans tout le répertoire du code pour les mises à jour
+depuis l'administration). Avec Nginx (qui ne lit pas les `.htaccess`), interdire l'accès à `images/`, `caches/`,
+`migrations/` et `install.php` (voir la [documentation de mise à jour](/fr/documentation/upgrade/)).
 
-Sur un hebergement type OVH : il est necessaire de supprimer le fichier ```.htaccess``` (sinon : erreur 500 lors de l'accès aux pages php).
+#### Base de données
 
-#### Mise en place base de données
+Créer une base et un utilisateur, puis créer les tables :
 
-Executer l'ensemble des scripts MySQL présents dans ```mysql/init/``` dans l'ordre sur MySQL.
-
-Chez OVH : dans phpMyAdmin, enlever les lignes commentées des requêtes SQL (sinon : erreur lors de l'exécution).
+* avec un accès SSH : `php scripts/vigilo-migrate.php --app=<racine du site>` depuis le répertoire de l'archive ;
+* sinon, dans phpMyAdmin, exécuter `SET SESSION innodb_strict_mode=OFF;` puis les fichiers `app/migrations/init-X.Y.Z.sql`
+  **dans l'ordre des versions** (0.0.1, 0.0.2, … jusqu'à la dernière).
 
 #### Configuration
 
-* config/config.php
+Copier `config/config.php.tpl` vers `config/config.php` et renseigner l'accès à la base de données.
 
-Copier le fichier config/config.php.tpl vers config/config.php
+### Initialisation
 
-Renseigner les différents valeurs à configurer concernant la base de données.
-
-### Initialisation 
-
-Dés que l'application est deployée, il est impératif de passer à l'étape d'initialisation : [Procédure Ici](/fr/documentation/installation/initialisation/)
-
+Dès que l'application est déployée, passer à l'étape d'initialisation : [procédure ici](/fr/documentation/installation/initialisation/)

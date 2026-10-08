@@ -10,47 +10,50 @@ weight: 1
 #### Logiciel
 
 * OS Linux
-* Docker
-* Docker-compose
-* Un reverse-proxy comme Nginx afin de géré la couche SSL et l'accès public à Vigilo
+* Docker avec Docker Compose (`docker compose`)
+* Un reverse proxy (Nginx, Caddy, Traefik…) qui gère le certificat HTTPS (Let's Encrypt) et l'accès public à Vigilo :
+  les applications refusent les instances en HTTP
 
 #### Connaissances
 
-* OS Linux / PHP / MySQL / Docker 
+* Linux / Docker
 
 ### Mise en place
 
-A charge à l'administrateur d'installer le necessaire en amont pour permettre la mise en place d'un certificat SSL (LetsEncrypt).
-
-Cloner le repo git complet en adaptant la version en remplacant X.X.X par le dernier tag existant (voir https://github.com/jesuisundesdeux/vigilo-backend/tags)
+Récupérer le dépôt (seuls `docker-compose.yml` et `.env_sample` sont utilisés : le code est dans l'image Docker) :
 
 ```
 $ git clone https://github.com/jesuisundesdeux/vigilo-backend.git
-$ git checkout vX.X.X
-```
-
-Copier le .env_sample vers .env_prod
-
-```
+$ cd vigilo-backend
 $ cp .env_sample .env
 ```
 
-Adapter les valeurs dans ```.env``` :
+Adapter les valeurs dans `.env` :
 
-* VOLUME_PATH : Repertoire persistent sur le serveur où seront stockées les données de Vigilo
-* MYSQL_ROOT_PASSWORD : Mot de passe root de la base de données
-* MYSQL_PASSWORD : Mot de passe du compte vigilo de la base de données
-* BIND : Adresse d'écoute HOST:PORT permettant d'accéder au conteneur à partir d'un reverse proxy sur l'hote ou à partir d'un autre container.
-
-Adapter si besoin ce fichier au contexte du serveur sur lequel il est hebergé.
+* `VOLUME_PATH` : répertoire persistant du serveur où sont stockées les données (base, photos, caches, logs)
+* `MYSQL_ROOT_PASSWORD`, `MYSQL_PASSWORD` : mots de passe de la base de données
+* `BIND` : adresse d'écoute `HOTE:PORT` vers laquelle le reverse proxy redirige (par exemple `127.0.0.1:8080`)
+* `VIGILO_IMAGE` : image du back-end, `vigilobs/vigilo-backend:0.0` par défaut (suit les correctifs de la série 0.0)
+* `AUTOUPDATE` : `true` (défaut) pour migrer la base automatiquement au démarrage après une mise à jour
 
 Lancer le service :
 
 ```
-$ docker-compose up -d
+$ docker compose up -d
 ```
 
-### Initialisation 
+La base est créée au premier démarrage.
 
-Dés que la partie serveur est installée, il est impératif de passer à l'étape d'initialisation : [Procédure Ici](/fr/documentation/installation/initialisation/)
+### Options
 
+* **Serveur de floutage** : masque automatiquement visages et plaques d'immatriculation sur les photos reçues.
+  Ajouter `VIGILO_BLUR_URL=http://blur:8000/blur` dans `.env` et démarrer avec `docker compose --profile blur up -d`
+  ([documentation](https://github.com/jesuisundesdeux/vigilo-backend/blob/master/blur-server/README.md)).
+* **Mise à jour depuis l'administration** : renseigner `WATCHTOWER_TOKEN` (chaîne aléatoire) et
+  `VIGILO_WATCHTOWER_URL=http://watchtower:8080` dans `.env`, puis démarrer avec `docker compose --profile watchtower up -d`.
+
+Les deux options se combinent : `docker compose --profile blur --profile watchtower up -d`.
+
+### Initialisation
+
+Dès que le service est démarré, passer à l'étape d'initialisation : [procédure ici](/fr/documentation/installation/initialisation/)
