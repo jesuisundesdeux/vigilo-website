@@ -35,7 +35,7 @@ Sur un serveur dédié, les migrations peuvent aussi être lancées en ligne de 
 
 Le code fait partie de l'image : il n'est jamais modifié dans le conteneur. Le
 `docker-compose.yml` fourni utilise l'image `vigilobs/vigilo-backend:0.0`, qui suit les
-correctifs de la série 0.0 (tags publiés : `0.0.23`, `0.0`, `stable`, `latest` ; l'image est aussi
+correctifs de la série 0.0 (tags publiés : la version exacte, par exemple `0.0.24`, et `0.0`, `stable`, `latest` ; l'image est aussi
 publiée sur `ghcr.io/jesuisundesdeux/vigilo-backend`). La base est migrée au démarrage du conteneur
 (sauf si `AUTOUPDATE=false`) ; le conteneur refuse de démarrer si la base est plus récente que le code.
 
@@ -58,7 +58,20 @@ de la page « Mises à jour » télécharge la nouvelle image et redémarre le c
 que sur le conteneur `web` (label `com.centurylinklabs.watchtower.enable`) et seulement à la demande.
 Il a accès au socket Docker : ne l'activez que si vous en avez besoin.
 
+Watchtower est l'image `nickfedor/watchtower`, version maintenue de `containrrr/watchtower` (archivée). Si
+Watchtower ne démarre pas avec `client version 1.25 is too old. Minimum supported API version is 1.44` (Docker
+Engine 29 et suivants), c'est que l'ancienne image est encore utilisée : retirez `WATCHTOWER_IMAGE` de `.env` (ou
+mettez `WATCHTOWER_IMAGE=nickfedor/watchtower:1`), reprenez le `docker-compose.yml` de cette version, puis
+`docker compose --profile watchtower up -d`. Le bouton de l'admin appelle Watchtower en POST, comme le demande la
+nouvelle image (backend 0.0.24 et suivants) ; avec un backend plus ancien, gardez `containrrr/watchtower:1.7.1` en
+ajoutant `DOCKER_API_VERSION=1.44` à l'environnement du service `watchtower`.
+
 Pour passer à une nouvelle série (0.1, 1.0…), changez `VIGILO_IMAGE` dans `.env`.
+
+Watchtower et `docker compose pull` ne mettent à jour que les images : le fichier `docker-compose.yml` du serveur
+n'est jamais modifié. Quand une version le fait évoluer (signalé dans le
+[CHANGELOG](https://github.com/jesuisundesdeux/vigilo-backend/blob/master/CHANGELOG.md), comme l'image de Watchtower
+en 0.0.24), reprenez-le depuis le dépôt en gardant votre `.env`.
 
 Pour développer avec le code du dépôt :
 `docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build`.
@@ -93,6 +106,13 @@ Pour développer avec le code du dépôt :
    sinon voir `blur-server/README.md`. Aucun serveur configuré : les photos sont publiées telles qu'envoyées.
 10. Docker : les répertoires `images/` et `caches/` des volumes sont rendus accessibles en écriture à Apache
    au démarrage (installation neuve avec docker-compose).
+
+### Passage à la 0.0.23 et à la 0.0.24
+
+Aucune action manuelle pour l'instance : la migration `init-0.0.23.sql` est appliquée automatiquement (Docker) ou
+depuis la page « Mises à jour ». Elle ajoute la page **Catégories** de l'admin et la correspondance des catégories des
+webhooks. Le champ « Texte de partage par défaut » des scopes est retiré (il servait à Twitter). En 0.0.24, avec Docker
+et Watchtower, changez l'image de Watchtower comme indiqué ci-dessus.
 
 ### Publier une version (mainteneurs)
 
