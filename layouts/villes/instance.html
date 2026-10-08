@@ -13,7 +13,7 @@
   </p>
   <div class="cta">
     <a class="btn btn-dark" href="{{ site.Params.webapp }}/?instance={{ $name }}">Signaler dans l'application</a>
-    <a class="btn btn-ghost" href="{{ site.Params.webapp }}/stats-iframe.html?instance={{ $name }}">Statistiques</a>
+    <a class="btn btn-ghost" href="#statistiques">Statistiques</a>
     {{ with $i.contact_email }}{{ $parts := split . "@" }}{{ if eq (len $parts) 2 }}
       <a class="btn btn-ghost" href="#" data-mail-user="{{ index $parts 0 }}" data-mail-domain="{{ index $parts 1 }}">Contacter l'association</a>
     {{ end }}{{ end }}
@@ -43,6 +43,12 @@
       {{ end }}
     </section>
   </div>
+
+  <section class="section" id="statistiques">
+    <h2>Statistiques</h2>
+    <iframe class="stats-frame" data-stats-frame src="{{ site.Params.webapp }}/stats-iframe.html?instance={{ $name | urlquery }}"
+            title="Statistiques des observations de {{ $i.display_name }}" loading="lazy"></iframe>
+  </section>
 </div>
 {{ end }}
 {{ define "scripts" }}{{ partial "map-assets.html" . }}{{ end }}
