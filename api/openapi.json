@@ -2,7 +2,7 @@
   "components": {
     "parameters": {
       "key": {
-        "description": "Clé privée de modérateur",
+        "description": "Clé privée d'un compte admin ou modérateur",
         "in": "query",
         "name": "key",
         "required": true,
@@ -11,7 +11,7 @@
         }
       },
       "keyOptional": {
-        "description": "Clé privée de modérateur (accès aux observations non approuvées)",
+        "description": "Clé privée d'un compte admin ou modérateur",
         "in": "query",
         "name": "key",
         "schema": {
@@ -24,6 +24,15 @@
         "in": "query",
         "name": "scope",
         "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "scopeOptional": {
+        "description": "Identifiant du territoire ; sans scope, toutes les observations de l'instance",
+        "example": "34_montpellier",
+        "in": "query",
+        "name": "scope",
         "schema": {
           "type": "string"
         }
@@ -79,7 +88,16 @@
       "Category": {
         "properties": {
           "catcolor": {
+            "description": "Nom CSS ou #rrggbb",
             "type": "string"
+          },
+          "catcustom": {
+            "description": "Catégorie propre à l'instance (facultatif ; backend ≥ 0.0.23)",
+            "type": "boolean"
+          },
+          "catdisable": {
+            "description": "Catégorie à ne plus proposer (facultatif)",
+            "type": "boolean"
           },
           "catid": {
             "type": "integer"
@@ -87,7 +105,12 @@
           "catname": {
             "type": "string"
           },
+          "catname_en_US": {
+            "description": "Nom en anglais (facultatif)",
+            "type": "string"
+          },
           "catresolvable": {
+            "description": "Les citoyens peuvent déclarer l'observation résolue",
             "type": "boolean"
           }
         },
@@ -151,7 +174,7 @@
             "type": "string"
           },
           "cityname": {
-            "description": "Backend ≥ 0.0.13",
+            "description": "Nom de la ville, absent si inconnu (backend ≥ 0.0.13)",
             "type": "string"
           },
           "comment": {
@@ -162,6 +185,10 @@
           },
           "coordinates_lon": {
             "type": "string"
+          },
+          "distance": {
+            "description": "Distance en mètres au point `lat`/`lon` (uniquement avec `lat`/`lon`/`radius`)",
+            "type": "number"
           },
           "explanation": {
             "type": "string"
@@ -272,9 +299,11 @@
             "type": "string"
           },
           "tweet_content": {
+            "description": "Valeur existante, plus modifiable depuis le backend 0.0.23",
             "type": "string"
           },
           "twitter": {
+            "description": "Valeur existante, plus modifiable depuis le backend 0.0.22",
             "type": "string"
           }
         },
@@ -283,13 +312,13 @@
     }
   },
   "info": {
-    "description": "API REST des instances [vigilo-backend](https://github.com/jesuisundesdeux/vigilo-backend).\n\nChaque territoire a sa propre instance : choisissez-la dans la liste **Servers** ci-dessous,\npuis indiquez son **scope** (affiché sur la page de chaque ville). La liste des instances\nest publiée dans [vigilo-conf](https://github.com/jesuisundesdeux/vigilo-conf/blob/main/main/citylist.json).\n\nLes observations sont des données ouvertes sous licence CC0. Les appels en lecture (`GET`) peuvent\nêtre testés directement depuis cette page (bouton **Try it out**).\n\nEn cas d'erreur, les méthodes répondent avec le code HTTP correspondant et un objet\n[`Error`](#/components/schemas/Error). La colonne « Compatibilité » de l'ancienne documentation\nest reprise dans les descriptions (« backend ≥ 0.0.x »).\n",
+    "description": "API REST des instances [vigilo-backend](https://github.com/jesuisundesdeux/vigilo-backend).\n\nChaque territoire a sa propre instance : choisissez-la dans la liste **Servers** ci-dessous,\npuis indiquez son **scope** (affiché sur la page de chaque ville). La liste des instances\nest publiée dans [vigilo-conf](https://github.com/jesuisundesdeux/vigilo-conf/blob/main/main/citylist.json).\n\nLes observations sont des données ouvertes sous licence CC0. Les appels en lecture (`GET`) peuvent\nêtre testés directement depuis cette page (bouton **Try it out**).\n\nEn cas d'erreur, les méthodes répondent avec le code HTTP correspondant et un objet\n[`Error`](#/components/schemas/Error). La colonne « Compatibilité » de l'ancienne documentation\nest reprise dans les descriptions (« backend ≥ 0.0.x »).\n\nAuthentification : `key` est la clé privée d'un compte de l'instance (admin ou modérateur pour les droits\nsupplémentaires de cette API) ; `secretid` est la clé secrète d'une observation, retournée à sa création, qui\nidentifie son auteur. Référence détaillée :\n[doc/REST_API.md](https://github.com/jesuisundesdeux/vigilo-backend/blob/master/doc/REST_API.md).\n",
     "license": {
       "name": "AGPL-3.0 (code) / CC0 (données)",
       "url": "https://github.com/jesuisundesdeux/vigilo-backend/blob/master/LICENSE"
     },
     "title": "API Vigilo",
-    "version": "0.0.21"
+    "version": "0.0.24"
   },
   "openapi": "3.0.3",
   "paths": {
@@ -308,8 +337,17 @@
                 "schema": {
                   "properties": {
                     "role": {
-                      "example": "admin",
-                      "type": "string"
+                      "description": "`admin`, `moderator` ou `citystaff` ; `false` si la clé est inconnue",
+                      "oneOf": [
+                        {
+                          "example": "admin",
+                          "type": "string"
+                        },
+                        {
+                          "example": false,
+                          "type": "boolean"
+                        }
+                      ]
                     }
                   },
                   "type": "object"
@@ -330,6 +368,7 @@
     },
     "/add_image.php": {
       "post": {
+        "description": "JPEG uniquement, réduit à 1024 × 1024 pixels au plus ; remplace la photo précédente. Une observation\napprouvée ne peut plus changer de photo sans clé admin/modérateur (403 `ALREADYAPPROVED`, backend ≥ 0.0.22).\nSi l'instance a un serveur de floutage, visages et plaques sont masqués avant l'enregistrement (en-tête\n`X-Vigilo-Blur: done`, ou `failed` : photo enregistrée telle qu'envoyée).\n",
         "operationId": "addImage",
         "parameters": [
           {
@@ -369,10 +408,30 @@
               ],
               "type": "string"
             }
+          },
+          {
+            "description": "Clé admin/modérateur, pour remplacer la photo d'une observation approuvée (backend ≥ 0.0.22)",
+            "in": "query",
+            "name": "key",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
           "content": {
+            "application/json": {
+              "schema": {
+                "description": "Backend ≥ 0.0.22, avec `method=base64`",
+                "properties": {
+                  "imagebin64": {
+                    "description": "JPEG en base64 (préfixe `data:image/jpeg;base64,` accepté)",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
             "application/x-www-form-urlencoded": {
               "schema": {
                 "properties": {
@@ -399,6 +458,12 @@
           },
           "400": {
             "$ref": "#/components/responses/Error"
+          },
+          "403": {
+            "$ref": "#/components/responses/Error"
+          },
+          "500": {
+            "$ref": "#/components/responses/Error"
           }
         },
         "summary": "Envoyer la photo d'une observation",
@@ -409,6 +474,7 @@
     },
     "/approve.php": {
       "get": {
+        "description": "Clé admin ou modérateur. À l'approbation, les webhooks configurés dans l'admin de l'instance sont appelés\n(backend ≥ 0.0.22). Réponse `{\"status\": \"0\"}`.\n",
         "operationId": "approveIssue",
         "parameters": [
           {
@@ -418,11 +484,11 @@
             "$ref": "#/components/parameters/key"
           },
           {
-            "description": "0 : à modérer ; 1 : approuvée ; 2 : refusée",
+            "description": "0 : à modérer ; 1 : approuvée (par défaut) ; 2 : refusée",
             "in": "query",
             "name": "approved",
-            "required": true,
             "schema": {
+              "default": 1,
               "enum": [
                 0,
                 1,
@@ -436,6 +502,9 @@
           "200": {
             "$ref": "#/components/responses/Status"
           },
+          "400": {
+            "$ref": "#/components/responses/Error"
+          },
           "403": {
             "$ref": "#/components/responses/Error"
           }
@@ -448,7 +517,7 @@
     },
     "/create_issue.php": {
       "post": {
-        "description": "Première étape de l'ajout d'une observation, suivie de l'envoi de la photo\n([`add_image.php`](#/Contribution/addImage)). Retourne le `token` de l'observation et sa clé\nsecrète `secretid`, à conserver pour la compléter ou la supprimer.\nAvec `token` et une clé de modérateur, modifie une observation existante.\n",
+        "description": "Première étape de l'ajout d'une observation, suivie de l'envoi de la photo\n([`add_image.php`](#/Contribution/addImage)). Retourne le `token` de l'observation et sa clé\nsecrète `secretid`, à conserver pour la compléter ou la supprimer.\nAvec `token` et une clé admin/modérateur, modifie une observation existante. Les coordonnées doivent être\ndans le rectangle du scope. Limitation par IP (backend ≥ 0.0.22) : 429 `RATELIMITED` avec\n`Retry-After: 600` au-delà du seuil de l'instance sur 10 minutes, sauf avec une clé admin/modérateur.\n",
         "operationId": "createIssue",
         "parameters": [
           {
@@ -476,7 +545,7 @@
                     "type": "string"
                   },
                   "comment": {
-                    "description": "Remarque courte",
+                    "description": "Remarque courte (tronquée à 50 caractères)",
                     "maxLength": 50,
                     "type": "string"
                   },
@@ -495,7 +564,7 @@
                     "type": "string"
                   },
                   "time": {
-                    "description": "Timestamp Unix en millisecondes",
+                    "description": "Timestamp Unix en millisecondes (13 chiffres) ou en secondes",
                     "type": "integer"
                   },
                   "token": {
@@ -534,6 +603,10 @@
                     "secretid": {
                       "type": "string"
                     },
+                    "status": {
+                      "deprecated": true,
+                      "type": "integer"
+                    },
                     "token": {
                       "type": "string"
                     }
@@ -549,6 +622,9 @@
           },
           "403": {
             "$ref": "#/components/responses/Error"
+          },
+          "429": {
+            "$ref": "#/components/responses/Error"
           }
         },
         "summary": "Créer (ou modifier) une observation",
@@ -559,7 +635,7 @@
     },
     "/create_resolution.php": {
       "post": {
-        "description": "Indique qu'une ou plusieurs observations sont résolues (backend ≥ 0.0.14). Envoyer ensuite la photo avec `add_image.php?type=resolution`.",
+        "description": "Indique qu'une ou plusieurs observations sont résolues (backend ≥ 0.0.14) ; la résolution est créée avec le\nstatut 4 (« indiquée comme résolue »), à valider dans l'admin. Envoyer ensuite la photo avec\n`add_image.php?type=resolution`. Limitation par IP (429 `RATELIMITED`, backend ≥ 0.0.22), sauf avec une clé admin.\n",
         "operationId": "createResolution",
         "parameters": [
           {
@@ -576,16 +652,11 @@
                     "type": "string"
                   },
                   "time": {
-                    "description": "Timestamp Unix",
+                    "description": "Timestamp Unix en millisecondes ou en secondes",
                     "type": "integer"
                   },
-                  "token": {
-                    "description": "Token de la résolution (modification)",
-                    "type": "string"
-                  },
                   "tokenlist": {
-                    "description": "Tokens des observations résolues",
-                    "séparés par des virgules": null,
+                    "description": "Tokens des observations résolues, séparés par des virgules",
                     "type": "string"
                   },
                   "version": {
@@ -612,6 +683,7 @@
                       "type": "string"
                     },
                     "token": {
+                      "example": "R_4F2A9C1B",
                       "type": "string"
                     }
                   },
@@ -620,6 +692,15 @@
               }
             },
             "description": "Résolution créée"
+          },
+          "400": {
+            "$ref": "#/components/responses/Error"
+          },
+          "429": {
+            "$ref": "#/components/responses/Error"
+          },
+          "500": {
+            "$ref": "#/components/responses/Error"
           }
         },
         "summary": "Créer une résolution",
@@ -630,7 +711,7 @@
     },
     "/delete.php": {
       "get": {
-        "description": "Avec la clé secrète de l'observation (son auteur, tant qu'elle n'est pas approuvée) ou une clé de modérateur.",
+        "description": "Avec la clé secrète de l'observation (son auteur) ou une clé admin/modérateur. Supprime l'observation et sa photo.",
         "operationId": "deleteIssue",
         "parameters": [
           {
@@ -659,18 +740,20 @@
     },
     "/generate_panel.php": {
       "get": {
-        "description": "Image composée (photo, carte, catégorie, commentaire). Les observations non approuvées sont\npixelisées sans `key` ni `secretid`. JPEG depuis le backend 0.0.5 (PNG avant).\n",
+        "description": "Depuis le backend 0.0.22, renvoie la photo de l'observation (le panneau composé photo, carte et textes n'est\nplus généré), pixelisée tant qu'elle n'est pas approuvée, sauf avec le `secretid` de l'auteur ou une clé\nadmin/modérateur. JPEG depuis le backend 0.0.5 (PNG avant). Observation sans photo : 404 `PHOTONOTFOUND`\n(backend ≥ 0.0.23), afficher une image par défaut.\n",
         "operationId": "generatePanel",
         "parameters": [
           {
             "$ref": "#/components/parameters/token"
           },
           {
-            "description": "Largeur de l'image en pixels",
+            "description": "Largeur maximale de l'image en pixels (1 à 1024, 1024 par défaut)",
             "example": 800,
             "in": "query",
             "name": "s",
             "schema": {
+              "maximum": 1024,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -693,20 +776,22 @@
             },
             "description": "Image"
           },
+          "400": {
+            "$ref": "#/components/responses/Error"
+          },
           "404": {
             "$ref": "#/components/responses/Error"
           }
         },
-        "summary": "Panneau image de l'observation",
+        "summary": "Image de l'observation (ex-panneau)",
         "tags": [
           "Observations"
         ]
       }
     },
-    "/get_categories_list.php": {
+    "/get_categories.php": {
       "get": {
-        "deprecated": true,
-        "description": "*Legacy*. Les catégories sont publiées pour toutes les instances dans\n[vigilo-conf](https://raw.githubusercontent.com/jesuisundesdeux/vigilo-conf/main/main/categorielist.json).\n",
+        "description": "Backend ≥ 0.0.23. Liste nationale ([vigilo-conf](https://raw.githubusercontent.com/jesuisundesdeux/vigilo-conf/main/main/categorielist.json)),\noù les catégories désactivées par l'instance ont `catdisable: true` (elles restent listées pour nommer les\nobservations existantes), suivie des catégories propres à l'instance (`catcustom: true`, numéros à partir\nde 1000). Réponse mise en cache 5 minutes. Sur une instance antérieure, la route répond 404 : utiliser la\nliste nationale de vigilo-conf.\n",
         "operationId": "getCategories",
         "responses": {
           "200": {
@@ -723,7 +808,7 @@
             "description": "Catégories"
           }
         },
-        "summary": "Liste des catégories (legacy)",
+        "summary": "Catégories de l'instance",
         "tags": [
           "Configuration"
         ]
@@ -731,11 +816,11 @@
     },
     "/get_issues.php": {
       "get": {
-        "description": "Observations approuvées du scope, les plus récentes d'abord. Backend ≥ 0.0.1 ;\nla compatibilité de chaque filtre est indiquée dans sa description.\n",
+        "description": "Observations du scope dont la photo a été reçue, les plus récentes d'abord : les approuvées, plus celles à\nmodérer si l'instance publie les observations non modérées ou avec une clé admin/modérateur. Les\nobservations résolues depuis plus de N jours peuvent être masquées par l'instance (réglage, backend ≥ 0.0.22),\nsauf avec une clé. Un paramètre invalide donne une erreur 500 sans corps JSON. Backend ≥ 0.0.1 ;\nla compatibilité de chaque filtre est indiquée dans sa description.\n",
         "operationId": "getIssues",
         "parameters": [
           {
-            "$ref": "#/components/parameters/scope"
+            "$ref": "#/components/parameters/scopeOptional"
           },
           {
             "description": "Format de sortie (backend ≥ 0.0.3)",
@@ -752,7 +837,7 @@
             }
           },
           {
-            "description": "Nombre maximum d'observations",
+            "description": "Nombre maximum d'observations (appliqué avant les filtres `status`, `lat`/`lon`/`radius` et `tokenfilters`)",
             "example": 20,
             "in": "query",
             "name": "count",
@@ -762,20 +847,12 @@
             }
           },
           {
-            "description": "Décalage (pagination, avec `count`)",
-            "in": "query",
-            "name": "offset",
-            "schema": {
-              "minimum": 0,
-              "type": "integer"
-            }
-          },
-          {
-            "description": "Filtre par identifiant de catégorie",
+            "description": "Filtre par catégorie ; plusieurs identifiants séparés par des virgules",
+            "example": "2,3",
             "in": "query",
             "name": "c",
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           },
           {
@@ -841,7 +918,7 @@
             }
           },
           {
-            "description": "Distance en mètres pour le filtre `distance` de `tokenfilters`",
+            "description": "Distance en mètres, obligatoire avec le filtre `distance` de `tokenfilters`",
             "in": "query",
             "name": "fdistance",
             "schema": {
@@ -867,7 +944,7 @@
             }
           },
           {
-            "description": "Rayon de recherche en mètres autour de `lat`/`lon`",
+            "description": "Rayon de recherche en mètres autour de `lat`/`lon` (les trois sont nécessaires ; ajoute le champ `distance`)",
             "in": "query",
             "name": "radius",
             "schema": {
@@ -875,7 +952,7 @@
             }
           },
           {
-            "description": "Filtre selon l'approbation (backend ≥ 0.0.10). Seules les observations approuvées sont publiques.",
+            "description": "Filtre selon l'approbation (backend ≥ 0.0.10). Sans clé admin/modérateur, seul `1` est accepté (et `0` si\nl'instance publie les observations non modérées) ; sinon la liste est vide.\n",
             "in": "query",
             "name": "approved",
             "schema": {
@@ -908,7 +985,12 @@
             }
           },
           {
-            "$ref": "#/components/parameters/keyOptional"
+            "description": "Clé admin/modérateur (backend ≥ 0.0.13) - observations à modérer et résolues masquées",
+            "in": "query",
+            "name": "key",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -946,7 +1028,7 @@
     },
     "/get_photo.php": {
       "get": {
-        "description": "Photo de l'observation (ou de sa résolution avec `type=resolution`). Accessible pour les\nobservations approuvées, ou avec une clé de modérateur.\n",
+        "description": "Photo de l'observation (ou de sa résolution avec `type=resolution`). Accessible pour les\nobservations approuvées et les résolutions, ou avec une clé admin/modérateur (403 `NOTALLOWED` sinon ;\nversion pixelisée : `generate_panel.php`). Pas de photo : 404 `PHOTONOTFOUND` (backend ≥ 0.0.23).\n",
         "operationId": "getPhoto",
         "parameters": [
           {
@@ -980,6 +1062,9 @@
               }
             },
             "description": "Photo"
+          },
+          "400": {
+            "$ref": "#/components/responses/Error"
           },
           "403": {
             "$ref": "#/components/responses/Error"
@@ -1034,7 +1119,7 @@
                 "schema": {
                   "properties": {
                     "version": {
-                      "example": "0.0.21",
+                      "example": "0.0.24",
                       "type": "string"
                     }
                   },
@@ -1053,14 +1138,29 @@
     },
     "/mosaic.php": {
       "get": {
-        "description": "Page HTML listant les observations proches et de même catégorie.",
+        "description": "Page HTML des images (`generate_panel.php?s=400`) des observations publiques de l'instance. Avec `t` :\nobservations similaires (300 m, même catégorie, même adresse).\n",
         "operationId": "mosaic",
         "parameters": [
           {
-            "description": "Token de l'observation",
+            "description": "Scope (les photos renvoient vers l'application web si l'instance est dans vigilo-conf)",
+            "in": "query",
+            "name": "scope",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Catégorie à afficher",
+            "in": "query",
+            "name": "c",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Token d'une observation, pour afficher les observations similaires",
             "in": "query",
             "name": "t",
-            "required": true,
             "schema": {
               "type": "string"
             }
@@ -1078,7 +1178,7 @@
             "description": "Page HTML"
           }
         },
-        "summary": "Page des observations similaires",
+        "summary": "Mosaïque des photos",
         "tags": [
           "Observations"
         ]
