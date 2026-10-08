@@ -136,19 +136,24 @@ function observationPopup(api, instance, cats, o) {
 		+ '</div>';
 }
 
-/* Legend: one line per category present, click to show / hide it */
-function addLegend(map, entries, onToggle) {
+/* Legend: resolution state and one line per category present, click to show / hide them */
+function legendItems(kind, entries) {
+	return entries.map((e) => '<li><label style="--cat:' + escapeHtml(e.color) + '">'
+		+ '<input type="checkbox"' + (e.checked === false ? '' : ' checked') + ' data-kind="' + kind + '" data-id="' + escapeHtml(e.id) + '">'
+		+ '<span class="dot' + (e.ring ? ' dot-ring' : '') + '"></span><span class="legend-name">' + escapeHtml(e.name) + '</span>'
+		+ '<span class="legend-count">' + e.count + '</span></label></li>').join('');
+}
+
+function addLegend(map, states, entries, onToggle) {
 	const Legend = L.Control.extend({
 		onAdd() {
 			const div = L.DomUtil.create('div', 'map-legend');
-			div.innerHTML = '<button type="button" class="legend-toggle" aria-expanded="true">Catégories</button>'
-				+ '<ul>' + entries.map((e) => '<li><label style="--cat:' + escapeHtml(e.color) + '">'
-					+ '<input type="checkbox" checked data-cat="' + escapeHtml(e.id) + '">'
-					+ '<span class="dot"></span><span class="legend-name">' + escapeHtml(e.name) + '</span>'
-					+ '<span class="legend-count">' + e.count + '</span></label></li>').join('') + '</ul>';
+			div.innerHTML = '<button type="button" class="legend-toggle" aria-expanded="true">Filtres</button>'
+				+ '<div class="legend-body"><p class="legend-title">État</p><ul>' + legendItems('state', states) + '</ul>'
+				+ '<p class="legend-title">Catégories</p><ul>' + legendItems('cat', entries) + '</ul></div>';
 			L.DomEvent.disableClickPropagation(div);
 			L.DomEvent.disableScrollPropagation(div);
-			div.addEventListener('change', (ev) => onToggle(ev.target.dataset.cat, ev.target.checked));
+			div.addEventListener('change', (ev) => onToggle(ev.target.dataset.kind, ev.target.dataset.id, ev.target.checked));
 			const toggle = div.querySelector('.legend-toggle');
 			toggle.addEventListener('click', () => {
 				const open = div.classList.toggle('collapsed') === false;
@@ -163,6 +168,11 @@ function addLegend(map, entries, onToggle) {
 		}
 	});
 	new Legend({ position: 'topright' }).addTo(map);
+}
+
+// status 1: resolved (the other ones: new, taken into account, in progress, reported as resolved)
+function isResolved(o) {
+	return parseInt(o.status, 10) === 1;
 }
 
 async function observationsMap(el) {
@@ -198,6 +208,13 @@ async function observationsMap(el) {
 		}
 	});
 
+	// categories of the instance (backend >= 0.0.22: its own ones too), national list otherwise
+	try {
+		const rc = await fetch(api + '/get_categories.php');
+		const list = rc.ok ? await rc.json() : null;
+		if (Array.isArray(list)) list.forEach((c) => { cats[c.catid] = c; });
+	} catch (e) { /* older instance: national list */ }
+
 	const status = document.getElementById('observations-status');
 	let issues;
 	try {
@@ -209,8 +226,9 @@ async function observationsMap(el) {
 		return;
 	}
 
-	const layers = {};   // category id -> layer group
+	const group = L.layerGroup().addTo(map);
 	const counts = {};
+	const stateCounts = { open: 0, resolved: 0 };
 	const markers = [];
 	const points = [];
 	// oldest first, so the most recent observations are drawn on top
@@ -220,16 +238,20 @@ async function observationsMap(el) {
 		if (isNaN(lat) || isNaN(lon)) return;
 		const id = String(o.categorie);
 		const cat = cats[o.categorie] || { catid: o.categorie };
-		const marker = L.circleMarker([lat, lon], {
-			radius: radiusFor(map.getZoom()), weight: 1.5, color: '#fff', opacity: 1,
-			fillColor: categoryColor(cat), fillOpacity: 0.92
-		});
+		const state = isResolved(o) ? 'resolved' : 'open';
+		// resolved: lighter, with a ring of the category color
+		const style = state === 'resolved'
+			? { weight: 2, color: categoryColor(cat), opacity: 0.9, fillColor: '#fff', fillOpacity: 0.85 }
+			: { weight: 1.5, color: '#fff', opacity: 1, fillColor: categoryColor(cat), fillOpacity: 0.92 };
+		const marker = L.circleMarker([lat, lon], Object.assign({ radius: radiusFor(map.getZoom()) }, style));
 		marker.bindPopup(() => observationPopup(api, instance, cats, o), { maxWidth: 280, minWidth: 240 });
 		marker.bindTooltip(escapeHtml(o.comment || cat.catname || 'Observation'), { direction: 'top', offset: [0, -6], className: 'obs-tooltip' });
 		marker.on('mouseover', () => marker.setStyle({ weight: 3 }));
-		marker.on('mouseout', () => marker.setStyle({ weight: 1.5 }));
-		(layers[id] = layers[id] || L.layerGroup().addTo(map)).addLayer(marker);
+		marker.on('mouseout', () => marker.setStyle({ weight: style.weight }));
+		marker.vigilo = { cat: id, state: state };
+		group.addLayer(marker);
 		counts[id] = (counts[id] || 0) + 1;
+		stateCounts[state]++;
 		markers.push(marker);
 		points.push([lat, lon]);
 	});
@@ -241,16 +263,35 @@ async function observationsMap(el) {
 	if (points.length) {
 		map.fitBounds(points, { padding: [24, 24], maxZoom: 15 });
 	}
-	if (status) {
-		status.textContent = issues.length ? issues.length + ' observation' + (issues.length > 1 ? 's' : '') + ' affichée' + (issues.length > 1 ? 's' : '') : 'Aucune observation pour le moment.';
+	const hidden = { cat: {}, state: {} };
+	function showStatus() {
+		if (!status) return;
+		if (!issues.length) {
+			status.textContent = 'Aucune observation pour le moment.';
+			return;
+		}
+		const shown = markers.filter((m) => group.hasLayer(m)).length;
+		status.textContent = shown + ' observation' + (shown > 1 ? 's' : '') + ' affichée' + (shown > 1 ? 's' : '')
+			+ (shown < markers.length ? ' sur ' + markers.length : '');
 	}
+	showStatus();
 	const entries = Object.keys(counts).map((id) => {
 		const cat = cats[id] || { catid: id };
 		return { id: id, name: cat.catname || 'Autre', color: categoryColor(cat), count: counts[id] };
 	}).sort((a, b) => b.count - a.count);
 	if (entries.length) {
-		addLegend(map, entries, (id, visible) => {
-			if (visible) map.addLayer(layers[id]); else map.removeLayer(layers[id]);
+		const states = [
+			{ id: 'open', name: 'À résoudre', color: '#1f2328', count: stateCounts.open },
+			{ id: 'resolved', name: 'Résolues', color: '#1f2328', count: stateCounts.resolved, ring: true }
+		];
+		addLegend(map, states, entries, (kind, id, visible) => {
+			hidden[kind][id] = !visible;
+			markers.forEach((m) => {
+				const show = !hidden.cat[m.vigilo.cat] && !hidden.state[m.vigilo.state];
+				if (show && !group.hasLayer(m)) group.addLayer(m);
+				if (!show && group.hasLayer(m)) group.removeLayer(m);
+			});
+			showStatus();
 		});
 	}
 
