@@ -241,6 +241,7 @@ main :not(pre) > code:not(#swagger-ui *) { font-size: .88em; background: rgba(31
 
 /* ---- Instance page */
 .instance-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.stats-frame { display: block; width: 100%; height: 1500px; border: 0; }
 .instance-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 32px; }
 .instance-grid h2 { margin-top: 0; }
 @media (max-width: 800px) { .instance-grid { grid-template-columns: 1fr; } }

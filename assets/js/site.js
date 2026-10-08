@@ -318,6 +318,23 @@ function enableMailLinks() {
 	});
 }
 
+/* ---- Statistics of the web app embedded in the page: the iframe takes the height of its
+   content, sent by the app (postMessage "vigilo-stats-height") */
+function enableStatsFrames() {
+	const frames = Array.from(document.querySelectorAll('iframe[data-stats-frame]'));
+	if (!frames.length) return;
+	window.addEventListener('message', (e) => {
+		if (!e.data || e.data.type !== 'vigilo-stats-height') return;
+		const height = parseInt(e.data.height, 10);
+		frames.forEach((frame) => {
+			if (frame.contentWindow === e.source && e.origin === new URL(frame.src).origin && height > 0 && height < 20000) {
+				frame.style.height = height + 'px';
+			}
+		});
+	});
+}
+
 document.querySelectorAll('[data-map="instances"]').forEach(instancesMap);
 document.querySelectorAll('[data-map="observations"]').forEach(observationsMap);
 enableMailLinks();
+enableStatsFrames();
