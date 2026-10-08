@@ -16,6 +16,7 @@ Il faut en outre remplir ces conditions :
 * Avoir des modérateurs qui valideront les observations et réaliseront le floutage des éléments liés à la vie privée sur les photos
 * Restreindre la zone de manière cohérente (plus la zone est grande, plus la modération et le suivi seront importants)
 * La zone ne soit pas être déjà couverte par l'application
+* Assumer la responsabilité des contenus et des photos publiés sur l'instance, et des données personnelles qu'elle collecte (voir les [mentions légales](/fr/mentions-legales/#les-instances-locales))
 
 ## Démonstration
 
@@ -31,7 +32,7 @@ Pour celà, n'hesitez pas à [créer une pull request](https://github.com/jesuis
 
 La mise en place consiste à installer l'application Vigilo-bakend sur un serveur ou hebergement dédié.
 <br />
-La documentation d'installation est disponible sur GitHub [ICI](https://github.com/jesuisundesdeux/vigilo-backend/blob/master/doc/INSTALLATION.md)
+La documentation d'installation est disponible [ICI](/fr/documentation/installation/)
 <br />
 Un slack est mis à disposition afin de permettre une mise en place avec les contributeurs de l'application.
 
