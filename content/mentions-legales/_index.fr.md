@@ -8,9 +8,9 @@ description: Éditeur, hébergement et partage des responsabilités entre le pro
 Le site vigilo.city présente le projet libre Vigilo, développé par des bénévoles et des associations de mobilités
 actives, dans la dynamique [#JeSuisUnDesDeux](https://www.jesuisundesdeux.org/) (Montpellier).
 
-<!-- À COMPLÉTER : nom de la personne morale éditrice (association), adresse du siège, directeur·rice de la publication. -->
-* Éditeur : **à compléter**
-* Directeur·rice de la publication : **à compléter**
+Le site est édité par l'**association Vélocité Grand Montpellier**.
+
+* Directeur·rice de la publication : le ou la président·e de l'association Vélocité Grand Montpellier
 * Contact : voir la page [Nous contacter](/fr/contact/)
 
 ## Hébergement
