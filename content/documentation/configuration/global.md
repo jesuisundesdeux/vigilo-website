@@ -33,4 +33,4 @@ Aller sur `https://adresse_du_serveur/admin/`, menu **Configuration**.
 ### Anti-spam
 
 * **Observations créées max. par IP et par 10 minutes** : au-delà, les créations depuis la même adresse sont refusées
-  temporairement (0 = pas de limite)
+  temporairement (60 par défaut, 0 = pas de limite)

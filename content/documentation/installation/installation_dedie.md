@@ -51,6 +51,10 @@ La base est créée au premier démarrage.
   ([documentation](https://github.com/jesuisundesdeux/vigilo-backend/blob/master/blur-server/README.md)).
 * **Mise à jour depuis l'administration** : renseigner `WATCHTOWER_TOKEN` (chaîne aléatoire) et
   `VIGILO_WATCHTOWER_URL=http://watchtower:8080` dans `.env`, puis démarrer avec `docker compose --profile watchtower up -d`.
+  Le bouton **Mettre à jour l'image avec Watchtower** apparaît alors dans le menu **Mises à jour**. Le service utilise
+  l'image `nickfedor/watchtower:1` (l'ancienne image `containrrr/watchtower` ne démarre plus avec Docker Engine 29) ;
+  Watchtower a accès au socket Docker et n'agit que sur le conteneur `web`, à la demande
+  ([détails](/fr/documentation/upgrade/#docker)).
 
 Les deux options se combinent : `docker compose --profile blur --profile watchtower up -d`.
 
