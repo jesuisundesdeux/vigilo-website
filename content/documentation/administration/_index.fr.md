@@ -17,7 +17,8 @@ Le panneau d'administration (`https://adresse_du_serveur/admin/`) est réservé 
 * **Webhooks** : appel d'un ou plusieurs services externes (API, outil de l'association, messagerie…) à chaque
   publication d'une observation, avec une URL, des en-têtes et un corps personnalisables par des variables
   (`{{token}}`, `{{comment}}`, `{{photo_url}}`, `{{observation_url}}`, `{{lat}}`…), un bouton de test et le journal des
-  envois ([détails](https://github.com/jesuisundesdeux/vigilo-backend/blob/master/doc/FONCTIONNEMENT.md#webhooks))
+  envois ([détails](https://github.com/jesuisundesdeux/vigilo-backend/blob/master/doc/FONCTIONNEMENT.md#webhooks) et
+  [exemples : Mastodon, Slack, Bluesky, ticketing de collectivité](https://github.com/jesuisundesdeux/vigilo-backend/blob/master/doc/WEBHOOKS.md))
 * **Journal** : actions privilégiées (connexions, modérations, réglages, mises à jour)
 * **Mises à jour** : versions installées, mise à jour en un clic, vérifications de sécurité (voir [Mise à jour](/fr/documentation/upgrade/))
 
