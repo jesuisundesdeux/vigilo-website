@@ -21,6 +21,8 @@ make generate   # construction dans public/
 
 Les pages sont dans `content/` (Markdown).
 
+Guide du code pour reprendre le projet : [doc/GUIDE_CODE.md](doc/GUIDE_CODE.md).
+
 ## Publication
 
 GitHub Actions (`.github/workflows/deploy.yml`) construit le site à chaque push sur la branche `source`, chaque jour (mise à jour des territoires) et à la demande, puis le publie sur la branche `master` servie par GitHub Pages. Les pull requests sont construites sans être publiées.

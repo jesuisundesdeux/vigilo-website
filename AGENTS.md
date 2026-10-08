@@ -15,6 +15,8 @@ FAQ, mentions légales, page Open311.
 
 ## Organisation
 
+Guide détaillé du code (construction, script de données, gabarits, JavaScript, recettes) : `doc/GUIDE_CODE.md`.
+
 | Chemin | Contenu |
 |---|---|
 | `content/` | Pages (`_index.fr.md`) : `app/`, `villes/`, `documentation/` (installation, configuration, administration, maintenance, upgrade, utilisation, contribution, exploitation des données), `api/`, `faq/`, `open311/`, `mentions-legales/`, `contact/` |
