@@ -14,8 +14,8 @@ Les données Vigilo sont présentes sous forme de fichiers et d'une base de donn
 Les repertoires suivants doivent être sauvegardés :
 
 * images/ : IMPORTANT ! contient les photos Vigilo
-* maps/ : générations des cartes via Mapquest
-* caches/ : moins important, contient les caches mais permet d'éviter des problèmes de performances en cas de réinstallation
+* caches/ : moins important, contient les caches et les sauvegardes faites avant chaque mise à jour depuis l'administration
+* config/config.php (hébergement mutualisé) ou le fichier `.env` (Docker)
 
 ### Base de données
 
@@ -30,7 +30,7 @@ Ajouter en crontab :
 La ligne :
 
 ```
-0 1 * * * /usr/bin/docker exec [CONTAINER_DB_1] sh -c 'exec mysqldump --all-databases -uroot -p"$MYSQL_ROOT_PASSWORD"'  | gzip -c -9 > [REPERTOIRE_BACKUP]/dump.$(date +\%Y\%m\%d\%H\%M).sql.gz
+0 1 * * * /usr/bin/docker exec [CONTAINER_DB_1] sh -c 'exec mariadb-dump --all-databases -uroot -p"$MYSQL_ROOT_PASSWORD"'  | gzip -c -9 > [REPERTOIRE_BACKUP]/dump.$(date +\%Y\%m\%d\%H\%M).sql.gz
 ```
 
 Remplacer :

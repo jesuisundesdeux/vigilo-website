@@ -3,26 +3,20 @@ title: Ajout scope
 weight: 4
 ---
 
-
 ## Configuration Scope
 
 Les scopes sont des zones géographiques indépendantes au sein d'une même instance.
+Ils correspondent en règle générale à une métropole, une agglomération voire une ville ; un seul scope suffit le plus souvent.
 
-Il correspondent en règle générale à une Metropole, Agglomération voire un ville.
+Dans le panneau d'administration, menu **Scopes**, ajouter un scope et remplir ses informations :
 
-En règle générale, un seul scope est necessaire.
-
-Ajouter un scope et remplir ses information comme suit :
-
-* Identifiant : XX_yyyyyyy où "xx" correspond au numero de departement ou code pays si non français (be, uk, ...) et "yyyyyyy" à un nom court (sans espace, ni accents, ni caractères spéciaux) correspondant au nom de la zone
-* Nom affiché	: Nom qui sera affiché correspondant à la zone
-* Departement : Numero du département ou 0 si non applicable
-* Latitude/Longitude minimale/maximale : Permet de limiter géographiquement la zone
-* Coordonées centre du scope	: Coordonnées du centre des cartes qui seront affichées dans l'application
-* Zoom cartes	: Zoom  des cartes qui seront affichées dans l'application
-* Email Contact	: Email de contact de l'association en charge du scope
-* Text de partage par défaut	: Texte de partage qui sera mis par défaut quand les utilisateur utiliseront la fonction partage de l'application
-* Compte Twitter affiché	: Compte twitter affiché correspondant au scope
-* Identifiant compte twitter	: Numero du compte twitter configuré précédement qui sera utilisé par le scope
-* Contenu des tweets autos : Contenu des tweets qui seront postés par le compte twitter lors de la validation des observations
-* URL carte externe	: Si besoin, URL d'une carte qui affiche les observations (voir [Configuration UMAP](/fr/documentation/exploitation_donnees/umap/))
+* **Identifiant** : `XX_yyyyyyy` où `XX` est le numéro de département (ou le code pays si non français : be, uk…) et
+  `yyyyyyy` un nom court (sans espace, accent ni caractère spécial)
+* **Nom affiché** : nom de la zone affiché dans les applications
+* **Département** : numéro du département, 0 si non applicable
+* **Email contact** : adresse de contact de l'association en charge du scope
+* **Texte de partage par défaut** : texte proposé quand un utilisateur partage une observation
+* **Latitude / longitude minimale / maximale** : limites géographiques de la zone (degrés décimaux)
+* **Coordonnées du centre du scope** et **Zoom cartes** : centre et zoom des cartes affichées dans les applications
+* **URL carte externe** : si besoin, URL d'une carte qui affiche les observations (voir [Configuration UMAP](/fr/documentation/exploitation_donnees/umap/))
+* **URL de base Nominatim** : service de géocodage inverse (adresse à partir de la position), laisser la valeur par défaut sauf besoin

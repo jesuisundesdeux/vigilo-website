@@ -5,18 +5,19 @@ weight: 2
 
 ## Installation du back-end
 
-Chaque instance dispose de son backend qui peut être installé de deux manières possibles.
+Chaque instance dispose de son propre back-end ([vigilo-backend](https://github.com/jesuisundesdeux/vigilo-backend)), installable de deux manières.
 
-### Serveur dédié avec Docker :
+### Serveur dédié avec Docker (recommandé)
 
-Le serveur dédié offre plus de souplesse, et permet d'heberger également d'autres applications.
-Il necessite en outre plus de compétences en informatique pour l'installation ainsi que la maintenabilité.
+Le code est livré dans une image Docker versionnée : installation et mises à jour se font en quelques commandes,
+et les options (serveur de floutage, mise à jour depuis l'administration) s'activent simplement.
+Nécessite des compétences d'administration système (Linux, Docker, reverse proxy HTTPS).
 
 [La procédure est disponible ici](/fr/documentation/installation/installation_dedie/)
 
-### Hebergement mutualisé PHP/MySQL :
+### Hébergement mutualisé PHP/MySQL
 
-L'hebergement mutualisé est une solution plus accessible en terme de connaissances informatiques, mais il est possible que des problèmes de compatibilité soient constatés avec l'application.
+Solution plus accessible, sans administration de serveur. Les mises à jour se font ensuite depuis le panneau
+d'administration.
 
 [La procédure est disponible ici](/fr/documentation/installation/installation_mutualise/)
-
