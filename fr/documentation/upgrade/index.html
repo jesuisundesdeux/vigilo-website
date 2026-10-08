@@ -9,7 +9,7 @@ répertoire du code. Sinon la page explique comment faire la mise à jour à la 
 le contenu de <code>app</code> par celui de l&rsquo;archive, puis cliquer sur « Appliquer les migrations ».</p><p>Sur un serveur dédié, les migrations peuvent aussi être lancées en ligne de commande :
 <code>php scripts/vigilo-migrate.php</code> (<code>--status</code> pour voir les versions).</p><h3 id=docker>Docker</h3><p>Le code fait partie de l&rsquo;image : il n&rsquo;est jamais modifié dans le conteneur. Le
 <code>docker-compose.yml</code> fourni utilise l&rsquo;image <code>vigilobs/vigilo-backend:0.0</code>, qui suit les
-correctifs de la série 0.0 (tags publiés : <code>0.0.22</code>, <code>0.0</code>, <code>stable</code>, <code>latest</code> ; l&rsquo;image est aussi
+correctifs de la série 0.0 (tags publiés : <code>0.0.23</code>, <code>0.0</code>, <code>stable</code>, <code>latest</code> ; l&rsquo;image est aussi
 publiée sur <code>ghcr.io/jesuisundesdeux/vigilo-backend</code>). La base est migrée au démarrage du conteneur
 (sauf si <code>AUTOUPDATE=false</code>) ; le conteneur refuse de démarrer si la base est plus récente que le code.</p><p>Mise à jour en ligne de commande :</p><pre tabindex=0><code>docker compose pull
 docker compose up -d
