@@ -29,6 +29,7 @@ FAQ Vigilo
    - [Que peut apporter Vigilo à ma collectivité ?](#que-peut-apporter-vigilo-à-ma-collectivité)
    - [Comment utiliser Vigilo dans ma collectivité ?](#comment-utiliser-vigilo-dans-ma-collectivité)
    - [Est-ce que Vigilo est payant ?](#est-ce-que-vigilo-est-payant)
+   - [Vigilo peut-il alimenter notre outil de signalement ?](#vigilo-peut-il-alimenter-notre-outil-de-signalement)
    - [Est-il possible de générer des moyens d'utiliser les données Vigilo ?](#est-il-possible-de-générer-des-moyens-d-utiliser-les-données-vigilo)
  - Je veux contribuer à Vigilo
    - [Quelles sont les technologies utilisées par Vigilo ?](#quelles-sont-les-technologies-utilisées-par-vigilo)
@@ -161,6 +162,12 @@ Il est ainsi possible d'obtenir au fil du temps un aperçu de l'état du terrain
 Vigilo est à exploiter idéalement par une association.
 
 Dans le cas où aucune association n'est en mesure de prendre en charge sa mise en place, il est possible sous couvert de répondre aux pré-requis, de mettre en place l'application. [Voir ici pour plus d'informations](#je-souhaiterais-que-vigilo-soit-installé-dans-ma-ville)
+
+### Vigilo peut-il alimenter notre outil de signalement ?
+
+Oui, si votre outil est compatible [Open311](/fr/open311/), le standard ouvert des signalements dans l'espace public :
+chaque observation validée par les modérateurs peut y être transmise automatiquement comme demande d'intervention,
+avec sa position, sa description et sa photo. Voir la page [Vigilo et Open311](/fr/open311/).
 
 ### Est-ce que Vigilo est payant ?
 
