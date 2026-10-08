@@ -5,7 +5,9 @@ weight: 5
 
 ## Configuration Villes
 
-Dans le panneau d'administration, menu **Villes**, ajouter l'ensemble des villes du territoire.
+Dans le panneau d'administration, menu **Villes**, ajouter l'ensemble des villes du territoire : en les important
+(ci-dessous), ou une à une avec le bouton **Ajouter une ville**, qui ouvre une fenêtre (nom, scope, code postal,
+surface, population, site).
 Cela permet de filtrer les observations par ville et de limiter les comptes des services municipaux (citystaff) aux
 observations de leurs villes.
 
@@ -20,5 +22,12 @@ territoire** d'un scope) :
 2. décocher celles à ne pas importer (les communes déjà présentes sont signalées) ;
 3. cliquer sur **Importer la sélection**.
 
-Les villes peuvent ensuite être modifiées une à une ; le bouton **Wikidata** complète une ville à partir de son nom.
-Hors de France, ajouter les villes à la main.
+Le territoire du scope doit avoir été tracé au préalable sur la page [Scopes](/fr/documentation/configuration/scopes/).
+
+### Modifier ou supprimer une ville
+
+Dans la liste, **Modifier** ouvre la fenêtre de la ville ; dans la fenêtre, le bouton **Wikidata** complète le code
+postal, la surface, la population et le site à partir du nom. **Supprimer** retire la ville. Si une valeur est
+refusée, la fenêtre se rouvre avec la saisie.
+
+Hors de France, ajouter les villes à la main (avec l'aide de Wikidata).

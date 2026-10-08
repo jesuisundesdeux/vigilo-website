@@ -9,16 +9,18 @@ weight: 1
 
 #### Via l'application web
 
-Pour modérer, une clé unique doit être associée à votre compte par un administrateur de votre territoire. Si vous ne l'avez jamais fait :
+Pour modérer, il faut la clé API d'un compte **moderator**, fournie par un administrateur de votre territoire (voir
+[Actions administrateur](#actions-administrateur)). Une fois la clé reçue :
 
 * Ouvrir l'application web https://app.vigilo.city et son menu
 * Appuyer 10 fois sur le logo Vigilo en haut du menu : la fenêtre « Devenir modérateur » s'ouvre
-* Cliquer sur **Générer** pour créer une clé (ou coller la clé fournie par un administrateur), puis **Enregistrer**
-* Envoyer cette clé à l'administrateur du Vigilo de votre zone géographique
+* Coller la clé fournie par l'administrateur, puis **Enregistrer**
 
-Tant que la clé n'est pas validée, le menu affiche « Presque modérateur ».
+Depuis la version 0.0.22 du back-end, les clés sont créées par l'instance : une clé produite par le bouton **Générer**
+de l'application ne peut pas être enregistrée par l'administrateur. Tant que la clé n'est pas reconnue par
+l'instance, le menu affiche « Presque modérateur ».
 
-Une fois que l'administrateur vous confirme votre statut de modérateur :
+Une fois la clé enregistrée :
 
 * Dans le menu, cliquer sur **Activer mode admin** et confirmer : le fond de la page passe en rouge
 * La liste affiche alors par défaut les observations à modérer (modifiable dans les filtres)
@@ -26,8 +28,11 @@ Une fois que l'administrateur vous confirme votre statut de modérateur :
 
 ### Actions administrateur
 
-Sur le panneau d'administration
+Sur le panneau d'administration :
 
-* Aller sur le panneau "Comptes"
-* Ajouter si besoin un compte 
-* Renseigner la clé sur la ligne du compte 
+* Aller dans le menu **Comptes**
+* **Ajouter un compte** : rôle `moderator`, nom de la personne ; le login et le mot de passe peuvent rester vides
+  (le modérateur n'utilise que sa clé), puis **Enregistrer**
+* Une clé API est générée à la création : l'afficher dans la liste (bouton en forme d'œil, sur un écran large) et la
+  transmettre au modérateur par un moyen sûr
+* Pour retirer l'accès, régénérer la clé (l'ancienne ne fonctionne plus) ou passer le compte en `guest`

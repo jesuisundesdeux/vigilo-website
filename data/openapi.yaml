@@ -4,7 +4,7 @@
 openapi: 3.0.3
 info:
   title: API Vigilo
-  version: 0.0.21
+  version: 0.0.24
   description: |
     API REST des instances [vigilo-backend](https://github.com/jesuisundesdeux/vigilo-backend).
 
@@ -18,6 +18,11 @@ info:
     En cas d'erreur, les méthodes répondent avec le code HTTP correspondant et un objet
     [`Error`](#/components/schemas/Error). La colonne « Compatibilité » de l'ancienne documentation
     est reprise dans les descriptions (« backend ≥ 0.0.x »).
+
+    Authentification : `key` est la clé privée d'un compte de l'instance (admin ou modérateur pour les droits
+    supplémentaires de cette API) ; `secretid` est la clé secrète d'une observation, retournée à sa création, qui
+    identifie son auteur. Référence détaillée :
+    [doc/REST_API.md](https://github.com/jesuisundesdeux/vigilo-backend/blob/master/doc/REST_API.md).
   license:
     name: AGPL-3.0 (code) / CC0 (données)
     url: https://github.com/jesuisundesdeux/vigilo-backend/blob/master/LICENSE
@@ -60,15 +65,17 @@ paths:
               schema:
                 type: object
                 properties:
-                  version: { type: string, example: 0.0.21 }
-  /get_categories_list.php:
+                  version: { type: string, example: 0.0.24 }
+  /get_categories.php:
     get:
       tags: [Configuration]
-      summary: Liste des catégories (legacy)
+      summary: Catégories de l'instance
       description: |
-        *Legacy*. Les catégories sont publiées pour toutes les instances dans
-        [vigilo-conf](https://raw.githubusercontent.com/jesuisundesdeux/vigilo-conf/main/main/categorielist.json).
-      deprecated: true
+        Backend ≥ 0.0.23. Liste nationale ([vigilo-conf](https://raw.githubusercontent.com/jesuisundesdeux/vigilo-conf/main/main/categorielist.json)),
+        où les catégories désactivées par l'instance ont `catdisable: true` (elles restent listées pour nommer les
+        observations existantes), suivie des catégories propres à l'instance (`catcustom: true`, numéros à partir
+        de 1000). Réponse mise en cache 5 minutes. Sur une instance antérieure, la route répond 404 : utiliser la
+        liste nationale de vigilo-conf.
       operationId: getCategories
       responses:
         '200':
@@ -83,28 +90,28 @@ paths:
       tags: [Observations]
       summary: Liste des observations
       description: |
-        Observations approuvées du scope, les plus récentes d'abord. Backend ≥ 0.0.1 ;
+        Observations du scope dont la photo a été reçue, les plus récentes d'abord : les approuvées, plus celles à
+        modérer si l'instance publie les observations non modérées ou avec une clé admin/modérateur. Les
+        observations résolues depuis plus de N jours peuvent être masquées par l'instance (réglage, backend ≥ 0.0.22),
+        sauf avec une clé. Un paramètre invalide donne une erreur 500 sans corps JSON. Backend ≥ 0.0.1 ;
         la compatibilité de chaque filtre est indiquée dans sa description.
       operationId: getIssues
       parameters:
-        - $ref: '#/components/parameters/scope'
+        - $ref: '#/components/parameters/scopeOptional'
         - name: format
           in: query
           description: Format de sortie (backend ≥ 0.0.3)
           schema: { type: string, enum: [json, geojson, csv], default: json }
         - name: count
           in: query
-          description: Nombre maximum d'observations
+          description: Nombre maximum d'observations (appliqué avant les filtres `status`, `lat`/`lon`/`radius` et `tokenfilters`)
           schema: { type: integer, minimum: 1 }
           example: 20
-        - name: offset
-          in: query
-          description: Décalage (pagination, avec `count`)
-          schema: { type: integer, minimum: 0 }
         - name: c
           in: query
-          description: Filtre par identifiant de catégorie
-          schema: { type: integer }
+          description: Filtre par catégorie ; plusieurs identifiants séparés par des virgules
+          schema: { type: string }
+          example: '2,3'
         - name: status
           in: query
           description: Filtre par statut de résolution (voir `Issue.status`)
@@ -134,7 +141,7 @@ paths:
           example: distance,categorie
         - name: fdistance
           in: query
-          description: Distance en mètres pour le filtre `distance` de `tokenfilters`
+          description: Distance en mètres, obligatoire avec le filtre `distance` de `tokenfilters`
           schema: { type: integer }
         - name: lat
           in: query
@@ -146,11 +153,13 @@ paths:
           schema: { type: number, format: double }
         - name: radius
           in: query
-          description: Rayon de recherche en mètres autour de `lat`/`lon`
+          description: Rayon de recherche en mètres autour de `lat`/`lon` (les trois sont nécessaires ; ajoute le champ `distance`)
           schema: { type: integer }
         - name: approved
           in: query
-          description: Filtre selon l'approbation (backend ≥ 0.0.10). Seules les observations approuvées sont publiques.
+          description: |
+            Filtre selon l'approbation (backend ≥ 0.0.10). Sans clé admin/modérateur, seul `1` est accepté (et `0` si
+            l'instance publie les observations non modérées) ; sinon la liste est vide.
           schema: { type: integer, enum: [0, 1, 2] }
         - name: cityid
           in: query
@@ -160,7 +169,10 @@ paths:
           in: query
           description: "1 : la commune est retournée dans `cityname` au lieu d'être ajoutée à l'adresse (backend ≥ 0.0.13)"
           schema: { type: integer, enum: [0, 1] }
-        - $ref: '#/components/parameters/keyOptional'
+        - name: key
+          in: query
+          description: Clé admin/modérateur (backend ≥ 0.0.13) - observations à modérer et résolues masquées
+          schema: { type: string }
       responses:
         '200':
           description: Observations
@@ -176,17 +188,19 @@ paths:
   /generate_panel.php:
     get:
       tags: [Observations]
-      summary: Panneau image de l'observation
+      summary: Image de l'observation (ex-panneau)
       description: |
-        Image composée (photo, carte, catégorie, commentaire). Les observations non approuvées sont
-        pixelisées sans `key` ni `secretid`. JPEG depuis le backend 0.0.5 (PNG avant).
+        Depuis le backend 0.0.22, renvoie la photo de l'observation (le panneau composé photo, carte et textes n'est
+        plus généré), pixelisée tant qu'elle n'est pas approuvée, sauf avec le `secretid` de l'auteur ou une clé
+        admin/modérateur. JPEG depuis le backend 0.0.5 (PNG avant). Observation sans photo : 404 `PHOTONOTFOUND`
+        (backend ≥ 0.0.23), afficher une image par défaut.
       operationId: generatePanel
       parameters:
         - $ref: '#/components/parameters/token'
         - name: s
           in: query
-          description: Largeur de l'image en pixels
-          schema: { type: integer }
+          description: Largeur maximale de l'image en pixels (1 à 1024, 1024 par défaut)
+          schema: { type: integer, minimum: 1, maximum: 1024 }
           example: 800
         - $ref: '#/components/parameters/keyOptional'
         - $ref: '#/components/parameters/secretidOptional'
@@ -196,6 +210,7 @@ paths:
           content:
             image/jpeg:
               schema: { type: string, format: binary }
+        '400': { $ref: '#/components/responses/Error' }
         '404': { $ref: '#/components/responses/Error' }
   /get_photo.php:
     get:
@@ -203,7 +218,8 @@ paths:
       summary: Photo originale de l'observation
       description: |
         Photo de l'observation (ou de sa résolution avec `type=resolution`). Accessible pour les
-        observations approuvées, ou avec une clé de modérateur.
+        observations approuvées et les résolutions, ou avec une clé admin/modérateur (403 `NOTALLOWED` sinon ;
+        version pixelisée : `generate_panel.php`). Pas de photo : 404 `PHOTONOTFOUND` (backend ≥ 0.0.23).
       operationId: getPhoto
       parameters:
         - $ref: '#/components/parameters/token'
@@ -218,19 +234,29 @@ paths:
           content:
             image/jpeg:
               schema: { type: string, format: binary }
+        '400': { $ref: '#/components/responses/Error' }
         '403': { $ref: '#/components/responses/Error' }
         '404': { $ref: '#/components/responses/Error' }
   /mosaic.php:
     get:
       tags: [Observations]
-      summary: Page des observations similaires
-      description: Page HTML listant les observations proches et de même catégorie.
+      summary: Mosaïque des photos
+      description: |
+        Page HTML des images (`generate_panel.php?s=400`) des observations publiques de l'instance. Avec `t` :
+        observations similaires (300 m, même catégorie, même adresse).
       operationId: mosaic
       parameters:
+        - name: scope
+          in: query
+          description: Scope (les photos renvoient vers l'application web si l'instance est dans vigilo-conf)
+          schema: { type: string }
+        - name: c
+          in: query
+          description: Catégorie à afficher
+          schema: { type: integer }
         - name: t
           in: query
-          required: true
-          description: Token de l'observation
+          description: Token d'une observation, pour afficher les observations similaires
           schema: { type: string }
       responses:
         '200':
@@ -246,7 +272,9 @@ paths:
         Première étape de l'ajout d'une observation, suivie de l'envoi de la photo
         ([`add_image.php`](#/Contribution/addImage)). Retourne le `token` de l'observation et sa clé
         secrète `secretid`, à conserver pour la compléter ou la supprimer.
-        Avec `token` et une clé de modérateur, modifie une observation existante.
+        Avec `token` et une clé admin/modérateur, modifie une observation existante. Les coordonnées doivent être
+        dans le rectangle du scope. Limitation par IP (backend ≥ 0.0.22) : 429 `RATELIMITED` avec
+        `Retry-After: 600` au-delà du seuil de l'instance sur 10 minutes, sauf avec une clé admin/modérateur.
       operationId: createIssue
       parameters:
         - $ref: '#/components/parameters/keyOptional'
@@ -263,9 +291,9 @@ paths:
                 coordinates_lon: { type: string, example: '3.8772' }
                 categorie: { type: integer, description: Identifiant de catégorie }
                 address: { type: string }
-                comment: { type: string, maxLength: 50, description: Remarque courte }
+                comment: { type: string, maxLength: 50, description: "Remarque courte (tronquée à 50 caractères)" }
                 explanation: { type: string }
-                time: { type: integer, description: Timestamp Unix en millisecondes }
+                time: { type: integer, description: "Timestamp Unix en millisecondes (13 chiffres) ou en secondes" }
                 version: { type: string, description: Version du client }
                 scope: { type: string }
                 cityid: { type: integer, description: Identifiant de la commune (backend ≥ 0.0.13) }
@@ -280,13 +308,20 @@ paths:
                 properties:
                   token: { type: string }
                   secretid: { type: string }
+                  status: { type: integer, deprecated: true }
                   group: { type: integer, deprecated: true }
         '400': { $ref: '#/components/responses/Error' }
         '403': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
   /add_image.php:
     post:
       tags: [Contribution]
       summary: Envoyer la photo d'une observation
+      description: |
+        JPEG uniquement, réduit à 1024 × 1024 pixels au plus ; remplace la photo précédente. Une observation
+        approuvée ne peut plus changer de photo sans clé admin/modérateur (403 `ALREADYAPPROVED`, backend ≥ 0.0.22).
+        Si l'instance a un serveur de floutage, visages et plaques sont masqués avant l'enregistrement (en-tête
+        `X-Vigilo-Blur: done`, ou `failed` : photo enregistrée telle qu'envoyée).
       operationId: addImage
       parameters:
         - $ref: '#/components/parameters/token'
@@ -303,6 +338,10 @@ paths:
           in: query
           description: "`stdin` : JPEG brut dans le corps (défaut) ; `base64` : champ `imagebin64` (backend ≥ 0.0.16)"
           schema: { type: string, enum: [stdin, base64], default: stdin }
+        - name: key
+          in: query
+          description: Clé admin/modérateur, pour remplacer la photo d'une observation approuvée (backend ≥ 0.0.22)
+          schema: { type: string }
       requestBody:
         required: true
         content:
@@ -313,14 +352,25 @@ paths:
               type: object
               properties:
                 imagebin64: { type: string, description: JPEG encodé en base64 (avec `method=base64`) }
+          application/json:
+            schema:
+              type: object
+              description: Backend ≥ 0.0.22, avec `method=base64`
+              properties:
+                imagebin64: { type: string, description: "JPEG en base64 (préfixe `data:image/jpeg;base64,` accepté)" }
       responses:
         '200': { $ref: '#/components/responses/Status' }
         '400': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '500': { $ref: '#/components/responses/Error' }
   /create_resolution.php:
     post:
       tags: [Contribution]
       summary: Créer une résolution
-      description: Indique qu'une ou plusieurs observations sont résolues (backend ≥ 0.0.14). Envoyer ensuite la photo avec `add_image.php?type=resolution`.
+      description: |
+        Indique qu'une ou plusieurs observations sont résolues (backend ≥ 0.0.14) ; la résolution est créée avec le
+        statut 4 (« indiquée comme résolue »), à valider dans l'admin. Envoyer ensuite la photo avec
+        `add_image.php?type=resolution`. Limitation par IP (429 `RATELIMITED`, backend ≥ 0.0.22), sauf avec une clé admin.
       operationId: createResolution
       parameters:
         - $ref: '#/components/parameters/keyOptional'
@@ -332,10 +382,9 @@ paths:
               type: object
               required: [time, tokenlist]
               properties:
-                token: { type: string, description: Token de la résolution (modification) }
-                tokenlist: { type: string, description: Tokens des observations résolues, séparés par des virgules }
+                tokenlist: { type: string, description: "Tokens des observations résolues, séparés par des virgules" }
                 comment: { type: string, maxLength: 50 }
-                time: { type: integer, description: Timestamp Unix }
+                time: { type: integer, description: "Timestamp Unix en millisecondes ou en secondes" }
                 version: { type: string }
       responses:
         '200':
@@ -345,13 +394,16 @@ paths:
               schema:
                 type: object
                 properties:
-                  token: { type: string }
+                  token: { type: string, example: R_4F2A9C1B }
                   secretid: { type: string }
+        '400': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+        '500': { $ref: '#/components/responses/Error' }
   /delete.php:
     get:
       tags: [Contribution]
       summary: Supprimer une observation
-      description: Avec la clé secrète de l'observation (son auteur, tant qu'elle n'est pas approuvée) ou une clé de modérateur.
+      description: Avec la clé secrète de l'observation (son auteur) ou une clé admin/modérateur. Supprime l'observation et sa photo.
       operationId: deleteIssue
       parameters:
         - $ref: '#/components/parameters/token'
@@ -364,17 +416,20 @@ paths:
     get:
       tags: [Modération]
       summary: Approuver ou refuser une observation
+      description: |
+        Clé admin ou modérateur. À l'approbation, les webhooks configurés dans l'admin de l'instance sont appelés
+        (backend ≥ 0.0.22). Réponse `{"status": "0"}`.
       operationId: approveIssue
       parameters:
         - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/key'
         - name: approved
           in: query
-          required: true
-          description: "0 : à modérer ; 1 : approuvée ; 2 : refusée"
-          schema: { type: integer, enum: [0, 1, 2] }
+          description: "0 : à modérer ; 1 : approuvée (par défaut) ; 2 : refusée"
+          schema: { type: integer, enum: [0, 1, 2], default: 1 }
       responses:
         '200': { $ref: '#/components/responses/Status' }
+        '400': { $ref: '#/components/responses/Error' }
         '403': { $ref: '#/components/responses/Error' }
   /acl.php:
     get:
@@ -391,7 +446,11 @@ paths:
               schema:
                 type: object
                 properties:
-                  role: { type: string, example: admin }
+                  role:
+                    description: "`admin`, `moderator` ou `citystaff` ; `false` si la clé est inconnue"
+                    oneOf:
+                      - { type: string, example: admin }
+                      - { type: boolean, example: false }
         '400': { $ref: '#/components/responses/Error' }
 components:
   parameters:
@@ -400,6 +459,12 @@ components:
       in: query
       required: true
       description: Identifiant du territoire (voir la page de chaque ville)
+      schema: { type: string }
+      example: 34_montpellier
+    scopeOptional:
+      name: scope
+      in: query
+      description: Identifiant du territoire ; sans scope, toutes les observations de l'instance
       schema: { type: string }
       example: 34_montpellier
     token:
@@ -412,12 +477,12 @@ components:
       name: key
       in: query
       required: true
-      description: Clé privée de modérateur
+      description: Clé privée d'un compte admin ou modérateur
       schema: { type: string }
     keyOptional:
       name: key
       in: query
-      description: Clé privée de modérateur (accès aux observations non approuvées)
+      description: Clé privée d'un compte admin ou modérateur
       schema: { type: string }
     secretidOptional:
       name: secretid
@@ -453,8 +518,11 @@ components:
       properties:
         catid: { type: integer }
         catname: { type: string }
-        catcolor: { type: string }
-        catresolvable: { type: boolean }
+        catname_en_US: { type: string, description: "Nom en anglais (facultatif)" }
+        catcolor: { type: string, description: 'Nom CSS ou #rrggbb' }
+        catresolvable: { type: boolean, description: "Les citoyens peuvent déclarer l'observation résolue" }
+        catdisable: { type: boolean, description: "Catégorie à ne plus proposer (facultatif)" }
+        catcustom: { type: boolean, description: "Catégorie propre à l'instance (facultatif ; backend ≥ 0.0.23)" }
     City:
       type: object
       properties:
@@ -476,8 +544,8 @@ components:
         map_center_string: { type: string, description: '"latitude,longitude" du centre de la carte' }
         map_zoom: { type: string }
         contact_email: { type: string }
-        tweet_content: { type: string }
-        twitter: { type: string }
+        tweet_content: { type: string, description: "Valeur existante, plus modifiable depuis le backend 0.0.23" }
+        twitter: { type: string, description: "Valeur existante, plus modifiable depuis le backend 0.0.22" }
         map_url: { type: string }
         nominatim_urlbase: { type: string, description: Backend ≥ 0.0.14 }
         backend_version: { type: string }
@@ -500,7 +568,8 @@ components:
         group: { type: integer, deprecated: true }
         categorie: { type: string, description: Identifiant de catégorie }
         approved: { type: string, description: "0 : à modérer ; 1 : approuvée ; 2 : refusée" }
-        cityname: { type: string, description: Backend ≥ 0.0.13 }
+        cityname: { type: string, description: "Nom de la ville, absent si inconnu (backend ≥ 0.0.13)" }
+        distance: { type: number, description: "Distance en mètres au point `lat`/`lon` (uniquement avec `lat`/`lon`/`radius`)" }
     IssueFeatureCollection:
       type: object
       description: Réponse avec `format=geojson`

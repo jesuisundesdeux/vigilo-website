@@ -26,6 +26,12 @@ Indispensable pour gérer les observations par ville et rattacher les comptes de
 
 [Procédure disponible ici](/fr/documentation/configuration/villes/)
 
+### Catégories (facultatif)
+
+Désactiver des catégories nationales inutiles sur le territoire, ou ajouter des catégories propres à l'instance.
+
+[Procédure disponible ici](/fr/documentation/configuration/categories/)
+
 ### Référencement
 
 Pour que l'instance apparaisse dans les applications, elle doit remplir [ces critères](/fr/villes/maville/) et être

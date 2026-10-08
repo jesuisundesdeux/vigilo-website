@@ -45,7 +45,8 @@ Ces observations alimentent une base de données qui est réutilisée afin d'ext
 
 Vigilo n'a pas vocation à faire de la denonciation, mais uniquement de remonter des élements factuels constatés par chacun sur le terrain.
 Afin de renforcer cette position, l'ensemble des elements permettant l'identification d'une personnes (plaques d'immatriculations, visages, ...) doivent être floutés avant publication.
-Des modérateurs valident les observations et ajoutent ces floutages si besoin.
+Un serveur de floutage peut masquer automatiquement visages et plaques sur chaque photo reçue ; les modérateurs
+vérifient chaque observation avant sa publication.
 
 ### Je souhaiterais que Vigilo soit installé dans ma ville
 
@@ -111,7 +112,7 @@ Vous trouverez plus d'informations sur la [documentation](/fr/documentation/admi
 
 ### Comment modérer sur l'interface web ?
 
-Vous trouverez plus d'informations sur la [documentation](/fr/documentation/administration/moderation/#via-vigilo-web)
+Vous trouverez plus d'informations sur la [documentation](/fr/documentation/administration/moderation/#via-l-application-web)
 
 ### Comment sont utilisées les données Vigilo ?
 
