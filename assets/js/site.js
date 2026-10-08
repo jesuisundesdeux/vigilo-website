@@ -208,7 +208,7 @@ async function observationsMap(el) {
 		}
 	});
 
-	// categories of the instance (backend >= 0.0.22: its own ones too), national list otherwise
+	// categories of the instance (backend >= 0.0.23: its own ones too), national list otherwise
 	try {
 		const rc = await fetch(api + '/get_categories.php');
 		const list = rc.ok ? await rc.json() : null;

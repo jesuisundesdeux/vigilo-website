@@ -48,10 +48,11 @@ dans la [documentation des webhooks](https://github.com/jesuisundesdeux/vigilo-b
 
 * l'adresse de votre API Open311 ;
 * une clé d'API (`api_key`) ;
-* le code du service destinataire (`service_code`).
+* le code du service destinataire (`service_code`) de chaque type de signalement.
 
 **Association** : dans le panneau d'administration de l'instance, menu **Webhooks**, ajouter un webhook Open311 avec
-ces informations, puis **Enregistrer et tester**.
+ces informations, saisir dans **Correspondance des catégories** le code de service de chaque catégorie Vigilo, puis
+**Enregistrer et tester**.
 
 Le contact de chaque association est sur la page [Les villes](/fr/villes/). Votre territoire n'a pas encore d'instance
 Vigilo ? Voir [Votre ville ici](/fr/villes/maville/).
@@ -61,7 +62,8 @@ Vigilo ? Voir [Votre ville ici](/fr/villes/maville/).
 * La transmission va de Vigilo vers la collectivité. L'état d'avancement de la demande dans l'outil de la collectivité
   ne remonte pas automatiquement dans Vigilo : l'association ou les comptes « services municipaux » de l'instance le
   mettent à jour.
-* Toutes les observations publiées sont transmises au même service. Pour répartir par catégorie ou par commune,
-  la répartition se fait côté collectivité, ou avec un outil d'automatisation.
+* Depuis la version 0.0.23, chaque catégorie Vigilo est envoyée au service de la collectivité qui lui correspond
+  (`service_code`), et l'instance peut ne transmettre que les catégories qui ont un code (par exemple le seul
+  stationnement gênant). La répartition par commune se fait côté collectivité, ou avec un outil d'automatisation.
 * Seules les observations validées par les modérateurs sont transmises.
 * Les observations restent par ailleurs disponibles en données ouvertes ([API Vigilo](/fr/api/), JSON, GeoJSON, CSV).
