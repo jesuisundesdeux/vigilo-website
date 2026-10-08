@@ -10,13 +10,26 @@ Ils correspondent en règle générale à une métropole, une agglomération voi
 
 Dans le panneau d'administration, menu **Scopes**, ajouter un scope et remplir ses informations :
 
-* **Identifiant** : `XX_yyyyyyy` où `XX` est le numéro de département (ou le code pays si non français : be, uk…) et
-  `yyyyyyy` un nom court (sans espace, accent ni caractère spécial)
+* **Identifiant** : `XX_nom` où `XX` est le numéro de département (01 à 95, 2A, 2B, 971 à 976) ou le code pays si non
+  français (be, ch…), et `nom` un nom court du territoire, sans espace, accent ni caractère spécial (exemple :
+  `34_montpellier`). Le format est vérifié à l'enregistrement et le département se remplit automatiquement. Une fois
+  l'instance référencée, ne plus changer l'identifiant : il est utilisé par les applications
 * **Nom affiché** : nom de la zone affiché dans les applications
 * **Département** : numéro du département, 0 si non applicable
 * **Email contact** : adresse de contact de l'association en charge du scope
 * **Texte de partage par défaut** : texte proposé quand un utilisateur partage une observation
-* **Latitude / longitude minimale / maximale** : limites géographiques de la zone (degrés décimaux)
-* **Coordonnées du centre du scope** et **Zoom cartes** : centre et zoom des cartes affichées dans les applications
 * **URL carte externe** : si besoin, URL d'une carte qui affiche les observations (voir [Configuration UMAP](/fr/documentation/exploitation_donnees/umap/))
 * **URL de base Nominatim** : service de géocodage inverse (adresse à partir de la position), laisser la valeur par défaut sauf besoin
+
+### Territoire, centre et zoom : avec la carte
+
+La carte du scope remplit les coordonnées sans avoir à les saisir :
+
+* **Rechercher** une ville ou un lieu pour y déplacer la carte ;
+* **Tracer le territoire** : cliquer-glisser sur la carte pour dessiner le rectangle qui limite la zone (les observations
+  hors du rectangle sont refusées). Ou cadrer la carte puis **Territoire = vue de la carte** ;
+* **Centre et zoom = vue de la carte** : cadrer la carte comme elle doit s'afficher à l'ouverture des applications, puis
+  cliquer ; le marqueur du centre peut aussi être déplacé ;
+* **Enregistrer**.
+
+Les champs latitude / longitude minimale et maximale, centre et zoom restent modifiables à la main.
