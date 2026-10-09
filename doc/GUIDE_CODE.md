@@ -436,7 +436,9 @@ enableStatsFrames();
    absente, réseau) est ignorée : on garde la liste nationale.
 4. **Observations** : `get_issues.php?scope=<scope>&count=3000`. En cas d'erreur ou de réponse qui n'est pas un
    tableau : message « Les observations de cette instance ne peuvent pas être chargées pour le moment. » dans
-   `#observations-status`, et arrêt.
+   `#observations-status`, et arrêt. `uniqueIssues()` garde une entrée par observation (avant le backend 0.0.26, une
+   observation liée à plusieurs résolutions revenait une fois par résolution) avec le statut le plus avancé
+   (résolue > indiquée résolue > en cours > prise en compte).
 5. Pour chaque observation (de la plus ancienne à la plus récente, pour dessiner les récentes au-dessus) ayant des
    coordonnées valides : `circleMarker` de rayon `radiusFor(zoom)` (4,5 à 10 px, recalculé à chaque `zoomend`).
    Couleur : `categoryColor(cat)` = `CATEGORY_COLORS[catid]` (palette fixe du site pour les catégories nationales),
