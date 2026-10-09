@@ -32,8 +32,10 @@ l'instance.
 * **Active** : la catégorie est proposée dans les applications.
 
 Les catégories de l'instance sont numérotées à partir de 1000 (numéros jamais utilisés par la liste nationale). Le
-bouton **Modifier** rouvre la même fenêtre. Une catégorie utilisée par des observations ne peut pas être supprimée :
-la désactiver (décocher **Active**).
+bouton **Modifier** rouvre la même fenêtre. À la suppression d'une catégorie
+utilisée par des observations, la fenêtre propose de **déplacer** ces observations vers une autre catégorie active ou
+de les **supprimer** (avec leurs photos, définitivement). Pour seulement ne plus la proposer, la désactiver (décocher
+**Active**).
 
 Pour transmettre les catégories à un outil externe (Open311, Redmine…), voir la correspondance des catégories des
 [webhooks](/fr/documentation/administration/#webhooks).
