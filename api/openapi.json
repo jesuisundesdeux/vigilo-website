@@ -1152,54 +1152,6 @@
           "Configuration"
         ]
       }
-    },
-    "/mosaic.php": {
-      "get": {
-        "description": "Page HTML des images (`generate_panel.php?s=400`) des observations publiques de l'instance. Avec `t` :\nobservations similaires (300 m, même catégorie, même adresse).\n",
-        "operationId": "mosaic",
-        "parameters": [
-          {
-            "description": "Scope (les photos renvoient vers l'application web si l'instance est dans vigilo-conf)",
-            "in": "query",
-            "name": "scope",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Catégorie à afficher",
-            "in": "query",
-            "name": "c",
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "description": "Token d'une observation, pour afficher les observations similaires",
-            "in": "query",
-            "name": "t",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "text/html": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            },
-            "description": "Page HTML"
-          }
-        },
-        "summary": "Mosaïque des photos",
-        "tags": [
-          "Observations"
-        ]
-      }
     }
   },
   "servers": [
