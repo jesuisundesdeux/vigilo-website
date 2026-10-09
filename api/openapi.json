@@ -1028,7 +1028,7 @@
     },
     "/get_photo.php": {
       "get": {
-        "description": "Photo de l'observation (ou de sa résolution avec `type=resolution`). Accessible pour les\nobservations approuvées et les résolutions, ou avec une clé admin/modérateur (403 `NOTALLOWED` sinon ;\nversion pixelisée : `generate_panel.php`). Pas de photo : 404 `PHOTONOTFOUND` (backend ≥ 0.0.23).\n",
+        "description": "Photo de l'observation (ou de sa résolution avec `type=resolution`). Accessible pour les\nobservations approuvées et les résolutions, ou avec une clé admin/modérateur, ou avec un lien signé\n`exp` + `sig` (variable `{{photo_full_url}}` des webhooks, backend ≥ 0.0.25) ; 403 `NOTALLOWED` sinon\n(version pixelisée : `generate_panel.php`). Pas de photo : 404 `PHOTONOTFOUND` (backend ≥ 0.0.23).\n",
         "operationId": "getPhoto",
         "parameters": [
           {
@@ -1049,6 +1049,23 @@
           },
           {
             "$ref": "#/components/parameters/keyOptional"
+          },
+          {
+            "description": "Lien signé : date d'expiration (timestamp Unix), avec `sig` (backend ≥ 0.0.25)",
+            "in": "query",
+            "name": "exp",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Lien signé : HMAC-SHA256 de `token|exp` par un secret de l'instance (backend ≥ 0.0.25)",
+            "in": "query",
+            "name": "sig",
+            "schema": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
           }
         ],
         "responses": {
