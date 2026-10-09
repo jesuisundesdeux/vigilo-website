@@ -53,7 +53,15 @@ passe laissé vide reste inchangé.
 ## Webhooks
 
 Menu **Webhooks** : appel d'un ou plusieurs services externes (API, outil de l'association, messagerie, outil de
-signalement de la collectivité…) à chaque publication d'une observation.
+signalement de la collectivité…) aux **événements** cochés dans le formulaire (un ou plusieurs) :
+
+* **Nouvelle observation** (avant modération) : par exemple pour prévenir les modérateurs dans leur canal ;
+* **Observation publiée** (approuvée) et **Observation refusée** (désapprouvée) ;
+* **Nouvelle résolution** (déclarée dans l'application ou créée dans l'admin) et **Changement d'état d'une
+  résolution** : variables `{{resolution_token}}`, `{{resolution_status_name}}`, `{{resolution_comment}}`,
+  `{{resolution_observations}}`…
+
+Les webhooks existants restent abonnés à la publication. Réglages :
 
 * **Modèle** : préremplit le formulaire pour Mastodon, Slack / Mattermost, Discord, Bluesky (via un relais), un outil
   de ticketing de collectivité ([Open311](/fr/open311/)), Redmine ou un JSON générique ; il reste à remplacer les
@@ -63,8 +71,8 @@ signalement de la collectivité…) à chaque publication d'une observation.
 * **Correspondance des catégories** : le code de chaque catégorie dans l'outil appelé (variable
   `{{categorie_code}}`, par exemple le `service_code` Open311) ; l'option **N'envoyer que les observations des
   catégories qui ont un code** limite le webhook à ces catégories ;
-* **Enregistrer et tester** envoie la requête avec la dernière observation publiée ; le journal des derniers envois
-  affiche la réponse de chaque appel.
+* **Enregistrer et tester** envoie la requête du premier événement coché avec la dernière observation publiée (ou la
+  dernière résolution) ; le journal des derniers envois affiche l'événement et la réponse de chaque appel.
 
 Un service en échec n'empêche jamais la publication. Détails techniques et exemples :
 [fonctionnement](https://github.com/jesuisundesdeux/vigilo-backend/blob/master/doc/FONCTIONNEMENT.md#webhooks),
