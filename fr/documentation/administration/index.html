@@ -22,7 +22,9 @@ résolution</strong> : variables <code>{{resolution_token}}</code>, <code>{{reso
 de ticketing de collectivité (<a href=/fr/open311/>Open311</a>), Redmine ou un JSON générique ; il reste à remplacer les
 valeurs en <code>MAJUSCULES</code> ;</li><li><strong>Méthode</strong>, <strong>URL</strong>, <strong>En-têtes</strong>, <strong>Format du corps</strong> et <strong>Corps</strong>, avec des variables (<code>{{token}}</code>,
 <code>{{comment}}</code>, <code>{{photo_url}}</code>, <code>{{photo_full_url}}</code> (photo d&rsquo;origine même avant modération, lien signé valable
-7 jours, à réserver au canal des modérateurs), <code>{{observation_url}}</code>, <code>{{lat}}</code>…) ;</li><li><strong>Correspondance des catégories</strong> : le code de chaque catégorie dans l&rsquo;outil appelé (variable
+7 jours, à réserver au canal des modérateurs), <code>{{observation_url}}</code>, <code>{{lat}}</code>, <code>{{event_description}}</code> (l&rsquo;action
+en une phrase, par exemple « Observation ABCD1234 publiée : Véhicule ou objet gênant, Rue de la Gare
+(Montpellier). »), <code>{{event_label}}</code> (nom de l&rsquo;événement)…) ;</li><li><strong>Correspondance des catégories</strong> : le code de chaque catégorie dans l&rsquo;outil appelé (variable
 <code>{{categorie_code}}</code>, par exemple le <code>service_code</code> Open311) ; l&rsquo;option <strong>N&rsquo;envoyer que les observations des
 catégories qui ont un code</strong> limite le webhook à ces catégories ;</li><li><strong>Enregistrer et tester</strong> envoie la requête du premier événement coché avec la dernière observation publiée (ou la
 dernière résolution) ; le journal des derniers envois affiche l&rsquo;événement et la réponse de chaque appel.</li></ul><p>Un service en échec n&rsquo;empêche jamais la publication. Détails techniques et exemples :
