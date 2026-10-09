@@ -48,7 +48,7 @@ jobs:
           cat content/documentation/upgrade/_index.fr.tpl /tmp/UPGRADE.md > content/documentation/upgrade/_index.fr.md
       - name: Build
         run: hugo --gc --minify
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: site
           path: public
