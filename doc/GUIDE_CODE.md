@@ -156,7 +156,7 @@ secondes, décodage UTF-8 puis JSON. Les instances sont interrogées en parallè
    **injoignable** (message `<nom>: unreachable (...)` sur la sortie d'erreur), et seuls les champs de base sont
    écrits.
 3. Si elle répond : `online: true`, `display_name` (ou le nom vigilo-conf s'il est vide), `backend_version`,
-   `contact_email`, `cities` (noms triés), `bbox` si les quatre coordonnées sont des nombres, `center` depuis
+   `contact_email`, `association_url` (seulement une adresse `http(s)://`, backend ≥ 0.0.28, sinon `""`), `cities` (noms triés), `bbox` si les quatre coordonnées sont des nombres, `center` depuis
    `map_center_string` (`"lat,lon"`) ou, à défaut, centre de la `bbox`.
 4. Appel de `get_issues.php?count=1` : la date (`time`, timestamp Unix) de la première observation renvoyée donne
    `last_observation` (date UTC `AAAA-MM-JJ`). Toute erreur sur cet appel est ignorée silencieusement.
@@ -197,6 +197,7 @@ Tableau d'objets, un par instance `prod: true` :
 | `slug` | toujours | dossier de la page (`/fr/villes/<slug>/`) |
 | `backend_version` | en ligne | version renvoyée par `get_scope.php` (`""` si absente) |
 | `contact_email` | en ligne | adresse de l'association (`""` si absente) |
+| `association_url` | en ligne | site de l'association (`association_url` de `get_scope.php`, backend ≥ 0.0.28 ; `""` si absent ou pas en `http(s)://`) |
 | `cities` | en ligne | liste triée des noms de communes |
 | `bbox` | en ligne, si coordonnées valides | `[lat_min, lon_min, lat_max, lon_max]` |
 | `center` | en ligne, si centre ou `bbox` | `[lat, lon]` |
@@ -215,8 +216,13 @@ Tableau d'objets, un par instance `prod: true` :
 title: "Ma Ville"
 layout: "instance"
 instance: "Ma Ville"
+aliases: ["/instance/ma-ville/"]
 ---
 ```
+
+- `aliases` : adresse stable par **nom d'instance** (`/instance/<slugify(name)>/`, publiée en `/fr/instance/…/` car Hugo ajoute la langue ; page de redirection générée
+  par Hugo), utilisée par le lien « Ce territoire sur vigilo.city » de l'application web (`instancePageUrl()` de
+  `utils.js`, mêmes règles de slug) : le slug de la page dépend du nom affiché et peut changer, pas l'alias ;
 
 - `layout: instance` + section `villes` → gabarit `layouts/villes/instance.html` ;
 - `instance` est le `name` vigilo-conf : le gabarit retrouve l'instance dans `hugo.Data.instances` par ce champ ;
@@ -339,6 +345,7 @@ grâce à `locale: fr-FR`).
 |---|---|
 | Titre, badges (en ligne, `Backend v…`, dernière observation) | `$i` |
 | « Signaler dans l'application » | `site.Params.webapp` + `/?instance=<name>` |
+| « Site de l'association » | `association_url` (affiché s'il est renseigné) |
 | « Contacter l'association » | `contact_email` découpé en `data-mail-user` / `data-mail-domain` (adresse assemblée au clic par `site.js`) |
 | Carte des observations | `div[data-map="observations"]` avec `data-api`, `data-scope`, `data-instance`, `data-bbox` (JSON) |
 | `#observations-status` | texte d'état rempli par `site.js` |

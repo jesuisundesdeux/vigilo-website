@@ -45,6 +45,11 @@ def slugify(text):
     return re.sub(r"-{2,}", "-", text).strip("-")
 
 
+def association_url(value):
+    value = (value or "").strip() if isinstance(value, str) else ""
+    return value if re.match(r"^https?://[^\s\"'<>]+$", value, re.I) else ""
+
+
 def to_float(value):
     try:
         return float(value)
@@ -79,6 +84,8 @@ def instance_data(name, conf):
             "display_name": scope["display_name"] or name,
             "backend_version": scope.get("backend_version", ""),
             "contact_email": scope.get("contact_email") or "",
+            # website of the association (backend >= 0.0.28), only an http(s) address
+            "association_url": association_url(scope.get("association_url")),
             "cities": sorted(c.get("name", "") for c in scope.get("cities") or [] if c.get("name")),
         })
         if None not in lat + lon:
@@ -107,6 +114,9 @@ def write_page(instance):
         "title": instance["display_name"],
         "layout": "instance",
         "instance": instance["name"],
+        # stable address by instance name, used by the web application (instancePageUrl() of utils.js)
+        # (Hugo adds the language: published as /fr/instance/<slug>/)
+        "aliases": ["/instance/%s/" % slugify(instance["name"])],
     }
     with open(os.path.join(folder, "_index.fr.md"), "w", encoding="utf-8") as f:
         f.write("---\n%s\n---\n" % "\n".join("%s: %s" % (k, json.dumps(v, ensure_ascii=False)) for k, v in front.items()))
