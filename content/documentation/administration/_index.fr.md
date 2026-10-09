@@ -67,7 +67,8 @@ Les webhooks existants restent abonnés à la publication. Réglages :
   de ticketing de collectivité ([Open311](/fr/open311/)), Redmine ou un JSON générique ; il reste à remplacer les
   valeurs en `MAJUSCULES` ;
 * **Méthode**, **URL**, **En-têtes**, **Format du corps** et **Corps**, avec des variables (`{{token}}`,
-  `{{comment}}`, `{{photo_url}}`, `{{observation_url}}`, `{{lat}}`…) ;
+  `{{comment}}`, `{{photo_url}}`, `{{photo_full_url}}` (photo d'origine même avant modération, lien signé valable
+  7 jours, à réserver au canal des modérateurs), `{{observation_url}}`, `{{lat}}`…) ;
 * **Correspondance des catégories** : le code de chaque catégorie dans l'outil appelé (variable
   `{{categorie_code}}`, par exemple le `service_code` Open311) ; l'option **N'envoyer que les observations des
   catégories qui ont un code** limite le webhook à ces catégories ;
