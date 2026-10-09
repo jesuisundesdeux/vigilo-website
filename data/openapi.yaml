@@ -4,7 +4,7 @@
 openapi: 3.0.3
 info:
   title: API Vigilo
-  version: 0.0.25
+  version: 0.0.26
   description: |
     API REST des instances [vigilo-backend](https://github.com/jesuisundesdeux/vigilo-backend).
 
@@ -65,7 +65,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  version: { type: string, example: 0.0.25 }
+                  version: { type: string, example: 0.0.26 }
   /get_categories.php:
     get:
       tags: [Configuration]
@@ -219,7 +219,7 @@ paths:
       description: |
         Photo de l'observation (ou de sa résolution avec `type=resolution`). Accessible pour les
         observations approuvées et les résolutions, ou avec une clé admin/modérateur, ou avec un lien signé
-        `exp` + `sig` (variable `{{photo_full_url}}` des webhooks, backend ≥ 0.0.25) ; 403 `NOTALLOWED` sinon
+        `exp` + `sig` (variable `{{photo_full_url}}` des webhooks, backend ≥ 0.0.26) ; 403 `NOTALLOWED` sinon
         (version pixelisée : `generate_panel.php`). Pas de photo : 404 `PHOTONOTFOUND` (backend ≥ 0.0.23).
       operationId: getPhoto
       parameters:
@@ -231,11 +231,11 @@ paths:
         - $ref: '#/components/parameters/keyOptional'
         - name: exp
           in: query
-          description: "Lien signé : date d'expiration (timestamp Unix), avec `sig` (backend ≥ 0.0.25)"
+          description: "Lien signé : date d'expiration (timestamp Unix), avec `sig` (backend ≥ 0.0.26)"
           schema: { type: integer }
         - name: sig
           in: query
-          description: "Lien signé : HMAC-SHA256 de `token|exp` par un secret de l'instance (backend ≥ 0.0.25)"
+          description: "Lien signé : HMAC-SHA256 de `token|exp` par un secret de l'instance (backend ≥ 0.0.26)"
           schema: { type: string, pattern: '^[0-9a-f]{64}$' }
       responses:
         '200':
