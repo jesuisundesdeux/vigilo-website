@@ -218,8 +218,9 @@ paths:
       summary: Photo originale de l'observation
       description: |
         Photo de l'observation (ou de sa résolution avec `type=resolution`). Accessible pour les
-        observations approuvées et les résolutions, ou avec une clé admin/modérateur (403 `NOTALLOWED` sinon ;
-        version pixelisée : `generate_panel.php`). Pas de photo : 404 `PHOTONOTFOUND` (backend ≥ 0.0.23).
+        observations approuvées et les résolutions, ou avec une clé admin/modérateur, ou avec un lien signé
+        `exp` + `sig` (variable `{{photo_full_url}}` des webhooks, backend ≥ 0.0.25) ; 403 `NOTALLOWED` sinon
+        (version pixelisée : `generate_panel.php`). Pas de photo : 404 `PHOTONOTFOUND` (backend ≥ 0.0.23).
       operationId: getPhoto
       parameters:
         - $ref: '#/components/parameters/token'
@@ -228,6 +229,14 @@ paths:
           description: Photo de l'observation ou de la résolution (backend ≥ 0.0.14)
           schema: { type: string, enum: [obs, resolution], default: obs }
         - $ref: '#/components/parameters/keyOptional'
+        - name: exp
+          in: query
+          description: "Lien signé : date d'expiration (timestamp Unix), avec `sig` (backend ≥ 0.0.25)"
+          schema: { type: integer }
+        - name: sig
+          in: query
+          description: "Lien signé : HMAC-SHA256 de `token|exp` par un secret de l'instance (backend ≥ 0.0.25)"
+          schema: { type: string, pattern: '^[0-9a-f]{64}$' }
       responses:
         '200':
           description: Photo
