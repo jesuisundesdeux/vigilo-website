@@ -31,7 +31,7 @@ publié sur le site.
 | `assets/js/` | `site.js` (cartes), `panoramax.js`, `layers.js` — assemblés par Hugo (esbuild) | oui |
 | `assets/css/main.css` | Feuille de style unique | oui |
 | `data/openapi.yaml` | Spécification OpenAPI de l'API du backend (page `/fr/api/`) | oui |
-| `static/` | Fichiers copiés tels quels : `CNAME` (`vigilo.city`), `images/` (logos, favicon, badges) | oui |
+| `static/` | Fichiers copiés tels quels : `CNAME` (`vigilo.city`), `images/` (logos, favicon, badges ; `panoramax.svg` : logo officiel de Panoramax, repris du paquet `@panoramax/web-viewer`, licence MIT) | oui |
 | `scripts/fetch_instances.py` | Génère `_generated/` à partir de vigilo-conf et de l'API des instances | oui |
 | `_generated/` | Données et pages des instances, produites au moment de la construction | **non** (`.gitignore`) |
 | `node_modules/` | Dépendances front (Leaflet, Swagger UI, police Inter), montées dans Hugo | non |
@@ -301,12 +301,13 @@ menu s'ouvre avec une case à cocher cachée (`#nav-toggle`) et du CSS, sans Jav
 ### 3.8 `partials/footer.html`
 
 Liens fixes (application, guide, villes, FAQ, documentation, API, Open311, GitHub, contact), licences CC0 et
-OpenStreetMap, mentions légales. Le lien **« Modifier cette page »** (`site.Params.editURL` + chemin du fichier) est
+OpenStreetMap, crédit « Vues immersives Panoramax » avec le logo (`.footer-panoramax`), mentions légales. Le lien **« Modifier cette page »** (`site.Params.editURL` + chemin du fichier) est
 affiché pour toute page issue d'un fichier, sauf les pages d'instance (`.Params.instance`), qui sont générées.
 
 ### 3.9 `layouts/index.html` (accueil)
 
-Texte d'accroche et sections fixes écrits dans le gabarit (« Comment ça marche ? », « Pourquoi Vigilo ? »). Données :
+Texte d'accroche et sections fixes écrits dans le gabarit (« Comment ça marche ? », « Pourquoi Vigilo ? »,
+« Avec Panoramax » : logo et usages de Panoramax dans Vigilo, `.partner-panoramax`). Données :
 
 - `territoires couverts` = nombre d'instances `online` ;
 - `communes` = somme des longueurs de `cities` des instances en ligne ;
@@ -516,7 +517,7 @@ Une seule feuille, sans préprocesseur, minifiée et signée par Hugo. Organisat
 | Buttons | `.btn`, `.btn-small`, `.btn-large`, `.btn-primary`, `.btn-dark`, `.btn-ghost`, `.cta`, `.link-btn` |
 | Header | `.site-header`, `.main-nav`, menu mobile ≤ 900 px |
 | Footer | `.site-footer`, `.footer-grid` (1 colonne ≤ 700 px) |
-| Home | `.hero`, `.hero-stats`, `.steps`, `.features`, `.section`, `.section.alt` (≤ 800 px : 1 colonne) |
+| Home | `.hero`, `.hero-stats`, `.steps`, `.features`, `.section`, `.section.alt` (≤ 800 px : 1 colonne), `.partner-panoramax` (bloc Panoramax, logo au-dessus ≤ 600 px), `.footer-panoramax` |
 | Pages | grille `.docs` / `.has-nav` / `.has-toc`, `.docs-nav`, `.docs-toc` (cachée ≤ 1100 px), `.prose`, tableaux, citations, `.prev-next` |
 | Cards | `.cards`, `.card`, `.card-link`, `.badge*`, `.instances-grid`, `.instance-card` |
 | Maps | `.map`, `.map-large`, `.map-hint`, popups Leaflet, `.obs-popup`, `.obs-cat` (couleur via `--cat`), `.dot`, `.spinner`, `.tiles-muted`, `.obs-tooltip`, `.map-legend` |

@@ -140,6 +140,16 @@ main :not(pre) > code:not(#swagger-ui *) { font-size: .88em; background: rgba(31
 .steps h3, .feature h3 { margin: 10px 0 6px; }
 .steps p, .feature p { margin: 0; color: var(--ink-soft); }
 .step-num { display: inline-flex; width: 36px; height: 36px; align-items: center; justify-content: center; border-radius: 50%; background: var(--yellow); font-weight: 800; }
+/* Panoramax (home page, footer) */
+.partner-panoramax { display: flex; gap: 24px; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; }
+.partner-panoramax .partner-logo { flex: none; }
+.partner-panoramax .partner-logo img { display: block; width: 96px; height: 96px; }
+.partner-panoramax .section-title { margin-top: 0; }
+.partner-panoramax p, .partner-panoramax li { color: var(--ink-soft); }
+.partner-panoramax ul { margin: 8px 0 0; padding-left: 20px; }
+@media (max-width: 600px) { .partner-panoramax { flex-direction: column; gap: 12px; } .partner-panoramax .partner-logo img { width: 64px; height: 64px; } }
+.footer-panoramax { white-space: nowrap; }
+.footer-panoramax img { width: 16px; height: 16px; vertical-align: -3px; margin-right: 4px; }
 .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 @media (max-width: 800px) { .steps, .features { grid-template-columns: 1fr; } }
 .home-content img { display: inline-block; vertical-align: middle; margin: 6px 10px 6px 0 !important; }
