@@ -14,6 +14,7 @@
   <div class="cta">
     <a class="btn btn-dark" href="{{ site.Params.webapp }}/?instance={{ $name }}">Signaler dans l'application</a>
     <a class="btn btn-ghost" href="#statistiques">Statistiques</a>
+    {{ with $i.association_url }}<a class="btn btn-ghost" href="{{ . }}" rel="noopener">Site de l'association</a>{{ end }}
     {{ with $i.contact_email }}{{ $parts := split . "@" }}{{ if eq (len $parts) 2 }}
       <a class="btn btn-ghost" href="#" data-mail-user="{{ index $parts 0 }}" data-mail-domain="{{ index $parts 1 }}">Contacter l'association</a>
     {{ end }}{{ end }}

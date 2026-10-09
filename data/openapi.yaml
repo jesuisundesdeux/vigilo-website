@@ -526,6 +526,7 @@ components:
         map_center_string: { type: string, description: '"latitude,longitude" du centre de la carte' }
         map_zoom: { type: string }
         contact_email: { type: string }
+        association_url: { type: string, description: "Site web de l'association qui gère le territoire, vide s'il n'est pas renseigné (>= 0.0.28)" }
         tweet_content: { type: string, description: "Valeur existante, plus modifiable depuis le backend 0.0.23" }
         twitter: { type: string, description: "Valeur existante, plus modifiable depuis le backend 0.0.22" }
         map_url: { type: string }

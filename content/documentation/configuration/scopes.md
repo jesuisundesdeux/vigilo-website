@@ -19,6 +19,8 @@ ensuite dans un cadre où compléter ses informations, tracer son territoire sur
 * **Nom affiché** : nom de la zone affiché dans les applications
 * **Département** : numéro du département, 0 si non applicable
 * **Email contact** : adresse de contact de l'association en charge du scope
+* **Site de l'association** (backend 0.0.28 et plus) : adresse `https://…` du site de l'association, affichée sur la
+  page du territoire sur vigilo.city (bouton « Site de l'association »)
 * **Zoom cartes** : niveau de zoom des cartes à l'ouverture des applications (réglable aussi avec la carte, ci-dessous)
 * **URL carte externe** : si besoin, URL d'une carte qui affiche les observations (voir [Configuration UMAP](/fr/documentation/exploitation_donnees/umap/))
 * **URL de base Nominatim** : service de géocodage inverse (adresse à partir de la position), laisser la valeur par défaut sauf besoin
