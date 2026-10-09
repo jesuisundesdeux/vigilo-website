@@ -11,8 +11,11 @@ Le panneau d'administration (`https://adresse_du_serveur/admin/`) est réservé 
 * **Accueil** : observations à modérer, résolutions à valider, chiffres clés
 * **Observations** : modération (approuver, refuser), modification, suppression, recherche (token ou observations
   similaires, rue, ville, catégorie), rattachement à une résolution, notes privées des modérateurs ; les photos y sont
-  affichées sans pixelisation
-* **Résolutions** : validation des résolutions déclarées par les citoyens
+  affichées sans pixelisation. **Actions groupées** : cocher des observations (ou « Tout sélectionner ») puis choisir
+  l'action (approuver, désapprouver, remettre à qualifier, changer la catégorie ou la ville, créer une résolution
+  regroupant la sélection, ajouter à une résolution, supprimer)
+* **Résolutions** : validation des résolutions déclarées par les citoyens ; actions groupées (changer l'état,
+  supprimer) sur les résolutions cochées
 * **Villes**, **Scopes**, **Catégories** : voir la [configuration](/fr/documentation/configuration/)
 * **Comptes** : création des comptes, rôle, villes des comptes citystaff, clé API (voir [Comptes](#comptes))
 * **Configuration** : voir la [configuration de l'instance](/fr/documentation/configuration/global/)
