@@ -1204,10 +1204,6 @@
       "url": "https://api-vigilo.velo-utile.fr"
     },
     {
-      "description": "Toulon - Var — scope 83_toulon",
-      "url": "https://vigilo.toulon-var-deplacements.fr"
-    },
-    {
       "description": "Vannes — scope 56_vannes",
       "url": "https://vigilo.kaz.bzh"
     }
