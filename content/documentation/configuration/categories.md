@@ -37,5 +37,12 @@ utilisée par des observations, la fenêtre propose de **déplacer** ces observa
 de les **supprimer** (avec leurs photos, définitivement). Pour seulement ne plus la proposer, la désactiver (décocher
 **Active**).
 
+**Une catégorie qui pourrait servir à d'autres instances ?** Proposez-la aussi dans la liste nationale : ouvrez une
+pull request sur [vigilo-conf](https://github.com/jesuisundesdeux/vigilo-conf) en ajoutant une entrée à
+`main/categorielist.json` (numéro libre en dessous de 1000, nom, nom en anglais, couleur, résolvable). Une fois
+fusionnée, elle est proposée par toutes les instances et comptée dans les statistiques communes ; vous pourrez alors
+déplacer les observations de votre catégorie vers la catégorie nationale (supprimer votre catégorie en choisissant
+« déplacer ») puis désactiver les doublons.
+
 Pour transmettre les catégories à un outil externe (Open311, Redmine…), voir la correspondance des catégories des
 [webhooks](/fr/documentation/administration/#webhooks).
