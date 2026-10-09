@@ -318,7 +318,7 @@
       "url": "https://github.com/jesuisundesdeux/vigilo-backend/blob/master/LICENSE"
     },
     "title": "API Vigilo",
-    "version": "0.0.24"
+    "version": "0.0.25"
   },
   "openapi": "3.0.3",
   "paths": {
@@ -1119,7 +1119,7 @@
                 "schema": {
                   "properties": {
                     "version": {
-                      "example": "0.0.24",
+                      "example": "0.0.25",
                       "type": "string"
                     }
                   },
