@@ -30,6 +30,9 @@ Guide détaillé du code (construction, script de données, gabarits, JavaScript
 
 ## Règles à respecter
 
+- **Documentation du code** : toute modification du code (gabarits, JavaScript, scripts, configuration) s'accompagne, dans la
+  même PR, de la mise à jour de la documentation concernée dans `doc/` (`GUIDE_CODE.md`) et de ce fichier si
+  l'organisation ou les règles changent.
 - **Données en direct** : les observations sont chargées depuis l'API de chaque instance dans le navigateur ; une
   instance peut être lente, en panne ou en ancienne version. Toujours un message ou un repli (ex. catégories : 
   `get_categories.php` de l'instance, sinon la liste nationale de vigilo-conf).
