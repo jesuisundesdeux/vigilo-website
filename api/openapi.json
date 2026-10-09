@@ -254,6 +254,10 @@
       },
       "Scope": {
         "properties": {
+          "association_url": {
+            "description": "Site web de l'association qui gère le territoire, vide s'il n'est pas renseigné (\u003e= 0.0.28)",
+            "type": "string"
+          },
           "backend_version": {
             "type": "string"
           },
