@@ -175,6 +175,18 @@ function isResolved(o) {
 	return parseInt(o.status, 10) === 1;
 }
 
+// One item per observation: before backend 0.0.27, an observation linked to several resolutions came once
+// per resolution. Keep its most advanced status (resolved > reported resolved > in progress > taken into account).
+const STATUS_RANK = { 1: 4, 4: 3, 3: 2, 2: 1, 0: 0 };
+function uniqueIssues(issues) {
+	const best = new Map();
+	issues.forEach((o) => {
+		const seen = best.get(o.token);
+		if (!seen || (STATUS_RANK[parseInt(o.status, 10)] || 0) > (STATUS_RANK[parseInt(seen.status, 10)] || 0)) best.set(o.token, o);
+	});
+	return issues.filter((o) => best.get(o.token) === o);
+}
+
 async function observationsMap(el) {
 	const api = el.dataset.api;
 	const scope = el.dataset.scope;
@@ -221,6 +233,7 @@ async function observationsMap(el) {
 		const r = await fetch(api + '/get_issues.php?scope=' + encodeURIComponent(scope) + '&count=3000');
 		issues = await r.json();
 		if (!Array.isArray(issues)) throw new Error('bad answer');
+		issues = uniqueIssues(issues);
 	} catch (e) {
 		if (status) status.textContent = 'Les observations de cette instance ne peuvent pas être chargées pour le moment.';
 		return;
