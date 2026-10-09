@@ -246,33 +246,6 @@ paths:
         '400': { $ref: '#/components/responses/Error' }
         '403': { $ref: '#/components/responses/Error' }
         '404': { $ref: '#/components/responses/Error' }
-  /mosaic.php:
-    get:
-      tags: [Observations]
-      summary: Mosaïque des photos
-      description: |
-        Page HTML des images (`generate_panel.php?s=400`) des observations publiques de l'instance. Avec `t` :
-        observations similaires (300 m, même catégorie, même adresse).
-      operationId: mosaic
-      parameters:
-        - name: scope
-          in: query
-          description: Scope (les photos renvoient vers l'application web si l'instance est dans vigilo-conf)
-          schema: { type: string }
-        - name: c
-          in: query
-          description: Catégorie à afficher
-          schema: { type: integer }
-        - name: t
-          in: query
-          description: Token d'une observation, pour afficher les observations similaires
-          schema: { type: string }
-      responses:
-        '200':
-          description: Page HTML
-          content:
-            text/html:
-              schema: { type: string }
   /create_issue.php:
     post:
       tags: [Contribution]
