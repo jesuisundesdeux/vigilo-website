@@ -175,7 +175,7 @@ function isResolved(o) {
 	return parseInt(o.status, 10) === 1;
 }
 
-// One item per observation: before backend 0.0.26, an observation linked to several resolutions came once
+// One item per observation: before backend 0.0.27, an observation linked to several resolutions came once
 // per resolution. Keep its most advanced status (resolved > reported resolved > in progress > taken into account).
 const STATUS_RANK = { 1: 4, 4: 3, 3: 2, 2: 1, 0: 0 };
 function uniqueIssues(issues) {
