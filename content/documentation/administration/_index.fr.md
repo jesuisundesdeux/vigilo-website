@@ -13,7 +13,12 @@ Le panneau d'administration (`https://adresse_du_serveur/admin/`) est réservé 
   similaires, rue, ville, catégorie), rattachement à une résolution, notes privées des modérateurs ; les photos y sont
   affichées sans pixelisation. **Actions groupées** : cocher des observations (ou « Tout sélectionner ») puis choisir
   l'action (approuver, désapprouver, remettre à qualifier, changer la catégorie ou la ville, créer une résolution
-  regroupant la sélection, ajouter à une résolution, supprimer)
+  regroupant la sélection, ajouter à une résolution, archiver ou désarchiver, supprimer).
+  **Archivage** (administrateurs, backend ≥ 0.0.29) : une observation archivée n'est plus listée dans l'application
+  ni sur la carte, mais reste comptée dans les statistiques. Archiver une observation (bouton de sa ligne), une
+  sélection (actions groupées), ou toutes les observations d'une période et d'une catégorie (ou de toutes) avec le
+  cadre « Archiver par période » : le nombre d'observations concernées s'affiche avant de confirmer. Le filtre
+  « Archives » de la recherche retrouve les observations archivées, qui peuvent être désarchivées
 * **Résolutions** : validation des résolutions déclarées par les citoyens ; actions groupées (changer l'état,
   supprimer) sur les résolutions cochées
 * **Villes**, **Scopes**, **Catégories** : voir la [configuration](/fr/documentation/configuration/)
