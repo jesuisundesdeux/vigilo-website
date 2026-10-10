@@ -169,6 +169,10 @@
             "description": "0 : à modérer ; 1 : approuvée ; 2 : refusée",
             "type": "string"
           },
+          "archived": {
+            "description": "1 : archivée, 0 sinon (uniquement avec `archived=1`, backend ≥ 0.0.29)",
+            "type": "integer"
+          },
           "categorie": {
             "description": "Identifiant de catégorie",
             "type": "string"
@@ -905,11 +909,22 @@
             }
           },
           {
-            "description": "Une observation précise",
+            "description": "Une observation précise (même archivée)",
             "in": "query",
             "name": "token",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "description": "`1` : inclut les observations archivées depuis l'admin (statistiques), avec le champ `archived` ;\nsans ce paramètre, elles ne sont pas listées (backend ≥ 0.0.29)\n",
+            "in": "query",
+            "name": "archived",
+            "schema": {
+              "enum": [
+                1
+              ],
+              "type": "integer"
             }
           },
           {
