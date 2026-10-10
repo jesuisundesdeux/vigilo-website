@@ -21,6 +21,11 @@ Le panneau d'administration (`https://adresse_du_serveur/admin/`) est réservé 
   « Archives » de la recherche retrouve les observations archivées, qui peuvent être désarchivées
 * **Résolutions** : validation des résolutions déclarées par les citoyens ; actions groupées (changer l'état,
   supprimer) sur les résolutions cochées
+* **Rapports** (backend ≥ 0.0.29, administrateurs et comptes citystaff pour leurs villes) : rapport des observations
+  publiées pour une collectivité, en document A4 ou en diaporama, à enregistrer en PDF (« Imprimer / PDF »). On choisit
+  la période, les villes et les types d'observation ; le rapport contient les chiffres clés (nombre, évolution, pour
+  10 000 habitants, taux de résolution, délai de résolution…), des graphiques, une carte et les lieux récurrents
+  (observations similaires regroupées : même catégorie, proches ou dans la même rue)
 * **Villes**, **Scopes**, **Catégories** : voir la [configuration](/fr/documentation/configuration/)
 * **Comptes** : création des comptes, rôle, villes des comptes citystaff, clé API (voir [Comptes](#comptes))
 * **Configuration** : voir la [configuration de l'instance](/fr/documentation/configuration/global/)
