@@ -130,8 +130,14 @@ paths:
           schema: { type: string, enum: [day, week, month, year] }
         - name: token
           in: query
-          description: Une observation précise
+          description: Une observation précise (même archivée)
           schema: { type: string }
+        - name: archived
+          in: query
+          description: |
+            `1` : inclut les observations archivées depuis l'admin (statistiques), avec le champ `archived` ;
+            sans ce paramètre, elles ne sont pas listées (backend ≥ 0.0.29)
+          schema: { type: integer, enum: [1] }
         - name: tokenfilters
           in: query
           description: |
@@ -553,6 +559,7 @@ components:
         approved: { type: string, description: "0 : à modérer ; 1 : approuvée ; 2 : refusée" }
         cityname: { type: string, description: "Nom de la ville, absent si inconnu (backend ≥ 0.0.13)" }
         distance: { type: number, description: "Distance en mètres au point `lat`/`lon` (uniquement avec `lat`/`lon`/`radius`)" }
+        archived: { type: integer, description: "1 : archivée, 0 sinon (uniquement avec `archived=1`, backend ≥ 0.0.29)" }
     IssueFeatureCollection:
       type: object
       description: Réponse avec `format=geojson`
