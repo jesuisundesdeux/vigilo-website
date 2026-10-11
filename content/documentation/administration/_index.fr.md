@@ -81,6 +81,10 @@ Les webhooks existants restent abonnés à la publication. Réglages :
   7 jours, à réserver au canal des modérateurs), `{{observation_url}}`, `{{lat}}`, `{{event_description}}` (l'action
   en une phrase, par exemple « Observation ABCD1234 publiée : Véhicule ou objet gênant, Rue de la Gare
   (Montpellier). »), `{{event_label}}` (nom de l'événement)…) ;
+* **Catégories** et **Villes** : limitent le webhook aux observations de ces catégories et de ces villes (aucune
+  case cochée : toutes ; **Sans ville référencée** pour les observations hors des villes de l'instance), par exemple
+  un webhook par service ou par commune ; une résolution est envoyée si l'une de ses observations correspond
+  (version 0.0.30) ;
 * **Correspondance des catégories** : le code de chaque catégorie dans l'outil appelé (variable
   `{{categorie_code}}`, par exemple le `service_code` Open311) ; l'option **N'envoyer que les observations des
   catégories qui ont un code** limite le webhook à ces catégories ;
