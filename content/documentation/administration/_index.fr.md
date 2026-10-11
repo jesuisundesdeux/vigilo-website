@@ -41,7 +41,7 @@ sur tablette et smartphone, et propose un thème sombre.
 ## Rôles
 
 * **admin** : accès complet
-* **moderator** : modération depuis l'application web (mode admin), avec la clé API de son compte ; pas d'accès au
+* **moderator** : modération depuis l'application web, avec la clé API de son compte ; pas d'accès au
   panneau d'administration
 * **citystaff** : services d'une ville, n'accèdent qu'aux observations de leurs villes et peuvent en changer le statut
   (prise en compte, en cours de résolution, résolue)
@@ -54,9 +54,11 @@ Menu **Comptes**, **Ajouter un compte** :
 * **Rôle**, **Nom utilisateur** ;
 * **Login** et **Mot de passe** pour se connecter au panneau d'administration ; sans login, le compte ne sert qu'avec
   sa clé API (cas des modérateurs) ;
+* **Clé fournie par la personne** (facultatif, backend 0.0.30) : clé générée par la personne dans l'application web
+  (« Devenir modérateur ») et qu'elle vous a transmise ; elle devient la clé API du compte ;
 * **Villes du compte citystaff** : villes dont le compte voit les observations.
 
-Une clé API est générée à la création du compte. Elle s'affiche dans la liste sur un écran large (bouton en forme
+Sans clé fournie, une clé API est générée à la création du compte. Elle s'affiche dans la liste sur un écran large (bouton en forme
 d'œil) et peut être régénérée : l'ancienne clé ne fonctionne alors plus. **Modifier** change le compte ; un mot de
 passe laissé vide reste inchangé.
 
