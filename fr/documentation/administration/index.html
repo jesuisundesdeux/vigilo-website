@@ -33,7 +33,10 @@ valeurs en <code>MAJUSCULES</code> ;</li><li><strong>Méthode</strong>, <strong>
 <code>{{comment}}</code>, <code>{{photo_url}}</code>, <code>{{photo_full_url}}</code> (photo d&rsquo;origine même avant modération, lien signé valable
 7 jours, à réserver au canal des modérateurs), <code>{{observation_url}}</code>, <code>{{lat}}</code>, <code>{{event_description}}</code> (l&rsquo;action
 en une phrase, par exemple « Observation ABCD1234 publiée : Véhicule ou objet gênant, Rue de la Gare
-(Montpellier). »), <code>{{event_label}}</code> (nom de l&rsquo;événement)…) ;</li><li><strong>Correspondance des catégories</strong> : le code de chaque catégorie dans l&rsquo;outil appelé (variable
+(Montpellier). »), <code>{{event_label}}</code> (nom de l&rsquo;événement)…) ;</li><li><strong>Catégories</strong> et <strong>Villes</strong> : limitent le webhook aux observations de ces catégories et de ces villes (aucune
+case cochée : toutes ; <strong>Sans ville référencée</strong> pour les observations hors des villes de l&rsquo;instance), par exemple
+un webhook par service ou par commune ; une résolution est envoyée si l&rsquo;une de ses observations correspond
+(version 0.0.30) ;</li><li><strong>Correspondance des catégories</strong> : le code de chaque catégorie dans l&rsquo;outil appelé (variable
 <code>{{categorie_code}}</code>, par exemple le <code>service_code</code> Open311) ; l&rsquo;option <strong>N&rsquo;envoyer que les observations des
 catégories qui ont un code</strong> limite le webhook à ces catégories ;</li><li><strong>Enregistrer et tester</strong> envoie la requête du premier événement coché avec la dernière observation publiée (ou la
 dernière résolution) ; le journal des derniers envois affiche l&rsquo;événement et la réponse de chaque appel.</li></ul><p>Un service en échec n&rsquo;empêche jamais la publication. Détails techniques et exemples :
