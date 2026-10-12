@@ -26,19 +26,30 @@ et copier le contenu du répertoire `app/` à la racine du site.
 
 Le serveur web doit pouvoir écrire dans `images/` et `caches/` (et dans tout le répertoire du code pour les mises à jour
 depuis l'administration). Avec Nginx (qui ne lit pas les `.htaccess`), interdire l'accès à `images/`, `caches/`,
-`migrations/` et `install.php` (voir la [documentation de mise à jour](/fr/documentation/upgrade/)).
+`migrations/` (voir la [documentation de mise à jour](/fr/documentation/upgrade/)).
 
 #### Base de données
 
-Créer une base et un utilisateur, puis créer les tables :
+Créer une base (vide) et un utilisateur chez l'hébergeur, et noter le serveur, le nom de la base, l'utilisateur et le
+mot de passe. Les tables sont créées par l'assistant d'installation (backend 0.0.31 et plus récent).
 
-* avec un accès SSH : `php scripts/vigilo-migrate.php --app=<racine du site>` depuis le répertoire de l'archive ;
-* sinon, dans phpMyAdmin, exécuter `SET SESSION innodb_strict_mode=OFF;` puis les fichiers `app/migrations/init-X.Y.Z.sql`
-  **dans l'ordre des versions** (0.0.1, 0.0.2, … jusqu'à la dernière).
+#### Assistant d'installation
 
-#### Configuration
+Ouvrir `https://adresse_du_serveur/admin/` : tant que l'instance n'est pas installée, l'assistant d'installation
+s'affiche (voir [Initialisation](/fr/documentation/installation/initialisation/)). Il demande le **code d'installation**
+écrit dans le fichier `caches/setup-code.php` du serveur (à ouvrir par FTP ou avec le gestionnaire de fichiers de
+l'hébergeur), puis :
 
-Copier `config/config.php.tpl` vers `config/config.php` et renseigner l'accès à la base de données.
+1. teste l'accès à la base (connexion et droits de création des tables) et enregistre `config/config.php`. Si le
+   dossier `config/` n'est pas accessible en écriture, l'assistant affiche le contenu du fichier à déposer par FTP ;
+2. crée les tables avec les scripts de `migrations/` ;
+3. crée le compte administrateur et renseigne le nom et l'adresse de l'instance.
+
+Installation manuelle (versions antérieures, ou sans l'assistant) : copier `config/config.php.tpl` vers
+`config/config.php` en renseignant l'accès à la base, puis créer les tables avec un accès SSH
+(`php scripts/vigilo-migrate.php --app=<racine du site>`) ou dans phpMyAdmin (`SET SESSION innodb_strict_mode=OFF;` puis
+les fichiers `app/migrations/init-X.Y.Z.sql` dans l'ordre des versions) ; l'assistant ne demande alors plus que le
+compte administrateur.
 
 ### Initialisation
 
