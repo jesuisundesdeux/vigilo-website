@@ -26,15 +26,15 @@ Le compte créé, l'assistant ouvre l'administration et se ferme définitivement
 
 ## Première configuration
 
-L'accueil de l'administration affiche les étapes de configuration restantes, avec un lien vers chaque page (et un
-badge « Étape N » dans le menu) : nom et adresse de l'instance, territoire (scope), villes, référencement de
-l'instance dans [vigilo-conf](https://github.com/jesuisundesdeux/vigilo-conf) pour apparaître dans l'application, puis,
-facultatif, modérateurs et serveur de floutage des photos.
+L'accueil de l'administration affiche les étapes de configuration restantes, avec un lien vers chaque page : nom et
+adresse de l'instance, territoire (scope), villes, référencement de l'instance dans
+[vigilo-conf](https://github.com/jesuisundesdeux/vigilo-conf) pour apparaître dans l'application, puis, facultatif,
+modérateurs.
 
 ## Vérifications
 
 Le panneau d'administration (`https://adresse_du_serveur/admin/`, menu **Mises à jour**) affiche des vérifications de
-sécurité : répertoires `images/` et `caches/` non accessibles depuis le web, absence de l'ancien `install.php`, HTTPS,
+sécurité : répertoires `images/` et `caches/` non accessibles depuis le web, absence de l'ancien `install.php` (supprimé automatiquement depuis la version 0.0.31), HTTPS,
 version de PHP.
 
 ## Configuration
