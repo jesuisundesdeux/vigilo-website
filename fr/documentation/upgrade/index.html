@@ -44,8 +44,9 @@ depuis la page « Mises à jour ». Elle ajoute la page <strong>Catégories</str
 webhooks. Le champ « Texte de partage par défaut » des scopes est retiré (il servait à Twitter). En 0.0.24, avec Docker
 et Watchtower, changez l&rsquo;image de Watchtower comme indiqué ci-dessus ; la migration <code>init-0.0.24.sql</code> (automatique)
 permet d&rsquo;abonner un webhook à plusieurs événements, les webhooks existants restant abonnés à la publication.</p><h3 id=passage-à-la-0-0-31>Passage à la 0.0.31</h3><p>Aucune action manuelle ni migration de base. La première installation passe par l&rsquo;assistant <code>admin/setup.php</code>
-(code d&rsquo;installation, base de données, compte administrateur) : l&rsquo;ancien <code>install.php</code> est retiré, et supprimé de la
-racine par la mise à jour depuis l&rsquo;admin s&rsquo;il y était encore.</p><h3 id=passage-à-la-0-0-30>Passage à la 0.0.30</h3><p>Migration de base automatique (<code>init-0.0.30.sql</code> : colonnes <code>webhook_categories</code> et <code>webhook_cities</code> des webhooks),
+(code d&rsquo;installation, base de données, compte administrateur) : l&rsquo;ancien <code>install.php</code> est retiré ; s&rsquo;il est encore
+présent, il est supprimé au démarrage du conteneur Docker, à l&rsquo;ouverture de l&rsquo;accueil de l&rsquo;admin et par la mise à jour
+depuis l&rsquo;admin.</p><h3 id=passage-à-la-0-0-30>Passage à la 0.0.30</h3><p>Migration de base automatique (<code>init-0.0.30.sql</code> : colonnes <code>webhook_categories</code> et <code>webhook_cities</code> des webhooks),
 appliquée par la mise à jour depuis l&rsquo;admin ou au démarrage du conteneur. Les webhooks existants restent envoyés pour
 toutes les catégories et toutes les villes ; les filtres se choisissent ensuite dans la page Webhooks de l&rsquo;admin.</p><h3 id=passage-à-la-0-0-29>Passage à la 0.0.29</h3><p>Migration de base automatique (<code>init-0.0.29.sql</code> : colonne <code>obs_archived</code> des observations), appliquée par la mise à
 jour depuis l&rsquo;admin ou au démarrage du conteneur. Aucune observation n&rsquo;est archivée par la migration : l&rsquo;archivage se
