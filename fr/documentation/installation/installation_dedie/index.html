@@ -2,18 +2,130 @@
 <span>Vigilo</span>
 </a><input type=checkbox id=nav-toggle class=nav-toggle aria-label=Menu>
 <label for=nav-toggle class=nav-toggle-label aria-hidden=true><span></span></label><nav class=main-nav aria-label="Navigation principale"><ul><li><a href=/fr/app/>Application</a></li><li><a href=/fr/villes/>Villes</a></li><li><a href=/fr/documentation/ class=active aria-current=page>Documentation</a></li><li><a href=/fr/api/>API</a></li><li><a href=/fr/faq/>FAQ</a></li><li><a href=/fr/contact/>Contact</a></li></ul><a class="btn btn-primary btn-small" href=https://app.vigilo.city>Ouvrir l'appli</a></nav></div></header><main id=main><div class="container docs has-nav has-toc"><aside class=docs-nav aria-label="Pages de la section"><details open><summary><a href=/fr/documentation/>Documentation</a></summary><ul><li><a href=/fr/documentation/utilisation/>Guide d'utilisation</a></li><li class=open><a href=/fr/documentation/installation/>Installation de Vigilo</a><ul><li class=open><a href=/fr/documentation/installation/installation_dedie/ class=active aria-current=page>Installation sur serveur dédié avec Docker</a></li><li><a href=/fr/documentation/installation/installation_mutualise/>Installation sur hebergement PHP/MySQL</a></li><li><a href=/fr/documentation/installation/initialisation/>Initialisation</a></li></ul></li><li><a href=/fr/documentation/configuration/>Configuration Vigilo</a></li><li><a href=/fr/documentation/administration/>Guide d'administration</a></li><li><a href=/fr/documentation/exploitation_donnees/>Exploitation des données</a></li><li><a href=/fr/documentation/upgrade/>Mise à jour de Vigilo</a></li><li><a href=/fr/documentation/maintenance/>Maintenance</a></li><li><a href=/fr/documentation/contribution/>Contribution</a></li></ul></details></aside><article class=docs-content><nav class=breadcrumb aria-label="Fil d'Ariane"><a href=/fr/documentation/>Documentation</a><span>/</span><a href=/fr/documentation/installation/>Installation de Vigilo</a><span>/</span></nav><h1>Installation sur serveur dédié avec Docker</h1><div class=prose><h2 id=installation-vigilo-sur-serveur-dédié-avec-docker>Installation Vigilo sur serveur dédié avec Docker</h2><h3 id=pré-requis>Pré-requis</h3><h4 id=logiciel>Logiciel</h4><ul><li>OS Linux</li><li>Docker avec Docker Compose (<code>docker compose</code>)</li><li>Un reverse proxy (Nginx, Caddy, Traefik…) qui gère le certificat HTTPS (Let&rsquo;s Encrypt) et l&rsquo;accès public à Vigilo :
-les applications refusent les instances en HTTP</li></ul><h4 id=connaissances>Connaissances</h4><ul><li>Linux / Docker</li></ul><h3 id=mise-en-place>Mise en place</h3><p>Récupérer le dépôt (seuls <code>docker-compose.yml</code> et <code>.env_sample</code> sont utilisés : le code est dans l&rsquo;image Docker) :</p><pre tabindex=0><code>$ git clone https://github.com/jesuisundesdeux/vigilo-backend.git
-$ cd vigilo-backend
-$ cp .env_sample .env
-</code></pre><p>Adapter les valeurs dans <code>.env</code> :</p><ul><li><code>VOLUME_PATH</code> : répertoire persistant du serveur où sont stockées les données (base, photos, caches, logs)</li><li><code>MYSQL_ROOT_PASSWORD</code>, <code>MYSQL_PASSWORD</code> : mots de passe de la base de données</li><li><code>BIND</code> : adresse d&rsquo;écoute <code>HOTE:PORT</code> vers laquelle le reverse proxy redirige (par exemple <code>127.0.0.1:8080</code>)</li><li><code>VIGILO_IMAGE</code> : image du back-end, <code>vigilobs/vigilo-backend:0.0</code> par défaut (suit les correctifs de la série 0.0)</li><li><code>AUTOUPDATE</code> : <code>true</code> (défaut) pour migrer la base automatiquement au démarrage après une mise à jour</li></ul><p>Lancer le service :</p><pre tabindex=0><code>$ docker compose up -d
-</code></pre><p>La base est créée au premier démarrage.</p><h3 id=options>Options</h3><ul><li><strong>Serveur de floutage</strong> : masque automatiquement visages et plaques d&rsquo;immatriculation sur les photos reçues.
-Ajouter <code>VIGILO_BLUR_URL=http://blur:8000/blur</code> dans <code>.env</code> et démarrer avec <code>docker compose --profile blur up -d</code>
-(<a href=https://github.com/jesuisundesdeux/vigilo-backend/blob/master/blur-server/README.md>documentation</a>).</li><li><strong>Mise à jour depuis l&rsquo;administration</strong> : renseigner <code>WATCHTOWER_TOKEN</code> (chaîne aléatoire) et
-<code>VIGILO_WATCHTOWER_URL=http://watchtower:8080</code> dans <code>.env</code>, puis démarrer avec <code>docker compose --profile watchtower up -d</code>.
-Le bouton <strong>Mettre à jour l&rsquo;image avec Watchtower</strong> apparaît alors dans le menu <strong>Mises à jour</strong>. Le service utilise
-l&rsquo;image <code>nickfedor/watchtower:1</code> (l&rsquo;ancienne image <code>containrrr/watchtower</code> ne démarre plus avec Docker Engine 29) ;
-Watchtower a accès au socket Docker et n&rsquo;agit que sur le conteneur <code>web</code>, à la demande
-(<a href=/fr/documentation/upgrade/#docker>détails</a>).</li></ul><p>Les deux options se combinent : <code>docker compose --profile blur --profile watchtower up -d</code>.</p><h3 id=initialisation>Initialisation</h3><p>Dès que le service est démarré, passer à l&rsquo;étape d&rsquo;initialisation : <a href=/fr/documentation/installation/initialisation/>procédure ici</a></p></div><nav class=prev-next><a href=/fr/documentation/installation/installation_mutualise/>← Installation sur hebergement PHP/MySQL</a></nav></article><aside class=docs-toc aria-label="Sur cette page"><p class=toc-title>Sur cette page</p><nav id=TableOfContents><ul><li><a href=#installation-vigilo-sur-serveur-dédié-avec-docker>Installation Vigilo sur serveur dédié avec Docker</a><ul><li><a href=#pré-requis>Pré-requis</a></li><li><a href=#mise-en-place>Mise en place</a></li><li><a href=#options>Options</a></li><li><a href=#initialisation>Initialisation</a></li></ul></li></ul></nav></aside></div></main><footer class=site-footer><div class="container footer-grid"><div><a class=brand href=/fr/><img src=/images/favicon.png alt width=28 height=28><span>Vigilo</span></a><p class=muted>L'appli collaborative citoyenne pour améliorer les déplacements des piétons, des cyclistes et de toutes les mobilités actives.</p></div><div><h4>Utiliser Vigilo</h4><ul><li><a href=https://app.vigilo.city>Application web</a></li><li><a href=/fr/app/web/>Guide d'utilisation</a></li><li><a href=/fr/villes/>Les villes</a></li><li><a href=/fr/faq/>FAQ</a></li></ul></div><div><h4>Contribuer</h4><ul><li><a href=/fr/documentation/>Documentation</a></li><li><a href=/fr/api/>API</a></li><li><a href=/fr/open311/>Open311</a></li><li><a href=https://github.com/jesuisundesdeux>Code source (GitHub)</a></li><li><a href=/fr/contact/>Nous contacter</a></li></ul></div></div><div class="container footer-bottom muted">Données des observations sous licence <a href=https://creativecommons.org/publicdomain/zero/1.0/deed.fr>CC0</a>
+les applications refusent les instances en HTTP</li></ul><h4 id=connaissances>Connaissances</h4><ul><li>Linux / Docker</li></ul><h3 id=mise-en-place>Mise en place</h3><p>Le code est dans l&rsquo;image Docker : il suffit de deux fichiers, <code>.env</code> et <code>docker-compose.yml</code>, dans un répertoire du
+serveur (par exemple <code>/opt/vigilo</code>).</p><h4 id=env><code>.env</code></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-ini data-lang=ini><span style=display:flex><span><span style=color:#75715e># Appliquer les migrations de la base au démarrage du conteneur (false : depuis l&#39;administration)</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>AUTOUPDATE</span><span style=color:#f92672>=</span><span style=color:#e6db74>true</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Répertoire persistant des données (base, photos, caches, journaux)</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>VOLUME_PATH</span><span style=color:#f92672>=</span><span style=color:#e6db74>/data/vigilo</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Adresse d&#39;écoute HOTE:PORT, vers laquelle le reverse proxy redirige</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>BIND</span><span style=color:#f92672>=</span><span style=color:#e6db74>127.0.0.1:8080</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Base de données (créée au premier démarrage)</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>MYSQL_ROOT_PASSWORD</span><span style=color:#f92672>=</span><span style=color:#e6db74>mot-de-passe-root</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>MYSQL_USER</span><span style=color:#f92672>=</span><span style=color:#e6db74>vigilo</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>MYSQL_PASSWORD</span><span style=color:#f92672>=</span><span style=color:#e6db74>mot-de-passe-vigilo</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>MYSQL_HOST</span><span style=color:#f92672>=</span><span style=color:#e6db74>db</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>MYSQL_DATABASE</span><span style=color:#f92672>=</span><span style=color:#e6db74>vigilo</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Image du back-end : le tag 0.0 suit les correctifs de la série 0.0</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>VIGILO_IMAGE</span><span style=color:#f92672>=</span><span style=color:#e6db74>vigilobs/vigilo-backend:0.0</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Mise à jour depuis l&#39;administration (Watchtower) : chaîne aléatoire,</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># par exemple le résultat de : openssl rand -hex 32</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>WATCHTOWER_TOKEN</span><span style=color:#f92672>=</span><span style=color:#e6db74>a-remplacer</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Serveur de floutage (facultatif, voir plus bas)</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># VIGILO_BLUR_URL=http://blur:8000/blur</span>
+</span></span></code></pre></div><p>Remplacer les mots de passe et <code>WATCHTOWER_TOKEN</code> par des valeurs aléatoires, et protéger le fichier
+(<code>chmod 600 .env</code>).</p><h4 id=docker-compose-yml><code>docker-compose.yml</code></h4><p>Identique au <a href=https://github.com/jesuisundesdeux/vigilo-backend/blob/master/docker-compose.yml>fichier du dépôt</a> :</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#75715e># Vigilo backend with Docker.</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># The code comes from the versioned image: &#34;docker compose pull &amp;&amp; docker compose up -d&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># installs the latest patch of the 0.0 series, the database is migrated at startup</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># (AUTOUPDATE). Watchtower updates it from the admin (page &#34;Mises à jour&#34;): set</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># WATCHTOWER_TOKEN in .env (e.g. openssl rand -hex 32).</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># To mask the faces and licence plates of the photos before they are published,</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># start the blur server too and set VIGILO_BLUR_URL=http://blur:8000/blur in .env:</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#   docker compose --profile blur up -d</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># This file works on its own (no copy of the repository needed): the code is in the images.</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Development with the code of this repository: see docker-compose.dev.yml.</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>services</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>db</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>${MARIADB_IMAGE:-mariadb:lts}</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>${VOLUME_PATH}/db/mysql:/var/lib/mysql</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>environment</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>MARIADB_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>MARIADB_USER=${MYSQL_USER}</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>MARIADB_PASSWORD=${MYSQL_PASSWORD}</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>MARIADB_DATABASE=${MYSQL_DATABASE}</span>
+</span></span><span style=display:flex><span>      <span style=color:#75715e># Upgrade the data files when the MariaDB image changes major version</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>MARIADB_AUTO_UPGRADE=1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>web</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>${VIGILO_IMAGE:-vigilobs/vigilo-backend:0.0}</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>ports</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#e6db74>&#34;${BIND}:80&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>depends_on</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>db</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>${VOLUME_PATH}/files/caches:/var/www/html/caches</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>${VOLUME_PATH}/files/images:/var/www/html/images</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>${VOLUME_PATH}/logs/apache2/var_log_apache2:/var/log/apache2</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>environment</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>MYSQL_HOST</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>MYSQL_USER</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>MYSQL_PASSWORD</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>MYSQL_DATABASE</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>AUTOUPDATE</span>
+</span></span><span style=display:flex><span>      <span style=color:#75715e># Update button of the admin (service watchtower)</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>VIGILO_WATCHTOWER_URL=${VIGILO_WATCHTOWER_URL:-http://watchtower:8080}</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>VIGILO_WATCHTOWER_TOKEN=${WATCHTOWER_TOKEN:-}</span>
+</span></span><span style=display:flex><span>      <span style=color:#75715e># Blur server (profile &#34;blur&#34;); empty: photos published as sent. The admin</span>
+</span></span><span style=display:flex><span>      <span style=color:#75715e># setting &#34;Serveur de floutage&#34; takes precedence when filled in.</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>VIGILO_BLUR_URL=${VIGILO_BLUR_URL:-}</span>
+</span></span><span style=display:flex><span>      <span style=color:#75715e># Closed set of instances (demo): shared configuration (citylist.json,</span>
+</span></span><span style=display:flex><span>      <span style=color:#75715e># categorielist.json) and web app other than vigilo-conf and app.vigilo.city</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>VIGILO_CONF_URL=${VIGILO_CONF_URL:-}</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>VIGILO_WEBAPP_URL=${VIGILO_WEBAPP_URL:-}</span>
+</span></span><span style=display:flex><span>      <span style=color:#75715e># Install code of the setup assistant chosen by the host (12+ letters or digits)</span>
+</span></span><span style=display:flex><span>      <span style=color:#75715e># instead of the one written in caches/setup-code.php</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>VIGILO_SETUP_CODE=${VIGILO_SETUP_CODE:-}</span>
+</span></span><span style=display:flex><span>      <span style=color:#75715e># Reverse proxies in front of the container (networks separated by commas, e.g.</span>
+</span></span><span style=display:flex><span>      <span style=color:#75715e># 172.16.0.0/12): client IP taken from X-Forwarded-For (anti-spam, login throttling)</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>VIGILO_TRUSTED_PROXIES=${VIGILO_TRUSTED_PROXIES:-}</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>labels</span>:
+</span></span><span style=display:flex><span>      <span style=color:#75715e># Only this container is updated by Watchtower</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>com.centurylinklabs.watchtower.enable=true</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e># Updates the &#34;web&#34; image when asked from the admin (HTTP API, not published on the</span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e># host), never on its own. Only the containers labelled</span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e># com.centurylinklabs.watchtower.enable=true are touched.</span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e># nickfedor/watchtower is the maintained fork of containrrr/watchtower (archived): the</span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e># latter speaks the Docker API 1.25, refused by Docker Engine 29 and later.</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>watchtower</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>${WATCHTOWER_IMAGE:-nickfedor/watchtower:1}</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>command</span>: --<span style=color:#ae81ff>http-api-update --label-enable --cleanup</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>environment</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>WATCHTOWER_HTTP_API_TOKEN=${WATCHTOWER_TOKEN:?WATCHTOWER_TOKEN must be set in .env (e.g. openssl rand -hex 32)}</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>/var/run/docker.sock:/var/run/docker.sock</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e># Optional: blur server (blur-server/), masks the faces and licence plates of every</span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e># photo sent to the backend. Enable with: docker compose --profile blur up -d</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>blur</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>${VIGILO_BLUR_IMAGE:-ghcr.io/jesuisundesdeux/vigilo-blur:0.0}</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>profiles</span>: [<span style=color:#e6db74>&#34;blur&#34;</span>]
+</span></span><span style=display:flex><span>    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>environment</span>:
+</span></span><span style=display:flex><span>      <span style=color:#75715e># Photos processed at the same time (CPU and memory)</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>BLUR_WORKERS=${BLUR_WORKERS:-2}</span>
+</span></span></code></pre></div><h4 id=démarrage>Démarrage</h4><pre tabindex=0><code>$ docker compose up -d
+</code></pre><p>La base est créée au premier démarrage. Le service <code>watchtower</code> démarre aussi : il permet de mettre à jour l&rsquo;image
+depuis le menu <strong>Mises à jour</strong> de l&rsquo;administration (bouton <strong>Mettre à jour l&rsquo;image avec Watchtower</strong>). Il n&rsquo;agit que
+sur le conteneur <code>web</code>, seulement à la demande, et son API n&rsquo;est pas exposée sur le serveur. Pour vous en passer,
+retirez le service <code>watchtower</code> du fichier ; les mises à jour se font alors avec
+<code>docker compose pull && docker compose up -d</code> (<a href=/fr/documentation/upgrade/#docker>détails</a>).</p><h3 id=option-serveur-de-floutage>Option : serveur de floutage</h3><p>Masque automatiquement visages et plaques d&rsquo;immatriculation sur les photos reçues. Décommenter
+<code>VIGILO_BLUR_URL=http://blur:8000/blur</code> dans <code>.env</code> et démarrer avec <code>docker compose --profile blur up -d</code>
+(<a href=https://github.com/jesuisundesdeux/vigilo-backend/blob/master/blur-server/README.md>documentation</a>).</p><h3 id=initialisation>Initialisation</h3><p>Dès que le service est démarré, ouvrir <code>https://&lt;votre domaine>/admin/</code> : l&rsquo;assistant d&rsquo;installation demande le code
+d&rsquo;installation affiché par <code>docker compose logs web</code>, puis crée le compte administrateur. La suite est décrite dans
+l&rsquo;<a href=/fr/documentation/installation/initialisation/>étape d&rsquo;initialisation</a>.</p></div><nav class=prev-next><a href=/fr/documentation/installation/installation_mutualise/>← Installation sur hebergement PHP/MySQL</a></nav></article><aside class=docs-toc aria-label="Sur cette page"><p class=toc-title>Sur cette page</p><nav id=TableOfContents><ul><li><a href=#installation-vigilo-sur-serveur-dédié-avec-docker>Installation Vigilo sur serveur dédié avec Docker</a><ul><li><a href=#pré-requis>Pré-requis</a></li><li><a href=#mise-en-place>Mise en place</a></li><li><a href=#option-serveur-de-floutage>Option : serveur de floutage</a></li><li><a href=#initialisation>Initialisation</a></li></ul></li></ul></nav></aside></div></main><footer class=site-footer><div class="container footer-grid"><div><a class=brand href=/fr/><img src=/images/favicon.png alt width=28 height=28><span>Vigilo</span></a><p class=muted>L'appli collaborative citoyenne pour améliorer les déplacements des piétons, des cyclistes et de toutes les mobilités actives.</p></div><div><h4>Utiliser Vigilo</h4><ul><li><a href=https://app.vigilo.city>Application web</a></li><li><a href=/fr/app/web/>Guide d'utilisation</a></li><li><a href=/fr/villes/>Les villes</a></li><li><a href=/fr/faq/>FAQ</a></li></ul></div><div><h4>Contribuer</h4><ul><li><a href=/fr/documentation/>Documentation</a></li><li><a href=/fr/api/>API</a></li><li><a href=/fr/open311/>Open311</a></li><li><a href=https://github.com/jesuisundesdeux>Code source (GitHub)</a></li><li><a href=/fr/contact/>Nous contacter</a></li></ul></div></div><div class="container footer-bottom muted">Données des observations sous licence <a href=https://creativecommons.org/publicdomain/zero/1.0/deed.fr>CC0</a>
 · Fonds de carte © contributeurs <a href=https://www.openstreetmap.org/copyright>OpenStreetMap</a>
 · Vues immersives <a class=footer-panoramax href=https://panoramax.fr><img src=/images/panoramax.svg alt width=16 height=16>Panoramax</a>
 · <a href=/fr/mentions-legales/>Mentions légales</a>

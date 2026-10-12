@@ -13,16 +13,16 @@ correctifs de la série 0.0 (tags publiés : la version exacte, par exemple <cod
 publiée sur <code>ghcr.io/jesuisundesdeux/vigilo-backend</code>). La base est migrée au démarrage du conteneur
 (sauf si <code>AUTOUPDATE=false</code>) ; le conteneur refuse de démarrer si la base est plus récente que le code.</p><p>Mise à jour en ligne de commande :</p><pre tabindex=0><code>docker compose pull
 docker compose up -d
-</code></pre><p>Mise à jour depuis l&rsquo;admin, avec Watchtower (optionnel) : dans <code>.env</code>,</p><pre tabindex=0><code>WATCHTOWER_TOKEN=une-longue-chaine-aleatoire
-VIGILO_WATCHTOWER_URL=http://watchtower:8080
-</code></pre><p>puis <code>docker compose --profile watchtower up -d</code>. Le bouton « Mettre à jour l&rsquo;image avec Watchtower »
-de la page « Mises à jour » télécharge la nouvelle image et redémarre le conteneur. Watchtower n&rsquo;agit
-que sur le conteneur <code>web</code> (label <code>com.centurylinklabs.watchtower.enable</code>) et seulement à la demande.
-Il a accès au socket Docker : ne l&rsquo;activez que si vous en avez besoin.</p><p>Watchtower est l&rsquo;image <code>nickfedor/watchtower</code>, version maintenue de <code>containrrr/watchtower</code> (archivée). Si
+</code></pre><p>Mise à jour depuis l&rsquo;admin, avec Watchtower (service du <code>docker-compose.yml</code>, activé par défaut depuis la 0.0.31) :
+<code>WATCHTOWER_TOKEN</code> dans <code>.env</code> (chaîne aléatoire, par exemple <code>openssl rand -hex 32</code>), partagé par l&rsquo;admin et
+Watchtower. Le bouton « Mettre à jour l&rsquo;image avec Watchtower » de la page « Mises à jour » télécharge la nouvelle
+image et redémarre le conteneur. Watchtower n&rsquo;agit que sur le conteneur <code>web</code> (label
+<code>com.centurylinklabs.watchtower.enable</code>) et seulement à la demande ; son API n&rsquo;est pas publiée sur l&rsquo;hôte. Il a accès
+au socket Docker : pour vous en passer, retirez le service <code>watchtower</code> de votre <code>docker-compose.yml</code>.</p><p>Watchtower est l&rsquo;image <code>nickfedor/watchtower</code>, version maintenue de <code>containrrr/watchtower</code> (archivée). Si
 Watchtower ne démarre pas avec <code>client version 1.25 is too old. Minimum supported API version is 1.44</code> (Docker
 Engine 29 et suivants), c&rsquo;est que l&rsquo;ancienne image est encore utilisée : retirez <code>WATCHTOWER_IMAGE</code> de <code>.env</code> (ou
 mettez <code>WATCHTOWER_IMAGE=nickfedor/watchtower:1</code>), reprenez le <code>docker-compose.yml</code> de cette version, puis
-<code>docker compose --profile watchtower up -d</code>. Le bouton de l&rsquo;admin appelle Watchtower en POST, comme le demande la
+<code>docker compose up -d</code>. Le bouton de l&rsquo;admin appelle Watchtower en POST, comme le demande la
 nouvelle image (backend 0.0.24 et suivants) ; avec un backend plus ancien, gardez <code>containrrr/watchtower:1.7.1</code> en
 ajoutant <code>DOCKER_API_VERSION=1.44</code> à l&rsquo;environnement du service <code>watchtower</code>.</p><p>Pour passer à une nouvelle série (0.1, 1.0…), changez <code>VIGILO_IMAGE</code> dans <code>.env</code>.</p><p>Watchtower et <code>docker compose pull</code> ne mettent à jour que les images : le fichier <code>docker-compose.yml</code> du serveur
 n&rsquo;est jamais modifié. Quand une version le fait évoluer (signalé dans le
@@ -46,7 +46,10 @@ et Watchtower, changez l&rsquo;image de Watchtower comme indiqué ci-dessus ; la
 permet d&rsquo;abonner un webhook à plusieurs événements, les webhooks existants restant abonnés à la publication.</p><h3 id=passage-à-la-0-0-31>Passage à la 0.0.31</h3><p>Aucune action manuelle ni migration de base. La première installation passe par l&rsquo;assistant <code>admin/setup.php</code>
 (code d&rsquo;installation, base de données, compte administrateur) : l&rsquo;ancien <code>install.php</code> est retiré ; s&rsquo;il est encore
 présent, il est supprimé au démarrage du conteneur Docker, à l&rsquo;ouverture de l&rsquo;accueil de l&rsquo;admin et par la mise à jour
-depuis l&rsquo;admin.</p><h3 id=passage-à-la-0-0-30>Passage à la 0.0.30</h3><p>Migration de base automatique (<code>init-0.0.30.sql</code> : colonnes <code>webhook_categories</code> et <code>webhook_cities</code> des webhooks),
+depuis l&rsquo;admin.</p><p>Docker : le service <code>watchtower</code> est maintenant actif par défaut (plus de profil <code>watchtower</code>) et
+<code>VIGILO_WATCHTOWER_URL</code> vaut <code>http://watchtower:8080</code> par défaut. Si vous reprenez le nouveau <code>docker-compose.yml</code>,
+définissez <code>WATCHTOWER_TOKEN</code> dans <code>.env</code> (<code>docker compose</code> refuse de démarrer sans) ; votre ancien fichier continue
+de fonctionner tel quel. Le <code>docker-compose.yml</code> fonctionne seul, sans copie du dépôt.</p><h3 id=passage-à-la-0-0-30>Passage à la 0.0.30</h3><p>Migration de base automatique (<code>init-0.0.30.sql</code> : colonnes <code>webhook_categories</code> et <code>webhook_cities</code> des webhooks),
 appliquée par la mise à jour depuis l&rsquo;admin ou au démarrage du conteneur. Les webhooks existants restent envoyés pour
 toutes les catégories et toutes les villes ; les filtres se choisissent ensuite dans la page Webhooks de l&rsquo;admin.</p><h3 id=passage-à-la-0-0-29>Passage à la 0.0.29</h3><p>Migration de base automatique (<code>init-0.0.29.sql</code> : colonne <code>obs_archived</code> des observations), appliquée par la mise à
 jour depuis l&rsquo;admin ou au démarrage du conteneur. Aucune observation n&rsquo;est archivée par la migration : l&rsquo;archivage se
