@@ -85,7 +85,13 @@ Sur la fiche, **Statut** et **Priorité** se changent directement ; les **notes 
 collectivité, relances, décisions) ne sont visibles que dans le panneau d'administration, jamais publiées ni reprises
 dans les rapports.
 
-Les suggestions de problèmes arrivent dans les prochaines modifications du backend.
+**Suggestions** : le bouton **Rechercher** du cadre Suggestions propose les groupes d'observations publiées qui
+n'appartiennent à aucun problème, de même catégorie et proches (même méthode que les lieux récurrents des rapports).
+Les seuils se règlent dans **Configuration**, cadre « Suggestions de problèmes » : nombre minimal d'observations
+(3 par défaut), distance de regroupement (50 m) et période analysée (12 mois). **Créer le problème** ouvre le
+formulaire prérempli (titre, catégorie, cercle couvrant le groupe, date de la première observation) à vérifier avant
+d'enregistrer, puis **Compter** et **Rattacher** depuis sa fiche ; **Ignorer** ne la propose plus. Aucun problème n'est
+créé automatiquement.
 
 ## Rôles
 
