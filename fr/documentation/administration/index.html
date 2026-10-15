@@ -19,7 +19,9 @@ publiées pour une collectivité, en document A4 ou en diaporama, à enregistrer
 la période, les villes et les types d&rsquo;observation ; le rapport contient les chiffres clés (nombre, évolution, pour
 10 000 habitants, taux de résolution, délai de résolution…), des graphiques, une carte et les lieux récurrents
 (observations similaires regroupées : même catégorie, proches ou dans la même rue) et, pour les administrateurs, les
-problèmes suivis</li><li><strong>Villes</strong>, <strong>Scopes</strong>, <strong>Catégories</strong> : voir la <a href=/fr/documentation/configuration/>configuration</a></li><li><strong>Comptes</strong> : création des comptes, rôle, villes des comptes citystaff, clé API (voir <a href=/fr/documentation/administration/#comptes>Comptes</a>)</li><li><strong>Configuration</strong> : voir la <a href=/fr/documentation/configuration/global/>configuration de l&rsquo;instance</a></li><li><strong>Webhooks</strong> : voir <a href=/fr/documentation/administration/#webhooks>Webhooks</a></li><li><strong>Journal</strong> : actions privilégiées (connexions, modérations, réglages, mises à jour)</li><li><strong>Mises à jour</strong> : versions installées, mise à jour en un clic, vérifications de sécurité (voir <a href=/fr/documentation/upgrade/>Mise à jour</a>)</li></ul><p>Les listes (villes, comptes, catégories de l&rsquo;instance) se lisent dans un tableau ; <strong>Ajouter</strong> et <strong>Modifier</strong> ouvrent
+problèmes suivis et le détail de chaque problème. Depuis la version 0.0.34, les <strong>sections</strong> du rapport se cochent dans
+le formulaire (« Tout cocher », « Tout décocher »)</li><li><strong>Villes</strong>, <strong>Scopes</strong>, <strong>Catégories</strong> : voir la <a href=/fr/documentation/configuration/>configuration</a></li><li><strong>Comptes</strong> : création des comptes, rôle, villes des comptes citystaff, clé API, lien pour choisir son mot de passe
+(voir <a href=/fr/documentation/administration/#comptes>Comptes</a>)</li><li><strong>Configuration</strong> : voir la <a href=/fr/documentation/configuration/global/>configuration de l&rsquo;instance</a></li><li><strong>Webhooks</strong> : voir <a href=/fr/documentation/administration/#webhooks>Webhooks</a></li><li><strong>Journal</strong> : actions privilégiées (connexions, modérations, réglages, mises à jour)</li><li><strong>Mises à jour</strong> : versions installées, mise à jour en un clic, vérifications de sécurité (voir <a href=/fr/documentation/upgrade/>Mise à jour</a>)</li></ul><p>Les listes (villes, comptes, catégories de l&rsquo;instance) se lisent dans un tableau ; <strong>Ajouter</strong> et <strong>Modifier</strong> ouvrent
 une fenêtre de saisie, qui se rouvre avec la saisie si une valeur est refusée. Les photos s&rsquo;ouvrent dans une fenêtre
 en cliquant dessus ; une image par défaut s&rsquo;affiche quand une observation n&rsquo;a pas de photo. Le panneau s&rsquo;utilise aussi
 sur tablette et smartphone, et propose un thème sombre.</p><h2 id=problèmes>Problèmes</h2><p>Menu <strong>Problèmes</strong> (backend ≥ 0.0.32, géré par les administrateurs) : un problème regroupe les observations publiées
@@ -32,21 +34,29 @@ toutes les villes). Le champ propose les rues des observations publiées, et cli
 ajoute sa rue. Une observation correspond si son adresse est dans l&rsquo;une de ces rues, sans tenir compte des
 majuscules, des accents ni du numéro.</li></ul><p>La carte du formulaire affiche les observations de la suggestion (problème créé depuis une suggestion) ou celles
 déjà rattachées au problème modifié ; en zone Rues, celles des rues choisies sont en vert.</p></li></ul><p>La liste se trie par priorité ; on y cherche dans les titres et descriptions, et on filtre par statut (dont « Actifs » :
-ouvert, en cours, en attente), priorité et catégorie. <strong>Modifier</strong> (ou « Modifier la zone » sous la carte de la fiche) reprend le formulaire, pour changer par exemple le
+ouvert, en cours, en attente), priorité et catégorie. L&rsquo;onglet <strong>Carte</strong> (backend ≥ 0.0.34) affiche les mêmes problèmes
+sur une carte (couleur du statut ; un problème de rues est représenté par ses observations) ; un clic ouvre sa fiche.
+<strong>Modifier</strong> (ou « Modifier la zone » sous la carte de la fiche) reprend le formulaire, pour changer par exemple le
 polygone ; supprimer un problème ne
 supprime pas ses observations. Créations, modifications (avec les valeurs changées) et suppressions sont inscrites au
-<strong>Journal</strong>.</p><p>Le titre d&rsquo;un problème ouvre sa <strong>fiche</strong> : informations, carte de la zone et des observations, et observations
-rattachées (photo, date, mode et auteur du rattachement).</p><ul><li><strong>Rattachement des observations existantes</strong> : <strong>Compter</strong> affiche, sans rien modifier, le nombre d&rsquo;observations
+<strong>Journal</strong>.</p><p>Le titre d&rsquo;un problème ouvre sa <strong>fiche</strong> : informations, carte de la zone et des observations, <strong>chronologie et
+horaires</strong> (observations par mois, et matrice jours × heures dont les cases sont d&rsquo;autant plus foncées que les
+observations y sont nombreuses, backend ≥ 0.0.34) et observations rattachées
+(photo, date, mode et auteur du rattachement ; 20 par page).</p><ul><li><strong>Rattachement des observations existantes</strong> : <strong>Compter</strong> affiche, sans rien modifier, le nombre d&rsquo;observations
 publiées qui correspondent au problème, celles déjà rattachées, celles à rattacher et celles qui appartiennent à un
 autre problème. <strong>Rattacher</strong> (après confirmation) refait le calcul et rattache celles qui n&rsquo;appartiennent à aucun
-problème ; on peut recommencer sans risque, rien n&rsquo;est rattaché deux fois.</li><li>Une observation appartient à <strong>un seul problème</strong> : celles d&rsquo;un autre problème ne sont jamais déplacées, elles sont
+problème ; on peut recommencer sans risque, rien n&rsquo;est rattaché deux fois. Les observations <strong>archivées</strong> ne sont
+prises en compte que si la case « Inclure les observations archivées » est cochée (décochée par défaut, backend ≥
+0.0.34).</li><li>Une observation appartient à <strong>un seul problème</strong> : celles d&rsquo;un autre problème ne sont jamais déplacées, elles sont
 listées avec un lien vers cet autre problème. Pour les déplacer, les détacher de l&rsquo;autre problème puis les
 rattacher.</li><li><strong>Rattacher</strong> une observation à la main : saisir son token (observation publiée, même hors de la zone, des
 catégories ou de la période) ; <strong>Détacher</strong> la retire du problème.</li></ul><p><strong>Rattachement automatique</strong> : quand une observation est publiée (approuvée dans le panneau ou depuis
 l&rsquo;application), elle est rattachée au problème actif (ouvert, en cours, en attente) qui lui correspond, s&rsquo;il n&rsquo;y en a
 qu&rsquo;un ; un message l&rsquo;indique lors de l&rsquo;approbation dans le panneau. Si plusieurs problèmes correspondent, elle apparaît
 dans le cadre <strong>À arbitrer</strong> en haut de la page Problèmes : choisir son problème. Un problème résolu ou clos ne reçoit
-plus d&rsquo;observations automatiquement.</p><p><strong>Problème résolu</strong> (backend ≥ 0.0.34) : quand un problème passe à <strong>Résolu</strong>, sa fiche propose de passer ses
+plus d&rsquo;observations automatiquement.</p><p><strong>Diffuser</strong> (backend ≥ 0.0.34) : le bouton <strong>Diffuser</strong> d&rsquo;un problème, dans la liste, appelle les webhooks de
+l&rsquo;événement « Diffusion d&rsquo;un problème » (par exemple pour transmettre le problème à la collectivité, voir
+<a href=/fr/documentation/administration/#webhooks>Webhooks</a>) et passe le problème « En attente ».</p><p>Sur la page <strong>Observations</strong>, une observation rattachée à un problème affiche un lien vers sa fiche.</p><p><strong>Problème résolu</strong> (backend ≥ 0.0.33) : quand un problème passe à <strong>Résolu</strong>, sa fiche propose de passer ses
 observations en résolues (bouton, après confirmation). Celles qui ne sont dans aucune résolution sont regroupées dans
 une nouvelle résolution « Résolue » datée du jour ; les résolutions qui contiennent les autres passent à « Résolue ».
 Si ces résolutions contiennent aussi des observations d&rsquo;un autre endroit, la fiche le signale avant de confirmer : elles
@@ -58,21 +68,31 @@ Les seuils se règlent dans <strong>Configuration</strong>, cadre « Suggestions
 (3 par défaut), distance de regroupement (50 m) et période analysée (12 mois). <strong>Créer le problème</strong> ouvre le
 formulaire prérempli (titre, catégorie, cercle couvrant le groupe, date de la première observation) à vérifier avant
 d&rsquo;enregistrer, puis <strong>Compter</strong> et <strong>Rattacher</strong> depuis sa fiche ; <strong>Ignorer</strong> ne la propose plus. Aucun problème n&rsquo;est
-créé automatiquement.</p><p><strong>Rapport</strong> : un administrateur peut cocher « Inclure les problèmes suivis » dans le formulaire des <strong>Rapports</strong> ; le
-rapport contient alors une section « Problèmes suivis » (problèmes ayant des observations dans le rapport : état,
-priorité, nombre d&rsquo;observations, période), sans les notes internes. Les rapports des comptes citystaff n&rsquo;ont pas cette
-section.</p><h2 id=rôles>Rôles</h2><ul><li><strong>admin</strong> : accès complet</li><li><strong>moderator</strong> : modération depuis l&rsquo;application web, avec la clé API de son compte ; pas d&rsquo;accès au
+créé automatiquement.</p><p><strong>Rapport</strong> : un administrateur peut cocher, dans le formulaire des <strong>Rapports</strong>, les sections « Problèmes suivis »
+(problèmes ayant des observations dans le rapport : état, priorité, nombre d&rsquo;observations, période) et « Détail de
+chaque problème » (backend ≥ 0.0.34 : statut, priorité, date de création, catégories, zone, carte, dernières photos,
+chronologie par mois, matrice jours × heures des observations), sans les notes internes. Les rapports des comptes citystaff
+n&rsquo;ont pas ces sections.</p><h2 id=rôles>Rôles</h2><ul><li><strong>admin</strong> : accès complet</li><li><strong>moderator</strong> : modération depuis l&rsquo;application web, avec la clé API de son compte ; pas d&rsquo;accès au
 panneau d&rsquo;administration</li><li><strong>citystaff</strong> : services d&rsquo;une ville, n&rsquo;accèdent qu&rsquo;aux observations de leurs villes et peuvent en changer le statut
 (prise en compte, en cours de résolution, résolue) ; ils consultent aussi, sans pouvoir les modifier, les problèmes
 qui ont des observations dans leurs villes (sans les notes internes)</li><li><strong>guest</strong> : compte sans droit, en attente d&rsquo;un rôle</li></ul><h2 id=comptes>Comptes</h2><p>Menu <strong>Comptes</strong>, <strong>Ajouter un compte</strong> :</p><ul><li><strong>Rôle</strong>, <strong>Nom utilisateur</strong> ;</li><li><strong>Login</strong> et <strong>Mot de passe</strong> pour se connecter au panneau d&rsquo;administration ; sans login, le compte ne sert qu&rsquo;avec
 sa clé API (cas des modérateurs) ;</li><li><strong>Clé fournie par la personne</strong> (facultatif, backend 0.0.30) : clé générée par la personne dans l&rsquo;application web
 (« Devenir modérateur ») et qu&rsquo;elle vous a transmise ; elle devient la clé API du compte ;</li><li><strong>Villes du compte citystaff</strong> : villes dont le compte voit les observations.</li></ul><p>Sans clé fournie, une clé API est générée à la création du compte. Elle s&rsquo;affiche dans la liste sur un écran large (bouton en forme
 d&rsquo;œil) et peut être régénérée : l&rsquo;ancienne clé ne fonctionne alors plus. <strong>Modifier</strong> change le compte ; un mot de
-passe laissé vide reste inchangé.</p><h2 id=webhooks>Webhooks</h2><p>Menu <strong>Webhooks</strong> : appel d&rsquo;un ou plusieurs services externes (API, outil de l&rsquo;association, messagerie, outil de
+passe laissé vide reste inchangé.</p><p><strong>Lien pour choisir son mot de passe</strong> (backend ≥ 0.0.34, comptes admin et citystaff avec login) : cocher « Envoyer
+un lien pour choisir le mot de passe » à la création du compte (le mot de passe peut alors rester vide), ou utiliser le
+bouton <strong>Lien</strong> d&rsquo;un compte existant (mot de passe oublié). Le lien s&rsquo;affiche une seule fois, avec un bouton
+« Copier » : le transmettre à la personne, qui y choisit son mot de passe (au moins 10 caractères). Il ne sert qu&rsquo;une
+fois, expire après 72 heures et un nouveau lien remplace le précédent. L&rsquo;adresse du lien est celle de l&rsquo;instance
+(Configuration) : vérifier qu&rsquo;elle est renseignée.</p><h2 id=webhooks>Webhooks</h2><p>Menu <strong>Webhooks</strong> : appel d&rsquo;un ou plusieurs services externes (API, outil de l&rsquo;association, messagerie, outil de
 signalement de la collectivité…) à l&rsquo;<strong>événement</strong> choisi dans le formulaire (un seul par webhook : les variables
 et le corps en dépendent ; créer un webhook par événement à suivre) :</p><ul><li><strong>Nouvelle observation</strong> (avant modération) : par exemple pour prévenir les modérateurs dans leur canal ;</li><li><strong>Observation publiée</strong> (approuvée) et <strong>Observation refusée</strong> (désapprouvée) ;</li><li><strong>Nouvelle résolution</strong> (déclarée dans l&rsquo;application ou créée dans l&rsquo;admin) et <strong>Changement d&rsquo;état d&rsquo;une
 résolution</strong> : variables <code>{{resolution_token}}</code>, <code>{{resolution_status_name}}</code>, <code>{{resolution_comment}}</code>,
-<code>{{resolution_observations}}</code>…</li></ul><p>Un webhook créé avant la version 0.0.32 avec plusieurs événements continue d&rsquo;être envoyé ; il est signalé dans la
+<code>{{resolution_observations}}</code>…</li><li><strong>Diffusion d&rsquo;un problème</strong> (bouton « Diffuser » de la page Problèmes, backend ≥ 0.0.34) : variables
+<code>{{problem_title}}</code>, <code>{{problem_description}}</code>, <code>{{problem_status_name}}</code>, <code>{{problem_priority_name}}</code>,
+<code>{{problem_categories}}</code>, <code>{{problem_zone}}</code>, <code>{{problem_observations}}</code> (nombre), <code>{{problem_tokens}}</code>,
+<code>{{problem_first_date}}</code>, <code>{{problem_last_date}}</code>… ; les variables de l&rsquo;observation sont celles de sa dernière
+observation.</li></ul><p>Un webhook créé avant la version 0.0.32 avec plusieurs événements continue d&rsquo;être envoyé ; il est signalé dans la
 liste et doit être modifié pour n&rsquo;en garder qu&rsquo;un. Réglages :</p><ul><li><strong>Modèle</strong> : préremplit le formulaire pour Mastodon, Slack / Mattermost, Discord, Bluesky (via un relais), un outil
 de ticketing de collectivité (<a href=/fr/open311/>Open311</a>), Redmine ou un JSON générique ; il reste à remplacer les
 valeurs en <code>MAJUSCULES</code> ;</li><li><strong>Méthode</strong>, <strong>URL</strong>, <strong>En-têtes</strong>, <strong>Format du corps</strong> et <strong>Corps</strong>, avec des variables (<code>{{token}}</code>,
