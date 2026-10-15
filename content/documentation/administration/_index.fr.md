@@ -75,8 +75,13 @@ rattachées (photo, date, mode et auteur du rattachement).
 * **Rattacher** une observation à la main : saisir son token (observation publiée, même hors de la zone, des
   catégories ou de la période) ; **Détacher** la retire du problème.
 
-Le rattachement automatique à la publication et les suggestions de problèmes arrivent dans les prochaines
-modifications du backend.
+**Rattachement automatique** : quand une observation est publiée (approuvée dans le panneau ou depuis
+l'application), elle est rattachée au problème actif (ouvert, en cours, en attente) qui lui correspond, s'il n'y en a
+qu'un ; un message l'indique lors de l'approbation dans le panneau. Si plusieurs problèmes correspondent, elle apparaît
+dans le cadre **À arbitrer** en haut de la page Problèmes : choisir son problème. Un problème résolu ou clos ne reçoit
+plus d'observations automatiquement.
+
+Les suggestions de problèmes arrivent dans les prochaines modifications du backend.
 
 ## Rôles
 
