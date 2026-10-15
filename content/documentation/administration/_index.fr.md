@@ -93,6 +93,12 @@ qu'un ; un message l'indique lors de l'approbation dans le panneau. Si plusieurs
 dans le cadre **À arbitrer** en haut de la page Problèmes : choisir son problème. Un problème résolu ou clos ne reçoit
 plus d'observations automatiquement.
 
+**Problème résolu** (backend ≥ 0.0.34) : quand un problème passe à **Résolu**, sa fiche propose de passer ses
+observations en résolues (bouton, après confirmation). Celles qui ne sont dans aucune résolution sont regroupées dans
+une nouvelle résolution « Résolue » datée du jour ; les résolutions qui contiennent les autres passent à « Résolue ».
+Si ces résolutions contiennent aussi des observations d'un autre endroit, la fiche le signale avant de confirmer : elles
+seront résolues également. Les observations apparaissent alors résolues dans l'application.
+
 Sur la fiche, **Statut** et **Priorité** se changent directement ; les **notes internes** (échanges avec la
 collectivité, relances, décisions) ne sont visibles que dans le panneau d'administration, jamais publiées ni reprises
 dans les rapports.
