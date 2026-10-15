@@ -6,7 +6,8 @@ weight: 4
 ## Panneau d'administration
 
 Le panneau d'administration (`https://adresse_du_serveur/admin/`) est réservé aux comptes **admin** et **citystaff**
-(ces derniers ne voient que l'accueil, les observations et les résolutions de leurs villes) :
+(ces derniers ne voient que l'accueil, les observations et les résolutions de leurs villes, les rapports et, en
+consultation, les problèmes) :
 
 * **Accueil** : observations à modérer, résolutions à valider, chiffres clés
 * **Observations** : modération (approuver, refuser), modification, suppression, recherche (token ou observations
@@ -21,7 +22,7 @@ Le panneau d'administration (`https://adresse_du_serveur/admin/`) est réservé 
   « Archives » de la recherche retrouve les observations archivées, qui peuvent être désarchivées
 * **Résolutions** : validation des résolutions déclarées par les citoyens ; actions groupées (changer l'état,
   supprimer) sur les résolutions cochées
-* **Problèmes** (backend ≥ 0.0.32, administrateurs) : regroupement des observations sous des problèmes, voir
+* **Problèmes** (backend ≥ 0.0.32, administrateurs ; consultation pour les comptes citystaff) : regroupement des observations sous des problèmes, voir
   [Problèmes](#problèmes)
 * **Rapports** (backend ≥ 0.0.29, administrateurs et comptes citystaff pour leurs villes) : rapport des observations
   publiées pour une collectivité, en document A4 ou en diaporama, à enregistrer en PDF (« Imprimer / PDF »). On choisit
@@ -43,7 +44,7 @@ sur tablette et smartphone, et propose un thème sombre.
 
 ## Problèmes
 
-Menu **Problèmes** (backend ≥ 0.0.32, administrateurs seulement) : un problème regroupe les observations publiées
+Menu **Problèmes** (backend ≥ 0.0.32, géré par les administrateurs) : un problème regroupe les observations publiées
 d'un même endroit et d'un même type, par exemple « Stationnement sur la piste cyclable de l'avenue X ». Il n'est
 visible que dans le panneau d'administration (ni dans l'application, ni sur la carte publique).
 
@@ -105,7 +106,8 @@ section.
 * **moderator** : modération depuis l'application web, avec la clé API de son compte ; pas d'accès au
   panneau d'administration
 * **citystaff** : services d'une ville, n'accèdent qu'aux observations de leurs villes et peuvent en changer le statut
-  (prise en compte, en cours de résolution, résolue)
+  (prise en compte, en cours de résolution, résolue) ; ils consultent aussi, sans pouvoir les modifier, les problèmes
+  qui ont des observations dans leurs villes (sans les notes internes)
 * **guest** : compte sans droit, en attente d'un rôle
 
 ## Comptes
