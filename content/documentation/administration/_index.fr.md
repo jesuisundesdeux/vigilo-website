@@ -62,8 +62,21 @@ ouvert, en cours, en attente), priorité et catégorie. **Modifier** reprend le 
 supprime pas ses observations. Créations, modifications (avec les valeurs changées) et suppressions sont inscrites au
 **Journal**.
 
-Le rattachement des observations aux problèmes (comptage puis rattachement des observations existantes, rattachement
-automatique à la publication, suggestions) arrive dans les prochaines modifications du backend.
+Le titre d'un problème ouvre sa **fiche** : informations, carte de la zone et des observations, et observations
+rattachées (photo, date, mode et auteur du rattachement).
+
+* **Rattachement des observations existantes** : **Compter** affiche, sans rien modifier, le nombre d'observations
+  publiées qui correspondent au problème, celles déjà rattachées, celles à rattacher et celles qui appartiennent à un
+  autre problème. **Rattacher** (après confirmation) refait le calcul et rattache celles qui n'appartiennent à aucun
+  problème ; on peut recommencer sans risque, rien n'est rattaché deux fois.
+* Une observation appartient à **un seul problème** : celles d'un autre problème ne sont jamais déplacées, elles sont
+  listées avec un lien vers cet autre problème. Pour les déplacer, les détacher de l'autre problème puis les
+  rattacher.
+* **Rattacher** une observation à la main : saisir son token (observation publiée, même hors de la zone, des
+  catégories ou de la période) ; **Détacher** la retire du problème.
+
+Le rattachement automatique à la publication et les suggestions de problèmes arrivent dans les prochaines
+modifications du backend.
 
 ## Rôles
 
