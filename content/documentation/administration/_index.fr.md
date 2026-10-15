@@ -81,6 +81,10 @@ qu'un ; un message l'indique lors de l'approbation dans le panneau. Si plusieurs
 dans le cadre **À arbitrer** en haut de la page Problèmes : choisir son problème. Un problème résolu ou clos ne reçoit
 plus d'observations automatiquement.
 
+Sur la fiche, **Statut** et **Priorité** se changent directement ; les **notes internes** (échanges avec la
+collectivité, relances, décisions) ne sont visibles que dans le panneau d'administration, jamais publiées ni reprises
+dans les rapports.
+
 Les suggestions de problèmes arrivent dans les prochaines modifications du backend.
 
 ## Rôles
