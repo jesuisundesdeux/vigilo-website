@@ -55,12 +55,22 @@ visible que dans le panneau d'administration (ni dans l'application, ni sur la c
   d'elles peut être rattachée ;
 * **Début** et **Fin** (facultative) : période sur la date des observations ;
 * **Priorité** (basse, normale, haute, critique) et **Statut** (ouvert, en cours, en attente, résolu, clos) ;
-* **Zone** : un **cercle** (cliquer sur la carte pour placer le centre, déplaçable, puis régler le rayon) ou un
-  **polygone** (cliquer sur la carte pour ajouter ses points, au moins 3 ; « Retirer le dernier point »,
-  « Effacer »). La recherche au-dessus de la carte la déplace vers une ville ou un lieu.
+* **Zone** (la recherche au-dessus de la carte la déplace vers une ville ou un lieu) :
+  * un **cercle** : cliquer sur la carte pour placer le centre (déplaçable), puis régler le rayon ;
+  * un **polygone** : cliquer sur la carte pour ajouter ses points (au moins 3). Un point se **déplace** en le faisant
+    glisser ; le petit point au milieu d'un côté **insère** un point (clic ou glisser) ; un clic droit (appui long sur
+    mobile) **retire** un point ; « Retirer le dernier point », « Effacer » ;
+  * des **rues** (backend ≥ 0.0.33) : une ou plusieurs rues sous la forme « Rue, Ville » (sans ville : la rue dans
+    toutes les villes). Le champ propose les rues des observations publiées, et cliquer sur une observation de la carte
+    ajoute sa rue. Une observation correspond si son adresse est dans l'une de ces rues, sans tenir compte des
+    majuscules, des accents ni du numéro.
+
+  La carte du formulaire affiche les observations de la suggestion (problème créé depuis une suggestion) ou celles
+  déjà rattachées au problème modifié ; en zone Rues, celles des rues choisies sont en vert.
 
 La liste se trie par priorité ; on y cherche dans les titres et descriptions, et on filtre par statut (dont « Actifs » :
-ouvert, en cours, en attente), priorité et catégorie. **Modifier** reprend le formulaire ; supprimer un problème ne
+ouvert, en cours, en attente), priorité et catégorie. **Modifier** (ou « Modifier la zone » sous la carte de la fiche) reprend le formulaire, pour changer par exemple le
+polygone ; supprimer un problème ne
 supprime pas ses observations. Créations, modifications (avec les valeurs changées) et suppressions sont inscrites au
 **Journal**.
 
