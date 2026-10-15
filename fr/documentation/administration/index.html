@@ -46,7 +46,11 @@ catégories ou de la période) ; <strong>Détacher</strong> la retire du problè
 l&rsquo;application), elle est rattachée au problème actif (ouvert, en cours, en attente) qui lui correspond, s&rsquo;il n&rsquo;y en a
 qu&rsquo;un ; un message l&rsquo;indique lors de l&rsquo;approbation dans le panneau. Si plusieurs problèmes correspondent, elle apparaît
 dans le cadre <strong>À arbitrer</strong> en haut de la page Problèmes : choisir son problème. Un problème résolu ou clos ne reçoit
-plus d&rsquo;observations automatiquement.</p><p>Sur la fiche, <strong>Statut</strong> et <strong>Priorité</strong> se changent directement ; les <strong>notes internes</strong> (échanges avec la
+plus d&rsquo;observations automatiquement.</p><p><strong>Problème résolu</strong> (backend ≥ 0.0.34) : quand un problème passe à <strong>Résolu</strong>, sa fiche propose de passer ses
+observations en résolues (bouton, après confirmation). Celles qui ne sont dans aucune résolution sont regroupées dans
+une nouvelle résolution « Résolue » datée du jour ; les résolutions qui contiennent les autres passent à « Résolue ».
+Si ces résolutions contiennent aussi des observations d&rsquo;un autre endroit, la fiche le signale avant de confirmer : elles
+seront résolues également. Les observations apparaissent alors résolues dans l&rsquo;application.</p><p>Sur la fiche, <strong>Statut</strong> et <strong>Priorité</strong> se changent directement ; les <strong>notes internes</strong> (échanges avec la
 collectivité, relances, décisions) ne sont visibles que dans le panneau d&rsquo;administration, jamais publiées ni reprises
 dans les rapports.</p><p><strong>Suggestions</strong> : le bouton <strong>Rechercher</strong> du cadre Suggestions propose les groupes d&rsquo;observations publiées qui
 n&rsquo;appartiennent à aucun problème, de même catégorie et proches (même méthode que les lieux récurrents des rapports).
