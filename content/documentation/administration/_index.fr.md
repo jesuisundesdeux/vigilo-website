@@ -21,6 +21,8 @@ Le panneau d'administration (`https://adresse_du_serveur/admin/`) est réservé 
   « Archives » de la recherche retrouve les observations archivées, qui peuvent être désarchivées
 * **Résolutions** : validation des résolutions déclarées par les citoyens ; actions groupées (changer l'état,
   supprimer) sur les résolutions cochées
+* **Problèmes** (backend ≥ 0.0.32, administrateurs) : regroupement des observations sous des problèmes, voir
+  [Problèmes](#problèmes)
 * **Rapports** (backend ≥ 0.0.29, administrateurs et comptes citystaff pour leurs villes) : rapport des observations
   publiées pour une collectivité, en document A4 ou en diaporama, à enregistrer en PDF (« Imprimer / PDF »). On choisit
   la période, les villes et les types d'observation ; le rapport contient les chiffres clés (nombre, évolution, pour
@@ -37,6 +39,31 @@ Les listes (villes, comptes, catégories de l'instance) se lisent dans un tablea
 une fenêtre de saisie, qui se rouvre avec la saisie si une valeur est refusée. Les photos s'ouvrent dans une fenêtre
 en cliquant dessus ; une image par défaut s'affiche quand une observation n'a pas de photo. Le panneau s'utilise aussi
 sur tablette et smartphone, et propose un thème sombre.
+
+## Problèmes
+
+Menu **Problèmes** (backend ≥ 0.0.32, administrateurs seulement) : un problème regroupe les observations publiées
+d'un même endroit et d'un même type, par exemple « Stationnement sur la piste cyclable de l'avenue X ». Il n'est
+visible que dans le panneau d'administration (ni dans l'application, ni sur la carte publique).
+
+**Nouveau problème** :
+
+* **Titre** et **Description** ;
+* **Catégories** : une ou plusieurs (catégories nationales et celles de l'instance) ; une observation de l'une
+  d'elles peut être rattachée ;
+* **Début** et **Fin** (facultative) : période sur la date des observations ;
+* **Priorité** (basse, normale, haute, critique) et **Statut** (ouvert, en cours, en attente, résolu, clos) ;
+* **Zone** : un **cercle** (cliquer sur la carte pour placer le centre, déplaçable, puis régler le rayon) ou un
+  **polygone** (cliquer sur la carte pour ajouter ses points, au moins 3 ; « Retirer le dernier point »,
+  « Effacer »). La recherche au-dessus de la carte la déplace vers une ville ou un lieu.
+
+La liste se trie par priorité ; on y cherche dans les titres et descriptions, et on filtre par statut (dont « Actifs » :
+ouvert, en cours, en attente), priorité et catégorie. **Modifier** reprend le formulaire ; supprimer un problème ne
+supprime pas ses observations. Créations, modifications (avec les valeurs changées) et suppressions sont inscrites au
+**Journal**.
+
+Le rattachement des observations aux problèmes (comptage puis rattachement des observations existantes, rattachement
+automatique à la publication, suggestions) arrive dans les prochaines modifications du backend.
 
 ## Rôles
 
