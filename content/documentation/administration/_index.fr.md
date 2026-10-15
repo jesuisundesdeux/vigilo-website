@@ -21,7 +21,7 @@ Le panneau d'administration (`https://adresse_du_serveur/admin/`) est réservé 
   « Archives » de la recherche retrouve les observations archivées, qui peuvent être désarchivées
 * **Résolutions** : validation des résolutions déclarées par les citoyens ; actions groupées (changer l'état,
   supprimer) sur les résolutions cochées
-* **Problèmes** (backend ≥ 0.0.34, administrateurs) : regroupement des observations sous des problèmes, voir
+* **Problèmes** (backend ≥ 0.0.32, administrateurs) : regroupement des observations sous des problèmes, voir
   [Problèmes](#problèmes)
 * **Rapports** (backend ≥ 0.0.29, administrateurs et comptes citystaff pour leurs villes) : rapport des observations
   publiées pour une collectivité, en document A4 ou en diaporama, à enregistrer en PDF (« Imprimer / PDF »). On choisit
@@ -42,7 +42,7 @@ sur tablette et smartphone, et propose un thème sombre.
 
 ## Problèmes
 
-Menu **Problèmes** (backend ≥ 0.0.34, administrateurs seulement) : un problème regroupe les observations publiées
+Menu **Problèmes** (backend ≥ 0.0.32, administrateurs seulement) : un problème regroupe les observations publiées
 d'un même endroit et d'un même type, par exemple « Stationnement sur la piste cyclable de l'avenue X ». Il n'est
 visible que dans le panneau d'administration (ni dans l'application, ni sur la carte publique).
 
@@ -63,7 +63,7 @@ supprime pas ses observations. Créations, modifications (avec les valeurs chang
 **Journal**.
 
 Le rattachement des observations aux problèmes (comptage puis rattachement des observations existantes, rattachement
-automatique à la publication, suggestions) arrive dans les prochaines versions du backend.
+automatique à la publication, suggestions) arrive dans les prochaines modifications du backend.
 
 ## Rôles
 
