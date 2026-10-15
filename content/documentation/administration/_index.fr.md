@@ -79,7 +79,8 @@ supprime pas ses observations. Créations, modifications (avec les valeurs chang
 **Journal**.
 
 Le titre d'un problème ouvre sa **fiche** : informations, carte de la zone et des observations, **chronologie et
-horaires** (observations par mois, par jour de la semaine et par heure, backend ≥ 0.0.34) et observations rattachées
+horaires** (observations par mois, et matrice jours × heures dont les cases sont d'autant plus foncées que les
+observations y sont nombreuses, backend ≥ 0.0.34) et observations rattachées
 (photo, date, mode et auteur du rattachement ; 20 par page).
 
 * **Rattachement des observations existantes** : **Compter** affiche, sans rien modifier, le nombre d'observations
@@ -127,7 +128,7 @@ créé automatiquement.
 **Rapport** : un administrateur peut cocher, dans le formulaire des **Rapports**, les sections « Problèmes suivis »
 (problèmes ayant des observations dans le rapport : état, priorité, nombre d'observations, période) et « Détail de
 chaque problème » (backend ≥ 0.0.34 : statut, priorité, date de création, catégories, zone, carte, dernières photos,
-chronologie par mois, jours et heures des observations), sans les notes internes. Les rapports des comptes citystaff
+chronologie par mois, matrice jours × heures des observations), sans les notes internes. Les rapports des comptes citystaff
 n'ont pas ces sections.
 
 ## Rôles
