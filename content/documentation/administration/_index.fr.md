@@ -29,9 +29,11 @@ consultation, les problèmes) :
   la période, les villes et les types d'observation ; le rapport contient les chiffres clés (nombre, évolution, pour
   10 000 habitants, taux de résolution, délai de résolution…), des graphiques, une carte et les lieux récurrents
   (observations similaires regroupées : même catégorie, proches ou dans la même rue) et, pour les administrateurs, les
-  problèmes suivis
+  problèmes suivis et le détail de chaque problème. Depuis la version 0.0.34, les **sections** du rapport se cochent dans
+  le formulaire (« Tout cocher », « Tout décocher »)
 * **Villes**, **Scopes**, **Catégories** : voir la [configuration](/fr/documentation/configuration/)
-* **Comptes** : création des comptes, rôle, villes des comptes citystaff, clé API (voir [Comptes](#comptes))
+* **Comptes** : création des comptes, rôle, villes des comptes citystaff, clé API, lien pour choisir son mot de passe
+  (voir [Comptes](#comptes))
 * **Configuration** : voir la [configuration de l'instance](/fr/documentation/configuration/global/)
 * **Webhooks** : voir [Webhooks](#webhooks)
 * **Journal** : actions privilégiées (connexions, modérations, réglages, mises à jour)
@@ -69,18 +71,24 @@ visible que dans le panneau d'administration (ni dans l'application, ni sur la c
   déjà rattachées au problème modifié ; en zone Rues, celles des rues choisies sont en vert.
 
 La liste se trie par priorité ; on y cherche dans les titres et descriptions, et on filtre par statut (dont « Actifs » :
-ouvert, en cours, en attente), priorité et catégorie. **Modifier** (ou « Modifier la zone » sous la carte de la fiche) reprend le formulaire, pour changer par exemple le
+ouvert, en cours, en attente), priorité et catégorie. L'onglet **Carte** (backend ≥ 0.0.34) affiche les mêmes problèmes
+sur une carte (couleur du statut ; un problème de rues est représenté par ses observations) ; un clic ouvre sa fiche.
+**Modifier** (ou « Modifier la zone » sous la carte de la fiche) reprend le formulaire, pour changer par exemple le
 polygone ; supprimer un problème ne
 supprime pas ses observations. Créations, modifications (avec les valeurs changées) et suppressions sont inscrites au
 **Journal**.
 
-Le titre d'un problème ouvre sa **fiche** : informations, carte de la zone et des observations, et observations
-rattachées (photo, date, mode et auteur du rattachement).
+Le titre d'un problème ouvre sa **fiche** : informations, carte de la zone et des observations, **chronologie et
+horaires** (observations par mois, et matrice jours × heures dont les cases sont d'autant plus foncées que les
+observations y sont nombreuses, backend ≥ 0.0.34) et observations rattachées
+(photo, date, mode et auteur du rattachement ; 20 par page).
 
 * **Rattachement des observations existantes** : **Compter** affiche, sans rien modifier, le nombre d'observations
   publiées qui correspondent au problème, celles déjà rattachées, celles à rattacher et celles qui appartiennent à un
   autre problème. **Rattacher** (après confirmation) refait le calcul et rattache celles qui n'appartiennent à aucun
-  problème ; on peut recommencer sans risque, rien n'est rattaché deux fois.
+  problème ; on peut recommencer sans risque, rien n'est rattaché deux fois. Les observations **archivées** ne sont
+  prises en compte que si la case « Inclure les observations archivées » est cochée (décochée par défaut, backend ≥
+  0.0.34).
 * Une observation appartient à **un seul problème** : celles d'un autre problème ne sont jamais déplacées, elles sont
   listées avec un lien vers cet autre problème. Pour les déplacer, les détacher de l'autre problème puis les
   rattacher.
@@ -93,7 +101,13 @@ qu'un ; un message l'indique lors de l'approbation dans le panneau. Si plusieurs
 dans le cadre **À arbitrer** en haut de la page Problèmes : choisir son problème. Un problème résolu ou clos ne reçoit
 plus d'observations automatiquement.
 
-**Problème résolu** (backend ≥ 0.0.34) : quand un problème passe à **Résolu**, sa fiche propose de passer ses
+**Diffuser** (backend ≥ 0.0.34) : le bouton **Diffuser** d'un problème, dans la liste, appelle les webhooks de
+l'événement « Diffusion d'un problème » (par exemple pour transmettre le problème à la collectivité, voir
+[Webhooks](#webhooks)) et passe le problème « En attente ».
+
+Sur la page **Observations**, une observation rattachée à un problème affiche un lien vers sa fiche.
+
+**Problème résolu** (backend ≥ 0.0.33) : quand un problème passe à **Résolu**, sa fiche propose de passer ses
 observations en résolues (bouton, après confirmation). Celles qui ne sont dans aucune résolution sont regroupées dans
 une nouvelle résolution « Résolue » datée du jour ; les résolutions qui contiennent les autres passent à « Résolue ».
 Si ces résolutions contiennent aussi des observations d'un autre endroit, la fiche le signale avant de confirmer : elles
@@ -111,10 +125,11 @@ formulaire prérempli (titre, catégorie, cercle couvrant le groupe, date de la 
 d'enregistrer, puis **Compter** et **Rattacher** depuis sa fiche ; **Ignorer** ne la propose plus. Aucun problème n'est
 créé automatiquement.
 
-**Rapport** : un administrateur peut cocher « Inclure les problèmes suivis » dans le formulaire des **Rapports** ; le
-rapport contient alors une section « Problèmes suivis » (problèmes ayant des observations dans le rapport : état,
-priorité, nombre d'observations, période), sans les notes internes. Les rapports des comptes citystaff n'ont pas cette
-section.
+**Rapport** : un administrateur peut cocher, dans le formulaire des **Rapports**, les sections « Problèmes suivis »
+(problèmes ayant des observations dans le rapport : état, priorité, nombre d'observations, période) et « Détail de
+chaque problème » (backend ≥ 0.0.34 : statut, priorité, date de création, catégories, zone, carte, dernières photos,
+chronologie par mois, matrice jours × heures des observations), sans les notes internes. Les rapports des comptes citystaff
+n'ont pas ces sections.
 
 ## Rôles
 
@@ -141,6 +156,13 @@ Sans clé fournie, une clé API est générée à la création du compte. Elle s
 d'œil) et peut être régénérée : l'ancienne clé ne fonctionne alors plus. **Modifier** change le compte ; un mot de
 passe laissé vide reste inchangé.
 
+**Lien pour choisir son mot de passe** (backend ≥ 0.0.34, comptes admin et citystaff avec login) : cocher « Envoyer
+un lien pour choisir le mot de passe » à la création du compte (le mot de passe peut alors rester vide), ou utiliser le
+bouton **Lien** d'un compte existant (mot de passe oublié). Le lien s'affiche une seule fois, avec un bouton
+« Copier » : le transmettre à la personne, qui y choisit son mot de passe (au moins 10 caractères). Il ne sert qu'une
+fois, expire après 72 heures et un nouveau lien remplace le précédent. L'adresse du lien est celle de l'instance
+(Configuration) : vérifier qu'elle est renseignée.
+
 ## Webhooks
 
 Menu **Webhooks** : appel d'un ou plusieurs services externes (API, outil de l'association, messagerie, outil de
@@ -152,6 +174,11 @@ et le corps en dépendent ; créer un webhook par événement à suivre) :
 * **Nouvelle résolution** (déclarée dans l'application ou créée dans l'admin) et **Changement d'état d'une
   résolution** : variables `{{resolution_token}}`, `{{resolution_status_name}}`, `{{resolution_comment}}`,
   `{{resolution_observations}}`…
+* **Diffusion d'un problème** (bouton « Diffuser » de la page Problèmes, backend ≥ 0.0.34) : variables
+  `{{problem_title}}`, `{{problem_description}}`, `{{problem_status_name}}`, `{{problem_priority_name}}`,
+  `{{problem_categories}}`, `{{problem_zone}}`, `{{problem_observations}}` (nombre), `{{problem_tokens}}`,
+  `{{problem_first_date}}`, `{{problem_last_date}}`… ; les variables de l'observation sont celles de sa dernière
+  observation.
 
 Un webhook créé avant la version 0.0.32 avec plusieurs événements continue d'être envoyé ; il est signalé dans la
 liste et doit être modifié pour n'en garder qu'un. Réglages :
