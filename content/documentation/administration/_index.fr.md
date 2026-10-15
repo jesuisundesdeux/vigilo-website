@@ -6,7 +6,8 @@ weight: 4
 ## Panneau d'administration
 
 Le panneau d'administration (`https://adresse_du_serveur/admin/`) est réservé aux comptes **admin** et **citystaff**
-(ces derniers ne voient que l'accueil, les observations et les résolutions de leurs villes) :
+(ces derniers ne voient que l'accueil, les observations et les résolutions de leurs villes, les rapports et, en
+consultation, les problèmes) :
 
 * **Accueil** : observations à modérer, résolutions à valider, chiffres clés
 * **Observations** : modération (approuver, refuser), modification, suppression, recherche (token ou observations
@@ -21,13 +22,14 @@ Le panneau d'administration (`https://adresse_du_serveur/admin/`) est réservé 
   « Archives » de la recherche retrouve les observations archivées, qui peuvent être désarchivées
 * **Résolutions** : validation des résolutions déclarées par les citoyens ; actions groupées (changer l'état,
   supprimer) sur les résolutions cochées
-* **Problèmes** (backend ≥ 0.0.32, administrateurs) : regroupement des observations sous des problèmes, voir
+* **Problèmes** (backend ≥ 0.0.32, administrateurs ; consultation pour les comptes citystaff) : regroupement des observations sous des problèmes, voir
   [Problèmes](#problèmes)
 * **Rapports** (backend ≥ 0.0.29, administrateurs et comptes citystaff pour leurs villes) : rapport des observations
   publiées pour une collectivité, en document A4 ou en diaporama, à enregistrer en PDF (« Imprimer / PDF »). On choisit
   la période, les villes et les types d'observation ; le rapport contient les chiffres clés (nombre, évolution, pour
   10 000 habitants, taux de résolution, délai de résolution…), des graphiques, une carte et les lieux récurrents
-  (observations similaires regroupées : même catégorie, proches ou dans la même rue)
+  (observations similaires regroupées : même catégorie, proches ou dans la même rue) et, pour les administrateurs, les
+  problèmes suivis
 * **Villes**, **Scopes**, **Catégories** : voir la [configuration](/fr/documentation/configuration/)
 * **Comptes** : création des comptes, rôle, villes des comptes citystaff, clé API (voir [Comptes](#comptes))
 * **Configuration** : voir la [configuration de l'instance](/fr/documentation/configuration/global/)
@@ -42,7 +44,7 @@ sur tablette et smartphone, et propose un thème sombre.
 
 ## Problèmes
 
-Menu **Problèmes** (backend ≥ 0.0.32, administrateurs seulement) : un problème regroupe les observations publiées
+Menu **Problèmes** (backend ≥ 0.0.32, géré par les administrateurs) : un problème regroupe les observations publiées
 d'un même endroit et d'un même type, par exemple « Stationnement sur la piste cyclable de l'avenue X ». Il n'est
 visible que dans le panneau d'administration (ni dans l'application, ni sur la carte publique).
 
@@ -85,7 +87,18 @@ Sur la fiche, **Statut** et **Priorité** se changent directement ; les **notes 
 collectivité, relances, décisions) ne sont visibles que dans le panneau d'administration, jamais publiées ni reprises
 dans les rapports.
 
-Les suggestions de problèmes arrivent dans les prochaines modifications du backend.
+**Suggestions** : le bouton **Rechercher** du cadre Suggestions propose les groupes d'observations publiées qui
+n'appartiennent à aucun problème, de même catégorie et proches (même méthode que les lieux récurrents des rapports).
+Les seuils se règlent dans **Configuration**, cadre « Suggestions de problèmes » : nombre minimal d'observations
+(3 par défaut), distance de regroupement (50 m) et période analysée (12 mois). **Créer le problème** ouvre le
+formulaire prérempli (titre, catégorie, cercle couvrant le groupe, date de la première observation) à vérifier avant
+d'enregistrer, puis **Compter** et **Rattacher** depuis sa fiche ; **Ignorer** ne la propose plus. Aucun problème n'est
+créé automatiquement.
+
+**Rapport** : un administrateur peut cocher « Inclure les problèmes suivis » dans le formulaire des **Rapports** ; le
+rapport contient alors une section « Problèmes suivis » (problèmes ayant des observations dans le rapport : état,
+priorité, nombre d'observations, période), sans les notes internes. Les rapports des comptes citystaff n'ont pas cette
+section.
 
 ## Rôles
 
@@ -93,7 +106,8 @@ Les suggestions de problèmes arrivent dans les prochaines modifications du back
 * **moderator** : modération depuis l'application web, avec la clé API de son compte ; pas d'accès au
   panneau d'administration
 * **citystaff** : services d'une ville, n'accèdent qu'aux observations de leurs villes et peuvent en changer le statut
-  (prise en compte, en cours de résolution, résolue)
+  (prise en compte, en cours de résolution, résolue) ; ils consultent aussi, sans pouvoir les modifier, les problèmes
+  qui ont des observations dans leurs villes (sans les notes internes)
 * **guest** : compte sans droit, en attente d'un rôle
 
 ## Comptes
