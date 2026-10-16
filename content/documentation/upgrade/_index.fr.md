@@ -18,7 +18,7 @@ Quand une nouvelle version est publiée, le bouton **« Installer la version X �
 1. télécharge l'archive de la version publiée sur GitHub et vérifie sa somme SHA-256
    (et sa signature ed25519 si une clé publique est définie dans `app/includes/release_key.php`) ;
 2. vérifie la version de PHP et les extensions demandées par la nouvelle version ;
-3. sauvegarde le code et la base dans `caches/updates/` (les 3 dernières sauvegardes sont gardées) ;
+3. sauvegarde le code et la base
 4. installe les fichiers (sans toucher à `config/config.php`, `images/` et `caches/`) ;
 5. applique les migrations de la base ;
 6. vérifie que l'instance répond avec la nouvelle version ;
@@ -80,7 +80,7 @@ mise à jour ne demande une action que dans les cas ci-dessous. Les nouveautés 
 | Version de départ | Vers | Actions |
 |---|---|---|
 | 0.0.17 à 0.0.21 | 0.0.22 | Mise à jour manuelle (ci-dessous) |
-| 0.0.22 à 0.0.31 | 0.0.32 et suivantes | Webhooks à plusieurs événements ; Docker : `WATCHTOWER_TOKEN` (ci-dessous) |
+| 0.0.22 à 0.0.31 | 0.0.32 et suivantes | Docker : `WATCHTOWER_TOKEN` ; à vérifier : webhooks à plusieurs événements (ci-dessous) |
 | 0.0.32, 0.0.33 | 0.0.34 et suivantes | Vérifier l'adresse de l'instance (ci-dessous) |
 | 0.0.34 et suivantes | dernière version | Aucune |
 
@@ -107,11 +107,12 @@ Une mise à jour qui saute plusieurs versions cumule leurs actions.
 
 #### Vers 0.0.32 et suivantes
 
-- **Webhooks** : un webhook ne suit plus qu'un événement. Ceux abonnés à plusieurs événements sont signalés dans la
-  page Webhooks de l'admin (ils continuent d'être envoyés) : n'en garder qu'un, et créer un webhook pour chacun des
-  autres.
 - **Docker** : si vous reprenez le nouveau `docker-compose.yml` (Watchtower actif par défaut), définissez
   `WATCHTOWER_TOKEN` dans `.env` (`docker compose` refuse de démarrer sans). L'ancien fichier continue de fonctionner.
+- **À vérifier, non bloquant** (seulement si des webhooks ont été abonnés à plusieurs événements, possible de la
+  0.0.24 à la 0.0.31) : un webhook ne suit plus qu'un événement. Ces webhooks continuent d'être envoyés et sont
+  signalés dans la page Webhooks ; les scinder (un webhook par événement) avant de les modifier, car l'enregistrement
+  du formulaire ne garde qu'un événement.
 
 #### Vers 0.0.34 et suivantes
 
