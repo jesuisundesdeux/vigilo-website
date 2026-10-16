@@ -9,7 +9,8 @@ Le panneau d'administration (`https://adresse_du_serveur/admin/`) est réservé 
 (ces derniers ne voient que l'accueil, les observations et les résolutions de leurs villes, les rapports et, en
 consultation, les problèmes) :
 
-* **Accueil** : observations à modérer, résolutions à valider, chiffres clés
+* **Accueil** : observations à modérer, résolutions à valider, chiffres clés (dont, backend ≥ 0.0.34, le nombre de
+  problèmes et la part des observations publiées rattachées à un problème)
 * **Observations** : modération (approuver, refuser), modification, suppression, recherche (token ou observations
   similaires, rue, ville, catégorie), rattachement à une résolution, notes privées des modérateurs ; les photos y sont
   affichées sans pixelisation. **Actions groupées** : cocher des observations (ou « Tout sélectionner ») puis choisir
@@ -114,8 +115,16 @@ Si ces résolutions contiennent aussi des observations d'un autre endroit, la fi
 seront résolues également. Les observations apparaissent alors résolues dans l'application.
 
 Sur la fiche, **Statut** et **Priorité** se changent directement ; les **notes internes** (échanges avec la
-collectivité, relances, décisions) ne sont visibles que dans le panneau d'administration, jamais publiées ni reprises
-dans les rapports.
+collectivité, relances, décisions ; bouton **Notes** de l'encart principal, avec leur nombre) ne sont visibles que dans
+le panneau d'administration, jamais publiées ni reprises dans les rapports.
+
+**Séparer** (backend ≥ 0.0.34) : sur la fiche, cocher des observations rattachées puis choisir « vers un nouveau
+problème » (copie du problème, à renommer ; modifier ensuite sa zone pour que les nouvelles observations ne
+correspondent pas aux deux) ou « vers un autre problème ».
+
+**Fusionner** (backend ≥ 0.0.34) : le cadre « Fusionner avec un autre problème » de la fiche fait passer le problème
+dans celui choisi : observations et notes déplacées, catégories ajoutées, période couvrant les deux ; la zone du
+problème choisi est gardée et le problème fusionné est supprimé.
 
 **Suggestions** : le bouton **Rechercher** du cadre Suggestions propose les groupes d'observations publiées qui
 n'appartiennent à aucun problème, de même catégorie et proches (même méthode que les lieux récurrents des rapports).
