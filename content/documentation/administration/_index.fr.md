@@ -31,8 +31,8 @@ consultation, les problèmes) :
   10 000 habitants, taux de résolution, délai de résolution…), des graphiques, une carte et les lieux récurrents
   (observations similaires regroupées : même catégorie, proches ou dans la même rue) et, pour les administrateurs, les
   problèmes suivis et le détail de chaque problème. Depuis la version 0.0.34, les **sections** du rapport se cochent dans
-  le formulaire (« Tout cocher », « Tout décocher ») ; une photo absente est remplacée par l'image « Photo non
-  disponible » et, sur les cartes, les points sont réduits quand ils se chevauchent
+  le formulaire (« Tout cocher », « Tout décocher ») ; depuis la version 0.0.35, une photo absente est remplacée par
+  l'image « Photo non disponible » et, sur les cartes, les points sont réduits quand ils se chevauchent
 * **Villes**, **Scopes**, **Catégories** : voir la [configuration](/fr/documentation/configuration/)
 * **Comptes** : création des comptes, rôle, villes des comptes citystaff, clé API, lien pour choisir son mot de passe
   (voir [Comptes](#comptes))
@@ -73,10 +73,10 @@ visible que dans le panneau d'administration (ni dans l'application, ni sur la c
   déjà rattachées au problème modifié ; en zone Rues, celles des rues choisies sont en vert.
 
 La liste se trie par priorité ; on y cherche dans les titres et descriptions, et on filtre par statut, priorité et
-catégorie. Depuis la version 0.0.34, seuls les problèmes **actifs** (ouvert, en cours, en attente) sont affichés par
+catégorie. Depuis la version 0.0.35, seuls les problèmes **actifs** (ouvert, en cours, en attente) sont affichés par
 défaut : choisir le statut « Tous » pour voir aussi les problèmes résolus et clos. L'onglet **Carte** (backend ≥ 0.0.34)
 affiche les mêmes problèmes sur une carte (couleur du statut ; un problème de rues est représenté par ses rues
-surlignées, ou par ses observations si elles ne sont pas trouvées sur OpenStreetMap) ; un clic ouvre sa fiche.
+surlignées depuis la version 0.0.35, ou par ses observations si elles ne sont pas trouvées sur OpenStreetMap) ; un clic ouvre sa fiche.
 **Modifier** (ou « Modifier la zone » sous la carte de la fiche) reprend le formulaire, pour changer par exemple le
 polygone ; supprimer un problème ne
 supprime pas ses observations. Créations, modifications (avec les valeurs changées) et suppressions sont inscrites au
@@ -142,7 +142,7 @@ créé automatiquement.
 (problèmes ayant des observations dans le rapport : état, priorité, nombre d'observations, période) et « Détail de
 chaque problème » (backend ≥ 0.0.34 : statut, priorité, date de création, catégories, zone, carte, dernières photos,
 chronologie par mois, matrice jours × heures des observations), sans les notes internes. Les cases **Problèmes à
-inclure** (backend ≥ 0.0.34) limitent ces sections aux problèmes des statuts cochés (aucun coché : tous). Les rapports
+inclure** (backend ≥ 0.0.35) limitent ces sections aux problèmes des statuts cochés (aucun coché : tous). Les rapports
 des comptes citystaff n'ont pas ces sections.
 
 ## Rôles
