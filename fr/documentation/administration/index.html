@@ -61,7 +61,13 @@ qu&rsquo;un ; un message l&rsquo;indique lors de l&rsquo;approbation dans le pan
 dans le cadre <strong>À arbitrer</strong> en haut de la page Problèmes : choisir son problème. Un problème résolu ou clos ne reçoit
 plus d&rsquo;observations automatiquement.</p><p><strong>Diffuser</strong> (backend ≥ 0.0.34) : le bouton <strong>Diffuser</strong> d&rsquo;un problème, dans la liste, appelle les webhooks de
 l&rsquo;événement « Diffusion d&rsquo;un problème » (par exemple pour transmettre le problème à la collectivité, voir
-<a href=/fr/documentation/administration/#webhooks>Webhooks</a>) et passe le problème « En attente ».</p><p>Sur la page <strong>Observations</strong>, une observation rattachée à un problème affiche un lien vers sa fiche.</p><p><strong>Problème résolu</strong> (backend ≥ 0.0.33) : quand un problème passe à <strong>Résolu</strong>, sa fiche propose de passer ses
+<a href=/fr/documentation/administration/#webhooks>Webhooks</a>) et passe le problème « En attente ». Depuis la version 0.0.35, il est grisé tant qu&rsquo;aucun
+webhook actif ne suit cet événement.</p><p><strong>Rapport d&rsquo;un problème</strong> (backend ≥ 0.0.35) : le bouton <strong>Rapport</strong> de la fiche ouvre un rapport à imprimer ou à
+enregistrer en PDF (« Imprimer / PDF »), en document ou en diaporama. Il analyse les observations du problème :
+synthèse (chiffres clés, constats rédigés), <strong>temporalité</strong> (période, rythme, tendance des 3 derniers mois, frise,
+évolution, jours et heures, moments de la journée), <strong>répartition géographique</strong> (carte, dispersion autour du centre,
+rues, points chauds, observations hors de la zone), types, état de traitement et dernières photos. Les notes internes
+n&rsquo;y figurent jamais ; un compte citystaff n&rsquo;y voit que les observations de ses villes.</p><p>Sur la page <strong>Observations</strong>, une observation rattachée à un problème affiche un lien vers sa fiche.</p><p><strong>Problème résolu</strong> (backend ≥ 0.0.33) : quand un problème passe à <strong>Résolu</strong>, sa fiche propose de passer ses
 observations en résolues (bouton, après confirmation). Celles qui ne sont dans aucune résolution sont regroupées dans
 une nouvelle résolution « Résolue » datée du jour ; les résolutions qui contiennent les autres passent à « Résolue ».
 Si ces résolutions contiennent aussi des observations d&rsquo;un autre endroit, la fiche le signale avant de confirmer : elles
