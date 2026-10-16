@@ -29,7 +29,7 @@ en cliquant dessus ; une image par défaut s&rsquo;affiche quand une observation
 sur tablette et smartphone, et propose un thème sombre.</p><h2 id=problèmes>Problèmes</h2><p>Menu <strong>Problèmes</strong> (backend ≥ 0.0.32, géré par les administrateurs) : un problème regroupe les observations publiées
 d&rsquo;un même endroit et d&rsquo;un même type, par exemple « Stationnement sur la piste cyclable de l&rsquo;avenue X ». Il n&rsquo;est
 visible que dans le panneau d&rsquo;administration (ni dans l&rsquo;application, ni sur la carte publique).</p><p><strong>Nouveau problème</strong> :</p><ul><li><p><strong>Titre</strong> et <strong>Description</strong> ;</p></li><li><p><strong>Catégories</strong> : une ou plusieurs (catégories nationales et celles de l&rsquo;instance) ; une observation de l&rsquo;une
-d&rsquo;elles peut être rattachée ;</p></li><li><p><strong>Début</strong> et <strong>Fin</strong> (facultative) : période sur la date des observations ;</p></li><li><p><strong>Priorité</strong> (basse, normale, haute, critique) et <strong>Statut</strong> (ouvert, en cours, en attente, résolu, clos) ;</p></li><li><p><strong>Zone</strong> (la recherche au-dessus de la carte la déplace vers une ville ou un lieu) :</p><ul><li>un <strong>cercle</strong> : cliquer sur la carte pour placer le centre (déplaçable), puis régler le rayon ;</li><li>un <strong>polygone</strong> : cliquer sur la carte pour ajouter ses points (au moins 3). Un point se <strong>déplace</strong> en le faisant
+d&rsquo;elles peut être rattachée. Aucune case cochée : toutes les catégories (backend ≥ 0.0.36) ;</p></li><li><p><strong>Début</strong> et <strong>Fin</strong> (facultative) : période sur la date des observations ;</p></li><li><p><strong>Priorité</strong> (basse, normale, haute, critique) et <strong>Statut</strong> (ouvert, en cours, en attente, résolu, clos) ;</p></li><li><p><strong>Zone</strong> (la recherche au-dessus de la carte la déplace vers une ville ou un lieu) :</p><ul><li>un <strong>cercle</strong> : cliquer sur la carte pour placer le centre (déplaçable), puis régler le rayon ;</li><li>un <strong>polygone</strong> : cliquer sur la carte pour ajouter ses points (au moins 3). Un point se <strong>déplace</strong> en le faisant
 glisser ; le petit point au milieu d&rsquo;un côté <strong>insère</strong> un point (clic ou glisser) ; un clic droit (appui long sur
 mobile) <strong>retire</strong> un point ; « Retirer le dernier point », « Effacer » ;</li><li>des <strong>rues</strong> (backend ≥ 0.0.33) : une ou plusieurs rues sous la forme « Rue, Ville » (sans ville : la rue dans
 toutes les villes). Le champ propose les rues des observations publiées, et cliquer sur une observation de la carte
@@ -52,7 +52,8 @@ autre problème. <strong>Rattacher</strong> (après confirmation) refait le calc
 problème ; on peut recommencer sans risque, rien n&rsquo;est rattaché deux fois. Les observations <strong>archivées</strong> ne sont
 prises en compte que si la case « Inclure les observations archivées » est cochée (décochée par défaut, backend ≥
 0.0.34). Dès la <strong>création</strong> d&rsquo;un problème (backend ≥ 0.0.34), ce comptage s&rsquo;affiche dans une fenêtre qui propose
-directement de rattacher les observations trouvées.</li><li>Une observation appartient à <strong>un seul problème</strong> : celles d&rsquo;un autre problème ne sont jamais déplacées, elles sont
+directement de rattacher les observations trouvées.</li><li>Après l&rsquo;enregistrement d&rsquo;un problème (création ou modification), sa fiche s&rsquo;affiche ; sur la fiche, chaque action
+(compter, rattacher, détacher, séparer) ramène à son cadre, avec son message (backend ≥ 0.0.36).</li><li>Une observation appartient à <strong>un seul problème</strong> : celles d&rsquo;un autre problème ne sont jamais déplacées, elles sont
 listées avec un lien vers cet autre problème. Pour les déplacer, les détacher de l&rsquo;autre problème puis les
 rattacher.</li><li><strong>Rattacher</strong> une observation à la main : saisir son token (observation publiée, même hors de la zone, des
 catégories ou de la période) ; <strong>Détacher</strong> la retire du problème.</li></ul><p><strong>Rattachement automatique</strong> : quand une observation est publiée (approuvée dans le panneau ou depuis
@@ -76,7 +77,7 @@ collectivité, relances, décisions ; bouton <strong>Notes</strong> de l&rsquo;e
 le panneau d&rsquo;administration, jamais publiées ni reprises dans les rapports.</p><p><strong>Séparer</strong> (backend ≥ 0.0.34) : sur la fiche, cocher des observations rattachées puis choisir « vers un nouveau
 problème » (copie du problème, à renommer ; modifier ensuite sa zone pour que les nouvelles observations ne
 correspondent pas aux deux) ou « vers un autre problème ».</p><p><strong>Fusionner</strong> (backend ≥ 0.0.34) : le cadre « Fusionner avec un autre problème » de la fiche fait passer le problème
-dans celui choisi : observations et notes déplacées, catégories ajoutées, période couvrant les deux ; la zone du
+dans celui choisi : observations et notes déplacées, catégories ajoutées (toutes si l&rsquo;un des deux n&rsquo;en a pas), période couvrant les deux ; la zone du
 problème choisi est gardée et le problème fusionné est supprimé.</p><p><strong>Suggestions</strong> : le bouton <strong>Rechercher</strong> du cadre Suggestions propose les groupes d&rsquo;observations publiées qui
 n&rsquo;appartiennent à aucun problème, de même catégorie et proches (même méthode que les lieux récurrents des rapports).
 Les seuils se règlent dans <strong>Configuration</strong>, cadre « Suggestions de problèmes » : nombre minimal d&rsquo;observations
@@ -106,7 +107,7 @@ et le corps en dépendent ; créer un webhook par événement à suivre) :</p><u
 résolution</strong> : variables <code>{{resolution_token}}</code>, <code>{{resolution_status_name}}</code>, <code>{{resolution_comment}}</code>,
 <code>{{resolution_observations}}</code>…</li><li><strong>Diffusion d&rsquo;un problème</strong> (bouton « Diffuser » de la page Problèmes, backend ≥ 0.0.34) : variables
 <code>{{problem_title}}</code>, <code>{{problem_description}}</code>, <code>{{problem_status_name}}</code>, <code>{{problem_priority_name}}</code>,
-<code>{{problem_categories}}</code>, <code>{{problem_zone}}</code>, <code>{{problem_observations}}</code> (nombre), <code>{{problem_tokens}}</code>,
+<code>{{problem_categories}}</code> (« Toutes les catégories » pour un problème sans catégorie), <code>{{problem_zone}}</code>, <code>{{problem_observations}}</code> (nombre), <code>{{problem_tokens}}</code>,
 <code>{{problem_first_date}}</code>, <code>{{problem_last_date}}</code>… ; les variables de l&rsquo;observation sont celles de sa dernière
 observation.</li></ul><p>Un webhook créé avant la version 0.0.32 avec plusieurs événements continue d&rsquo;être envoyé ; il est signalé dans la
 liste et doit être modifié pour n&rsquo;en garder qu&rsquo;un. Réglages :</p><ul><li><strong>Modèle</strong> : préremplit le formulaire pour Mastodon, Slack / Mattermost, Discord, Bluesky (via un relais), un outil
