@@ -89,7 +89,8 @@ observations y sont nombreuses, backend ≥ 0.0.34) et observations rattachées
   autre problème. **Rattacher** (après confirmation) refait le calcul et rattache celles qui n'appartiennent à aucun
   problème ; on peut recommencer sans risque, rien n'est rattaché deux fois. Les observations **archivées** ne sont
   prises en compte que si la case « Inclure les observations archivées » est cochée (décochée par défaut, backend ≥
-  0.0.34).
+  0.0.34). Dès la **création** d'un problème (backend ≥ 0.0.34), ce comptage s'affiche dans une fenêtre qui propose
+  directement de rattacher les observations trouvées.
 * Une observation appartient à **un seul problème** : celles d'un autre problème ne sont jamais déplacées, elles sont
   listées avec un lien vers cet autre problème. Pour les déplacer, les détacher de l'autre problème puis les
   rattacher.
@@ -131,7 +132,7 @@ n'appartiennent à aucun problème, de même catégorie et proches (même métho
 Les seuils se règlent dans **Configuration**, cadre « Suggestions de problèmes » : nombre minimal d'observations
 (3 par défaut), distance de regroupement (50 m) et période analysée (12 mois). **Créer le problème** ouvre le
 formulaire prérempli (titre, catégorie, cercle couvrant le groupe, date de la première observation) à vérifier avant
-d'enregistrer, puis **Compter** et **Rattacher** depuis sa fiche ; **Ignorer** ne la propose plus. Aucun problème n'est
+d'enregistrer : les observations correspondantes sont alors comptées et proposées au rattachement ; **Ignorer** ne la propose plus. Aucun problème n'est
 créé automatiquement.
 
 **Rapport** : un administrateur peut cocher, dans le formulaire des **Rapports**, les sections « Problèmes suivis »
