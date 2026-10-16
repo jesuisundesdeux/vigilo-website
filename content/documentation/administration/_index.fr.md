@@ -108,7 +108,15 @@ plus d'observations automatiquement.
 
 **Diffuser** (backend ≥ 0.0.34) : le bouton **Diffuser** d'un problème, dans la liste, appelle les webhooks de
 l'événement « Diffusion d'un problème » (par exemple pour transmettre le problème à la collectivité, voir
-[Webhooks](#webhooks)) et passe le problème « En attente ».
+[Webhooks](#webhooks)) et passe le problème « En attente ». Depuis la version 0.0.35, il est grisé tant qu'aucun
+webhook actif ne suit cet événement.
+
+**Rapport d'un problème** (backend ≥ 0.0.35) : le bouton **Rapport** de la fiche ouvre un rapport à imprimer ou à
+enregistrer en PDF (« Imprimer / PDF »), en document ou en diaporama. Il analyse les observations du problème :
+synthèse (chiffres clés, constats rédigés), **temporalité** (période, rythme, tendance des 3 derniers mois, frise,
+évolution, jours et heures, moments de la journée), **répartition géographique** (carte, dispersion autour du centre,
+rues, points chauds, observations hors de la zone), types, état de traitement et dernières photos. Les notes internes
+n'y figurent jamais ; un compte citystaff n'y voit que les observations de ses villes.
 
 Sur la page **Observations**, une observation rattachée à un problème affiche un lien vers sa fiche.
 
