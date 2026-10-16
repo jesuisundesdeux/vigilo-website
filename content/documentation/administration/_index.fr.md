@@ -56,7 +56,7 @@ visible que dans le panneau d'administration (ni dans l'application, ni sur la c
 
 * **Titre** et **Description** ;
 * **Catégories** : une ou plusieurs (catégories nationales et celles de l'instance) ; une observation de l'une
-  d'elles peut être rattachée ;
+  d'elles peut être rattachée. Aucune case cochée : toutes les catégories (backend ≥ 0.0.36) ;
 * **Début** et **Fin** (facultative) : période sur la date des observations ;
 * **Priorité** (basse, normale, haute, critique) et **Statut** (ouvert, en cours, en attente, résolu, clos) ;
 * **Zone** (la recherche au-dessus de la carte la déplace vers une ville ou un lieu) :
@@ -94,6 +94,8 @@ observations y sont nombreuses, backend ≥ 0.0.34) et observations rattachées
   prises en compte que si la case « Inclure les observations archivées » est cochée (décochée par défaut, backend ≥
   0.0.34). Dès la **création** d'un problème (backend ≥ 0.0.34), ce comptage s'affiche dans une fenêtre qui propose
   directement de rattacher les observations trouvées.
+* Après l'enregistrement d'un problème (création ou modification), sa fiche s'affiche ; sur la fiche, chaque action
+  (compter, rattacher, détacher, séparer) ramène à son cadre, avec son message (backend ≥ 0.0.36).
 * Une observation appartient à **un seul problème** : celles d'un autre problème ne sont jamais déplacées, elles sont
   listées avec un lien vers cet autre problème. Pour les déplacer, les détacher de l'autre problème puis les
   rattacher.
@@ -135,7 +137,7 @@ problème » (copie du problème, à renommer ; modifier ensuite sa zone pour qu
 correspondent pas aux deux) ou « vers un autre problème ».
 
 **Fusionner** (backend ≥ 0.0.34) : le cadre « Fusionner avec un autre problème » de la fiche fait passer le problème
-dans celui choisi : observations et notes déplacées, catégories ajoutées, période couvrant les deux ; la zone du
+dans celui choisi : observations et notes déplacées, catégories ajoutées (toutes si l'un des deux n'en a pas), période couvrant les deux ; la zone du
 problème choisi est gardée et le problème fusionné est supprimé.
 
 **Suggestions** : le bouton **Rechercher** du cadre Suggestions propose les groupes d'observations publiées qui
@@ -198,7 +200,7 @@ et le corps en dépendent ; créer un webhook par événement à suivre) :
   `{{resolution_observations}}`…
 * **Diffusion d'un problème** (bouton « Diffuser » de la page Problèmes, backend ≥ 0.0.34) : variables
   `{{problem_title}}`, `{{problem_description}}`, `{{problem_status_name}}`, `{{problem_priority_name}}`,
-  `{{problem_categories}}`, `{{problem_zone}}`, `{{problem_observations}}` (nombre), `{{problem_tokens}}`,
+  `{{problem_categories}}` (« Toutes les catégories » pour un problème sans catégorie), `{{problem_zone}}`, `{{problem_observations}}` (nombre), `{{problem_tokens}}`,
   `{{problem_first_date}}`, `{{problem_last_date}}`… ; les variables de l'observation sont celles de sa dernière
   observation.
 
