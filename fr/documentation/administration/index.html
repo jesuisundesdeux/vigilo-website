@@ -87,14 +87,18 @@ synthèse (chiffres clés, constats rédigés), <strong>temporalité</strong> (p
 évolution, jours et heures, moments de la journée), <strong>répartition géographique</strong> (carte, dispersion autour du centre,
 rues, points chauds, observations hors de la zone), types, état de traitement, dernières photos et, depuis la version
 0.0.37, « Ce que disent les observations » (leurs commentaires les plus récents) ; les jetons des observations ouvrent
-l&rsquo;observation dans l&rsquo;application web. Les notes internes
-n&rsquo;y figurent jamais ; un compte citystaff n&rsquo;y voit que les observations de ses villes.</p><p>Sur la page <strong>Observations</strong>, une observation rattachée à un problème affiche un lien vers sa fiche.</p><p><strong>Problème résolu</strong> (backend ≥ 0.0.33) : quand un problème passe à <strong>Résolu</strong>, sa fiche propose de passer ses
+l&rsquo;observation dans l&rsquo;application web, et le <strong>suivi du problème</strong> (notes non privées, jalons sur la frise). Les notes
+privées n&rsquo;y figurent jamais ; un compte citystaff n&rsquo;y voit que les observations de ses villes.</p><p>Sur la page <strong>Observations</strong>, une observation rattachée à un problème affiche un lien vers sa fiche.</p><p><strong>Problème résolu</strong> (backend ≥ 0.0.33) : quand un problème passe à <strong>Résolu</strong>, sa fiche propose de passer ses
 observations en résolues (bouton, après confirmation). Celles qui ne sont dans aucune résolution sont regroupées dans
 une nouvelle résolution « Résolue » datée du jour ; les résolutions qui contiennent les autres passent à « Résolue ».
 Si ces résolutions contiennent aussi des observations d&rsquo;un autre endroit, la fiche le signale avant de confirmer : elles
-seront résolues également. Les observations apparaissent alors résolues dans l&rsquo;application.</p><p>Sur la fiche, <strong>Statut</strong> et <strong>Priorité</strong> se changent directement ; les <strong>notes internes</strong> (échanges avec la
-collectivité, relances, décisions ; bouton <strong>Notes</strong> de l&rsquo;encart principal, avec leur nombre) ne sont visibles que dans
-le panneau d&rsquo;administration, jamais publiées ni reprises dans les rapports.</p><p><strong>Séparer</strong> (backend ≥ 0.0.34) : sur la fiche, cocher des observations rattachées puis choisir « vers un nouveau
+seront résolues également. Les observations apparaissent alors résolues dans l&rsquo;application.</p><p>Sur la fiche, <strong>Statut</strong> et <strong>Priorité</strong> se changent directement. Les <strong>notes de suivi</strong> (échanges avec la
+collectivité, relances, décisions ; bouton <strong>Notes</strong> de l&rsquo;encart principal, avec leur nombre) sont <strong>privées</strong> par
+défaut : visibles seulement dans le panneau d&rsquo;administration, jamais publiées ni reprises dans les rapports. Depuis la
+version 0.0.37, décocher <strong>Note privée</strong> fait figurer la note dans les rapports (section « Suivi du problème » du
+rapport du problème) ; une note non privée peut aussi marquer un <strong>jalon</strong> (visite terrain, rendez-vous en mairie…)
+avec sa date, numéroté sur la <strong>frise chronologique</strong> de la fiche, du rapport du problème et du détail des problèmes du
+rapport. Le crayon d&rsquo;une note existante permet de changer sa visibilité et son jalon.</p><p><strong>Séparer</strong> (backend ≥ 0.0.34) : sur la fiche, cocher des observations rattachées puis choisir « vers un nouveau
 problème » (copie du problème, à renommer ; modifier ensuite sa zone pour que les nouvelles observations ne
 correspondent pas aux deux) ou « vers un autre problème ».</p><p><strong>Fusionner</strong> (backend ≥ 0.0.34) : le cadre « Fusionner avec un autre problème » de la fiche fait passer le problème
 dans celui choisi : observations et notes déplacées, catégories ajoutées (toutes si l&rsquo;un des deux n&rsquo;en a pas), période couvrant les deux ; la zone du
@@ -111,12 +115,12 @@ d&rsquo;enregistrer : les observations correspondantes sont alors comptées et p
 créé automatiquement.</p><p><strong>Rapport</strong> : un administrateur peut cocher, dans le formulaire des <strong>Rapports</strong>, les sections « Problèmes suivis »
 (problèmes ayant des observations dans le rapport : état, priorité, nombre d&rsquo;observations, période) et « Détail de
 chaque problème » (backend ≥ 0.0.34 : statut, priorité, date de création, catégories, zone, carte, dernières photos,
-chronologie par mois, matrice jours × heures des observations), sans les notes internes. Les cases <strong>Problèmes à
+chronologie par mois avec les jalons du suivi, matrice jours × heures des observations), sans les notes privées. Les cases <strong>Problèmes à
 inclure</strong> (backend ≥ 0.0.35) limitent ces sections aux problèmes des statuts cochés (aucun coché : tous). Les rapports
 des comptes citystaff n&rsquo;ont pas ces sections.</p><h2 id=rôles>Rôles</h2><ul><li><strong>admin</strong> : accès complet</li><li><strong>moderator</strong> : modération depuis l&rsquo;application web, avec la clé API de son compte ; pas d&rsquo;accès au
 panneau d&rsquo;administration</li><li><strong>citystaff</strong> : services d&rsquo;une ville, n&rsquo;accèdent qu&rsquo;aux observations de leurs villes et peuvent en changer le statut
 (prise en compte, en cours de résolution, résolue) ; ils consultent aussi, sans pouvoir les modifier, les problèmes
-qui ont des observations dans leurs villes (sans les notes internes)</li><li><strong>guest</strong> : compte sans droit, en attente d&rsquo;un rôle</li></ul><h2 id=comptes>Comptes</h2><p>Menu <strong>Comptes</strong>, <strong>Ajouter un compte</strong> :</p><ul><li><strong>Rôle</strong>, <strong>Nom utilisateur</strong> ;</li><li><strong>Login</strong> et <strong>Mot de passe</strong> pour se connecter au panneau d&rsquo;administration ; sans login, le compte ne sert qu&rsquo;avec
+qui ont des observations dans leurs villes (sans les notes ; les notes non privées figurent dans les rapports)</li><li><strong>guest</strong> : compte sans droit, en attente d&rsquo;un rôle</li></ul><h2 id=comptes>Comptes</h2><p>Menu <strong>Comptes</strong>, <strong>Ajouter un compte</strong> :</p><ul><li><strong>Rôle</strong>, <strong>Nom utilisateur</strong> ;</li><li><strong>Login</strong> et <strong>Mot de passe</strong> pour se connecter au panneau d&rsquo;administration ; sans login, le compte ne sert qu&rsquo;avec
 sa clé API (cas des modérateurs) ;</li><li><strong>Clé fournie par la personne</strong> (facultatif, backend 0.0.30) : clé générée par la personne dans l&rsquo;application web
 (« Devenir modérateur ») et qu&rsquo;elle vous a transmise ; elle devient la clé API du compte ;</li><li><strong>Villes du compte citystaff</strong> : villes dont le compte voit les observations.</li></ul><p>Sans clé fournie, une clé API est générée à la création du compte. Elle s&rsquo;affiche dans la liste sur un écran large (bouton en forme
 d&rsquo;œil) et peut être régénérée : l&rsquo;ancienne clé ne fonctionne alors plus. <strong>Modifier</strong> change le compte ; un mot de
