@@ -28,7 +28,8 @@ consultation, les problèmes) :
   rue autour de l'observation. Le cadre **Qualité des adresses** (backend ≥ 0.0.36, administrateurs) propose des
   corrections, vérifiées avant d'être appliquées (« Vérifier et appliquer », cases à décocher au besoin) : ville
   reconnue dans l'adresse (même écrite sans accent, avec « St », ou par son code postal), ville non référencée qui
-  correspond à une ville de l'instance, ville en double, numéro de bâtiment, code postal et pays retirés, même rue
+  correspond à une ville de l'instance, ville en double, numéro de bâtiment, code postal et pays retirés, type de voie
+  écrit en toutes lettres (« Bd » → « Boulevard », backend ≥ 0.0.37 ; les caractères invisibles corrigés sont montrés), même rue
   écrite différemment ramenée à son orthographe la plus fréquente. Les observations dont la ville n'est pas dans la
   page Villes sont comptées : ajouter la ville pour qu'elles soient reconnues. Les nouvelles observations sont
   nettoyées de la même façon à leur création
@@ -160,7 +161,9 @@ n'appartiennent à aucun problème, de même catégorie et proches (même métho
 Les seuils se règlent dans **Configuration**, cadre « Suggestions de problèmes » : nombre minimal d'observations
 (3 par défaut), distance de regroupement (50 m) et période analysée (12 mois). Depuis la version 0.0.36, chaque
 suggestion indique la rue et la ville, et des **filtres** précèdent la recherche : ville, catégorie, observations
-archivées (non par défaut), période, minimum et rayon (préremplis avec les réglages). **Créer le problème** ouvre le
+archivées (non par défaut), période, minimum et rayon (préremplis avec les réglages). Le filtre **Regroupement**
+(backend ≥ 0.0.37) regroupe par zone (rayon) ou même rue, par zone seulement, ou par rue (même rue de la même ville) ;
+une suggestion par rue crée un problème à zone de rues. **Créer le problème** ouvre le
 formulaire prérempli (titre, catégorie, cercle couvrant le groupe, date de la première observation) à vérifier avant
 d'enregistrer : les observations correspondantes sont alors comptées et proposées au rattachement ; **Ignorer** ne la propose plus. Aucun problème n'est
 créé automatiquement.
