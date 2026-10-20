@@ -161,7 +161,9 @@ n'appartiennent à aucun problème, de même catégorie et proches (même métho
 Les seuils se règlent dans **Configuration**, cadre « Suggestions de problèmes » : nombre minimal d'observations
 (3 par défaut), distance de regroupement (50 m) et période analysée (12 mois). Depuis la version 0.0.36, chaque
 suggestion indique la rue et la ville, et des **filtres** précèdent la recherche : ville, catégorie, observations
-archivées (non par défaut), période, minimum et rayon (préremplis avec les réglages). **Créer le problème** ouvre le
+archivées (non par défaut), période, minimum et rayon (préremplis avec les réglages). Le filtre **Regroupement**
+(backend ≥ 0.0.37) regroupe par zone (rayon) ou même rue, par zone seulement, ou par rue (même rue de la même ville) ;
+une suggestion par rue crée un problème à zone de rues. **Créer le problème** ouvre le
 formulaire prérempli (titre, catégorie, cercle couvrant le groupe, date de la première observation) à vérifier avant
 d'enregistrer : les observations correspondantes sont alors comptées et proposées au rattachement ; **Ignorer** ne la propose plus. Aucun problème n'est
 créé automatiquement.
