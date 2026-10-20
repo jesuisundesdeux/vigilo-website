@@ -137,8 +137,8 @@ synthèse (chiffres clés, constats rédigés), **temporalité** (période, ryth
 évolution, jours et heures, moments de la journée), **répartition géographique** (carte, dispersion autour du centre,
 rues, points chauds, observations hors de la zone), types, état de traitement, dernières photos et, depuis la version
 0.0.37, « Ce que disent les observations » (leurs commentaires les plus récents) ; les jetons des observations ouvrent
-l'observation dans l'application web. Les notes internes
-n'y figurent jamais ; un compte citystaff n'y voit que les observations de ses villes.
+l'observation dans l'application web, et le **suivi du problème** (notes non privées, jalons sur la frise). Les notes
+privées n'y figurent jamais ; un compte citystaff n'y voit que les observations de ses villes.
 
 Sur la page **Observations**, une observation rattachée à un problème affiche un lien vers sa fiche.
 
@@ -148,9 +148,13 @@ une nouvelle résolution « Résolue » datée du jour ; les résolutions qui co
 Si ces résolutions contiennent aussi des observations d'un autre endroit, la fiche le signale avant de confirmer : elles
 seront résolues également. Les observations apparaissent alors résolues dans l'application.
 
-Sur la fiche, **Statut** et **Priorité** se changent directement ; les **notes internes** (échanges avec la
-collectivité, relances, décisions ; bouton **Notes** de l'encart principal, avec leur nombre) ne sont visibles que dans
-le panneau d'administration, jamais publiées ni reprises dans les rapports.
+Sur la fiche, **Statut** et **Priorité** se changent directement. Les **notes de suivi** (échanges avec la
+collectivité, relances, décisions ; bouton **Notes** de l'encart principal, avec leur nombre) sont **privées** par
+défaut : visibles seulement dans le panneau d'administration, jamais publiées ni reprises dans les rapports. Depuis la
+version 0.0.37, décocher **Note privée** fait figurer la note dans les rapports (section « Suivi du problème » du
+rapport du problème) ; une note non privée peut aussi marquer un **jalon** (visite terrain, rendez-vous en mairie…)
+avec sa date, numéroté sur la **frise chronologique** de la fiche, du rapport du problème et du détail des problèmes du
+rapport. Le crayon d'une note existante permet de changer sa visibilité et son jalon.
 
 **Séparer** (backend ≥ 0.0.34) : sur la fiche, cocher des observations rattachées puis choisir « vers un nouveau
 problème » (copie du problème, à renommer ; modifier ensuite sa zone pour que les nouvelles observations ne
@@ -175,7 +179,7 @@ créé automatiquement.
 **Rapport** : un administrateur peut cocher, dans le formulaire des **Rapports**, les sections « Problèmes suivis »
 (problèmes ayant des observations dans le rapport : état, priorité, nombre d'observations, période) et « Détail de
 chaque problème » (backend ≥ 0.0.34 : statut, priorité, date de création, catégories, zone, carte, dernières photos,
-chronologie par mois, matrice jours × heures des observations), sans les notes internes. Les cases **Problèmes à
+chronologie par mois avec les jalons du suivi, matrice jours × heures des observations), sans les notes privées. Les cases **Problèmes à
 inclure** (backend ≥ 0.0.35) limitent ces sections aux problèmes des statuts cochés (aucun coché : tous). Les rapports
 des comptes citystaff n'ont pas ces sections.
 
@@ -186,7 +190,7 @@ des comptes citystaff n'ont pas ces sections.
   panneau d'administration
 * **citystaff** : services d'une ville, n'accèdent qu'aux observations de leurs villes et peuvent en changer le statut
   (prise en compte, en cours de résolution, résolue) ; ils consultent aussi, sans pouvoir les modifier, les problèmes
-  qui ont des observations dans leurs villes (sans les notes internes)
+  qui ont des observations dans leurs villes (sans les notes ; les notes non privées figurent dans les rapports)
 * **guest** : compte sans droit, en attente d'un rôle
 
 ## Comptes
