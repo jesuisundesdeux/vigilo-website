@@ -43,7 +43,8 @@ consultation, les problèmes) :
   la période, les villes et les types d'observation ; le rapport contient les chiffres clés (nombre, évolution, pour
   10 000 habitants, taux de résolution, délai de résolution…), des graphiques, une carte et les lieux récurrents
   (observations similaires regroupées : même catégorie, proches ou dans la même rue) et, pour les administrateurs, les
-  problèmes suivis et le détail de chaque problème. Depuis la version 0.0.34, les **sections** du rapport se cochent dans
+  problèmes suivis et le détail de chaque problème. Depuis la version 0.0.36, les lieux récurrents viennent après les
+  problèmes et ne reprennent pas les lieux déjà suivis par un problème. Depuis la version 0.0.34, les **sections** du rapport se cochent dans
   le formulaire (« Tout cocher », « Tout décocher ») ; depuis la version 0.0.35, une photo absente est remplacée par
   l'image « Photo non disponible » et, sur les cartes, les points sont réduits quand ils se chevauchent
 * **Villes**, **Scopes**, **Catégories** : voir la [configuration](/fr/documentation/configuration/)
@@ -156,7 +157,9 @@ problème choisi est gardée et le problème fusionné est supprimé.
 **Suggestions** : le bouton **Rechercher** du cadre Suggestions propose les groupes d'observations publiées qui
 n'appartiennent à aucun problème, de même catégorie et proches (même méthode que les lieux récurrents des rapports).
 Les seuils se règlent dans **Configuration**, cadre « Suggestions de problèmes » : nombre minimal d'observations
-(3 par défaut), distance de regroupement (50 m) et période analysée (12 mois). **Créer le problème** ouvre le
+(3 par défaut), distance de regroupement (50 m) et période analysée (12 mois). Depuis la version 0.0.36, chaque
+suggestion indique la rue et la ville, et des **filtres** précèdent la recherche : ville, catégorie, observations
+archivées (non par défaut), période, minimum et rayon (préremplis avec les réglages). **Créer le problème** ouvre le
 formulaire prérempli (titre, catégorie, cercle couvrant le groupe, date de la première observation) à vérifier avant
 d'enregistrer : les observations correspondantes sont alors comptées et proposées au rattachement ; **Ignorer** ne la propose plus. Aucun problème n'est
 créé automatiquement.
