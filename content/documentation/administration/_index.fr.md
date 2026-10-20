@@ -88,7 +88,10 @@ visible que dans le panneau d'administration (ni dans l'application, ni sur la c
     majuscules, des accents ni du numéro.
 
   La carte du formulaire affiche les observations de la suggestion (problème créé depuis une suggestion) ou celles
-  déjà rattachées au problème modifié ; en zone Rues, celles des rues choisies sont en vert.
+  déjà rattachées au problème modifié ; en zone Rues, celles des rues choisies sont en vert. Depuis la version 0.0.37,
+  elle affiche aussi les **autres problèmes** en gris (pointillés pour un problème résolu ou clos ; titre, statut et
+  nombre d'observations au survol), pour éviter de recréer un problème existant ou de chevaucher sa zone ; la case
+  « Autres problèmes » de la carte les masque.
 
 La liste se trie par priorité ; on y cherche dans les titres et descriptions, et on filtre par statut, priorité et
 catégorie. Depuis la version 0.0.35, seuls les problèmes **actifs** (ouvert, en cours, en attente) sont affichés par
