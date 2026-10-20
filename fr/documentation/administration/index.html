@@ -21,7 +21,8 @@ existante (liste filtrable en tapant un token) ou en crée une nouvelle ; le lie
 rue autour de l&rsquo;observation. Le cadre <strong>Qualité des adresses</strong> (backend ≥ 0.0.36, administrateurs) propose des
 corrections, vérifiées avant d&rsquo;être appliquées (« Vérifier et appliquer », cases à décocher au besoin) : ville
 reconnue dans l&rsquo;adresse (même écrite sans accent, avec « St », ou par son code postal), ville non référencée qui
-correspond à une ville de l&rsquo;instance, ville en double, numéro de bâtiment, code postal et pays retirés, même rue
+correspond à une ville de l&rsquo;instance, ville en double, numéro de bâtiment, code postal et pays retirés, type de voie
+écrit en toutes lettres (« Bd » → « Boulevard », backend ≥ 0.0.37 ; les caractères invisibles corrigés sont montrés), même rue
 écrite différemment ramenée à son orthographe la plus fréquente. Les observations dont la ville n&rsquo;est pas dans la
 page Villes sont comptées : ajouter la ville pour qu&rsquo;elles soient reconnues. Les nouvelles observations sont
 nettoyées de la même façon à leur création</li><li><strong>Résolutions</strong> : validation des résolutions déclarées par les citoyens ; actions groupées (changer l&rsquo;état,
@@ -98,7 +99,9 @@ n&rsquo;appartiennent à aucun problème, de même catégorie et proches (même 
 Les seuils se règlent dans <strong>Configuration</strong>, cadre « Suggestions de problèmes » : nombre minimal d&rsquo;observations
 (3 par défaut), distance de regroupement (50 m) et période analysée (12 mois). Depuis la version 0.0.36, chaque
 suggestion indique la rue et la ville, et des <strong>filtres</strong> précèdent la recherche : ville, catégorie, observations
-archivées (non par défaut), période, minimum et rayon (préremplis avec les réglages). <strong>Créer le problème</strong> ouvre le
+archivées (non par défaut), période, minimum et rayon (préremplis avec les réglages). Le filtre <strong>Regroupement</strong>
+(backend ≥ 0.0.37) regroupe par zone (rayon) ou même rue, par zone seulement, ou par rue (même rue de la même ville) ;
+une suggestion par rue crée un problème à zone de rues. <strong>Créer le problème</strong> ouvre le
 formulaire prérempli (titre, catégorie, cercle couvrant le groupe, date de la première observation) à vérifier avant
 d&rsquo;enregistrer : les observations correspondantes sont alors comptées et proposées au rattachement ; <strong>Ignorer</strong> ne la propose plus. Aucun problème n&rsquo;est
 créé automatiquement.</p><p><strong>Rapport</strong> : un administrateur peut cocher, dans le formulaire des <strong>Rapports</strong>, les sections « Problèmes suivis »
