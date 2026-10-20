@@ -113,7 +113,9 @@ observations y sont nombreuses, backend ≥ 0.0.34) et observations rattachées
   autre problème. **Rattacher** (après confirmation) refait le calcul et rattache celles qui n'appartiennent à aucun
   problème ; on peut recommencer sans risque, rien n'est rattaché deux fois. Les observations **archivées** ne sont
   prises en compte que si la case « Inclure les observations archivées » est cochée (décochée par défaut, backend ≥
-  0.0.34). Dès la **création** d'un problème (backend ≥ 0.0.34), ce comptage s'affiche dans une fenêtre qui propose
+  0.0.34) ; de même, depuis la version 0.0.37, les observations **résolues** (dans une résolution « Résolue ») avec
+  la case « Inclure les observations résolues » (décochée par défaut ; une observation résolue n'est pas non plus
+  rattachée automatiquement à sa publication). Dès la **création** d'un problème (backend ≥ 0.0.34), ce comptage s'affiche dans une fenêtre qui propose
   directement de rattacher les observations trouvées.
 * Après l'enregistrement d'un problème (création ou modification), sa fiche s'affiche ; sur la fiche, chaque action
   (compter, rattacher, détacher, séparer) ramène à son cadre, avec son message (backend ≥ 0.0.36).
@@ -172,7 +174,8 @@ n'appartiennent à aucun problème, de même catégorie et proches (même métho
 Les seuils se règlent dans **Configuration**, cadre « Suggestions de problèmes » : nombre minimal d'observations
 (3 par défaut), distance de regroupement (50 m) et période analysée (12 mois). Depuis la version 0.0.36, chaque
 suggestion indique la rue et la ville, et des **filtres** précèdent la recherche : ville, catégorie, observations
-archivées (non par défaut), période, minimum et rayon (préremplis avec les réglages). Le filtre **Regroupement**
+archivées (non par défaut), observations résolues (backend ≥ 0.0.37, non par défaut), période, minimum et rayon
+(préremplis avec les réglages). Le filtre **Regroupement**
 (backend ≥ 0.0.37) regroupe par zone (rayon) ou même rue, par zone seulement, ou par rue (même rue de la même ville) ;
 une suggestion par rue crée un problème à zone de rues. **Créer le problème** ouvre le
 formulaire prérempli (titre, catégorie, cercle couvrant le groupe, date de la première observation) à vérifier avant
