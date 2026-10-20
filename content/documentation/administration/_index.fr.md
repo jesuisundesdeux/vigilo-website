@@ -180,7 +180,10 @@ archivées (non par défaut), observations résolues (backend ≥ 0.0.37, non pa
 une suggestion par rue crée un problème à zone de rues. **Créer le problème** ouvre le
 formulaire prérempli (titre, catégorie, cercle couvrant le groupe, date de la première observation) à vérifier avant
 d'enregistrer : les observations correspondantes sont alors comptées et proposées au rattachement ; **Ignorer** ne la propose plus. Aucun problème n'est
-créé automatiquement.
+créé automatiquement. Depuis la version 0.0.38, les **filtres de la recherche** (ville, observations archivées ou
+résolues comprises) suivent toute la création : ils sont rappelés sous la carte du formulaire, puis appliqués au
+comptage des observations proposées au rattachement (cases cochées, case « Seulement à <ville> ») et à la carte de la
+fiche.
 
 **Rapport** : un administrateur peut cocher, dans le formulaire des **Rapports**, les sections « Problèmes suivis »
 (problèmes ayant des observations dans le rapport : état, priorité, nombre d'observations, période) et « Détail de
