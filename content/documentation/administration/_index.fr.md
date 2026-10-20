@@ -44,7 +44,8 @@ consultation, les problèmes) :
   10 000 habitants, taux de résolution, délai de résolution…), des graphiques, une carte et les lieux récurrents
   (observations similaires regroupées : même catégorie, proches ou dans la même rue) et, pour les administrateurs, les
   problèmes suivis et le détail de chaque problème. Depuis la version 0.0.36, les lieux récurrents viennent après les
-  problèmes et ne reprennent pas les lieux déjà suivis par un problème. Depuis la version 0.0.34, les **sections** du rapport se cochent dans
+  problèmes et ne reprennent pas les lieux déjà suivis par un problème, et les photos montrées sont les plus récentes
+  parmi celles qui existent. Depuis la version 0.0.34, les **sections** du rapport se cochent dans
   le formulaire (« Tout cocher », « Tout décocher ») ; depuis la version 0.0.35, une photo absente est remplacée par
   l'image « Photo non disponible » et, sur les cartes, les points sont réduits quand ils se chevauchent
 * **Villes**, **Scopes**, **Catégories** : voir la [configuration](/fr/documentation/configuration/)
