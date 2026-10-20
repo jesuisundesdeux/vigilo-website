@@ -48,7 +48,9 @@ consultation, les problèmes) :
   problèmes et ne reprennent pas les lieux déjà suivis par un problème, et les photos montrées sont les plus récentes
   parmi celles qui existent. Depuis la version 0.0.34, les **sections** du rapport se cochent dans
   le formulaire (« Tout cocher », « Tout décocher ») ; depuis la version 0.0.35, une photo absente est remplacée par
-  l'image « Photo non disponible » et, sur les cartes, les points sont réduits quand ils se chevauchent
+  l'image « Photo non disponible » et, sur les cartes, les points sont réduits quand ils se chevauchent. Depuis la
+  version 0.0.37, les références aux observations (jeton, par exemple `431CA5EB`) ouvrent l'observation dans
+  l'application web, et le détail de chaque problème montre quelques commentaires de ses observations
 * **Villes**, **Scopes**, **Catégories** : voir la [configuration](/fr/documentation/configuration/)
 * **Comptes** : création des comptes, rôle, villes des comptes citystaff, clé API, lien pour choisir son mot de passe
   (voir [Comptes](#comptes))
@@ -133,7 +135,9 @@ webhook actif ne suit cet événement.
 enregistrer en PDF (« Imprimer / PDF »), en document ou en diaporama. Il analyse les observations du problème :
 synthèse (chiffres clés, constats rédigés), **temporalité** (période, rythme, tendance des 3 derniers mois, frise,
 évolution, jours et heures, moments de la journée), **répartition géographique** (carte, dispersion autour du centre,
-rues, points chauds, observations hors de la zone), types, état de traitement et dernières photos. Les notes internes
+rues, points chauds, observations hors de la zone), types, état de traitement, dernières photos et, depuis la version
+0.0.37, « Ce que disent les observations » (leurs commentaires les plus récents) ; les jetons des observations ouvrent
+l'observation dans l'application web. Les notes internes
 n'y figurent jamais ; un compte citystaff n'y voit que les observations de ses villes.
 
 Sur la page **Observations**, une observation rattachée à un problème affiche un lien vers sa fiche.
