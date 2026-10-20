@@ -72,7 +72,9 @@ publiées qui correspondent au problème, celles déjà rattachées, celles à r
 autre problème. <strong>Rattacher</strong> (après confirmation) refait le calcul et rattache celles qui n&rsquo;appartiennent à aucun
 problème ; on peut recommencer sans risque, rien n&rsquo;est rattaché deux fois. Les observations <strong>archivées</strong> ne sont
 prises en compte que si la case « Inclure les observations archivées » est cochée (décochée par défaut, backend ≥
-0.0.34). Dès la <strong>création</strong> d&rsquo;un problème (backend ≥ 0.0.34), ce comptage s&rsquo;affiche dans une fenêtre qui propose
+0.0.34) ; de même, depuis la version 0.0.37, les observations <strong>résolues</strong> (dans une résolution « Résolue ») avec
+la case « Inclure les observations résolues » (décochée par défaut ; une observation résolue n&rsquo;est pas non plus
+rattachée automatiquement à sa publication). Dès la <strong>création</strong> d&rsquo;un problème (backend ≥ 0.0.34), ce comptage s&rsquo;affiche dans une fenêtre qui propose
 directement de rattacher les observations trouvées.</li><li>Après l&rsquo;enregistrement d&rsquo;un problème (création ou modification), sa fiche s&rsquo;affiche ; sur la fiche, chaque action
 (compter, rattacher, détacher, séparer) ramène à son cadre, avec son message (backend ≥ 0.0.36).</li><li>Une observation appartient à <strong>un seul problème</strong> : celles d&rsquo;un autre problème ne sont jamais déplacées, elles sont
 listées avec un lien vers cet autre problème. Pour les déplacer, les détacher de l&rsquo;autre problème puis les
@@ -110,7 +112,8 @@ n&rsquo;appartiennent à aucun problème, de même catégorie et proches (même 
 Les seuils se règlent dans <strong>Configuration</strong>, cadre « Suggestions de problèmes » : nombre minimal d&rsquo;observations
 (3 par défaut), distance de regroupement (50 m) et période analysée (12 mois). Depuis la version 0.0.36, chaque
 suggestion indique la rue et la ville, et des <strong>filtres</strong> précèdent la recherche : ville, catégorie, observations
-archivées (non par défaut), période, minimum et rayon (préremplis avec les réglages). Le filtre <strong>Regroupement</strong>
+archivées (non par défaut), observations résolues (backend ≥ 0.0.37, non par défaut), période, minimum et rayon
+(préremplis avec les réglages). Le filtre <strong>Regroupement</strong>
 (backend ≥ 0.0.37) regroupe par zone (rayon) ou même rue, par zone seulement, ou par rue (même rue de la même ville) ;
 une suggestion par rue crée un problème à zone de rues. <strong>Créer le problème</strong> ouvre le
 formulaire prérempli (titre, catégorie, cercle couvrant le groupe, date de la première observation) à vérifier avant
