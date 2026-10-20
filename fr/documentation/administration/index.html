@@ -18,7 +18,13 @@ Depuis la version 0.0.36, la liste est <strong>compacte</strong> : une ligne par
 actions moins courantes (archiver, effacer le cache, remettre à qualifier, supprimer) sont dans le menu « … », les
 notes se déplient sous l&rsquo;observation. Le bouton <strong>Résolution</strong> d&rsquo;une observation approuvée l&rsquo;ajoute à une résolution
 existante (liste filtrable en tapant un token) ou en crée une nouvelle ; le lien <strong>Panoramax</strong> montre les photos de
-rue autour de l&rsquo;observation</li><li><strong>Résolutions</strong> : validation des résolutions déclarées par les citoyens ; actions groupées (changer l&rsquo;état,
+rue autour de l&rsquo;observation. Le cadre <strong>Qualité des adresses</strong> (backend ≥ 0.0.36, administrateurs) propose des
+corrections, vérifiées avant d&rsquo;être appliquées (« Vérifier et appliquer », cases à décocher au besoin) : ville
+reconnue dans l&rsquo;adresse (même écrite sans accent, avec « St », ou par son code postal), ville non référencée qui
+correspond à une ville de l&rsquo;instance, ville en double, numéro de bâtiment, code postal et pays retirés, même rue
+écrite différemment ramenée à son orthographe la plus fréquente. Les observations dont la ville n&rsquo;est pas dans la
+page Villes sont comptées : ajouter la ville pour qu&rsquo;elles soient reconnues. Les nouvelles observations sont
+nettoyées de la même façon à leur création</li><li><strong>Résolutions</strong> : validation des résolutions déclarées par les citoyens ; actions groupées (changer l&rsquo;état,
 supprimer) sur les résolutions cochées. Depuis la version 0.0.36 : une ligne par résolution (25 par page), ses
 observations en pastilles (retrait par « × », ajout par token), commentaire et date modifiables dans une fenêtre,
 recherche par token de la résolution ou d&rsquo;une de ses observations</li><li><strong>Problèmes</strong> (backend ≥ 0.0.32, administrateurs ; consultation pour les comptes citystaff) : regroupement des observations sous des problèmes, voir

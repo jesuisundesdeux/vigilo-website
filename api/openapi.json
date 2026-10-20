@@ -538,6 +538,7 @@
               "schema": {
                 "properties": {
                   "address": {
+                    "description": "« rue, ville » : la ville est extraite sans `cityid` / `cityname`. Backend ≥ 0.0.36 : numéro de bâtiment, code postal et pays retirés, ville reconnue sans tenir compte des accents ni de « St » / « Saint », ou par son code postal",
                     "type": "string"
                   },
                   "categorie": {
