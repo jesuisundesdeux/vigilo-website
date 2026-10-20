@@ -20,9 +20,16 @@ consultation, les problèmes) :
   ni sur la carte, mais reste comptée dans les statistiques. Archiver une observation (bouton de sa ligne), une
   sélection (actions groupées), ou toutes les observations d'une période et d'une catégorie (ou de toutes) avec le
   cadre « Archiver par période » : le nombre d'observations concernées s'affiche avant de confirmer. Le filtre
-  « Archives » de la recherche retrouve les observations archivées, qui peuvent être désarchivées
+  « Archives » de la recherche retrouve les observations archivées, qui peuvent être désarchivées.
+  Depuis la version 0.0.36, la liste est **compacte** : une ligne par observation, **Modifier** ouvre une fenêtre, les
+  actions moins courantes (archiver, effacer le cache, remettre à qualifier, supprimer) sont dans le menu « … », les
+  notes se déplient sous l'observation. Le bouton **Résolution** d'une observation approuvée l'ajoute à une résolution
+  existante (liste filtrable en tapant un token) ou en crée une nouvelle ; le lien **Panoramax** montre les photos de
+  rue autour de l'observation
 * **Résolutions** : validation des résolutions déclarées par les citoyens ; actions groupées (changer l'état,
-  supprimer) sur les résolutions cochées
+  supprimer) sur les résolutions cochées. Depuis la version 0.0.36 : une ligne par résolution (25 par page), ses
+  observations en pastilles (retrait par « × », ajout par token), commentaire et date modifiables dans une fenêtre,
+  recherche par token de la résolution ou d'une de ses observations
 * **Problèmes** (backend ≥ 0.0.32, administrateurs ; consultation pour les comptes citystaff) : regroupement des observations sous des problèmes, voir
   [Problèmes](#problèmes)
 * **Rapports** (backend ≥ 0.0.29, administrateurs et comptes citystaff pour leurs villes) : rapport des observations
