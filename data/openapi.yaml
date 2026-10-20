@@ -278,7 +278,12 @@ paths:
                 coordinates_lat: { type: string, example: '43.6109' }
                 coordinates_lon: { type: string, example: '3.8772' }
                 categorie: { type: integer, description: Identifiant de catégorie }
-                address: { type: string }
+                address:
+                  type: string
+                  description: >-
+                    « rue, ville » : la ville est extraite sans `cityid` / `cityname`. Backend ≥ 0.0.36 : numéro de bâtiment,
+                    code postal et pays retirés, ville reconnue sans tenir compte des accents ni de « St » / « Saint », ou par son
+                    code postal
                 comment: { type: string, maxLength: 50, description: "Remarque courte (tronquée à 50 caractères)" }
                 explanation: { type: string }
                 time: { type: integer, description: "Timestamp Unix en millisecondes (13 chiffres) ou en secondes" }
