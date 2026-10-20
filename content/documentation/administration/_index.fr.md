@@ -28,7 +28,8 @@ consultation, les problèmes) :
   rue autour de l'observation. Le cadre **Qualité des adresses** (backend ≥ 0.0.36, administrateurs) propose des
   corrections, vérifiées avant d'être appliquées (« Vérifier et appliquer », cases à décocher au besoin) : ville
   reconnue dans l'adresse (même écrite sans accent, avec « St », ou par son code postal), ville non référencée qui
-  correspond à une ville de l'instance, ville en double, numéro de bâtiment, code postal et pays retirés, même rue
+  correspond à une ville de l'instance, ville en double, numéro de bâtiment, code postal et pays retirés, type de voie
+  écrit en toutes lettres (« Bd » → « Boulevard », backend ≥ 0.0.37 ; les caractères invisibles corrigés sont montrés), même rue
   écrite différemment ramenée à son orthographe la plus fréquente. Les observations dont la ville n'est pas dans la
   page Villes sont comptées : ajouter la ville pour qu'elles soient reconnues. Les nouvelles observations sont
   nettoyées de la même façon à leur création
