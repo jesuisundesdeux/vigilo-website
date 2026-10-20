@@ -38,7 +38,9 @@ problèmes suivis et le détail de chaque problème. Depuis la version 0.0.36, l
 problèmes et ne reprennent pas les lieux déjà suivis par un problème, et les photos montrées sont les plus récentes
 parmi celles qui existent. Depuis la version 0.0.34, les <strong>sections</strong> du rapport se cochent dans
 le formulaire (« Tout cocher », « Tout décocher ») ; depuis la version 0.0.35, une photo absente est remplacée par
-l&rsquo;image « Photo non disponible » et, sur les cartes, les points sont réduits quand ils se chevauchent</li><li><strong>Villes</strong>, <strong>Scopes</strong>, <strong>Catégories</strong> : voir la <a href=/fr/documentation/configuration/>configuration</a></li><li><strong>Comptes</strong> : création des comptes, rôle, villes des comptes citystaff, clé API, lien pour choisir son mot de passe
+l&rsquo;image « Photo non disponible » et, sur les cartes, les points sont réduits quand ils se chevauchent. Depuis la
+version 0.0.37, les références aux observations (jeton, par exemple <code>431CA5EB</code>) ouvrent l&rsquo;observation dans
+l&rsquo;application web, et le détail de chaque problème montre quelques commentaires de ses observations</li><li><strong>Villes</strong>, <strong>Scopes</strong>, <strong>Catégories</strong> : voir la <a href=/fr/documentation/configuration/>configuration</a></li><li><strong>Comptes</strong> : création des comptes, rôle, villes des comptes citystaff, clé API, lien pour choisir son mot de passe
 (voir <a href=/fr/documentation/administration/#comptes>Comptes</a>)</li><li><strong>Configuration</strong> : voir la <a href=/fr/documentation/configuration/global/>configuration de l&rsquo;instance</a></li><li><strong>Webhooks</strong> : voir <a href=/fr/documentation/administration/#webhooks>Webhooks</a></li><li><strong>Journal</strong> : actions privilégiées (connexions, modérations, réglages, mises à jour)</li><li><strong>Mises à jour</strong> : versions installées, mise à jour en un clic, vérifications de sécurité (voir <a href=/fr/documentation/upgrade/>Mise à jour</a>)</li></ul><p>Les listes (villes, comptes, catégories de l&rsquo;instance) se lisent dans un tableau ; <strong>Ajouter</strong> et <strong>Modifier</strong> ouvrent
 une fenêtre de saisie, qui se rouvre avec la saisie si une valeur est refusée. Les photos s&rsquo;ouvrent dans une fenêtre
 en cliquant dessus ; une image par défaut s&rsquo;affiche quand une observation n&rsquo;a pas de photo. Le panneau s&rsquo;utilise aussi
@@ -83,7 +85,9 @@ webhook actif ne suit cet événement.</p><p><strong>Rapport d&rsquo;un problèm
 enregistrer en PDF (« Imprimer / PDF »), en document ou en diaporama. Il analyse les observations du problème :
 synthèse (chiffres clés, constats rédigés), <strong>temporalité</strong> (période, rythme, tendance des 3 derniers mois, frise,
 évolution, jours et heures, moments de la journée), <strong>répartition géographique</strong> (carte, dispersion autour du centre,
-rues, points chauds, observations hors de la zone), types, état de traitement et dernières photos. Les notes internes
+rues, points chauds, observations hors de la zone), types, état de traitement, dernières photos et, depuis la version
+0.0.37, « Ce que disent les observations » (leurs commentaires les plus récents) ; les jetons des observations ouvrent
+l&rsquo;observation dans l&rsquo;application web. Les notes internes
 n&rsquo;y figurent jamais ; un compte citystaff n&rsquo;y voit que les observations de ses villes.</p><p>Sur la page <strong>Observations</strong>, une observation rattachée à un problème affiche un lien vers sa fiche.</p><p><strong>Problème résolu</strong> (backend ≥ 0.0.33) : quand un problème passe à <strong>Résolu</strong>, sa fiche propose de passer ses
 observations en résolues (bouton, après confirmation). Celles qui ne sont dans aucune résolution sont regroupées dans
 une nouvelle résolution « Résolue » datée du jour ; les résolutions qui contiennent les autres passent à « Résolue ».
