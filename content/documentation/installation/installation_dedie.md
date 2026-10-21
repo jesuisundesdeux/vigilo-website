@@ -9,8 +9,11 @@ weight: 1
 
 #### Logiciel
 
-* OS Linux
-* Docker avec Docker Compose (`docker compose`)
+* OS Linux, processeur `amd64` (x86-64) ou `arm64` (Raspberry Pi 4/5, serveurs ARM)
+* Docker Engine récent (Docker Engine 29 compris) avec Docker Compose v2 (`docker compose`, pas l'ancien
+  `docker-compose`)
+* Fournis par les images : PHP 8.5, MariaDB LTS (`mariadb:lts`) — voir les
+  [versions prises en charge](/fr/documentation/installation/#versions-prises-en-charge)
 * Un reverse proxy (Nginx, Caddy, Traefik…) qui gère le certificat HTTPS (Let's Encrypt) et l'accès public à Vigilo :
   les applications refusent les instances en HTTP
 

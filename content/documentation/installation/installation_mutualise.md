@@ -10,7 +10,8 @@ weight: 2
 #### Logiciel
 
 * PHP 7.3 à 8.5 avec les extensions `mysqli`, `gd`, `curl` et `fileinfo` (`zip` et `sodium` pour les mises à jour depuis l'administration)
-* Une base de données MySQL ou MariaDB
+* Une base de données MariaDB 10.3 ou plus récente, ou MySQL 5.7 ou plus récente (InnoDB) — voir les
+  [versions prises en charge](/fr/documentation/installation/#versions-prises-en-charge)
 * Un certificat HTTPS (les applications refusent les instances en HTTP)
 
 #### Connaissances
