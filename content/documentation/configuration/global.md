@@ -18,8 +18,12 @@ Aller sur `https://adresse_du_serveur/admin/`, menu **Configuration**.
 
 ### Publication
 
-* **Afficher les observations non modérées** : publier les observations sans attendre la validation d'un modérateur
-  (leur photo reste pixelisée tant qu'elle n'est pas approuvée)
+* **Observations non modérées affichées au public** : ce que le public voit d'une observation en attente de
+  validation — *Pas d'affichage du tout* (elle n'apparaît qu'une fois validée), *Affichées, photo pixelisée* (la vraie
+  photo, pixelisée jusqu'à la validation) ou *Affichées, photo de substitution* (une image générique à la place de la
+  photo)
+* **Masquer le texte des observations non modérées** : quand les observations non modérées sont affichées, masque leur
+  commentaire et leur explication jusqu'à la validation
 * **Masquer les observations résolues depuis plus de N jours** : 0 pour ne jamais les masquer
 
 ### Photos
