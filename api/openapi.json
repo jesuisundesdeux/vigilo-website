@@ -991,6 +991,17 @@
             }
           },
           {
+            "description": "`1` : conserve les observations résolues même au-delà de `vigilo_resolved_hide_days` (statistiques) ;\nle filtre d'approbation reste appliqué (backend ≥ 0.0.38)\n",
+            "in": "query",
+            "name": "resolvedhidden",
+            "schema": {
+              "enum": [
+                1
+              ],
+              "type": "integer"
+            }
+          },
+          {
             "description": "Avec `token` : observations similaires, selon les filtres `distance`, `categorie` et/ou `address`\nséparés par des virgules (backend ≥ 0.0.9)\n",
             "example": "distance,categorie",
             "in": "query",
