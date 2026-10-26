@@ -113,6 +113,7 @@ paths:
                       display: { type: string, enum: [banner, modal, both] }
                       start: { type: string, description: "Début (YYYY-MM-DDTHH:MM) ou vide" }
                       end: { type: string, description: "Fin (YYYY-MM-DDTHH:MM) ou vide" }
+                      persistent: { type: integer, enum: [0, 1], description: "Backend ≥ 0.0.39 : 1 = réaffichée à chaque ouverture même si fermée (sinon 0, absent sur une instance plus ancienne)" }
   /get_issues.php:
     get:
       tags: [Observations]
