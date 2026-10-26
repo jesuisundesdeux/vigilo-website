@@ -26,6 +26,17 @@ Aller sur `https://adresse_du_serveur/admin/`, menu **Configuration**.
   commentaire et leur explication jusqu'à la validation
 * **Masquer les observations résolues depuis plus de N jours** : 0 pour ne jamais les masquer
 
+### Bannière
+
+Un message d'annonce affiché dans l'application (par exemple une maintenance programmée ou une nouveauté).
+
+* **Message** : le texte affiché ; laisser vide pour ne pas afficher de bannière. Modifier le message ré-affiche la
+  bannière à tout le monde, même à ceux qui l'avaient fermée.
+* **Type** : *Information*, *Succès*, *Attention* ou *Alerte* (couleur et icône selon l'importance)
+* **Début / Fin** (facultatifs) : la bannière n'apparaît qu'entre ces dates et heures (vide = dès maintenant / sans fin)
+* **Affichage** : *Bandeau sous la barre du haut*, *Fenêtre au lancement*, ou *les deux*. Dans tous les cas, une fois
+  fermée, la bannière ne se rouvre pas jusqu'au prochain message.
+
 ### Photos
 
 * **Serveur de floutage** : si renseigné, chaque photo envoyée est transmise à ce serveur qui masque visages et plaques
