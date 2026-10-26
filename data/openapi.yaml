@@ -85,6 +85,34 @@ paths:
               schema:
                 type: array
                 items: { $ref: '#/components/schemas/Category' }
+  /get_banner.php:
+    get:
+      tags: [Configuration]
+      summary: Bannière (annonce) à afficher
+      description: |
+        Backend ≥ 0.0.38. Bannière configurée dans l'admin, à afficher dans l'application (bandeau et/ou fenêtre).
+        `banner` vaut `null` quand aucun message n'est défini ou quand l'heure courante est hors de la plage
+        `start`/`end`. `id` est un condensé du contenu : il change dès que l'admin modifie la bannière (l'application
+        la garde fermée par `id`). Sur une instance antérieure, la route répond 404 : ne pas afficher de bannière.
+      operationId: getBanner
+      responses:
+        '200':
+          description: Bannière ou null
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  banner:
+                    nullable: true
+                    type: object
+                    properties:
+                      id: { type: string, example: a1b2c3d4e5f6 }
+                      type: { type: string, enum: [info, success, warning, alert] }
+                      message: { type: string }
+                      display: { type: string, enum: [banner, modal, both] }
+                      start: { type: string, description: "Début (YYYY-MM-DDTHH:MM) ou vide" }
+                      end: { type: string, description: "Fin (YYYY-MM-DDTHH:MM) ou vide" }
   /get_issues.php:
     get:
       tags: [Observations]
