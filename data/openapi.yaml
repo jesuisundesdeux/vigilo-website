@@ -166,6 +166,12 @@ paths:
             `1` : inclut les observations archivées depuis l'admin (statistiques), avec le champ `archived` ;
             sans ce paramètre, elles ne sont pas listées (backend ≥ 0.0.29)
           schema: { type: integer, enum: [1] }
+        - name: resolvedhidden
+          in: query
+          description: |
+            `1` : conserve les observations résolues même au-delà de `vigilo_resolved_hide_days` (statistiques) ;
+            le filtre d'approbation reste appliqué (backend ≥ 0.0.38)
+          schema: { type: integer, enum: [1] }
         - name: tokenfilters
           in: query
           description: |
