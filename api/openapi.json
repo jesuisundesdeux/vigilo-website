@@ -830,6 +830,14 @@
                         "message": {
                           "type": "string"
                         },
+                        "persistent": {
+                          "description": "Backend ≥ 0.0.39 : 1 = réaffichée à chaque ouverture même si fermée (sinon 0, absent sur une instance plus ancienne)",
+                          "enum": [
+                            0,
+                            1
+                          ],
+                          "type": "integer"
+                        },
                         "start": {
                           "description": "Début (YYYY-MM-DDTHH:MM) ou vide",
                           "type": "string"
