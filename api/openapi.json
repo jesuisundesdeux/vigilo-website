@@ -107,10 +107,11 @@
             "type": "string"
           },
           "message": {
+            "description": "Texte ; mise en forme légère reconnue par l'application : **gras**, _italique_, lien [texte](https://adresse) ; sauts de ligne conservés",
             "type": "string"
           },
           "persistent": {
-            "description": "Backend ≥ 0.0.39 : 1 = réaffichée à chaque ouverture même si fermée (sinon 0, absent sur une instance plus ancienne)",
+            "description": "1 = réaffichée à chaque ouverture même si fermée, sinon 0",
             "enum": [
               0,
               1
@@ -119,6 +120,10 @@
           },
           "start": {
             "description": "Début (YYYY-MM-DDTHH:MM) ou vide",
+            "type": "string"
+          },
+          "title": {
+            "description": "Titre facultatif affiché en gras au-dessus du message (vide si absent)",
             "type": "string"
           },
           "type": {
@@ -857,17 +862,8 @@
               "application/json": {
                 "schema": {
                   "properties": {
-                    "banner": {
-                      "allOf": [
-                        {
-                          "$ref": "#/components/schemas/Banner"
-                        }
-                      ],
-                      "description": "Bannière la plus récente parmi les actives, ou null (conservée pour les clients \u003c 0.0.39 ; préférer banners)",
-                      "nullable": true
-                    },
                     "banners": {
-                      "description": "Backend ≥ 0.0.39 : toutes les bannières actives (la plus récemment commencée d'abord), [] si aucune. Le client affiche une bannière par type d'affichage (une pour le bandeau, une pour la fenêtre).",
+                      "description": "Toutes les bannières actives (la plus récemment commencée d'abord), [] si aucune. Le client affiche une bannière par type d'affichage (une pour le bandeau, une pour la fenêtre). Fonctionnalité bannière : backend ≥ 0.0.39.",
                       "items": {
                         "$ref": "#/components/schemas/Banner"
                       },
@@ -878,7 +874,7 @@
                 }
               }
             },
-            "description": "Bannière ou null"
+            "description": "Liste des bannières actives"
           }
         },
         "summary": "Bannière (annonce) à afficher",
