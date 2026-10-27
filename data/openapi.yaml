@@ -97,19 +97,15 @@ paths:
       operationId: getBanner
       responses:
         '200':
-          description: Bannière ou null
+          description: Liste des bannières actives
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  banner:
-                    nullable: true
-                    description: "Bannière la plus récente parmi les actives, ou null (conservée pour les clients < 0.0.39 ; préférer banners)"
-                    allOf: [ { $ref: '#/components/schemas/Banner' } ]
                   banners:
                     type: array
-                    description: "Backend ≥ 0.0.39 : toutes les bannières actives (la plus récemment commencée d'abord), [] si aucune. Le client affiche une bannière par type d'affichage (une pour le bandeau, une pour la fenêtre)."
+                    description: "Toutes les bannières actives (la plus récemment commencée d'abord), [] si aucune. Le client affiche une bannière par type d'affichage (une pour le bandeau, une pour la fenêtre). Fonctionnalité bannière : backend ≥ 0.0.39."
                     items: { $ref: '#/components/schemas/Banner' }
   /get_issues.php:
     get:
@@ -544,11 +540,12 @@ components:
       properties:
         id: { type: string, example: a1b2c3d4e5f6, description: "Condensé du contenu ; change dès que la bannière est modifiée (le client la garde fermée par id)" }
         type: { type: string, enum: [info, success, warning, alert], description: "Sévérité (couleur et icône)" }
-        message: { type: string }
+        title: { type: string, description: "Titre facultatif affiché en gras au-dessus du message (vide si absent)" }
+        message: { type: string, description: "Texte ; mise en forme légère reconnue par l'application : **gras**, _italique_, lien [texte](https://adresse) ; sauts de ligne conservés" }
         display: { type: string, enum: [banner, modal, both], description: "Bandeau, fenêtre, ou les deux" }
         start: { type: string, description: "Début (YYYY-MM-DDTHH:MM) ou vide" }
         end: { type: string, description: "Fin (YYYY-MM-DDTHH:MM) ou vide" }
-        persistent: { type: integer, enum: [0, 1], description: "Backend ≥ 0.0.39 : 1 = réaffichée à chaque ouverture même si fermée (sinon 0, absent sur une instance plus ancienne)" }
+        persistent: { type: integer, enum: [0, 1], description: "1 = réaffichée à chaque ouverture même si fermée, sinon 0" }
     Category:
       type: object
       properties:
