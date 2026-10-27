@@ -105,15 +105,12 @@ paths:
                 properties:
                   banner:
                     nullable: true
-                    type: object
-                    properties:
-                      id: { type: string, example: a1b2c3d4e5f6 }
-                      type: { type: string, enum: [info, success, warning, alert] }
-                      message: { type: string }
-                      display: { type: string, enum: [banner, modal, both] }
-                      start: { type: string, description: "Début (YYYY-MM-DDTHH:MM) ou vide" }
-                      end: { type: string, description: "Fin (YYYY-MM-DDTHH:MM) ou vide" }
-                      persistent: { type: integer, enum: [0, 1], description: "Backend ≥ 0.0.39 : 1 = réaffichée à chaque ouverture même si fermée (sinon 0, absent sur une instance plus ancienne)" }
+                    description: "Bannière la plus récente parmi les actives, ou null (conservée pour les clients < 0.0.39 ; préférer banners)"
+                    allOf: [ { $ref: '#/components/schemas/Banner' } ]
+                  banners:
+                    type: array
+                    description: "Backend ≥ 0.0.39 : toutes les bannières actives (la plus récemment commencée d'abord), [] si aucune. Le client affiche une bannière par type d'affichage (une pour le bandeau, une pour la fenêtre)."
+                    items: { $ref: '#/components/schemas/Banner' }
   /get_issues.php:
     get:
       tags: [Observations]
@@ -541,6 +538,17 @@ components:
             status: { type: integer, example: 404 }
             code: { type: string, example: SCOPENOTEXIST }
             message: { type: string }
+    Banner:
+      type: object
+      description: "Bannière (annonce) à afficher dans l'application"
+      properties:
+        id: { type: string, example: a1b2c3d4e5f6, description: "Condensé du contenu ; change dès que la bannière est modifiée (le client la garde fermée par id)" }
+        type: { type: string, enum: [info, success, warning, alert], description: "Sévérité (couleur et icône)" }
+        message: { type: string }
+        display: { type: string, enum: [banner, modal, both], description: "Bandeau, fenêtre, ou les deux" }
+        start: { type: string, description: "Début (YYYY-MM-DDTHH:MM) ou vide" }
+        end: { type: string, description: "Fin (YYYY-MM-DDTHH:MM) ou vide" }
+        persistent: { type: integer, enum: [0, 1], description: "Backend ≥ 0.0.39 : 1 = réaffichée à chaque ouverture même si fermée (sinon 0, absent sur une instance plus ancienne)" }
     Category:
       type: object
       properties:
