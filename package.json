@@ -11,6 +11,6 @@
   "dependencies": {
     "@fontsource-variable/inter": "^5.2.8",
     "leaflet": "^1.9.4",
-    "swagger-ui-dist": "^5.33.1"
+    "swagger-ui-dist": "^5.34.0"
   }
 }
